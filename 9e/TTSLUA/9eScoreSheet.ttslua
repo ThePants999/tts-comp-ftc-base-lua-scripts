@@ -60,7 +60,7 @@ function addSecondaryForPlayer(params)
 		printToColor("No more space!", params.clicker, "Red")
 		return
 	end
-	printToColor("Resister yourself to scoresheet first!", params.clicker, "Red")
+	printToColor("Register yourself to scoresheet first!", params.clicker, "Red")
 end
 
 function sec_xyFromExternal(x, y, alt, id)
