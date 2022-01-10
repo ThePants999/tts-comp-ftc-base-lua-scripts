@@ -1,0 +1,1085 @@
+-- FTC-GUID: 06d627
+-- Made by GenWilhelm
+-- https://steamcommunity.com/id/GenWilhelm/
+-- Discord: GenWilhelm#6485
+version_card = "2021-02-10"
+version_data = "error"
+
+repo =     "https://raw.githubusercontent.com/GenWilhelm/tts_score_card/master/9e/"
+mainRepo = "https://raw.githubusercontent.com/GenWilhelm/tts_score_card/master/9e/"
+altRepo = "https://raw.githubusercontent.com/PhubarBCS/ttsTest/master/"
+usePhubarVersion = true
+-- Phubar edit
+victoryCounterGuid={}
+victoryCounterGuid[1]="8b0541"
+victoryCounterGuid[2]="a77a54"
+
+enableBtn = { label="ENABLE\nETERNAL WAR\nSCORESHEET\n\n(click here)\n\nDon't enable if you\nwant to keep track\nof VPs manually\non counters ", width = 6500,	height = 9500, click_function = 'enableSheet', font_size = 1600,
+		function_owner = self,	position = {1, -0.05, -1}, rotation = {0, 90, 180},	tooltip = "", color="Black", font_color="White"
+}
+
+scoresheetActive=false
+spawner_GUID = {"cff35b","471de1"}
+changeSpawnerPack = true
+
+function initPackPhb(index_web)
+	packsIDs = JSON.decode(index_web.text)
+	version_data = packsIDs.ver -- not used
+end
+
+function enableSheet()
+	scoresheetActive=true
+	--writeMenu()
+	self.script_state = onSave()
+	onload(self.script_state)
+	startGameObj= getObjectFromGUID(Global.getVar("startMenu_GUID"))
+	redObjSpawner= getObjectFromGUID("cff35b")
+	Wait.time(function() if not startGameObj.getVar("inGame") then packFromExt({index= redObjSpawner.GetTable("selected")[1]} ) end end, 1.5)
+end
+
+
+function addSecondaryForPlayer(params)
+	local sheetParams= getParams()
+	if Player[params.clicker].steam_name == sheetParams.P1 then
+		for i=1, 3 do
+			if button[5][i][4].label == "" then
+				sec_xyFromExternal(1, i, false, params.secID)
+				return
+			end
+		end
+		printToColor("No more space!", params.clicker, "Red")
+		return
+	end
+	if Player[params.clicker].steam_name == sheetParams.P2 then
+		for i=1, 3 do
+			if button[5][i+3][4].label == "" then
+					sec_xyFromExternal(2, i, false, params.secID )
+					return
+			end
+		end
+		printToColor("No more space!", params.clicker, "Red")
+		return
+	end
+	printToColor("Resister yourself to scoresheet first!", params.clicker, "Red")
+end
+
+function sec_xyFromExternal(x, y, alt, id)
+	if selectedPack.index ~= 0 then
+		local value = secondary[x][y][1]
+		--local num_sec = #selectedPack.data.objectives
+		local num_sec = -1
+		for _ in pairs(selectedPack.data.objectives) do num_sec = num_sec + 1 end
+
+		local diff = 1
+		if alt then diff = -1 end
+
+		local category = ""
+
+		repeat
+			value = value + diff
+
+			if value > num_sec then
+				value = 0
+			elseif value < 0 then
+				value = num_sec
+			end
+
+			category = selectedPack.data.objectives[ tostring(value) ].category
+		until
+		(
+			value == 0
+			or
+			(
+				(y == 1 or category ~= secondary[x][1][3]) and
+				(y == 2 or category ~= secondary[x][2][3]) and
+				(y == 3 or category ~= secondary[x][3][3])
+			)
+		)
+
+		secondary[x][y][1] = value
+		secondary[x][y][3] = category
+
+		local w = 0
+		if x == 1 then
+			w = y
+		else
+			w = y + 3
+		end
+
+		if id then
+--			print("Argument id "..id)
+			for i, obj in pairs(selectedPack.data.objectives) do
+--				print("fido")
+				for j, val in pairs(obj) do
+				--	print(j)
+				--	print(val)
+				end
+				if obj.id == id then
+--					print("FOUND "..obj.name.."  ID "..obj.id)
+					value = i
+					break
+				end
+			end
+		end
+
+		secondary[x][y][4] = selectedPack.data.objectives[tostring(value)].name
+		secondary[x][y][5] = selectedPack.data.objectives[tostring(value)].description
+		updateAll(true)
+	end
+end
+
+-- END Phubar edit
+
+-- round, player, scored
+primary = {
+	{{0,0,0}, {0,0,0}},
+	{{0,0,0}, {0,0,0}},
+	{{0,0,0}, {0,0,0}},
+	{{0,0,0}, {0,0,0}}
+}
+
+-- player, secondary, (id, score, category, name, description)
+defaultSec = {0, 0, 0, "", "Click to cycle secondary objectives,\nright-click to cycle backwards."}
+
+secondary = {
+	{defaultSec, defaultSec, defaultSec},
+	{defaultSec, defaultSec, defaultSec}
+}
+
+packsIDs = {}
+packsData = {}
+selectedPack = {index = 0, data = {}}
+
+button = {}
+
+playerOneTitle = {
+	index = 0,
+	width = 3000,
+	height = 500,
+	label = "Player 1",
+	click_function = 'p1',
+	font_size = 400,
+	function_owner = self,
+	position = {-8, -0.05, -4.25},
+	rotation = {0, 90, 180},
+	tooltip = "Click to put your name here"
+}
+playerTwoTitle = {
+	index = 1,
+	width = 3000,
+	height = 500,
+	label = "Player 2",
+	click_function = 'p2',
+	font_size = 400,
+	function_owner = self,
+	position = {-8, -0.05, 2.25},
+	rotation = {0, 90, 180},
+	tooltip = "Click to put your name here"
+}
+
+playerTotal = {
+	{
+		index = 2,
+		width = 800,
+		height = 500,
+		label = "10",
+		click_function = 'nothing',
+		font_size = 500,
+		function_owner = self,
+		position = {10, -0.05, -4},
+		rotation = {0, 90, 180},
+		tooltip = "Player 1"
+	},
+	{
+		index = 3,
+		width = 800,
+		height = 500,
+		label = "10",
+		click_function = 'nothing',
+		font_size = 500,
+		function_owner = self,
+		position = {10, -0.05, 2},
+		rotation = {0, 90, 180},
+		tooltip = "Player 2"
+	}
+}
+
+packButton = {
+	index = 4,
+	width = 4500,
+	height = 500,
+	label = "",
+	click_function = 'pack',
+	font_size = 400,
+	function_owner = self,
+	position = {-6.25, -0.05, -1},
+	rotation = {0, 90, 180},
+	tooltip = "Click to cycle mission packs,\nright-click to cycle backwards."
+}
+
+p = 1
+
+function onload(save_data) -- PHUBAR version
+	if save_data ~= "" then
+		local data = JSON.decode(save_data)
+		if data then
+			scoresheetActive = data.scoresheetActive
+			primary = data.primary
+			secondary = data.secondary
+			packsData = data.packsData
+			selectedPack = data.selectedPack
+		end
+	end
+----------
+	if usePhubarVersion then
+		self.clearButtons()
+		if not scoresheetActive then
+			self.createButton(enableBtn)
+			return
+		end
+		Wait.time(function() self.setPosition({78,1,-1}) end, 1)
+		self.setLock(true)
+		local spawnerR= getObjectFromGUID(spawner_GUID[1])
+		local spawnerB= getObjectFromGUID(spawner_GUID[2])
+		repo = mainRepo -- altRepo or mainRepo
+
+		if spawnerR then
+			spawnerR.call("setRepoUrl", {url=repo})
+		end
+		if spawnerB then
+			spawnerB.call("setRepoUrl", {url=repo})
+		end
+	end
+-----------
+	 WebRequest.get( repo .. "index.json", function(index_web)
+		self.createButton( playerOneTitle )
+		self.createButton( playerTwoTitle )
+		self.createButton( playerTotal[1] )
+		self.createButton( playerTotal[2] )
+		if #packsData ~= 0 then
+			if selectedPack then
+				if selectedPack.index then
+					if packsData[selectedPack.index].name then
+						packButton.label = packsData[selectedPack.index].name
+					end
+				end
+			end
+		end
+		self.createButton( packButton )
+
+		packsIDs = JSON.decode(index_web.text)
+		version_data = packsIDs.ver
+
+		if data and false then
+
+			if #data.packsData == 0 then
+				getPacks()
+			end
+				print("loaded data2")
+				primary = data.primary
+				secondary = data.secondary
+				packsData = data.packsData
+				selectedPack = data.selectedPack
+				Wait.frames(function() updateAll(false) end, 3)
+		end
+		if #packsData == 0 then
+			getPacks()
+		else
+			Wait.frames(function() updateAll(false) end, 3)
+		end
+		local b_xpos = 0
+		local b_ypos = -3.75
+		local b_index = 5
+
+		for i=1,4 do
+			button[i] = {}
+			b_xpos = -6.15
+
+			for j=1,2 do
+				button[i][j] = {}
+
+				for k=1,4 do
+					local newButton = {
+						index = 0,
+						width = 600,
+						height = 600,
+						label = "0",
+						click_function = 'nothing',
+						font_size = 500,
+						function_owner = self,
+						position = {0, -0.05, 0},
+						rotation = {0, 90, 180},
+						tooltip = "Total 0-15"
+					}
+
+					newButton.index = b_index
+					b_index = b_index + 1
+
+					newButton.position = {b_ypos, -0.05, b_xpos}
+					b_xpos = b_xpos + 1.25
+
+					if k ~= 4 then
+						newButton.click_function = 'toggle_' .. i .. j .. k
+						newButton.label = ""
+					end
+
+					if k == 1 then
+						newButton.tooltip = "Hold 1+"
+					elseif k == 2 then
+						newButton.tooltip = "Hold 2+"
+					elseif k == 3 then
+						newButton.tooltip = "Hold More"
+					end
+
+					button[i][j][k] = newButton
+					self.createButton( button[i][j][k] )
+				end
+
+				b_xpos = 0.4
+			end
+
+			b_ypos = b_ypos + 2.5
+		end
+
+
+		button[5] = {}
+		b_xpos = -1.9
+		b_ypos = b_ypos - 0.1
+
+		for i=1,6 do
+			button[5][i] = {}
+
+			local newButton = {
+				index = 0,
+				width = 500,
+				height = 500,
+				label = "0",
+				click_function = 'nothing',
+				font_size = 400,
+				function_owner = self,
+				position = {0, -0.05, 0},
+				rotation = {0, 90, 180},
+				tooltip = "Secondary"
+			}
+
+			newButton.index = b_index
+			b_index = b_index + 1
+
+			newButton.position = {b_ypos, -0.05, b_xpos}
+
+			button[5][i][1] = newButton
+			self.createButton( button[5][i][1] )
+
+			local ind = secIndex(i)
+
+			for j=1,2 do
+				local smallButton = {
+					index = 0,
+					width = 250,
+					height = 250,
+					label = "",
+					click_function = 'nothing',
+					font_size = 200,
+					function_owner = self,
+					position = {0, -0.05, 0},
+					rotation = {0, 90, 180},
+					tooltip = ""
+				}
+
+				smallButton.index = b_index
+				b_index = b_index + 1
+
+				if j == 1 then
+					smallButton.position = {b_ypos - 0.25, -0.05, b_xpos - 0.75}
+					smallButton.label = "+"
+					smallButton.click_function = 'plus_' .. ind[1] .. ind[2]
+				else
+					smallButton.position = {b_ypos + 0.25, -0.05, b_xpos - 0.75}
+					smallButton.label = "-"
+					smallButton.click_function = 'sub_' .. ind[1] .. ind[2]
+				end
+
+				button[5][i][j+1] = smallButton
+				self.createButton( button[5][i][j+1] )
+			end
+
+			local nameButton = {
+				index = 0,
+				width = 2000,
+				height = 350,
+				label = "",
+				click_function = 'nothing',
+				font_size = 200,
+				function_owner = self,
+				position = {0, -0.05, 0},
+				rotation = {0, 90, 180},
+				tooltip = "Click to cycle secondary objectives,\nright-click to cycle backwards."
+			}
+
+			nameButton.index = b_index
+			b_index = b_index + 1
+
+			nameButton.position = {b_ypos, -0.05, b_xpos - 3.1}
+			nameButton.click_function = 'sec_' .. ind[1] .. ind[2]
+
+			button[5][i][4] = nameButton
+			self.createButton( button[5][i][4] )
+
+			b_ypos = b_ypos + 1
+
+			if i == 3 then
+				b_ypos = b_ypos - 3
+				b_xpos = 4.5
+			end
+		end
+
+		Wait.time(slowUpdate, 2)
+	--[[	Timer.create({
+			identifier     = "scorecard_timer_" .. math.random(1000000),
+			function_name  = "slowUpdate",
+			delay          = 2,
+			repetitions    = 0
+		})]]
+	end)
+	if selectedPack.index == 0  then
+		Wait.time(function() pack(self, "Red", false) end, 1)
+	end
+end
+
+
+function onSave()
+	local save_data = {
+		scoresheetActive = scoresheetActive,
+		primary = primary,
+		secondary = secondary,
+		packsData = packsData,
+		selectedPack = selectedPack
+	}
+	return JSON.encode(save_data)
+end
+
+function onScriptingButtonDown(index, color)
+	if index == 9 and color == "White" then
+		updateAll(true)
+		packsData = {}
+		selectedPack = {}
+		packButton.label = ""
+		self.editButton( packButton )
+		print("Cleared sheet.")
+	end
+end
+
+keywords = {
+	map = {
+		A = "ᴀ",
+		B = "ʙ",
+		C = "ᴄ",
+		D = "ᴅ",
+		E = "ᴇ",
+		F = "ғ",
+		G = "ɢ",
+		H = "ʜ",
+		I = "ɪ",
+		J = "ᴊ",
+		K = "ᴋ",
+		L = "ʟ",
+		M = "ᴍ",
+		N = "ɴ",
+		O = "ᴏ",
+		P = "ᴘ",
+		Q = "ǫ",
+		R = "ʀ",
+		S = "s",
+		T = "ᴛ",
+		U = "ᴜ",
+		V = "ᴠ",
+		W = "ᴡ",
+		X = "x",
+		Y = "ʏ",
+		Z = "ᴢ"
+	},
+	encode = function(this, str)
+		if str then
+			return str:gsub("%u%u%u+",
+				function(s)
+					return s:gsub("[A-Z]", this.map)
+				end
+			)
+		else return "" end
+	end
+}
+
+function updateAll(reset)
+	local reset = false -- fix for letting FACTION SPECIFIC to be a separate pack
+	for i=1,4 do
+		for j=1,2 do
+			for k=1,3 do
+				if reset then primary[i][j][k] = 0 end
+				updatePrimary(i, j ,k)
+			end
+		end
+	end
+
+	for n=1,2 do
+		for m=1,3 do
+			if reset then secondary[n][m] = defaultSec end
+			updateSecondary(n, m)
+
+			local v = secondary[n][m][1]
+			local l = 0
+
+			if n == 1 then
+				l = m
+			else
+				l = m + 3
+			end
+
+			button[5][l][4].label = secondary[n][m][4]
+			button[5][l][4].tooltip = keywords:encode( secondary[n][m][5] )
+			self.editButton( button[5][l][4] )
+		end
+	end
+
+	if not reset then
+		packButton.label = selectedPack.data.name
+		self.editButton( packButton )
+	end
+end
+
+function slowUpdate()
+	local params = getParams()
+
+	if playerOneTitle.label ~= params.P1 then
+		playerOneTitle.label = params.P1
+		self.editButton(playerOneTitle)
+		playerTotal[1].tooltip = params.P1
+	end
+
+	if playerTwoTitle.label ~= params.P2 then
+		playerTwoTitle.label = params.P2
+		self.editButton(playerTwoTitle)
+		playerTotal[2].tooltip = params.P2
+	end
+
+	if params.ver_card ~= version_card then
+		params.ver_card = version_card
+		self.setDescription(JSON.encode_pretty(params))
+	end
+
+	if params.ver_data ~= version_data then
+		params.ver_data = version_data
+		self.setDescription(JSON.encode_pretty(params))
+	end
+end
+
+
+function nothing()
+end
+
+function getPacks()
+	local id = packsIDs.packs[p]
+
+	WebRequest.get( repo .. id .. ".json", function(pack_web)
+		local pack_data = JSON.decode(pack_web.text)
+		local obj = {}
+
+		obj["0"] = {
+			faction = "",
+			category = "",
+			name = "",
+			description = "Click to cycle secondary objectives,\nright-click to cycle backwards."
+		}
+
+		local i = 1
+
+		for _, faction in ipairs(pack_data.factions) do
+			for _, category in ipairs(faction.categories) do
+				for _, objective in ipairs(category.objectives) do
+					objective.faction = faction.name
+					objective.category = category.name
+
+					if objective.name == "While We Stand, We Fight" then objective.name = "We Stand, We Fight" end
+					--yes this is stupid and hacky, don't @ me.
+
+					obj[tostring(i)] = objective
+					i = i + 1
+					--table.insert(obj, objective)
+				end
+			end
+		end
+
+		table.insert(packsData, {
+			ver = pack_data.ver,
+			name = pack_data.name,
+			objectives = obj
+		})
+
+		if p < #packsIDs.packs then
+			p = p + 1
+			getPacks()
+		else
+			pack()
+		end
+	end)
+end
+
+warned = false
+
+function packFromExt(params)
+	if not scoresheetActive then return end
+	local i = params.index
+	selectedPack.index = i
+	selectedPack.data = packsData[i]
+	packButton.label = packsData[i].name
+	self.editButton( packButton )
+	updateAll(true)
+end
+
+function pack(_, _, alt)
+	if true or (warned or -- adde true for letting FACTIONS to be a separate pack
+		(
+			playerSum(1) == 10 and
+			playerSum(2) == 10 and
+			secondary[1][1][1] == 0 and
+			secondary[1][2][1] == 0 and
+			secondary[1][3][1] == 0 and
+			secondary[2][1][1] == 0 and
+			secondary[2][2][1] == 0 and
+			secondary[2][3][1] == 0
+		)
+	)
+	then
+		local i = selectedPack.index
+
+		if alt then
+			i = i - 1
+			if i < 1 then i = #packsData end
+		else
+			i = i + 1
+			if i > #packsData then i = 1 end
+		end
+
+		selectedPack.index = i
+		selectedPack.data = packsData[i]
+
+		packButton.label = packsData[i].name
+		self.editButton( packButton )
+
+		updateAll(true)
+	else
+		printToAll("WARNING: Changing mission pack will reset objectives. Click again to confirm.", {r=1,g=0,b=0})
+		warned = true
+		Timer.create({
+			identifier     = "scorecard_warning_" .. math.random(1000000),
+			function_name  = "unwarn",
+			delay          = 10
+		})
+	end
+end
+
+function unwarn()
+	warned = false
+end
+
+function plusOne(x, y, alt)
+	local diff = 1
+	if alt then diff = 5 end
+
+	local sec = secondary[x][y][2] + diff
+	if sec > 15 then sec = 15 end
+
+	secondary[x][y][2] = sec
+	updateSecondary(x, y)
+end
+
+function subOne(x, y, alt)
+	local diff = 1
+	if alt then diff = 5 end
+
+	local sec = secondary[x][y][2] - diff
+	if sec < 0 then sec = 0 end
+
+	secondary[x][y][2] = sec
+	updateSecondary(x, y)
+end
+
+function updateSecondary(x, y)
+	local w = 0
+	if x == 1 then
+		w = y
+	else
+		w = y + 3
+	end
+
+	button[5][w][1].label = tostring( secondary[x][y][2] )
+	self.editButton(button[5][w][1])
+
+	playerTotal[x].label = tostring( playerSum(x) )
+	self.editButton(playerTotal[x])
+end
+
+function toggle(value)
+	if value == 1 then
+		return 0
+	end
+	return 1
+end
+
+function toggle_other(value, other)
+	if value == 1 then
+		return 0
+	end
+	return other
+end
+
+function toggle_xyz(x, y, z)
+	primary[x][y][z] = toggle( primary[x][y][z] )
+	updatePrimary(x, y, z)
+
+	if z == 1 and primary[x][y][z] == 0 then
+		primary[x][y][2] = 0
+		primary[x][y][3] = 0
+		updatePrimary(x, y, 2)
+		updatePrimary(x, y, 3)
+	end
+	if (z == 2 or z == 3) and primary[x][y][z] == 1 then
+		primary[x][y][1] = 1
+		updatePrimary(x, y, 1)
+	end
+end
+
+function toggle_other_xyz(x, y, z)
+	w = 3 - y
+	primary[x][w][z] = toggle_other( primary[x][y][z], primary[x][w][z] )
+	updatePrimary(x, w ,z)
+end
+
+function toggleToStr(value)
+	if value == 1 then
+		return "X"
+	end
+	return ""
+end
+
+function updatePrimary(x, y ,z)
+	button[x][y][z].label = toggleToStr( primary[x][y][z] )
+	self.editButton(button[x][y][z])
+
+	button[x][y][4].label = tostring( battleRoundSum( primary[x][y] ) )
+	self.editButton(button[x][y][4])
+
+	playerTotal[y].label = tostring( playerSum(y) )
+	self.editButton(playerTotal[y])
+end
+
+function battleRoundSum(values)
+	local sum = 0
+
+	for i = 1,3 do
+		sum = sum + values[i]
+	end
+
+	return sum * 5
+end
+
+function playerSum(pId)
+	local pri_sum = 0
+	for j = 1,4 do
+		pri_sum = pri_sum + battleRoundSum( primary[j][pId] )
+	end
+	if pri_sum > 45 then pri_sum = 45 end
+
+	local sec_sum = 0
+	for k = 1,3 do
+		sec_sum = sec_sum + secondary[pId][k][2]
+	end
+	if sec_sum > 45 then sec_sum = 45 end
+	if usePhubarVersion then
+		local playerCounter = getObjectFromGUID(victoryCounterGuid[pId]) -- Phubar add
+		if playerCounter then
+			playerCounter.Counter.setValue( pri_sum + sec_sum + 10)
+		end
+	end
+	return pri_sum + sec_sum + 10
+	-- painted army gives +10
+end
+
+function getParams()
+	local params = JSON.decode( self.getDescription() )
+
+	if params == nil then
+		params = {
+			P1 = "Player 1",
+			P2 = "Player 2",
+			ver_card = "",
+			ver_data = ""
+		}
+
+		self.setDescription(JSON.encode_pretty(params))
+	end
+
+	return params
+end
+
+function secIndex(x)
+	return {math.ceil(x/3), math.fmod(x-2,3)+2}
+end
+
+function p1(obj, clicker, alt)
+	pName(1, obj, clicker, alt)
+end
+function p2(obj, clicker, alt)
+	pName(2, obj, clicker, alt)
+end
+
+function pName(p, obj, clicker, alt)
+	local params = getParams()
+
+	if alt then
+		if p == 1 then
+			playerOneTitle.label = "Player 1"
+			params.P1 = "Player 1"
+		else
+			playerTwoTitle.label = "Player 2"
+			params.P2 = "Player 2"
+		end
+	else
+		local playerName = Player[clicker].steam_name
+
+		if string.len( playerName ) > 15 then
+			playerName = string.sub( playerName, 1, 14 )
+		end
+
+		if p == 1 then
+			playerOneTitle.label = playerName
+			params.P1 = playerName
+		else
+			playerTwoTitle.label = playerName
+			params.P2 = playerName
+		end
+	end
+
+	self.editButton(playerOneTitle)
+	self.editButton(playerTwoTitle)
+	self.setDescription(JSON.encode_pretty(params))
+end
+
+function sec_xy(x, y, alt)
+	if selectedPack.index ~= 0 then
+		local value = secondary[x][y][1]
+		--local num_sec = #selectedPack.data.objectives
+		local num_sec = -1
+		for _ in pairs(selectedPack.data.objectives) do num_sec = num_sec + 1 end
+
+		local diff = 1
+		if alt then diff = -1 end
+
+		local category = ""
+
+		repeat
+			value = value + diff
+
+			if value > num_sec then
+				value = 0
+			elseif value < 0 then
+				value = num_sec
+			end
+
+			category = selectedPack.data.objectives[ tostring(value) ].category
+		until
+		(
+			value == 0
+			or
+			(
+				(y == 1 or category ~= secondary[x][1][3]) and
+				(y == 2 or category ~= secondary[x][2][3]) and
+				(y == 3 or category ~= secondary[x][3][3])
+			)
+		)
+
+		secondary[x][y][1] = value
+		secondary[x][y][3] = category
+
+		local w = 0
+		if x == 1 then
+			w = y
+		else
+			w = y + 3
+		end
+
+		secondary[x][y][4] = selectedPack.data.objectives[tostring(value)].name
+		secondary[x][y][5] = selectedPack.data.objectives[tostring(value)].description
+		updateAll(true)
+	end
+end
+
+function addSecondaryForPlayer2(player, secID)
+	local objs = selectedPack.data.objectives
+	local secData = {}
+
+	for _, obj in ipairs(objs) do
+		if obj.id == secID then
+			secData = obj
+			break
+		end
+	end
+
+	for i, sec in ipairs(seconadry[player]) do
+		if sec[1] == 0 then
+			sec[1] = obj.value
+			sec[3] = obj.category
+
+			local j = 0
+			if player == 1 then
+				j = i
+			else
+				j = i + 3
+			end
+
+			secondary[player][i][4] = selectedPack.data.objectives[tostring(value)].name
+			secondary[player][i][5] = selectedPack.data.objectives[tostring(value)].description
+			updateAll(true)
+			break
+		end
+	end
+end
+
+-- Abandon hope all ye who enter here
+
+function toggle_111()
+	toggle_xyz(1, 1, 1)
+end
+function toggle_112()
+	toggle_xyz(1, 1, 2)
+end
+function toggle_113()
+	toggle_xyz(1, 1, 3)
+end
+
+function toggle_121()
+	toggle_xyz(1, 2, 1)
+end
+function toggle_122()
+	toggle_xyz(1, 2, 2)
+end
+function toggle_123()
+	toggle_xyz(1, 2, 3)
+end
+
+function toggle_211()
+	toggle_xyz(2, 1, 1)
+end
+function toggle_212()
+	toggle_xyz(2, 1, 2)
+end
+function toggle_213()
+	toggle_xyz(2, 1, 3)
+end
+
+function toggle_221()
+	toggle_xyz(2, 2, 1)
+end
+function toggle_222()
+	toggle_xyz(2, 2, 2)
+end
+function toggle_223()
+	toggle_xyz(2, 2, 3)
+end
+
+function toggle_311()
+	toggle_xyz(3, 1, 1)
+end
+function toggle_312()
+	toggle_xyz(3, 1, 2)
+end
+function toggle_313()
+	toggle_xyz(3, 1, 3)
+end
+
+function toggle_321()
+	toggle_xyz(3, 2, 1)
+end
+function toggle_322()
+	toggle_xyz(3, 2, 2)
+end
+function toggle_323()
+	toggle_xyz(3, 2, 3)
+end
+
+function toggle_411()
+	toggle_xyz(4, 1, 1)
+end
+function toggle_412()
+	toggle_xyz(4, 1, 2)
+end
+function toggle_413()
+	toggle_xyz(4, 1, 3)
+end
+
+function toggle_421()
+	toggle_xyz(4, 2, 1)
+end
+function toggle_422()
+	toggle_xyz(4, 2, 2)
+end
+function toggle_423()
+	toggle_xyz(4, 2, 3)
+end
+
+
+function plus_11(_, _, alt)
+	plusOne(1, 1, alt)
+end
+function plus_12(_, _, alt)
+	plusOne(1, 2, alt)
+end
+function plus_13(_, _, alt)
+	plusOne(1, 3, alt)
+end
+function plus_21(_, _, alt)
+	plusOne(2, 1, alt)
+end
+function plus_22(_, _, alt)
+	plusOne(2, 2, alt)
+end
+function plus_23(_, _, alt)
+	plusOne(2, 3, alt)
+end
+
+function sub_11(_, _, alt)
+	subOne(1, 1, alt)
+end
+function sub_12(_, _, alt)
+	subOne(1, 2, alt)
+end
+function sub_13(_, _, alt)
+	subOne(1, 3, alt)
+end
+function sub_21(_, _, alt)
+	subOne(2, 1, alt)
+end
+function sub_22(_, _, alt)
+	subOne(2, 2, alt)
+end
+function sub_23(_, _, alt)
+	subOne(2, 3, alt)
+end
+
+function sec_11(_, _, alt)
+	sec_xy(1, 1, alt)
+end
+function sec_12(_, _, alt)
+	sec_xy(1, 2, alt)
+end
+function sec_13(_, _, alt)
+	sec_xy(1, 3, alt)
+end
+function sec_21(_, _, alt)
+	sec_xy(2, 1, alt)
+end
+function sec_22(_, _, alt)
+	sec_xy(2, 2, alt)
+end
+function sec_23(_, _, alt)
+	sec_xy(2, 3, alt)
+end

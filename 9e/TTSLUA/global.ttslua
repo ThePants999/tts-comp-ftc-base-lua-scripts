@@ -1,0 +1,369 @@
+--[[ Lua code. See documentation: https://api.tabletopsimulator.com/ --]]
+
+enableObjectivesDecks=true
+
+turnOrder={}
+nonPlaying={"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink" }
+allowMenu=true
+allowAutoSeat=true
+redPlayerID=""
+bluePlayerID=""
+startMenu_GUID="738804"
+startMenu=nil
+
+redDiceMat_GUID="c57d70"
+blueDiceMat_GUID="a84ed2"
+
+function nextPhase(playerObj, button, elementId)
+    local altClick= false
+    local playerColor=playerObj.color
+
+    if button ~= "-1" then
+        altClick =  true
+    end
+    startMenu.call("nextPhaseFromGlobal", {alt=altClick, color=playerColor})
+end
+
+
+function onSave()
+    saved_data = JSON.encode({
+                                svredPlayerID=redPlayerID,
+                                svbluePlayerID=bluePlayerID
+                            })
+    --saved_data = ""
+    return saved_data
+end
+
+function onLoad(saved_data)
+    Turns.enable=false
+    --- load vars from saved
+    if saved_data ~= "" then
+         local loaded_data = JSON.decode(saved_data)
+         redPlayerID = loaded_data.svredPlayerID
+         bluePlayerID = loaded_data.svbluePlayerIDs
+    else
+        redPlayerID=""
+        bluePlayerID=""
+    end
+    ---- end loading
+    startMenu=getObjectFromGUID(startMenu_GUID)
+    if allowMenu then
+        if allowAutoSeat and redPlayerID ~= "" and bluePlayerID ~= "" then --  if the game is not started dont autoseat
+                autoSeatAll()
+        else
+
+            Global.UI.setAttribute("main", "active", "true")
+            local presentPersons= Player.getPlayers()
+            for i, person in ipairs(presentPersons) do
+                person.team="Diamonds"
+            end
+            presentPersons= Player.getSpectators()
+            for i, person in ipairs(presentPersons) do
+                person.team="Diamonds"
+            end
+            showHideRedBlueBtn()
+        end
+    else
+        Global.UI.setAttribute("main", "active", "false")
+    end
+    WebRequest.get( "https://raw.githubusercontent.com/PhubarBCS/FTC/master/warning.json", function(index_web) checkIfWarning(index_web) end)
+end
+
+function checkIfWarning(index_web)
+    local data = JSON.decode(index_web.text)
+    local nowIs = os.date("*t", os.time())
+    -- TEST LINES
+    --data.expireDate={13,9,1020}
+    --print("EXPIRE "..data.expireDate[1].." / "..data.expireDate[2].." / "..data.expireDate[3])
+    --print("NOW "..nowIs.day.." / "..nowIs.month.." / "..nowIs.year)
+    if data.manualEnable then
+        if data.forceEnabledTo then
+            showRedirectFromWeb(data.message)
+            return
+        end
+        return
+    end
+
+    if (nowIs.day <= data.expireDate[1] and nowIs.month <= data.expireDate[2] and  nowIs.year <= data.expireDate[3]) then
+        showRedirectFromWeb(data.message)
+    end
+end
+
+function showRedirectFromWeb(txt)
+    Global.UI.setValue("coreRedirect", txt)
+    Global.UI.setAttribute("main", "active", "false")
+    Global.UI.setAttribute("redirect", "active", "true")
+end
+
+function showRedirect()
+    local newMods={
+        {name="40k base map", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121424734"},
+        {name="40k army builder", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121426653"},
+        {name="Apocalypse base map:", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121428591"},
+        {name="Apocalypse army builder:", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121427647"},
+        {name="Old BCB map converter:", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121425412"}
+    }
+    local txt1="It also has a new name, here the new links:\n\n"
+    local txt2=""
+    local txt3="Links in the notes in the right, for copypaste."
+    for i, entry in ipairs(newMods) do
+        txt2=txt2..entry.name.."\n"..entry.url.."\n\n"
+    end
+    txt1="BACON CAT BUG does not work on this mod so please dont contact him.\nHe left.\n\nContact GenWilhelm, Mothman Zack, or Zyllos\nin any of the discord servers\nif you have any suggestion or bug report.\n\nThis message will stay for a while (but not too much)."
+    txt2=""
+    txt3=""
+    --Wait.time(function() Notes.setNotes(txt2) end, 1)
+    Global.UI.setValue("coreRedirect", txt1..txt2..txt3)
+    Global.UI.setAttribute("main", "active", "false")
+    Global.UI.setAttribute("redirect", "active", "true")
+
+end
+
+function closeRedir()
+    Global.UI.setAttribute("redirect", "active", "false")
+    if allowMenu then
+        Global.UI.setAttribute("main", "active", "true")
+    end
+end
+
+
+function autoSeatPerson(_person)
+    if _person.steam_id == redPlayerID then
+        if Player.Red.seated then
+            Player.Red.changeColor("Grey")
+        end
+        _person.changeColor("Red")
+        _person.team="None"
+        return
+    end
+    if _person.steam_id == bluePlayerID then
+        if Player.Blue.seated then
+            Player.Blue.changeColor("Grey")
+        end
+        _person.changeColor("Blue")
+        _person.team="None"
+        return
+    end
+    --_person.changeColor("Grey")
+    _person.team="None"
+end
+
+function autoSeatGroup(persons)
+    for i, person in ipairs(persons) do
+        autoSeatPerson(person)
+    end
+end
+
+
+function autoSeatAll()
+    if redPlayerID=="" or bluePlayerID=="" then --  if the game is not started dont autoseat
+        return
+    end
+    local presents = Player.getPlayers()
+    autoSeatGroup(presents)
+    presents = Player.getSpectators()
+    autoSeatGroup(presents)
+end
+
+function recordPlayers()
+    redPlayerID= Player.Red.steam_id
+    bluePlayerID= Player.Blue.steam_id
+end
+
+function onPlayerChangeColor(player_color)
+    promotePlayers()
+    --demotePlayers()  -- RIC
+    showHideRedBlueBtn()
+end
+
+function onPlayerConnect(player_id)
+    if allowMenu then
+        if allowAutoSeat and redPlayerID ~= "" and bluePlayerID ~= "" then --  if the game is not started dont autoseat
+                autoSeatPerson(player_id)
+        else
+        player_id.team="Diamonds"
+        end
+    end
+end
+
+function promotePlayers()
+    local colors={"Red", "Blue", "Orange", "Yellow", "Purple", "Teal"}
+    for i, color in ipairs(colors) do
+        if Player[color].seated and  Player[color].host == false then
+             Player[color].promote(true)
+        end
+    end
+end
+
+function demotePlayers()
+    for i, color in ipairs(nonPlaying) do
+        if Player[color].seated  and Player[color].host == false then
+            Player[color].promote(false)
+        end
+    end
+    local spectators=Player.getSpectators()
+    for i, person in ipairs(spectators) do
+        if person.host == false then
+            person.promote(false)
+        end
+    end
+end
+
+function promotePlayersOnConnect()  --NOT USED
+    if player_color == "Red" or player_color == "Blue"  then
+        Player["Red"].promote(true)
+        Player["Blue"].promote(true)
+    end
+end
+
+function showHideRedBlueBtn()
+    if allowMenu then
+        if Player.Red.seated == true then
+            Global.UI.setAttribute("redBtn", "active", "false")
+        else
+            Global.UI.setAttribute("redBtn", "active", "true")
+        end
+        if Player.Blue.seated == true then
+            Global.UI.setAttribute("blueBtn", "active", "false")
+        else
+            Global.UI.setAttribute("blueBtn", "active", "true")
+        end
+    end
+end
+
+function setViewForPlayer(player, color)
+    if color=="Grey" then return end
+    local pos= {0,0,0}
+    if color == "Red" then
+        pos = getObjectFromGUID(redDiceMat_GUID).getPosition()
+    end
+    if color == "Blue" then
+        pos = getObjectFromGUID(blueDiceMat_GUID).getPosition()
+    end
+    player.lookAt({
+        position = pos,
+        pitch    = 25,
+        yaw      = 180,
+        distance = 20,
+        })
+end
+
+function placeToColor(player, color)
+    player.changeColor(color)
+    player.team="None"
+    broadcastToColor("READ INSTRUCTIONS FIRST!\n(Purple buttons on table)", color, "Purple")
+    --setViewForPlayer(player, color) --bugged
+end
+
+function placeToRed(player, value, id)
+    placeToColor(player, "Red")
+    --player.changeColor("Red")
+    --player.team="None"
+end
+
+function placeToBlue(player, value, id)
+    placeToColor(player, "Blue")
+    --player.changeColor("Blue")
+    --player.team="None"
+end
+
+function placeToGray(player, value, id)
+    placeToColor(player, "Grey")
+    --player.changeColor("Grey")
+    --player.team="None"
+end
+function openTerrain()
+    Global.UI.setAttribute("terrainInfo1", "active", "true")
+    Global.UI.setAttribute("terrainInfo2", "active", "false")
+end
+function page2Terrain()
+    Global.UI.setAttribute("terrainInfo1", "active", "false")
+    Global.UI.setAttribute("terrainInfo2", "active", "true")
+end
+function closeTerrain()
+    Global.UI.setAttribute("terrainInfo1", "active", "false")
+    Global.UI.setAttribute("terrainInfo2", "active", "false")
+end
+function openGame()
+    Global.UI.setAttribute("gameInfo1", "active", "true")
+    Global.UI.setAttribute("gameInfo2", "active", "false")
+end
+function page2Game()
+    Global.UI.setAttribute("gameInfo1", "active", "false")
+    Global.UI.setAttribute("gameInfo2", "active", "true")
+end
+function closeGame()
+    Global.UI.setAttribute("gameInfo1", "active", "false")
+    Global.UI.setAttribute("gameInfo2", "active", "false")
+end
+function closeMenu(player, value, id)
+    player.team="None"
+    broadcastToColor("READ INSTRUCTIONS FIRST!\n(Purple buttons on table)", player.color, "Purple")
+end
+
+backPosition={{0,0,0},{0,0,0},{0,0,0},{0,0,0}}
+function goToDiceRoller(player, value, id)
+    local matPositionOffset=12
+    local color=player.color
+    local diceMatGUID="b14cd6"
+    local i=1
+    if color == "Red" then
+        diceMatGUID="c57d70"
+        i=1
+    end
+    if color == "Orange" then
+        diceMatGUID="c57d70"
+        i=2
+    end
+    if color == "Blue" then
+        diceMatGUID="a84ed2"
+        i=3
+        matPositionOffset=-matPositionOffset
+    end
+    if color == "Teal" then
+        diceMatGUID="a84ed2"
+        i=4
+        matPositionOffset=-matPositionOffset
+    end
+    if Player[color].getSelectedObjects()[1] ~= nil then
+        backPosition[i]=Player[color].getSelectedObjects()[1].getPosition()
+    end
+
+    local matPos=getObjectFromGUID(diceMatGUID).getPosition()
+    matPos.x=matPos.x+matPositionOffset
+    moveCameraTo(matPos,30,color)
+end
+
+function goToSquad(player, value, id)
+    local i = 1
+    local color=player.color
+    if color == "Red" then
+        i=1
+    end
+    if color == "Orange" then
+        i=2
+    end
+    if color == "Blue" then
+        i=3
+    end
+    if color == "Teal" then
+        i=4
+    end
+    moveCameraTo(backPosition[i], 20, color)
+end
+function moveCameraTo(pos, dist, color)
+    if color == "Red" then
+        rot = {0,180,0}
+    end
+    if color == "Orange" then
+        rot = {0,180,0}
+    end
+    if color == "Blue" then
+        rot = {0,0,0}
+    end
+    if color == "Teal" then
+        rot = {0,0,0}
+    end
+    if pos[2]==0 then dist=dist+30 end
+    Player[color].lookAt({position=pos, pitch=90, yaw=rot[2], distance=dist})
+end

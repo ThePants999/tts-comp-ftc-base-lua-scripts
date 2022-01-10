@@ -1,0 +1,33 @@
+-- FTC-GUID: 8ec6e6
+title={
+    index =0, label="Army\nToken\nBags", click_function="none", function_owner=self,
+    position={0,0.5,0}, rotation={0,270,0}, height=0, width=7,
+    font_size=400, color={0,0,0}, font_color={1,1,1}
+}
+
+lockBtn={
+    index =0, label="Unlock", click_function="toggleLock", function_owner=self,
+    position={2,0.25,0}, rotation={0,270,0}, height=300, width=700,
+    font_size=150, color={0,0,0}, font_color={1,1,1}
+}
+
+function onLoad()
+    self.createButton(title)
+    self.createButton(lockBtn)
+    self.interactable=false
+end
+
+function toggleLock()
+    self.clearButtons()
+    self.createButton(title)
+    if self.interactable == false then
+        self.interactable=true
+        lockBtn.label="Lock"
+    else
+        self.interactable=false
+        lockBtn.label="Unlock"
+    end
+    self.createButton(lockBtn)
+end
+function none()
+end

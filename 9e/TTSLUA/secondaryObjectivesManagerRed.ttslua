@@ -1,0 +1,337 @@
+-- FTC-GUID: cff35b
+
+scoresheet_GUID="06d627"
+--repo = "https://raw.githubusercontent.com/PhubarBCS/ttsTest/master/"
+repo = "https://raw.githubusercontent.com/GenWilhelm/tts_score_card/master/9e/"
+blankObjCard_GUID = "d618cb"
+menuX=0
+menuY=6.07
+menuZ=0
+btnRowOffset= 1.2
+arrowOffset=8
+titleBtn = {
+    label = "S E C O N D A R Y   O B J E C T I V E S", click_function = "none", function_owner = self,
+    position = { menuX , menuY, menuZ-btnRowOffset}, rotation = {0, 0, 0}, height = 450, width = 8400,
+    font_size = 400, color = {0,0,0}, font_color = {1,1,1}
+}
+selectionBtn = {
+    label = "SELECTION", click_function = "none", function_owner = self,
+    position = { 0,0,0}, rotation = {0, 0, 0}, height = 450, width = 6000,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+upBtn = {
+    label = "->", click_function = "none", function_owner = self,
+    position = { 0,0,0}, rotation = {0, 0, 0}, height = 450, width = 800,
+    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+downBtn = {
+    label = "<-", click_function = "none", function_owner = self,
+    position = { 0,0,0}, rotation = {0, 0, 0}, height = 450, width = 800,
+    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+spawnCardBtn = {
+    label = "S P A W N\ncard", click_function = "spawnCard", function_owner = self,
+    position = { 0,0,0}, rotation = {0, 0, 0}, height = 450, width = 2800,
+    font_size = 200, color = {0,0,0}, font_color = {1,1,1}
+}
+setObjBtn = {
+    label = "S E T\nto scoresheet", click_function = "setObj", function_owner = self,
+    position = { 0,0,0}, rotation = {0, 0, 0}, height = 450, width = 2800,
+    font_size = 200, color = {0,0,0}, font_color = {1,1,1}
+}
+secondaryObjectivesList={}
+
+functions={"Pack","Faction", "Category", "Objective"}
+selected = {1,1,1,1}
+availablesRepo={}
+packName=""
+repoListReady=false
+factionSelected=1
+categorySelectd=1
+objectiveSelected=1
+showSetBtn = true
+
+function onLoad(save_state)
+    startGameObj= getObjectFromGUID(Global.getVar("startMenu_GUID"))
+
+    blankCard = getObjectFromGUID(blankObjCard_GUID)
+    --blankCardData = blankCard.getData()
+    if self.getGUID() == "cff35b" then
+        self.setName("Secondary Objectives Manager Red")
+        self.setPosition({-19,-5,35.25})
+        self.setRotation({0,0,0})
+        self.setScale({0.7,1,0.7})
+        if blankCard then
+            blankCard.setLock(true)
+            blankCard.interactable=false
+        end
+    else
+        self.setName("Secondary Objectives Manager Blue")
+        self.setPosition({19,-5,-35.25})
+        self.setRotation({0,180,0})
+        self.setScale({0.7,1,0.7})
+    end
+
+    self.setScale({0.6,1,0.6})
+    scoresheet = getObjectFromGUID(scoresheet_GUID)
+    getRepoList()
+    Wait.time(function() getDataFromRepo() end , 0.5)
+end
+
+function writeMenu()
+    self.clearButtons()
+    self.createButton(titleBtn)
+    local rows=4
+    for i=1, rows do
+        selectionBtn.position= {menuX, menuY, menuZ+(i-1)*btnRowOffset}
+        upBtn.position= {menuX+arrowOffset, menuY, menuZ+(i-1)*btnRowOffset}
+        downBtn.position= {menuX-arrowOffset, menuY, menuZ+(i-1)*btnRowOffset}
+        if i==1 then
+            --selectionBtn.label="#"..selected[2].." "..secondaryObjectivesList[selected[2]].name
+            selectionBtn.label="#"..selected[1].." "..packName
+        end
+        if i==2 then
+            selectionBtn.label="#"..selected[2].." "..secondaryObjectivesList[selected[2]].name
+        end
+        if i==3 then
+            selectionBtn.label="#"..selected[3].." "..secondaryObjectivesList[selected[2]].categories[selected[3]].name
+        end
+        if i==4 then
+            selectionBtn.tooltip=secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]].description
+            selectionBtn.label="#"..selected[4].." "..secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]].name
+        end
+        upBtn.click_function= "up"..functions[i]
+        downBtn.click_function= "down"..functions[i]
+        self.createButton(selectionBtn)
+        self.createButton(upBtn)
+        self.createButton(downBtn)
+    end
+    spawnCardBtn.position= {menuX-3.3, menuY, menuZ+rows*btnRowOffset}
+    self.createButton(spawnCardBtn)
+    if startGameObj then
+        if not startGameObj.getVar("inGame") then
+            setObjBtn.position= {menuX+3.3, menuY, menuZ+rows*btnRowOffset}
+            self.createButton(setObjBtn)
+        end
+    else
+        setObjBtn.position= {menuX+3.3, menuY, menuZ+rows*btnRowOffset}
+        self.createButton(setObjBtn)
+    end
+end
+
+function setObj(obj, color, alt)
+    if startGameObj.getVar("inGame") then
+        printToColor("Game starded, cannot modify!", color, "Red")
+        return
+    end
+    local id=secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]].id
+    --print("WANTED "..id)
+    --print("Spawning for "..color.."  ID   "..id)
+    if scoresheet then
+        if not scoresheet.getVar("scoresheetActive") then printToColor("Enable scoresheet first!", color, "Red") return end
+        scoresheet.call("addSecondaryForPlayer", {clicker=color, secID=id } )
+    end
+end
+
+function spawnCard(obj, color, alt)
+    local obj=secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]]
+    local id=obj.id
+    --print("Spawning OBJ "..color.."  ID   "..id)
+    createCard(obj.name, obj.description, obj.id, 0)
+    if obj.actions then
+        for i, action in ipairs(obj.actions) do
+            --print("Also ACT "..action.name.."  ID   "..action.id)
+            createCard(action.name, action.description, action.id, i)
+        end
+    end
+end
+
+function createCard(name, desc, id, counter)
+    local blankCardData = blankCard.getData()
+    local clone = true
+    local card = nil
+    counter = counter * 12
+    if clone then
+        local newPos=self.positionToWorld({-16-counter,6,1.5})
+        blankCardData.Transform.posX=newPos.x
+        blankCardData.Transform.posY = 1.5
+        blankCardData.Transform.posZ=newPos.z
+
+        blankCardData.Transform.rotX= 0
+        blankCardData.Transform.rotY= self.getRotation().y
+        blankCardData.Transform.rotZ= 0
+
+        blankCardData.Transform.scaleX= 6
+        blankCardData.Transform.scaleY= 0.2
+        blankCardData.Transform.scaleZ= 4
+
+        blankCardData.ColorDiffuse = {r= 0.5, g= 0.5, b= 0.5}
+        blankCardData.Nickname = name
+        blankCardData.Description = desc
+        blankCardData.GMNotes= id
+
+        blankCardData.Locked = false
+        card = spawnObjectData({data=blankCardData})
+    else
+        card = spawnObject({
+            type = "BlockSquare",
+            position = self.positionToWorld({-16-counter,7,1.5}),
+            rotation = {0,0,0},
+            scale = {2,0.2,3},
+        })
+    end
+    Wait.frames(function() card.call("writeMenu") end, 2)
+end
+
+function setCardStats(card,name, desc, id) -- not used
+
+    if card then
+        card.setColorTint("Grey")
+        card.setName(name)
+        card.setDescription(desc)
+        card.setGMNotes(id)
+
+        card.setScale({6,0.2,4})
+        card.setRotation(self.getRotation())
+        card.setLock(false)
+        card.interactable=true
+        Wait.frames(function() card.call("writeMenu") end, 5)
+
+
+    end
+end
+
+function getRepoList()
+    repoListReady=false
+    WebRequest.get(repo.."index.json", function(web) initRepoList(web) end)
+    --WebRequest.get("http://campaign40k.altervista.org/ttsData/SecObj.txt", function(web) init(web) end)
+end
+
+function repoListReady()
+    if repoListReady then
+        return false
+    else
+        return false
+    end
+end
+
+function setRepoUrl(params)
+    repo = params.url
+    getRepoList()
+end
+
+function setRepo(params)
+    selected[1]= params.index
+    selected[2] = 1
+    selected[3] = 1
+    selected[4] = 1
+    getDataFromRepo()
+end
+
+function initRepoList(web_data)
+	if not web_data then
+        print("NO WEB DATA")
+	else
+		local data= JSON.decode(web_data.text)
+        availablesRepo= data.packs
+        repoListReady=true
+    end
+end
+
+function getDataFromRepo()
+    local url=repo..availablesRepo[selected[1]]..".json"
+    WebRequest.get(url, function(web) initData(web) end)
+    --WebRequest.get("https://raw.githubusercontent.com/PhubarBCS/ttsTest/master/secObj", function(web) initData(web) end)
+    --WebRequest.get("http://campaign40k.altervista.org/ttsData/SecObj.txt", function(web) init(web) end)
+end
+
+function initData(web_data)
+	if not web_data then
+        print("NO WEB DATA")
+	else
+		local data= JSON.decode(web_data.text)
+        --print(data.ver)
+        secondaryObjectivesList = data.factions
+        packName= data.name
+    end
+    writeMenu()
+end
+
+function upDown(counter, amt)
+    local maxValue=1
+    local currentValue=1
+    local index= 1
+    if counter == "pack" then
+        maxValue=#availablesRepo
+        index = 1
+
+        selected[2] = 1
+        selected[3] = 1
+        selected[4] = 1
+
+    end
+    if counter == "faction" then
+        maxValue=#secondaryObjectivesList
+        index = 2
+        selected[3] = 1
+        selected[4] = 1
+    end
+    if counter == "category" then
+        maxValue=#secondaryObjectivesList[selected[2]].categories
+        index = 3
+        selected[4] = 1
+    end
+    if counter == "objective" then
+        maxValue=#secondaryObjectivesList[selected[2]].categories[selected[3]].objectives
+        index = 4
+    end
+    currentValue = selected[index]
+    currentValue = currentValue+ amt
+    if currentValue < 1        then currentValue = maxValue end
+    if currentValue > maxValue then currentValue = 1 end
+    selected[index] = currentValue
+    if counter == "pack" then
+        if not startGameObj.getVar("inGame") then
+            scoresheet.call("packFromExt", {index= selected[index]} )
+        end
+        getDataFromRepo()
+        return
+    end
+    writeMenu()
+end
+
+function upPack()
+    upDown("pack", 1)
+end
+
+function downPack()
+    upDown("pack", -1)
+end
+
+function upFaction()
+    upDown("faction", 1)
+end
+
+function downFaction()
+    upDown("faction", -1)
+end
+
+function upCategory()
+    upDown("category", 1)
+end
+
+function downCategory()
+    upDown("category", -1)
+end
+
+function upObjective()
+    upDown("objective", 1)
+end
+
+function downObjective()
+    upDown("objective", -1)
+end
+
+
+function none()
+end

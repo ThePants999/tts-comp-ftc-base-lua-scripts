@@ -1,0 +1,558 @@
+-- FTC-GUID: c57d70
+function none()
+end
+Yoffset=0.1
+
+clearAllDiceBtn={
+    label="Clear mat\n(right click)", click_function="clearDiceAll", function_owner=self,
+    position={-4.4, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=400,
+    font_size=60, color={0,0,0}, font_color={1,1,1}
+}
+selectAllBtn={
+    label="Select all dice", click_function="selectDice", function_owner=self,
+    position={-3.3, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=420,
+    font_size=60, color={1,1,1}, font_color={0,0,0}
+}
+
+add1d6Btn={
+    label="+ 1d6", click_function="spawnDice1", function_owner=self,
+    position={-2.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
+    font_size=60, color={1,1,1}, font_color={0,0,0}
+}
+add2d6Btn={
+    label="+ 2d6", click_function="spawnDice2", function_owner=self,
+    position={-2, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
+    font_size=60, color={1,1,1}, font_color={0,0,0}
+}
+add5d6Btn={
+    label="+ 5d6", click_function="spawnDice5", function_owner=self,
+    position={-1.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
+    font_size=60, color={1,1,1}, font_color={0,0,0}
+}
+add10d6Btn={
+    label="+ 10d6", click_function="spawnDice10", function_owner=self,
+    position={-1, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
+    font_size=60, color={1,1,1}, font_color={0,0,0}
+}
+add25d6Btn={
+    label="+ 25d6", click_function="spawnDice25", function_owner=self,
+    position={-0.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
+    font_size=60, color={1,1,1}, font_color={0,0,0}
+}
+
+colorBtnDimension=150
+colorBtnOffset=0
+color1Btn={
+    label="", click_function="modifyMenu1", function_owner=self,
+    position={colorBtnOffset, Yoffset ,-0.87}, rotation={0,0,0}, height=colorBtnDimension, width=colorBtnDimension,
+    font_size=60, color="Red", font_color={0,0,0}
+}
+color2Btn={
+    label="", click_function="modifyMenu2", function_owner=self,
+    position={colorBtnOffset+0.35, Yoffset ,-0.87}, rotation={0,0,0}, height=colorBtnDimension, width=colorBtnDimension,
+    font_size=60, color="Blue", font_color={0,0,0}
+}
+color3Btn={
+    label="", click_function="modifyMenu3", function_owner=self,
+    position={colorBtnOffset+0.35*2, Yoffset ,-0.87}, rotation={0,0,0}, height=colorBtnDimension, width=colorBtnDimension,
+    font_size=60, color="Black", font_color={0,0,0}
+}
+color4Btn={
+    label="", click_function="modifyMenu4", function_owner=self,
+    position={colorBtnOffset+0.35*3, Yoffset ,-0.87}, rotation={0,0,0}, height=colorBtnDimension, width=colorBtnDimension,
+    font_size=60, color="Green", font_color={0,0,0}
+}
+pipColorBtn=
+{
+  index=14, label="White", click_function="swapPipColor", function_owner=self,
+  position={colorBtnOffset + 0.35 * 4 + 0.1, Yoffset, -0.87}, rotation={0, 0, 0}, height=50, width=250,
+  font_size=60, color="White", font_color="Black"
+}
+
+clearDiceBtnIncrement=0.28
+clearDiceBtnLabel="Del\n"
+clearDiceBtntooltip="LMB Add row to selection\nRMB Delete dice in row"
+clearDiceBtntooltip="LMB Delete this row\nRMB Delete this row and lowers/uppers"
+clearDiceBtn={
+    label=clearDiceBtnLabel, tooltip=clearDiceBtntooltip, click_function="modifyMenu4", function_owner=self,
+    position={-5.8, Yoffset ,-0.85}, rotation={0,0,0}, height=1000, width=1300, scale={0.1,0.1,0.1},
+    font_size=350, color="Black", font_color="Red"
+}
+
+selectDiceBtnLabel="Sel\n"
+selectDiceBtntooltip="LMB Selects this row\nRMB Selects this row and lowers/uppers"
+selectDiceBtn={
+    label=selectDiceBtnLabel, tooltip=selectDiceBtntooltip, click_function="modifyMenu4", function_owner=self,
+    position={-5.45, Yoffset ,-0.85}, rotation={0,0,0}, height=1000, width=1300, scale={0.1,0.1,0.1},
+    font_size=350, color="White", font_color={0,0,0}
+}
+lowerUpper=true
+oneTimeUpper=true
+lowerSign=" (-)"
+upperSign=" (+)"
+lowerUpperBtn={
+    label="RMB\n- / +", tooltip="Changes to upper for the next click", click_function="toggleLowerUpper", function_owner=self,
+    position={-5.62, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=2800, scale={0.1,0.1,0.1},
+    font_size=500, color="White", font_color={0,0,0}
+}
+
+warningLbl="NO FAST REPETITIONS"
+warningLbl=""
+warningBtn={
+    label=warningLbl, click_function="modifyMenu4", function_owner=self,
+    position={-1.75, Yoffset ,-0.67}, rotation={0,0,0}, height=0, width=0,
+    font_size=50, color="White", font_color="Red"
+}
+
+selectedColor="White"
+
+function getDice()
+    local dice={}
+    local ownPos = self.getPosition()
+    local ownRotation = self.getRotation()['x']
+    local ownScale = self.getScale()['x']
+    local BoundsNormalized = self.getBounds()
+    local Rotation = self.getRotation()
+    local leftBound = BoundsNormalized.center.x-(BoundsNormalized.size.x/2)
+    local rightBound = BoundsNormalized.center.x+(BoundsNormalized.size.x/2)
+    local upperBound = BoundsNormalized.center.z+(BoundsNormalized.size.z/2)
+    local lowerBound = BoundsNormalized.center.z-(BoundsNormalized.size.z/2)
+    local yupperBound = BoundsNormalized.center.y+(BoundsNormalized.size.y/2)+3
+    local ylowerBound =  BoundsNormalized.center.y-(BoundsNormalized.size.y/2)
+
+    for _, obj in pairs(getAllObjects()) do
+        -- Fetch resting dices
+        if obj != nil and obj.tag == 'Dice' and obj.resting then
+            -- Only use objects inside the zone
+            local objPos = obj.getPosition()
+            if objPos['x'] > leftBound and objPos['x'] < rightBound and objPos['z'] > lowerBound and objPos['z'] < upperBound and objPos['y'] < yupperBound and objPos['y'] > ylowerBound then
+                table.insert(dice, #dice+1, obj)
+            end
+        end
+    end
+    return dice
+end
+
+function selectDice(obj, player, alt)
+    Player[player].clearSelectedObjects()
+    for i, die in ipairs(getDice()) do
+        die.addToPlayerSelection(player)
+    end
+end
+
+function toggleLowerUpper()
+    setLowerUpper(not lowerUpper)
+end
+
+function setLowerUpper( value )
+    lowerUpper= value
+    modifyBtns()
+end
+
+function modifyBtns()
+    local sign=""
+    for i=1, 6 do
+        if lowerUpper then sign= lowerSign else sign=upperSign end
+        self.editButton({ index=(13+i*2), label= clearDiceBtnLabel..i..sign })
+        self.editButton({ index=(14+i*2), label= selectDiceBtnLabel..i..sign })
+    end
+end
+
+function SelectDeleteDice1(obj, color, alt)
+    SelectDeleteDiceX("Sel", 1, alt, lowerUpper, color) -- action, n, selectOthers, upLow, color
+end
+function SelectDeleteDice2(obj, color, alt)
+    SelectDeleteDiceX("Sel", 2, alt, lowerUpper, color)
+end
+function SelectDeleteDice3(obj, color, alt)
+    SelectDeleteDiceX("Sel", 3, alt, lowerUpper, color)
+end
+function SelectDeleteDice4(obj, color, alt)
+    SelectDeleteDiceX("Sel", 4, alt, lowerUpper, color)
+end
+function SelectDeleteDice5(obj, color, alt)
+    SelectDeleteDiceX("Sel", 5, alt, lowerUpper, color)
+end
+function SelectDeleteDice6(obj, color, alt)
+    SelectDeleteDiceX("Sel", 6, alt, lowerUpper, color)
+end
+
+function SelectDeleteDiceX(action, n, selectOthers, lowUp, color)
+    Player[color].clearSelectedObjects()
+    selDel=true
+    if action =="Del" then selDel=false end
+    local counter={0,0,0,0,0,0}
+    local numberName={"ones", "twos", "threes", "fours", "fives", "sixes"}
+    local text=color.." player deleted "
+    local somethingToPrint=false
+    for i, die in ipairs(getDice()) do
+        if die.getValue() == n or (selectOthers and lowUp and die.getValue()< n)  or (selectOthers and not lowUp and die.getValue()> n) then
+            if selDel then
+                die.addToPlayerSelection(color)
+            else
+                die.destroy()
+                counter[die.getValue()]=counter[die.getValue()]+1
+            end
+
+        end
+    end
+
+    for i, val in ipairs(counter) do
+        if val > 0 then
+            text=text.." ** "..counter[i].." "..numberName[i]
+            somethingToPrint=true
+        end
+    end
+    if somethingToPrint then printToAll(text , "Yellow") end
+    if oneTimeUpper then setLowerUpper( true ) end
+end
+
+function clearDiceAll(obj, color, alt)
+    if not alt then printToColor("Use right click!", color, "Orange") return end
+    clearDiceX(6, true, color)
+end
+
+
+function clearDice1(obj, color, alt)
+    SelectDeleteDiceX("Del", 1, alt, lowerUpper, color) -- action, n, selectOthers, upLow, color
+end
+function clearDice2(obj, color, alt)
+    SelectDeleteDiceX("Del", 2, alt, lowerUpper, color)
+end
+function clearDice3(obj, color, alt)
+    SelectDeleteDiceX("Del", 3, alt, lowerUpper, color)
+end
+function clearDice4(obj, color, alt)
+    SelectDeleteDiceX("Del", 4, alt, lowerUpper, color)
+end
+function clearDice5(obj, color, alt)
+    SelectDeleteDiceX("Del", 5, alt, lowerUpper, color)
+end
+function clearDice6(obj, color, alt)
+    SelectDeleteDiceX("Del", 6, alt, lowerUpper, color)
+end
+
+
+function clearDiceX(n, deleteLower, color)
+    local counter={0,0,0,0,0,0}
+    local numberName={"ones", "twos", "threes", "fours", "fives", "sixes"}
+    local text=color.." player deleted "
+    local somethingToPrint=false
+    for i, die in ipairs(getDice()) do
+        if die.getValue() == n or (deleteLower and die.getValue()< n) then
+            die.destroy()
+            counter[die.getValue()]=counter[die.getValue()]+1
+        end
+    end
+    for i, val in ipairs(counter) do
+        if val > 0 then
+            text=text.." ** "..counter[i].." "..numberName[i]
+            somethingToPrint=true
+        end
+    end
+    if somethingToPrint then printToAll(text , "Yellow") end
+end
+
+
+function spawnDice1(obj, player, alt)
+    spawnDice(1,player)
+end
+function spawnDice2(obj, player, alt)
+    spawnDice(2,player)
+end
+function spawnDice5(obj, player, alt)
+    spawnDice(5,player)
+end
+function spawnDice10(obj, player, alt)
+    spawnDice(10,player)
+end
+function spawnDice25(obj, player, alt)
+    spawnDice(25,player)
+end
+
+function spawnDice(n,player)
+    --    '[' .. os.date("%H") .. ':' .. os.date("%M") .. ':' .. os.date("%S") .. ' UTC] '
+    local currentTime = os.time()
+    local disableTime=0.8
+    if n>9 then disableTime=disableTime+0.3 end
+    if currentTime-lastClick<disableTime then
+        --print("Wai a bit!")
+        printToColor("Wait a bit!", player, "Yellow")
+        return
+    end
+    lastClick=currentTime
+    local offset=#getDice()
+    if offset+n>128 then printToColor("Dice limit reached!", player, "Orange")  end
+    local grid=0
+    local row=0
+    local col=0
+    for i=1, offset do
+        col=col+1
+        if col>4 then
+            col=0
+            row= row+1
+            if row > 4 then
+                row=0
+                grid=grid+1
+            end
+        end
+    end
+    local diceType="Die_6_Rounded"
+    if pipColorBtn.color == "Black" then
+      diceType = "Die_6"
+    end
+    if selectedColor== "White" then
+        diceType="Die_6"
+    end
+    if offset+n>128 then n=128-offset end
+    for i=1, n do
+    local die=spawnObject({
+        type              =diceType,
+        position          = self.positionToWorld({4-grid*1.5-col*0.25,0.5,-0.3+row*0.25}),
+        callback_fucntion = function(obj) print("col: "..selectedColor) changeColor(obj, selectedColor) end,
+        })
+        col=col+1
+        if col>4 then
+            col=0
+            row= row+1
+            if row > 4 then
+                row=0
+                grid=grid+1
+            end
+        end
+    die.setColorTint(selectedColor)
+    end
+end
+
+function changeColor(obj, color)
+    print("Color "..color)
+    obj.setColorTint(color)
+
+end
+
+
+function onload()
+    lastClick=os.time()
+    defaultFontSize=500
+    fontSize=defaultFontSize
+    lineCount=0
+    --defaultDivisionLabel="|\n|\n|\n|\n|\n|\n|"
+    defaultDivisionLabel="|\n|"
+    --defaultDivisionLabel="|"
+    self.createButton({
+        label="---", click_function="none", function_owner=Global,
+        position={-6.4,0.11,0.01}, rotation={0,0,0}, height=0, width=0, font_size=fontSize,
+        font_color={1, 1, 1},
+        scale={0.25, 0.25, 0.25},
+		alignment=2
+    })
+    self.createButton({
+        label="", click_function="none", function_owner=Global,
+        position={0.75,0.11,0.01}, rotation={0,0,0}, height=0, width=0, font_size=500,
+        font_color={1, 1, 1},
+        --scale={0.25, 0.25, 0.25},
+        scale={0.25,2,1},
+		alignment=2
+    })
+
+	if self.getDescription() == '' then
+		setDefaultState()
+	end
+
+    emptyText = ' '
+	data2 = JSON.decode(self.getDescription())
+	Wait.time(checkDice, data2.Update_Frequency*1,-1)
+    self.createButton(clearAllDiceBtn)
+    self.createButton(selectAllBtn)
+    self.createButton(add1d6Btn)
+    self.createButton(add2d6Btn)
+    self.createButton(add5d6Btn)
+    self.createButton(add10d6Btn)
+    self.createButton(add25d6Btn)
+    self.createButton(color1Btn)
+    self.createButton(color2Btn)
+    self.createButton(color3Btn)
+    self.createButton(color4Btn)
+    self.createButton(warningBtn)
+    self.createButton(pipColorBtn)
+    local sign=""
+    for i=1, 6 do
+        if lowerUpper then sign= lowerSign else sign=upperSign end
+        clearDiceBtn.position[3]=clearDiceBtn.position[3]+clearDiceBtnIncrement
+        clearDiceBtn.click_function="clearDice"..i
+        clearDiceBtn.label=clearDiceBtnLabel..i..sign
+        self.createButton(clearDiceBtn)
+        --
+        selectDiceBtn.position[3]=selectDiceBtn.position[3]+clearDiceBtnIncrement
+        selectDiceBtn.click_function="SelectDeleteDice"..i
+        selectDiceBtn.label=selectDiceBtnLabel..i..sign
+        self.createButton(selectDiceBtn)
+
+    end
+    self.createButton(lowerUpperBtn)
+    if self.getPosition().z < 0 then selectedColor="Blue" else selectedColor="Red" end modifyMenu(selectedColor)
+end
+
+function modifyMenu1()
+    modifyMenu("Red")
+end
+function modifyMenu2()
+    modifyMenu("Blue")
+end
+function modifyMenu3()
+    modifyMenu("Black")
+end
+function modifyMenu4()
+    modifyMenu("Green")
+end
+function modifyMenu(color)
+    selectedColor=color
+    self.editButton({index=4, color=color})
+    self.editButton({index=5, color=color})
+    self.editButton({index=6, color=color})
+    self.editButton({index=7, color=color})
+    self.editButton({index=8, color=color})
+end
+
+function setDefaultState()
+	self.setDescription(JSON.encode_pretty({
+		Cumulative = 'no',Update_Frequency = '0.2'
+	}))
+end
+
+function checkDice ()
+	--Reset description on null
+	data = JSON.decode(self.getDescription())
+	if data==nil then
+		setDefaultState()
+		data = JSON.decode(self.getDescription())
+		printToAll('Warning - invalid description. Restored defaut configuration.', {0.8,0.5,0})
+	end
+
+    -- If the zone is moving, wait
+    if not self.resting then
+        return
+    end
+
+    local ownPos = self.getPosition()
+    local ownRotation = self.getRotation()['x']
+    local ownScale = self.getScale()['x']
+    local BoundsNormalized = self.getBounds()
+    local Rotation = self.getRotation()
+    local leftBound = BoundsNormalized.center.x-(BoundsNormalized.size.x/2)
+    local rightBound = BoundsNormalized.center.x+(BoundsNormalized.size.x/2)
+    local upperBound = BoundsNormalized.center.z+(BoundsNormalized.size.z/2)
+    local lowerBound = BoundsNormalized.center.z-(BoundsNormalized.size.z/2)
+    local yupperBound = BoundsNormalized.center.y+(BoundsNormalized.size.y/2)+3
+    local ylowerBound =  BoundsNormalized.center.y-(BoundsNormalized.size.y/2)
+
+    local valueToCounter = {}
+    local valuesToSort = {}
+	totaldice=0
+    -- Iterate all objects in the zone
+    for _, obj in pairs(getAllObjects()) do
+        -- Fetch resting dices
+        if obj != nil and obj.tag == 'Dice' and obj.resting then
+            -- Only use objects inside the zone
+            local objPos = obj.getPosition()
+            if objPos['x'] > leftBound and objPos['x'] < rightBound and objPos['z'] > lowerBound and objPos['z'] < upperBound and objPos['y'] < yupperBound and objPos['y'] > ylowerBound then
+                local value = obj.getValue()
+                local counter = valueToCounter[value]
+                -- First occurrence of this value
+                if counter == nil then
+                    counter = 0
+                    valuesToSort[#valuesToSort + 1] = value
+                end
+                -- Increase the occurrence of this value
+                counter = counter + 1
+                totaldice=totaldice+1
+                valueToCounter[value] = counter
+            end
+        end
+    end
+
+    -- Process the tracked values, sorted and build the lines to display
+	local textLines = {}
+    lineCount=0
+	if data.Cumulative == 'yes' then
+		table.sort(valuesToSort)
+		for i=1,12 do
+			if valueToCounter[i]==nil then
+				valueToCounter[i]=0
+			end
+		end
+		valueToCounter[11]=valueToCounter[12]+valueToCounter[11]
+		valueToCounter[10]=valueToCounter[11]+valueToCounter[10]
+		valueToCounter[9]=valueToCounter[10]+valueToCounter[9]
+		valueToCounter[8]=valueToCounter[9]+valueToCounter[8]
+		valueToCounter[7]=valueToCounter[8]+valueToCounter[7]
+		valueToCounter[6]=valueToCounter[7]+valueToCounter[6]
+		valueToCounter[5]=valueToCounter[6]+valueToCounter[5]
+		valueToCounter[4]=valueToCounter[5]+valueToCounter[4]
+		valueToCounter[3]=valueToCounter[4]+valueToCounter[3]
+		valueToCounter[2]=valueToCounter[3]+valueToCounter[2]
+		for index, value in ipairs(valuesToSort) do
+			local counter = valueToCounter[value]
+			local xxx = ''
+			if value == 1 then
+				xxx = "'s: "
+			else
+				xxx = "+: "
+			end
+			local line = value .. xxx .. counter
+			textLines[#textLines + 1] = line
+            lineCount=lineCount+1
+		end
+	else
+		table.sort(valuesToSort)
+		for index, value in ipairs(valuesToSort) do
+			local counter = valueToCounter[value]
+			local line = '#' .. value .. ': ' .. counter
+			textLines[#textLines + 1] = line
+            lineCount=lineCount+1
+		end
+	end
+    if lineCount < 6 then
+        for i = lineCount+1, 6 do
+            textLines[#textLines + 1] = " "
+        end
+    end
+    -- Display the text
+    local text = table.concat(textLines, '\n')
+    if text == '' then
+        -- Suppress the default text 'Type Here'
+        text = emptyText
+    end
+    if totaldice==0
+    then
+        totaltext = ' '
+
+    else
+        totaltext='\nTot: '..totaldice
+
+    end
+    if lineCount>6 then
+        fontSize=defaultFontSize-((lineCount-6)*37)
+        divisionLabel=defaultDivisionLabel
+
+    else
+        fontSize=defaultFontSize
+        divisionLabel=""
+    end
+    self.editButton({index=0, label=text..totaltext, font_size=fontSize})
+    self.editButton({index=1, label=divisionLabel})
+end
+
+function swapPipColor()
+  if pipColorBtn.color == "Black" then
+    pipColorBtn.label = "White"
+    pipColorBtn.color = "White"
+    pipColorBtn.font_color = "Black"
+  else
+    pipColorBtn.label = "Black"
+    pipColorBtn.color = "Black"
+    pipColorBtn.font_color = "White"
+  end
+
+  self.editButton(pipColorBtn)
+end

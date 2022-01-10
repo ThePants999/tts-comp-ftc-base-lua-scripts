@@ -1,0 +1,435 @@
+-- FTC-GUID: f1d9a1
+-- DECK MAT RED d4fb23
+loaded =false
+itemList={}
+itemCounter=0
+itemBagObjGUID="8ec6e6"
+menuX=1.8
+menuY=0.3
+menuZ=-0.1
+menuOpen=false
+maxPages=8
+page=1
+pps=5 -- pages per sheet
+itemX=0
+itemRotY=90
+selectedItemName=""
+bntAlreadyCleared=true
+spawnedItemPresent=false
+previousPlayerItemGuid=""
+spawnedItemConfirmed=false
+itemBag= nil
+spawnedItem= nil
+itemDisplayed={}
+loadingBtn={
+    index =0, label="--->\nUse menu\nto load bag\n\nClick here\nto initialize", click_function="initMenu", function_owner=self,
+    position={0,menuY,0}, rotation={0,0,0}, height=800, width=700,
+    font_size=100, color={0,0,0}, font_color={1,1,1}
+}
+killBtn={
+    index =0, label="Click here if item already present", click_function="hideInitialMenu", function_owner=self,
+    position={0,menuY,2}, rotation={0,0,0}, height=800, width=4000,
+    font_size=250, color={0.5,0,0}, font_color={1,1,1}
+}
+openListBtn = {
+    label="S\nh\no\nw\n\nm\ne\nn\nu", click_function="showHideMenu", function_owner=self,
+    position={menuX-1,menuY,0}, rotation={0,0,0}, height=1000, width=120,
+    font_size=90, color={0,0,0}, font_color={1,1,1}
+}
+optionsBtn={}
+for i=1, pps do
+    optionsBtn[i]={
+        index= i, label="Option "..i, click_function="click_Opt"..i, function_owner=self,
+        position={menuX,menuY,-1.1+(i*0.4)+menuZ}, rotation={0,0,0}, height=175, width=600,
+        font_size=50, color={1,1,1}, font_color={0,0,0}
+    }
+end
+
+sxBtn={
+    index= 6, label="<-", click_function="pageDown", function_owner=self,
+    position={menuX-0.8,menuY,-0.9+(pps * 0.2)+menuZ}, rotation={0,0,0}, height=175, width=150,
+    font_size=50, color={0,0,0}, font_color={1,1,1}
+}
+dxBtn={
+    index= 7, label="->", click_function="pageUp", function_owner=self,
+    position={menuX+0.8,menuY,-0.9+(pps * 0.2)+menuZ}, rotation={0,0,0}, height=175, width=150,
+    font_size=50, color={0,0,0}, font_color={1,1,1}
+}
+labelConfirm="CONFIRM BAG\n(no more changes)"
+confirmBtn={
+    index= 8, label=labelConfirm, click_function="confirmItem", function_owner=self,
+    position={menuX-1.75+2.15,menuY,1.3-1.3}, rotation={0,0,0}, height=280, width=800,
+    font_size=90, color={0,0.5,0}, font_color={1,1,1}
+}
+
+
+
+function onSave()
+    --itemBag.destroy()
+    local svGuid=""
+    if spawnedItem ~= nil then
+        svGuid=spawnedItem.getGUID()
+    end
+
+    saved_data = JSON.encode({confirmed=spawnedItemConfirmed, svPlayerItemGuid=svGuid, svbtnbntAlreadyCleared=bntAlreadyCleared, svspawnedItemPresent=spawnedItemPresent})
+    return saved_data
+end
+
+function onLoad(saved_data)
+
+-- LOADING DATA
+    if saved_data ~= "" then
+        local loaded_data = JSON.decode(saved_data)
+        if loaded_data["svPlayerItemGuid"] ~= nil then
+            previousPlayerItemGuid=loaded_data["svPlayerItemGuid"]
+            spawnedItem=getObjectFromGUID(previousPlayerItemGuid)
+        end
+        if loaded_data["confirmed"] ~= nil then
+            spawnedItemConfirmed = loaded_data["confirmed"]
+        end
+        if loaded_data["svbtnbntAlreadyCleared"] ~= nil then
+            btnbntAlreadyCleared = loaded_data["svbtnbntAlreadyCleared"]
+        end
+        if loaded_data["svspawnedItemPresent"] ~= nil then
+            spawnedItemPresent = loaded_data["svspawnedItemPresent"]
+        end
+    end
+
+-- DISPLAY MENU
+    if spawnedItem~= nil and spawnedItemConfirmed == false then
+        initMenu()
+        showHideMenu()
+    else
+        if spawnedItemConfirmed == false then
+            self.createButton(loadingBtn)
+        end
+    end
+
+-- SETTING POSITION VALUES
+    if self.getRotation().y==180 then
+        itemX=-itemX
+        itemRotY=-itemRotY
+    end
+
+end
+
+function createClone() -- NOT USED
+    self.clearButtons()
+    loadingBtn.label="Loading ..."
+    self.createButton(loadingBtn)
+    --itemBagOriginal=getObjectFromGUID(itemBagObjGUID)
+    --itemBagPosition = {self.getPosition().x,self.getPosition().y-3,self.getPosition().z}
+    --itemBag=itemBagOriginal.clone({position = itemBagPosition, snap_to_grid = false})
+    itemBag=getObjectFromGUID(itemBagObjGUID)
+    initMenu()
+    --Wait.condition(initMenu, itemBagLoaded, 15, none)
+end
+
+ function hideInitialMenu()
+     self.clearButtons()
+ end
+
+function initMenu()
+    self.clearButtons()
+    loadingBtn.label="Loading ..."
+    self.createButton(loadingBtn)
+    itemBag=getObjectFromGUID(itemBagObjGUID)
+    prepareVars()
+    --Wait.time(prepareVars, 0.5)
+end
+
+function showHideMenu()
+    if menuOpen == false then
+        writePage(page)
+        menuOpen= true
+    else
+        self.clearButtons()
+        openListBtn.position = {menuX-0.7,menuY,0}
+        openListBtn.font_size =  80
+        openListBtn.label="C\nh\na\nn\ng\ne\n\nb\na\ng\n"
+        self.createButton(openListBtn)
+        menuOpen= false
+        if spawnedItemPresent==true then
+            self.createButton(confirmBtn)
+        end
+    end
+end
+
+function onUpdate()
+    if spawnedItem == nil then
+        spawnedItemPresent=false
+    end
+    if spawnedItem == nil and bntAlreadyCleared== false then
+        bntAlreadyCleared= true
+        destroyConfirmBtn()
+    end
+end
+
+function destroyConfirmBtn()
+    local btnList = self.getButtons()
+    for i, btn in ipairs(btnList) do
+        if btn["label"] == labelConfirm then
+            self.removeButton(btn["index"])
+        end
+    end
+end
+
+
+function itemBagLoaded()  --NOT USED
+    if itemBag.spawning == true then
+        return true
+    else
+        return false
+    end
+end
+
+function ListNotNil()  --NOT USED
+    if itemBag.getCustomObject()["type"]== 6 then
+        return true
+    else
+        return false
+    end
+end
+
+
+
+function sortAlphabetically(tbl)
+    local sort_func = function( a,b ) return a.name < b.name end
+    table.sort( tbl, sort_func )
+end
+
+function prapareList2()
+    itemList=itemBag.getObjects()
+    sortAlphabetically(itemList)
+    rename = itemList[1]
+    rename["name"]="Default Item"
+    itemList[1]=rename
+end
+
+function prepareVars()
+    prepareList()
+    prepareCount()
+    maxPages= math.ceil(itemCounter/pps)
+    showHideMenu()
+end
+
+function prepareList()
+    itemList=itemBag.getObjects()
+    sortAlphabetically(itemList)
+    --rename = itemList[1]
+    --rename["name"]="Default Item"
+    --itemList[1]=rename
+end
+
+function prepareCount()
+    for i, obj in ipairs(itemList) do
+        itemCounter=itemCounter+1
+    end
+end
+
+function pageUp()
+    page=page+1
+    writePage(page)
+end
+
+function pageDown()
+    page=page-1
+    writePage(page)
+end
+
+function writePage(number)
+    self.clearButtons()
+    -- GETTING OPTIONS
+        showSides=true
+        if self.getDescription()=="" then
+            self.setDescription('{\n"ShowSides":"yes",\n"Order":"2",\n"SidesCAPITAL":"yes"\n}')
+        end
+        options=JSON.decode(self.getDescription())
+        sidesCapital=true
+        displayType=options.Order  -- 0 = No Sides, 1 = Sides first, 2 = Factions first
+        if options.ShowSides=="yes" then
+            showSides=true
+        end
+        if options.ShowSides=="no" then
+            showSides=false
+            displayType="0"
+        end
+        if options.SidesCAPITAL=="no" then
+            sidesCapital=false
+        end
+
+    -- END OPTIONS
+    openListBtn.position = {menuX+1.1,menuY,0}
+    openListBtn.font_size =  90
+    openListBtn.label="H\ni\nd\ne\n\nm\ne\nn\nu"
+    self.createButton(openListBtn)
+    for i=1, pps do
+        local lbl=""
+        local index=(number*pps)-(pps-i)
+        local name
+        if index <= itemCounter then
+            itemDisplayed[i]=itemList[(number*pps)-(pps-i)].name
+            name=itemDisplayed[i]
+            lbl=nameToLabel(displayType, name)
+            --lbl=itemList[(number*pps)-(pps-i)].name
+
+            --[[
+            if lbl=="0Base Item" then
+                lbl="Base Item"
+            end
+
+            ]]--
+            optionsBtn[i].label=lbl
+            self.createButton(optionsBtn[i])
+        end
+
+    end
+
+    if number ~= 1 then
+        self.createButton(sxBtn)
+    end
+    if number ~= maxPages then
+        self.createButton(dxBtn)
+    end
+    if spawnedItemPresent==true then
+        --self.createButton(confirmBtn)
+    end
+end
+
+
+
+function click_Opt1()
+    --print("One")
+    --selectedItemName=optionsBtn[1].label
+    selectedItemName=itemDisplayed[1]
+    spawnPlayerItem()
+end
+
+function click_Opt2()
+    --print("Two")
+    selectedItemName=itemDisplayed[2]
+    spawnPlayerItem()
+end
+
+function click_Opt3()
+    --print("Three")
+    selectedItemName=itemDisplayed[3]
+    spawnPlayerItem()
+end
+
+function click_Opt4()
+    --print("Four")
+    selectedItemName=itemDisplayed[4]
+    spawnPlayerItem()
+end
+
+function click_Opt5()
+    --print("Five")
+    selectedItemName=itemDisplayed[5]
+    spawnPlayerItem()
+end
+
+function confirmItem()
+    spawnedItemConfirmed=true
+    self.clearButtons()
+end
+
+function spawnPlayerItem(itemName)
+    if selectedItemName=="Base Item" then
+        selectedItemName="0Base Item"
+    end
+    showHideMenu()
+    destroyConfirmBtn()
+    if spawnedItem ~= nil then
+        spawnedItem.destroy()
+        spawnedItemPresent=false
+    end
+    --print("Spawning "..selectedItemName)
+    local found = false
+    for a=1, 5 do
+        for i, item in ipairs(itemList) do
+            if item.name == selectedItemName then
+                --itemBag.takeObject()
+                --print("Spawning "..item.name )
+
+                spawnedItemPosition= {self.getPosition().x+itemX,0.77,self.getPosition().z}
+                spawnedItem = itemBag.takeObject({guid= item.guid, position =spawnedItemPosition, rotation ={0,0,0}, smooth=false, callback_function=flipShuffle})
+                local replacement=spawnedItem.clone({position= {55.50,-3,-14}})
+                itemBag.putObject(replacement)
+                spawnedItem.setLock(true)
+                spawnedItem.setScale({1.5,1.5,1.5})
+                found=true
+            end
+
+        end
+        if found== true then
+            return
+        end
+    end
+    Wait.time(prepareList , 1)
+end
+
+function flipShuffle()
+    self.createButton(confirmBtn)
+    bntAlreadyCleared= false
+    spawnedItemPresent=true
+    --print("Flip")
+    --spawnedItem.flip()
+--    print("Shuffle")
+    --spawnedItem.shuffle()
+
+end
+
+function none()
+end
+
+function prepareDropdown()
+
+
+end
+
+function writeVars()
+    print("Total: "..itemCounter)
+    print("List")
+    for i, obj in ipairs(itemList) do
+            local num=i
+            if i<10 then
+                print("  " .. num .. " " .. obj.name)
+            else
+                print(num .. " " .. obj.name)
+            end
+
+    end
+    print("/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|/|")
+end
+
+function nameToLabel(_order, txt)
+    local _lbl=""
+    local lines={}
+    txt=string.sub(txt, 3)
+    for line in string.gmatch(txt, "[^-]+") do
+        table.insert(lines, line)
+    end
+    if sidesCapital then
+        lines[1]=string.upper(lines[1])
+    end
+    if _order == "0" then
+        _lbl=lines[2]
+    end
+    if _order == "1" then
+
+        _lbl=lines[1].."\n"..lines[2]
+    end
+    if _order == "2" then
+
+        _lbl=lines[2].."\n"..lines[1]
+    end
+    return _lbl
+end
+
+function test(obj, color, alt_click)
+    showHideMenu()
+    print(obj)
+    print(color)
+    print(alt_click)
+end

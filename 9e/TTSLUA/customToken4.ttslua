@@ -1,0 +1,4 @@
+-- FTC-GUID: 50cc4f
+function onLoad()
+self.interactable=false
+end

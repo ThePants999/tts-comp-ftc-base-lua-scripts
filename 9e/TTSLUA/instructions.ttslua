@@ -1,0 +1,32 @@
+-- FTC-GUID: d553e3
+keepForTerrainEditor = true
+
+offsetX=13
+offsetY=2
+offsetZ=7
+scaleBtn={2,2,2}
+fontSize=380
+fontColor={1,1,1}
+btnColor={0.5,0,0.5}
+infoTerrainBtn={
+    label="TERRAIN\n\nINSTRUCTIONS", click_function="showTerrainInstructions", function_owner=self,
+    position={offsetX,offsetY,offsetZ}, rotation={0,0,0}, height=2000, width=2700,
+    font_size=fontSize, color=btnColor, font_color=fontColor, scale=scaleBtn
+}
+infoGameBtn={
+    label="GAME\n\nINSTRUCTIONS", click_function="showGameInstructions", function_owner=self,
+    position={-offsetX,offsetY,offsetZ}, rotation={0,0,0}, height=2000, width=2700,
+    font_size=fontSize, color=btnColor, font_color=fontColor, scale=scaleBtn
+}
+function onLoad(save_state)
+    self.setRotation({0,270,0})
+    self.setPosition({88,-1,0})
+    self.createButton(infoTerrainBtn)
+    self.createButton(infoGameBtn)
+end
+function showTerrainInstructions()
+    Global.call("openTerrain")
+end
+function showGameInstructions()
+    Global.call("openGame")
+end
