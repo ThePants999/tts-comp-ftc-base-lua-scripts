@@ -36690,7 +36690,7 @@
       "Hands": false,
       "CustomMesh": {
         "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1461932452813595690/91831FA376A4FED1DD74269E69379812C4BB7C2C/",
-        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/1461932452813587950/73E884004E03FAE6D0724FAA21466931D9CD3A79/",
+        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/1852668822286409731/61D509C3A16DD82714A573493E3A13E04D5B2DCA/",
         "NormalURL": "",
         "ColliderURL": "",
         "Convex": true,
@@ -36709,7 +36709,7 @@
         "CastShadows": true
       },
       "LuaScript": "",
-      "LuaScriptState": "{\"packsData\":[],\"primary\":[[[0,0,0],[0,0,0]],[[0,0,0],[0,0,0]],[[0,0,0],[0,0,0]],[[0,0,0],[0,0,0]]],\"scoresheetActive\":false,\"secondary\":[[[0,0,0,\"\",\"Click to cycle secondary objectives,\\nright-click to cycle backwards.\"],[0,0,0,\"\",\"Click to cycle secondary objectives,\\nright-click to cycle backwards.\"],[0,0,0,\"\",\"Click to cycle secondary objectives,\\nright-click to cycle backwards.\"]],[[0,0,0,\"\",\"Click to cycle secondary objectives,\\nright-click to cycle backwards.\"],[0,0,0,\"\",\"Click to cycle secondary objectives,\\nright-click to cycle backwards.\"],[0,0,0,\"\",\"Click to cycle secondary objectives,\\nright-click to cycle backwards.\"]]],\"selectedPack\":{\"data\":[],\"index\":0}}",
+      "LuaScriptState": "",
       "XmlUI": ""
     },
     {

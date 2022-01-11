@@ -5,130 +5,28 @@
 version_card = "2021-02-10"
 version_data = "error"
 
-repo =     "https://raw.githubusercontent.com/GenWilhelm/tts_score_card/master/9e/"
-mainRepo = "https://raw.githubusercontent.com/GenWilhelm/tts_score_card/master/9e/"
-altRepo = "https://raw.githubusercontent.com/PhubarBCS/ttsTest/master/"
+repo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
 usePhubarVersion = true
--- Phubar edit
+
 victoryCounterGuid={}
 victoryCounterGuid[1]="8b0541"
 victoryCounterGuid[2]="a77a54"
 
-enableBtn = { label="ENABLE\nETERNAL WAR\nSCORESHEET\n\n(click here)\n\nDon't enable if you\nwant to keep track\nof VPs manually\non counters ", width = 6500,	height = 9500, click_function = 'enableSheet', font_size = 1600,
+-- Button indexes
+BTN_IX_PRIMARY_2 = 1
+BTN_IX_PRIMARY_3 = 2
+BTN_IX_PRIMARY_4 = 3
+BTN_IX_PRIMARY_5 = 4
+BTN_IX_MISSION = 5
+BTN_IX_SECONDARIES = 6
+
+enableBtn = { label="ENABLE\nGT\nSCORESHEET\n\n(click here)\n\nDon't enable if you\nwant to keep track\nof VPs manually\non counters ", width = 6500,	height = 9500, click_function = 'enableSheet', font_size = 1600,
 		function_owner = self,	position = {1, -0.05, -1}, rotation = {0, 90, 180},	tooltip = "", color="Black", font_color="White"
 }
 
 scoresheetActive=false
 spawner_GUID = {"cff35b","471de1"}
 changeSpawnerPack = true
-
-function initPackPhb(index_web)
-	packsIDs = JSON.decode(index_web.text)
-	version_data = packsIDs.ver -- not used
-end
-
-function enableSheet()
-	scoresheetActive=true
-	--writeMenu()
-	self.script_state = onSave()
-	onload(self.script_state)
-	startGameObj= getObjectFromGUID(Global.getVar("startMenu_GUID"))
-	redObjSpawner= getObjectFromGUID("cff35b")
-	Wait.time(function() if not startGameObj.getVar("inGame") then packFromExt({index= redObjSpawner.GetTable("selected")[1]} ) end end, 1.5)
-end
-
-
-function addSecondaryForPlayer(params)
-	local sheetParams= getParams()
-	if Player[params.clicker].steam_name == sheetParams.P1 then
-		for i=1, 3 do
-			if button[5][i][4].label == "" then
-				sec_xyFromExternal(1, i, false, params.secID)
-				return
-			end
-		end
-		printToColor("No more space!", params.clicker, "Red")
-		return
-	end
-	if Player[params.clicker].steam_name == sheetParams.P2 then
-		for i=1, 3 do
-			if button[5][i+3][4].label == "" then
-					sec_xyFromExternal(2, i, false, params.secID )
-					return
-			end
-		end
-		printToColor("No more space!", params.clicker, "Red")
-		return
-	end
-	printToColor("Register yourself to scoresheet first!", params.clicker, "Red")
-end
-
-function sec_xyFromExternal(x, y, alt, id)
-	if selectedPack.index ~= 0 then
-		local value = secondary[x][y][1]
-		--local num_sec = #selectedPack.data.objectives
-		local num_sec = -1
-		for _ in pairs(selectedPack.data.objectives) do num_sec = num_sec + 1 end
-
-		local diff = 1
-		if alt then diff = -1 end
-
-		local category = ""
-
-		repeat
-			value = value + diff
-
-			if value > num_sec then
-				value = 0
-			elseif value < 0 then
-				value = num_sec
-			end
-
-			category = selectedPack.data.objectives[ tostring(value) ].category
-		until
-		(
-			value == 0
-			or
-			(
-				(y == 1 or category ~= secondary[x][1][3]) and
-				(y == 2 or category ~= secondary[x][2][3]) and
-				(y == 3 or category ~= secondary[x][3][3])
-			)
-		)
-
-		secondary[x][y][1] = value
-		secondary[x][y][3] = category
-
-		local w = 0
-		if x == 1 then
-			w = y
-		else
-			w = y + 3
-		end
-
-		if id then
---			print("Argument id "..id)
-			for i, obj in pairs(selectedPack.data.objectives) do
---				print("fido")
-				for j, val in pairs(obj) do
-				--	print(j)
-				--	print(val)
-				end
-				if obj.id == id then
---					print("FOUND "..obj.name.."  ID "..obj.id)
-					value = i
-					break
-				end
-			end
-		end
-
-		secondary[x][y][4] = selectedPack.data.objectives[tostring(value)].name
-		secondary[x][y][5] = selectedPack.data.objectives[tostring(value)].description
-		updateAll(true)
-	end
-end
-
--- END Phubar edit
 
 -- round, player, scored
 primary = {
@@ -137,6 +35,12 @@ primary = {
 	{{0,0,0}, {0,0,0}},
 	{{0,0,0}, {0,0,0}}
 }
+
+-- id, name, primary, mission
+mission = {0, "", "", "Click to cycle mission packs,\nright-click to cycle backwards."}
+
+-- player
+mission_score = {0, 0}
 
 -- player, secondary, (id, score, category, name, description)
 defaultSec = {0, 0, 0, "", "Click to cycle secondary objectives,\nright-click to cycle backwards."}
@@ -219,12 +123,115 @@ packButton = {
 
 p = 1
 
+function initPackPhb(index_web)
+	packsIDs = JSON.decode(index_web.text)
+	version_data = packsIDs.ver -- not used
+end
+
+function enableSheet()
+	scoresheetActive=true
+	--writeMenu()
+	self.script_state = onSave()
+	onload(self.script_state)
+	startGameObj= getObjectFromGUID(Global.getVar("startMenu_GUID"))
+	redObjSpawner= getObjectFromGUID("cff35b")
+	Wait.time(function() if not startGameObj.getVar("inGame") then packFromExt({index= redObjSpawner.GetTable("selected")[1]} ) end end, 1.5)
+end
+
+
+function addSecondaryForPlayer(params)
+	local sheetParams= getParams()
+	if Player[params.clicker].steam_name == sheetParams.P1 then
+		for i=1, 3 do
+			if button[BTN_IX_SECONDARIES][i][4].label == "" then
+				sec_xyFromExternal(1, i, false, params.secID)
+				return
+			end
+		end
+		printToColor("No more space!", params.clicker, "Red")
+		return
+	end
+	if Player[params.clicker].steam_name == sheetParams.P2 then
+		for i=1, 3 do
+			if button[BTN_IX_SECONDARIES][i+3][4].label == "" then
+					sec_xyFromExternal(2, i, false, params.secID )
+					return
+			end
+		end
+		printToColor("No more space!", params.clicker, "Red")
+		return
+	end
+	printToColor("Register yourself to scoresheet first!", params.clicker, "Red")
+end
+
+function sec_xyFromExternal(x, y, alt, id)
+	if selectedPack.index ~= 0 then
+		local value = secondary[x][y][1]
+		--local num_sec = #selectedPack.data.objectives
+		local num_sec = -1
+		for _ in pairs(selectedPack.data.objectives) do num_sec = num_sec + 1 end
+
+		local diff = 1
+		if alt then diff = -1 end
+
+		local category = ""
+
+		repeat
+			value = value + diff
+
+			if value > num_sec then
+				value = 0
+			elseif value < 0 then
+				value = num_sec
+			end
+
+			category = selectedPack.data.objectives[ tostring(value) ].category
+		until
+		(
+			value == 0
+			or
+			(
+				(y == 1 or category ~= secondary[x][1][3]) and
+				(y == 2 or category ~= secondary[x][2][3]) and
+				(y == 3 or category ~= secondary[x][3][3])
+			)
+		)
+
+		secondary[x][y][1] = value
+		secondary[x][y][3] = category
+
+		local w = 0
+		if x == 1 then
+			w = y
+		else
+			w = y + 3
+		end
+
+		if id then
+			for i, obj in pairs(selectedPack.data.objectives) do
+				for j, val in pairs(obj) do
+				end
+				if obj.id == id then
+					value = i
+					break
+				end
+			end
+		end
+
+		secondary[x][y][4] = selectedPack.data.objectives[tostring(value)].name
+		secondary[x][y][5] = selectedPack.data.objectives[tostring(value)].description
+		updateAll(true)
+	end
+end
+
 function onload(save_data) -- PHUBAR version
 	if save_data ~= "" then
 		local data = JSON.decode(save_data)
 		if data then
 			scoresheetActive = data.scoresheetActive
 			primary = data.primary
+			mission = data.mission
+			mission_score = data.mission_score
 			secondary = data.secondary
 			packsData = data.packsData
 			selectedPack = data.selectedPack
@@ -241,7 +248,6 @@ function onload(save_data) -- PHUBAR version
 		self.setLock(true)
 		local spawnerR= getObjectFromGUID(spawner_GUID[1])
 		local spawnerB= getObjectFromGUID(spawner_GUID[2])
-		repo = mainRepo -- altRepo or mainRepo
 
 		if spawnerR then
 			spawnerR.call("setRepoUrl", {url=repo})
@@ -291,7 +297,9 @@ function onload(save_data) -- PHUBAR version
 		local b_ypos = -3.75
 		local b_index = 5
 
-		for i=1,4 do
+		-- Primary objective scoring buttons
+
+		for i=BTN_IX_PRIMARY_2,BTN_IX_PRIMARY_5 do
 			button[i] = {}
 			b_xpos = -6.15
 
@@ -309,7 +317,7 @@ function onload(save_data) -- PHUBAR version
 						function_owner = self,
 						position = {0, -0.05, 0},
 						rotation = {0, 90, 180},
-						tooltip = "Total 0-15"
+						tooltip = "Total 0-12"
 					}
 
 					newButton.index = b_index
@@ -338,16 +346,95 @@ function onload(save_data) -- PHUBAR version
 				b_xpos = 0.4
 			end
 
-			b_ypos = b_ypos + 2.5
+			b_ypos = b_ypos + 1.95
 		end
 
+		-- Mission scoring buttons
 
-		button[5] = {}
-		b_xpos = -1.9
+		button[BTN_IX_MISSION] = {}
 		b_ypos = b_ypos - 0.1
 
+		for i=1,2 do
+			button[BTN_IX_MISSION][i] = {}
+
+			-- Score buttons
+			if i == 1 then b_xpos = -6.2 else b_xpos = 4.2 end
+			local newButton = {
+				index = b_index,
+				width = 500,
+				height = 500,
+				label = "0",
+				click_function = 'nothing',
+				font_size = 400,
+				function_owner = self,
+				position = {b_ypos, -0.05, b_xpos},
+				rotation = {0, 90, 180},
+				tooltip = "Mission"
+			}
+			b_index = b_index + 1
+			button[BTN_IX_MISSION][i][1] = newButton
+			self.createButton(newButton)
+
+			-- Score modification buttons
+			if i == 1 then b_xpos = -5.4 else b_xpos = 3.4 end
+
+			for j=1,2 do
+				local smallButton = {
+					index = b_index,
+					width = 250,
+					height = 250,
+					label = "",
+					click_function = 'nothing',
+					font_size = 200,
+					function_owner = self,
+					position = {0, -0.05, 0},
+					rotation = {0, 90, 180},
+					tooltip = ""
+				}
+				b_index = b_index + 1
+
+				if j == 1 then
+					smallButton.position = {b_ypos - 0.25, -0.05, b_xpos}
+					smallButton.label = "+"
+					smallButton.click_function = 'mis_plus_' .. i
+				else
+					smallButton.position = {b_ypos + 0.25, -0.05, b_xpos}
+					smallButton.label = "-"
+					smallButton.click_function = 'mis_sub_' .. i
+				end
+
+				button[BTN_IX_MISSION][i][j+1] = smallButton
+				self.createButton(smallButton)
+			end
+		end
+
+		-- Mission selection button
+
+		local nameButton = {
+			index = b_index,
+			width = 3800,
+			height = 500,
+			label = "",
+			click_function = 'cycle_mission',
+			font_size = 300,
+			function_owner = self,
+			position = {b_ypos, -0.05, -1.0},
+			rotation = {0, 90, 180},
+			tooltip = "Click to cycle selected mission,\nright-click to cycle backwards."
+		}
+		b_index = b_index + 1
+
+		button[BTN_IX_MISSION][3] = nameButton
+		self.createButton(nameButton)
+
+		-- Secondary scoring buttons
+
+		button[BTN_IX_SECONDARIES] = {}
+		b_xpos = -1.9
+		b_ypos = b_ypos + 1.95
+
 		for i=1,6 do
-			button[5][i] = {}
+			button[BTN_IX_SECONDARIES][i] = {}
 
 			local newButton = {
 				index = 0,
@@ -367,8 +454,8 @@ function onload(save_data) -- PHUBAR version
 
 			newButton.position = {b_ypos, -0.05, b_xpos}
 
-			button[5][i][1] = newButton
-			self.createButton( button[5][i][1] )
+			button[BTN_IX_SECONDARIES][i][1] = newButton
+			self.createButton( button[BTN_IX_SECONDARIES][i][1] )
 
 			local ind = secIndex(i)
 
@@ -399,8 +486,8 @@ function onload(save_data) -- PHUBAR version
 					smallButton.click_function = 'sub_' .. ind[1] .. ind[2]
 				end
 
-				button[5][i][j+1] = smallButton
-				self.createButton( button[5][i][j+1] )
+				button[BTN_IX_SECONDARIES][i][j+1] = smallButton
+				self.createButton( button[BTN_IX_SECONDARIES][i][j+1] )
 			end
 
 			local nameButton = {
@@ -409,7 +496,7 @@ function onload(save_data) -- PHUBAR version
 				height = 350,
 				label = "",
 				click_function = 'nothing',
-				font_size = 200,
+				font_size = 180,
 				function_owner = self,
 				position = {0, -0.05, 0},
 				rotation = {0, 90, 180},
@@ -422,8 +509,8 @@ function onload(save_data) -- PHUBAR version
 			nameButton.position = {b_ypos, -0.05, b_xpos - 3.1}
 			nameButton.click_function = 'sec_' .. ind[1] .. ind[2]
 
-			button[5][i][4] = nameButton
-			self.createButton( button[5][i][4] )
+			button[BTN_IX_SECONDARIES][i][4] = nameButton
+			self.createButton( button[BTN_IX_SECONDARIES][i][4] )
 
 			b_ypos = b_ypos + 1
 
@@ -446,16 +533,18 @@ function onload(save_data) -- PHUBAR version
 	end
 end
 
-
 function onSave()
 	local save_data = {
 		scoresheetActive = scoresheetActive,
 		primary = primary,
+		mission = mission,
+		mission_score = mission_score,
 		secondary = secondary,
 		packsData = packsData,
 		selectedPack = selectedPack
 	}
-	return JSON.encode(save_data)
+	local encoded_data = JSON.encode(save_data)
+	return encoded_data
 end
 
 function onScriptingButtonDown(index, color)
@@ -513,6 +602,15 @@ function updateAll(reset)
 	local reset = false -- fix for letting FACTION SPECIFIC to be a separate pack
 	for i=1,4 do
 		for j=1,2 do
+			local tooltip = "Hold 1+"
+			if mission[3] == "Domination" then tooltip = "Hold 2+" end
+			button[i][j][1].tooltip = tooltip
+			self.editButton(button[i][j][1])
+			tooltip = "Hold 2+"
+			if mission[3] == "Domination" then tooltip = "Hold 3+" end
+			button[i][j][2].tooltip = tooltip
+			self.editButton(button[i][j][2])
+
 			for k=1,3 do
 				if reset then primary[i][j][k] = 0 end
 				updatePrimary(i, j ,k)
@@ -521,6 +619,13 @@ function updateAll(reset)
 	end
 
 	for n=1,2 do
+		if reset then mission_score[n] = 0 end
+		updateMission(n)
+
+		button[BTN_IX_MISSION][3].label = mission[2]
+		button[BTN_IX_MISSION][3].tooltip = mission[4]
+		self.editButton(button[BTN_IX_MISSION][3])
+
 		for m=1,3 do
 			if reset then secondary[n][m] = defaultSec end
 			updateSecondary(n, m)
@@ -534,9 +639,9 @@ function updateAll(reset)
 				l = m + 3
 			end
 
-			button[5][l][4].label = secondary[n][m][4]
-			button[5][l][4].tooltip = keywords:encode( secondary[n][m][5] )
-			self.editButton( button[5][l][4] )
+			button[BTN_IX_SECONDARIES][l][4].label = secondary[n][m][4]
+			button[BTN_IX_SECONDARIES][l][4].tooltip = keywords:encode( secondary[n][m][5] )
+			self.editButton( button[BTN_IX_SECONDARIES][l][4] )
 		end
 	end
 
@@ -582,6 +687,7 @@ function getPacks()
 	WebRequest.get( repo .. id .. ".json", function(pack_web)
 		local pack_data = JSON.decode(pack_web.text)
 		local obj = {}
+		local mis = {}
 
 		obj["0"] = {
 			faction = "",
@@ -589,21 +695,27 @@ function getPacks()
 			name = "",
 			description = "Click to cycle secondary objectives,\nright-click to cycle backwards."
 		}
+		mis["0"] = {
+			name = "",
+			primary = "",
+			mission = "Click to cycle selected mission,\nright-click to cycle backwards."
+		}
 
 		local i = 1
+		for _, mission in ipairs(pack_data.missions) do
+			mis[tostring(i)] = mission
+			i = i + 1
+		end
 
+		i = 1
 		for _, faction in ipairs(pack_data.factions) do
 			for _, category in ipairs(faction.categories) do
 				for _, objective in ipairs(category.objectives) do
 					objective.faction = faction.name
 					objective.category = category.name
 
-					if objective.name == "While We Stand, We Fight" then objective.name = "We Stand, We Fight" end
-					--yes this is stupid and hacky, don't @ me.
-
 					obj[tostring(i)] = objective
 					i = i + 1
-					--table.insert(obj, objective)
 				end
 			end
 		end
@@ -611,6 +723,7 @@ function getPacks()
 		table.insert(packsData, {
 			ver = pack_data.ver,
 			name = pack_data.name,
+			missions = mis,
 			objectives = obj
 		})
 
@@ -682,6 +795,9 @@ function unwarn()
 end
 
 function plusOne(x, y, alt)
+	-- Increment player X's score for secondary Y.
+	-- alt is true if right-clicked, increments by 5.
+
 	local diff = 1
 	if alt then diff = 5 end
 
@@ -693,6 +809,9 @@ function plusOne(x, y, alt)
 end
 
 function subOne(x, y, alt)
+	-- Decrement player X's score for secondary Y.
+	-- alt is true if right-clicked, decrements by 5.
+
 	local diff = 1
 	if alt then diff = 5 end
 
@@ -704,6 +823,10 @@ function subOne(x, y, alt)
 end
 
 function updateSecondary(x, y)
+	-- Make UI/score changes as a result of player X's score for secondary Y
+	-- having changed.
+
+	-- Determine button index. Player 1 has indices 1-3, player 2 has 4-6.
 	local w = 0
 	if x == 1 then
 		w = y
@@ -711,8 +834,50 @@ function updateSecondary(x, y)
 		w = y + 3
 	end
 
-	button[5][w][1].label = tostring( secondary[x][y][2] )
-	self.editButton(button[5][w][1])
+	-- Update the button to reflect the new score for this secondary.
+	button[BTN_IX_SECONDARIES][w][1].label = tostring( secondary[x][y][2] )
+	self.editButton(button[BTN_IX_SECONDARIES][w][1])
+
+	-- Recalculate the player's score and update the corresponding button.
+	playerTotal[x].label = tostring( playerSum(x) )
+	self.editButton(playerTotal[x])
+end
+
+function mis_plus_1()
+	misPlus(1)
+end
+
+function mis_plus_2()
+	misPlus(2)
+end
+
+function misPlus(x)
+	local mis = mission_score[x] + 1
+	if mis > 15 then mis = 15 end
+	mission_score[x] = mis
+	updateMission(x)
+end
+
+function mis_sub_1()
+	misSub(1)
+end
+
+function mis_sub_2()
+	misSub(2)
+end
+
+function misSub(x)
+	local mis = mission_score[x] - 1
+	if mis < 0 then mis = 0 end
+	mission_score[x] = mis
+	updateMission(x)
+end
+
+function updateMission(x)
+	-- Make UI/score changes as a result of player X's mission score having
+	-- changed.
+	button[BTN_IX_MISSION][x][1].label = tostring(mission_score[x])
+	self.editButton(button[BTN_IX_MISSION][x][1])
 
 	playerTotal[x].label = tostring( playerSum(x) )
 	self.editButton(playerTotal[x])
@@ -779,7 +944,7 @@ function battleRoundSum(values)
 		sum = sum + values[i]
 	end
 
-	return sum * 5
+	return sum * 4
 end
 
 function playerSum(pId)
@@ -787,6 +952,7 @@ function playerSum(pId)
 	for j = 1,4 do
 		pri_sum = pri_sum + battleRoundSum( primary[j][pId] )
 	end
+	pri_sum = pri_sum + mission_score[pId]
 	if pri_sum > 45 then pri_sum = 45 end
 
 	local sec_sum = 0
@@ -862,6 +1028,33 @@ function pName(p, obj, clicker, alt)
 	self.editButton(playerOneTitle)
 	self.editButton(playerTwoTitle)
 	self.setDescription(JSON.encode_pretty(params))
+end
+
+function cycle_mission(_, _, alt)
+	-- Click handler for mission selection.
+	if selectedPack.index ~= 0 then
+		local num_mis = -1
+		local current_mission = mission[1]
+		for _ in pairs(selectedPack.data.missions) do num_mis = num_mis + 1 end
+
+		local diff = 1
+		if alt then diff = -1 end
+
+		current_mission = current_mission + diff
+		if current_mission > num_mis then
+			current_mission = 0
+		elseif current_mission < 0 then
+			current_mission = num_mis
+		end
+
+		mission[1] = current_mission
+		mission_data = selectedPack.data.missions[tostring(current_mission)]
+		mission[2] = mission_data.name
+		mission[3] = mission_data.primary
+		mission[4] = mission_data.mission
+
+		updateAll(true)
+	end
 end
 
 function sec_xy(x, y, alt)

@@ -113,12 +113,8 @@ end
 
 function makeAnnouncement()
     local features={
-    'Secondary Objectives now stay selected.',
-    'Memory Leak resolved from Kustom Dice Roller.',
-    'Keywords are now displayed in different font for readability.',
-    'Terrain extractor is now fixed.',
-    'Score Sheet is locked upon startup.',
-    'Can swap between white/black pip dice.'
+    'Score sheet updated for GT22.',
+    'TODO more coming'
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -1113,7 +1109,7 @@ objectivesData = {
         {id = 5, name = "EW #5 Scorched Earth", objectives = {{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={12, objectivesOffset, -12}},{type = "fixed", pos={12, objectivesOffset, 12}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={-12, objectivesOffset, -12}},{type = "fixed", pos={-12, objectivesOffset, 12}}}},
         {id = 6, name = "EW #6 Vital Intelligence", objectives = {{type = "diagonal", orientation="xz", pos={18}}, {type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}},}},
 
-        {id = 12, name =  "GT20 #11 Retrieval Mission", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
+        {id = 12, name = "GT20 #11 Retrieval Mission", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
         {id = 13, name = "GT20 #12 Scorched Earth", objectives = {{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={12, objectivesOffset, -12}},{type = "fixed", pos={12, objectivesOffset, 12}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={-12, objectivesOffset, -12}},{type = "fixed", pos={-12, objectivesOffset, 12}}}},
         {id = 14, name = "GT20 #13 Vital Intelligence", objectives = {{type = "diagonal", orientation="xz", pos={18}}, {type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}}}},
         {id = 15, name = "GT20 #21 Surround and Destroy", objectives = {{type = "fixed", pos={10, objectivesOffset, 0}},{type = "fixed", pos={20, objectivesOffset, -14}},{type = "fixed", pos={20, objectivesOffset, 14}},{type = "fixed", pos={-10, objectivesOffset, 0}},{type = "fixed", pos={-20, objectivesOffset, -14}},{type = "fixed", pos={-20, objectivesOffset, 14}}}},

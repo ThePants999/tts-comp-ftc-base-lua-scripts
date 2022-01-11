@@ -12,3 +12,4 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 ### v2.35
 
 * Hard forked from https://github.com/Zyllos/tts_ftc_base_lua_scripts
+* Score sheet updated to support (only) GT22
