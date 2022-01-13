@@ -2712,7 +2712,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "",
-      "LuaScriptState": "{\"svcheckEnd\":false,\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploymentPregamePlaced\":true,\"svdeploySelected\":22,\"svdeployTypeSelected\":8,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":3,\"svobjectivesSelected\":21,\"svobjectivesTypeSelected\":5,\"svsizeConfirmed\":false}",
+      "LuaScriptState": "{\"svcheckEnd\":false,\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploymentPregamePlaced\":true,\"svdeploySelected\":10,\"svdeployTypeSelected\":1,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":3,\"svobjectivesSelected\":10,\"svobjectivesTypeSelected\":1,\"svsizeConfirmed\":false}",
       "XmlUI": ""
     },
     {

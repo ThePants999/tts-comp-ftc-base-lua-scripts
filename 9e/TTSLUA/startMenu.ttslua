@@ -281,143 +281,36 @@ end
 
 -- DEPLOY ZONES MANAGER
 DeployZonesData = {
-    {  id=5 , type = "Legacy 4x4",  objectivesID = 5 ,
-    zones={
-        {name = "#1 4x4 Spearhead Assault", draw = {--[[1]]{type = "arrow", color="Teal", position = "x", fromCenter = 9, fromEdge = 12, wide=0},--[[2]]{type = "arrow", color="Red", position = "-x", fromCenter = 9, fromEdge = 12, wide=0}}},
-        {name = "#2 4x4 Dawn of War", draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12}}},
-        {name = "#3 4x4 Search and Destroy", draw = {--[[1]]{type = "quarter", color = "Teal", position = "x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "-xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-        {name = "#4 4x4 Hammer and Hanvil", draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-        {name = "#5 4x4 Front-Line Assault", draw = {--[[1]]{type = "arrow", color="Teal", position = "-z", fromCenter = 9, fromEdge = 6, wide=0},--[[2]]{type = "arrow", color="Red", position = "z", fromCenter = 9, fromEdge = 6, wide=0}}},
-        {name = "#6 4x4 Vanguard Strike", draw = {--[[1]]{type = "diagonal", color = "Teal", position = "z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "-z" , fromCenter = 12}}},
-        {name = "None", draw = {type = "none"}},
+    { id=1 , type = "Strike Force",
+        zones={
+            {name = "GT20 #11 Retrieval Mission", objectivesID= 12, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
+            {name = "GT20 #12 Scorched Earth", objectivesID= 13, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
+            {name = "GT20 #13 Vital Intelligence", objectivesID= 14,draw = {--[[1]]{type = "diagonal", color = "Teal", position = "-z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "z" , fromCenter = 12}}},
+            {name = "GT20 #21 Surround and Destroy", objectivesID= 15, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
+            {name = "GT20 #22 Battle Lines", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0}}},
+            {name = "GT20 #23 The Scouring", objectivesID= 17, draw = {--[[1]]{type = "rectangle", color="Teal", position = "x", fromCenter = 14, wide=14},--[[2]]{type = "rectangle", color="Red", position = "-x", fromCenter = 14, wide=14}}},
+            {name = "GT20 #31 Overrun", objectivesID= 18, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
+            {name = "GT20 #32 Sweep and Clear",  objectivesID= 19, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "GT20 #33 Priority Target",  objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+
+            {name = "None", draw = {type = "none"}},
         }
     },
+    { id=2 , type = "Incursion",
+        zones={
+            {name = "GT20 #11 Crossfire",  objectivesID= 12, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "GT20 #12 Resupply", objectivesID= 13, draw = {--[[1]]{type = "line", color = "Teal", position = "z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "-z", fromCenter = 9}}},
+            {name = "GT20 #13 Raid", objectivesID= 14, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "GT20 #21 Centre Ground",  objectivesID= 15, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "GT20 #22 Ascension", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 9}}},
+            {name = "GT20 #23 Forward Push", objectivesID= 17, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "GT20 #31 Rise of the Machine Spirit",  objectivesID= 18, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "GT20 #32 Show of Force", objectivesID= 19, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "GT20 #33 Reconaissance Mission",  objectivesID= 20, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
 
-{ id=6 , type = "Legacy 6x4",  objectivesID = 5 ,
-    zones={
-        {name = "#1 6x4 Spearhead Assault", draw = {--[[1]]{type = "arrow", color="Teal", position = "x", fromCenter = 9, fromEdge = 12, wide=0},--[[2]]{type = "arrow", color="Red", position = "-x", fromCenter = 9, fromEdge = 12, wide=0}}},
-        {name = "#2 6x4 Dawn of War", draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "#3 6x4 Search and Destroy", draw = {--[[1]]{type = "quarter", color = "Teal", position = "x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "-xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-        {name = "#4 6x4 Hammer and Hanvil", draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-        {name = "#5 6x4 Front-Line Assault", draw = {--[[1]]{type = "arrow", color="Teal", position = "-z", fromCenter = 9, fromEdge = 6, wide=0},--[[2]]{type = "arrow", color="Red", position = "z", fromCenter = 9, fromEdge = 6, wide=0}}},
-        {name = "#6 6x4 Vanguard Strike", draw = {--[[1]]{type = "diagonal", color = "Teal", position = "z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "-z" , fromCenter = 12}}},
-        {name = "None", draw = {type = "none"}},
+            {name = "None", draw = {type = "none"}},
         }
     },
-{ id=7 , type = "Legacy 8x4",  objectivesID = 5 ,
-    zones={
-        {name = "#1 8x4 Spearhead Assault", draw = {--[[1]]{type = "arrow", color="Teal", position = "x", fromCenter = 9, fromEdge = 12, wide=0},--[[2]]{type = "arrow", color="Red", position = "-x", fromCenter = 9, fromEdge = 12, wide=0}}},
-        {name = "#2 8x4 Dawn of War", draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12}}},
-        {name = "#3 8x4 Search and Destroy", draw = {--[[1]]{type = "quarter", color = "Teal", position = "x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "-xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-        {name = "#4 8x4 Hammer and Hanvil", draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-        {name = "#5 8x4 Front-Line Assault", draw = {--[[1]]{type = "arrow", color="Teal", position = "-z", fromCenter = 9, fromEdge = 6, wide=0},--[[2]]{type = "arrow", color="Red", position = "z", fromCenter = 9, fromEdge = 6, wide=0}}},
-        {name = "#6 8x4 Vanguard Strike", draw = {--[[1]]{type = "diagonal", color = "Teal", position = "z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "-z" , fromCenter = 12}}},
-        {name = "None", draw = {type = "none"}},
-        }
-    },
-{ id=8 ,  type = "Kill Team",  objectivesID = -1,
-    zones={
-        {name = "#1 KT Sweep and Clear", draw = {--[[1]]{type = "quarter", color = "Teal", position = "x-z", fromCenter = 5,},--[[2]]{type = "quarter", color = "Red", position = "-xz", fromCenter = 5, },--[[3]]{type = "circle", color = "White", fromCenter = 5}}},
-        {name = "#2 KT Take Prisoners", draw = {--[[1]]{type = "quarter", color = "Teal", position = "x-z", fromCenter = 6,},--[[2]]{type = "quarter", color = "Red", position = "-xz", fromCenter = 6, },--[[3]]{type = "circle", color = "White", fromCenter = 6}}},
-        {name = "#3 KT Recover Intelligence", draw = {--[[1]]{type = "arrow", color="Teal", position = "-z", fromCenter = 5, fromEdge = 0, wide=6},--[[2]]{type = "arrow", color="Red", position = "z", fromCenter = 5, fromEdge = 0, wide=6}}},
-        {name = "#4 KT Terror Tactics", draw = {--[[1]]{type = "rectangle", color="Teal", position = "x", fromCenter = 6, wide=6},--[[2]]{type = "rectangle", color="Red", position = "-x", fromCenter = 6, wide=6}}},
-        {name = "None", draw = {type = "none"}},
-    }
-},
-{id=0 ,  type = "Open Hostility",
-    zones={
-        {name = "OH #1 Annihilation",  objectivesID= 0, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 10},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 10},--[[3]]{type = "circle", color = "White", fromCenter = 10}}},
-        {name = "OH #2 Hold at all Costs", objectivesID= 0, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 5 },--[[1]]{type = "line", color = "Teal", position = "-x", fromCenter = 5 },--[[2]]{type = "line", color = "Red", position = "x", fromCenter = 17, fromEdge = 0},{type = "line", color = "Red", position = "-x", fromCenter = 17, fromEdge = 0}}},
-        {name = "OH #3 Pathway to Glory", objectivesID= 0, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0}}},
-
-        {name = "None", draw = {type = "none"}},
-    }
-},
-{ id=1 , type = "Combat Patrol",
-    zones={
-        {name = "EW #1 Incisive attack", objectivesID= 1, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-        {name = "EW #2 Outriders", objectivesID= 2, draw = {--[[1]]{type = "quarter", color = "Teal", position = "xz", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "-x-z", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-        {name = "EW #3 Encircle", objectivesID= 3, draw = {--[[1]]{type = "corner", color="Teal", position = "z", fromCenter = 9, wide=6},--[[2]]{type = "corner", color="Red", position = "-z", fromCenter = 9,  wide=6}}},
-        {name = "Cr #1 Sweep and Clear", objectivesID= 4, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12},--[[3]]{type = "line", color = "Black", position = "x", fromCenter = 3},--[[4]]{type = "line", color = "Black", position = "-x", fromCenter = 3}}},
-        {name = "Cr #2 Supply drop", objectivesID= 5, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 10},--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 10},--[[3]]{type = "circle", color = "White", fromCenter = 6}}},
-        {name = "Cr #3 Assassinate", objectivesID= 0, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 0},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 10},--[[3]]{type = "circleInZone", color = "Teal", position = "x", fromCenter = 6, deployFromCenter=0}}},
-        {name = "None", draw = {type = "none"}},
-    }
-},
-{ id=2 , type = "Incursion",
-    zones={
-        {name = "EW #1 Divide and Conquer", objectivesID= 1, draw = {--[[1]]{type = "line", color="Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color="Red", position = "-x", fromCenter = 12}}},
-        {name = "EW #2 Crossfire",  objectivesID= 2, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-        {name = "EW #3 Centre Ground",  objectivesID= 3, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
-        {name = "EW #4 Forward Push", objectivesID= 4, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-        {name = "EW #5 Ransack", objectivesID= 5, draw = {--[[1]]{type = "line", color = "Teal", position = "z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "-z", fromCenter = 9}}},
-        {name = "EW #6 Shifting Front", objectivesID= 6, draw = {--[[1]]{type = "line", color = "Teal", position = "z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "-z", fromCenter = 9}}},
-
-        {name = "GT20 #11 Crossfire",  objectivesID= 12, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-        {name = "GT20 #12 Resupply", objectivesID= 13, draw = {--[[1]]{type = "line", color = "Teal", position = "z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "-z", fromCenter = 9}}},
-        {name = "GT20 #13 Raid", objectivesID= 14, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-        {name = "GT20 #21 Centre Ground",  objectivesID= 15, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
-        {name = "GT20 #22 Ascension", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 9}}},
-        {name = "GT20 #23 Forward Push", objectivesID= 17, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-        {name = "GT20 #31 Rise of the Machine Spirit",  objectivesID= 18, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-        {name = "GT20 #32 Show of Force", objectivesID= 19, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-        {name = "GT20 #33 Reconaissance Mission",  objectivesID= 20, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-
-
-        {name = "Cr #1 Supply Cache", objectivesID= 7, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 10},--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 10}}},
-        {name = "Cr #2 The Relic", objectivesID= 8, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12},--[[3]]{type = "circle", color = "White", fromCenter = 6}}},
-        {name = "Cr #3 Sabotage", objectivesID= 9, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 0},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 9}}},
-        {name = "Cr #4 Reckon Patrol", objectivesID= 10, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 10},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 10},--[[3]]{type = "circle", color = "White", fromCenter = 10}}},
-        {name = "Cr #5 The Ritual", objectivesID= 11, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 0},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12},--[[3]]{type = "circleInZone", color = "Teal", position = "x", fromCenter = 3, deployFromCenter=0}}},
-        {name = "Cr #6 Behind Enemy Lines", objectivesID= 0, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 10},--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 10}}},
-
-        {name = "None", draw = {type = "none"}},
-    }
-},
-{ id=3 , type = "Strike force",
-    zones={
-        {name = "EW #1 Retrieval Mission", objectivesID= 1, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
-        {name = "EW #2 Front-line Warfare", objectivesID= 2, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "EW #3 The Four Pillars",  objectivesID= 3, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-        {name = "EW #4 No Man's Land", objectivesID= 4, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0}}},
-        {name = "EW #5 Scorched Earth", objectivesID= 5, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "EW #6 Vital Intelligence", objectivesID= 6,draw = {--[[1]]{type = "diagonal", color = "Teal", position = "-z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "z" , fromCenter = 12}}},
-
-        {name = "GT20 #11 Retrieval Mission", objectivesID= 12, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
-        {name = "GT20 #12 Scorched Earth", objectivesID= 13, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "GT20 #13 Vital Intelligence", objectivesID= 14,draw = {--[[1]]{type = "diagonal", color = "Teal", position = "-z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "z" , fromCenter = 12}}},
-        {name = "GT20 #21 Surround and Destroy", objectivesID= 15, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "GT20 #22 Battle Lines", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0}}},
-        {name = "GT20 #23 The Scouring", objectivesID= 17, draw = {--[[1]]{type = "rectangle", color="Teal", position = "x", fromCenter = 14, wide=14},--[[2]]{type = "rectangle", color="Red", position = "-x", fromCenter = 14, wide=14}}},
-        {name = "GT20 #31 Overrun", objectivesID= 18, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "GT20 #32 Sweep and Clear",  objectivesID= 19, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-        {name = "GT20 #33 Priority Target",  objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
-
-
-
-        {name = "Cr #1 Supplies from Above", objectivesID= 7, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "Cr #2 Narrow the Search", objectivesID= 8, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12},--[[3]]{type = "circle", color = "White", fromCenter = 12},--[[4]]{type = "circle", color = "White", fromCenter = 18}}},
-        {name = "Cr #3 Cut off the Head",  objectivesID= 9, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 12},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 12},--[[3]]{type = "circle", color = "White", fromCenter = 12}}},
-        {name = "Cr #4 Retrieval", objectivesID= 10, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 0, fromEdge = 0}}},
-        {name = "Cr #5 Raze and Ruin", objectivesID= 11, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0},--[[2]]{type = "line", color = "Black", position = "z", fromCenter = 3, fromEdge = 0},{type = "line", color = "Black", position = "-z", fromCenter = 3, fromEdge = 0}}},
-        {name = "Cr #6 Ambush", objectivesID= 0, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 5 },--[[2]]{type = "line", color = "Teal", position = "z", fromCenter = 5, fromEdge = 0},{type = "line", color = "Red", position = "z", fromCenter = 17, fromEdge = 0},{type = "line", color = "Red", position = "-z", fromCenter = 17, fromEdge = 0}}},
-
-        {name = "None", draw = {type = "none"}},
-    }
-},
-{id=4 ,  type = "Onslaught",
-    zones={
-        {name = "EW #1 Lines of Battle",  objectivesID= 1, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 12},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 12},--[[3]]{type = "circle", color = "White", fromCenter = 12}}},
-        {name = "EW #2 All-out War", objectivesID= 2, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "EW #3 Pathway to Glory", objectivesID= 3, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0},--[[3]]{type = "circle", color = "White", fromCenter = 12}}},
-
-
-        {name = "Cr #1 Firestorm", objectivesID= 0, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "Cr #2 Grand assault", objectivesID= 4, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 0 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-        {name = "Cr #3 Field of Glory", objectivesID= 5, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-        {name = "None", draw = {type = "none"}},
-    }
-},
 }
 
 
@@ -946,7 +839,7 @@ nextPhaseBtn = {
     font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
 }
 
-notePadTxt = "This is version 2.0+ of Forty Thousand Collection 'FTC' gaming template for Warhammer 40k.\nBACON CAT BUG DOES NOT WORK ON THIS MOD ANYMORE!\nSO DONT CONTACT HIM!.\n\nBy default hands are hidden as per CA 19 Rules.\n\nInstructions can be found by clicking the relative purple buttons on the table.\n\nThe Notepad contains the full credits.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nHere some Discord TTS servers for 40k\n\ndiscord.gg/neuautf\n\ndiscord.gg/XkBbs5M"
+notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported. Please see xxx for other mission packs.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found by clicking the relative purple buttons on the table.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
 --
 menuX = 15
 menuZ = 1.05-1.05
@@ -1048,37 +941,23 @@ oldITCobj={
 }
 
 objectivesData = {
-    {   id=-1 , type = "None",
+    {   id=1 , type = "Strike Force",
         objectivesList={
-            {id = 0, name = "None", objectives = {} },
-        }
-    },
-    {   id=0 , type = "Open Hostility",
-        objectivesList={
-            {id = 0, name = "None", objectives = {} },
-        }
-    },
-    {   id=1 , type = "Combat Patrol",
-        objectivesList={
-            {id = 1, name = "EW #1 Incisive attack", objectives = {{type = "fixed", pos={16, objectivesOffset, 0}},{type = "fixed", pos={-16, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 9}},{type = "fixed", pos={0, objectivesOffset, -9}}}},
-            {id = 2, name = "EW #2 Outriders", objectives = {{type = "fixed", pos={14, objectivesOffset, 9}},{type = "fixed", pos={14, objectivesOffset, -9}},{type = "fixed", pos={-14, objectivesOffset, 9}},{type = "fixed", pos={-14, objectivesOffset, -9}}}},
-            {id = 3, name = "EW #3 Encircle", objectives = {{type = "fixed", pos={16, objectivesOffset, 3}},{type = "fixed", pos={6, objectivesOffset, -6}},{type = "fixed", pos={-16, objectivesOffset, -3}},{type = "fixed", pos={-6, objectivesOffset, 6}}}},
-
-            {id = 4, name = "Cr #1 Sweep and Clear", objectives = crusade4obj },
-            {id = 5, name = "Cr #2 Supply drop", objectives = crusade3obj },
+            {id = 12, name = "GT20 #11 Retrieval Mission", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
+            {id = 13, name = "GT20 #12 Scorched Earth", objectives = {{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={12, objectivesOffset, -12}},{type = "fixed", pos={12, objectivesOffset, 12}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={-12, objectivesOffset, -12}},{type = "fixed", pos={-12, objectivesOffset, 12}}}},
+            {id = 14, name = "GT20 #13 Vital Intelligence", objectives = {{type = "diagonal", orientation="xz", pos={18}}, {type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}}}},
+            {id = 15, name = "GT20 #21 Surround and Destroy", objectives = {{type = "fixed", pos={10, objectivesOffset, 0}},{type = "fixed", pos={20, objectivesOffset, -14}},{type = "fixed", pos={20, objectivesOffset, 14}},{type = "fixed", pos={-10, objectivesOffset, 0}},{type = "fixed", pos={-20, objectivesOffset, -14}},{type = "fixed", pos={-20, objectivesOffset, 14}}}},
+            {id = 16, name = "GT20 #22 Battle Lines", objectives = {{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 14}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -14}}}},
+            {id = 17, name = "GT20 #23 The Scouring", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 14}},{type = "fixed", pos={8, objectivesOffset, -14}},{type = "fixed", pos={-8, objectivesOffset, 14}},{type = "fixed", pos={-8, objectivesOffset, -14}}}},
+            {id = 18, name = "GT20 #31 Overrun", objectives = {{type = "fixed", pos={16, objectivesOffset, 10}},{type = "fixed", pos={16, objectivesOffset, -10}},{type = "fixed", pos={0, objectivesOffset, 16}}, {type = "fixed", pos={-16, objectivesOffset, 10}},{type = "fixed", pos={-16, objectivesOffset, -10}},{type = "fixed", pos={0, objectivesOffset, -16}}}},
+            {id = 19, name = "GT20 #32 Sweep and Clear", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+            {id = 20, name = "GT20 #33 Priority Target", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
 
             {id = 0, name = "None", objectives = {} },
         }
     },
     {   id=2 , type = "Incursion",
         objectivesList={
-            {id = 1, name = "EW #1 Divide and Conquer", objectives = {{type = "fixed", pos={10, objectivesOffset, 0}},{type = "fixed", pos={-10, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 10}},{type = "fixed", pos={0, objectivesOffset, -10}}}},
-            {id = 2, name = "EW #2 Crossfire", objectives = {{type = "fixed", pos={12, objectivesOffset, 10}},{type = "fixed", pos={-12, objectivesOffset, -10}},{type = "fixed", pos={12, objectivesOffset, -10}},{type = "fixed", pos={-12, objectivesOffset, 10}}}},
-            {id = 3, name = "EW #3 Centre Ground", objectives = {{type = "fixed", pos={12, objectivesOffset, -8}},{type = "fixed", pos={-12, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
-            {id = 4, name = "EW #4 Forward Push", objectives = {{type = "fixed", pos={16, objectivesOffset, 6}},{type = "fixed", pos={6, objectivesOffset, -9}},{type = "fixed", pos={-6, objectivesOffset, 9}},{type = "fixed", pos={-16, objectivesOffset, -6}}}},
-            {id = 5, name = "EW #5 Ransack", objectives = {{type = "fixed", pos={16, objectivesOffset, 7}},{type = "fixed", pos={16, objectivesOffset, -7}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={-16, objectivesOffset, 7}},{type = "fixed", pos={-16, objectivesOffset, -7}},{type = "fixed", pos={0, objectivesOffset, -12}}}},
-            {id = 6, name = "EW #6 Shifting Front", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, -12}}}},
-
             {id = 12, name = "GT20 #11 Crossfire", objectives = {{type = "fixed", pos={12, objectivesOffset, 10}},{type = "fixed", pos={-12, objectivesOffset, -10}},{type = "fixed", pos={12, objectivesOffset, -10}},{type = "fixed", pos={-12, objectivesOffset, 10}}}},
             {id = 13, name = "GT20 #12 Resupply", objectives = {{type = "fixed", pos={16, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -12}},{type = "fixed", pos={-16, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
             {id = 14, name = "GT20 #13 Raid", objectives = {{type = "fixed", pos={14, objectivesOffset, 8}},{type = "fixed", pos={14, objectivesOffset, -8}},{type = "fixed", pos={-14, objectivesOffset, 8}},{type = "fixed", pos={-14, objectivesOffset, -8}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, -12}}}},
@@ -1089,67 +968,14 @@ objectivesData = {
             {id = 19, name = "GT20 #32 Show of Force", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 10}},{type = "fixed", pos={0, objectivesOffset, -10}}}},
             {id = 20, name = "GT20 #33 Reconaissance Mission", objectives = {{type = "fixed", pos={12, objectivesOffset, 10}},{type = "fixed", pos={-12, objectivesOffset, -10}},{type = "fixed", pos={12, objectivesOffset, -10}},{type = "fixed", pos={-12, objectivesOffset, 10}}}},
 
-
-
-            {id = 7,  name = "Cr #1 Supply Cache", objectives = crusade4obj },
-            {id = 8,  name = "Cr #2 The Relic", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 9,  name = "Cr #3 Sabotage", objectives =crusade4obj },
-            {id = 10, name = "Cr #4 Reckon Patrol", objectives = crusade4obj },
-            {id = 11, name = "Cr #5 The Ritual", objectives = crusade4obj },
-
             {id = 0, name = "None", objectives = {} },
         }
     },
-    {   id=3 , type = "Strike Force",
-    objectivesList={
-        {id = 1, name = "EW #1 Retrieval Mission", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
-        {id = 2, name = "EW #2 Front-line Warfare", objectives = {{type = "fixed", pos={16, objectivesOffset, 0}},{type = "fixed", pos={-16, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 16}},{type = "fixed", pos={0, objectivesOffset, -16}}}},
-        {id = 3, name = "EW #3 The Four Pillars ", objectives = {{type = "fixed", pos={15, objectivesOffset, 10}},{type = "fixed", pos={-15, objectivesOffset, -10}},{type = "fixed", pos={15, objectivesOffset, -10}},{type = "fixed", pos={-15, objectivesOffset, 10}}}},
-        {id = 4, name = "EW #4  No Man's Land", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, -12}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-        {id = 5, name = "EW #5 Scorched Earth", objectives = {{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={12, objectivesOffset, -12}},{type = "fixed", pos={12, objectivesOffset, 12}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={-12, objectivesOffset, -12}},{type = "fixed", pos={-12, objectivesOffset, 12}}}},
-        {id = 6, name = "EW #6 Vital Intelligence", objectives = {{type = "diagonal", orientation="xz", pos={18}}, {type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}},}},
-
-        {id = 12, name = "GT20 #11 Retrieval Mission", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
-        {id = 13, name = "GT20 #12 Scorched Earth", objectives = {{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={12, objectivesOffset, -12}},{type = "fixed", pos={12, objectivesOffset, 12}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={-12, objectivesOffset, -12}},{type = "fixed", pos={-12, objectivesOffset, 12}}}},
-        {id = 14, name = "GT20 #13 Vital Intelligence", objectives = {{type = "diagonal", orientation="xz", pos={18}}, {type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}}}},
-        {id = 15, name = "GT20 #21 Surround and Destroy", objectives = {{type = "fixed", pos={10, objectivesOffset, 0}},{type = "fixed", pos={20, objectivesOffset, -14}},{type = "fixed", pos={20, objectivesOffset, 14}},{type = "fixed", pos={-10, objectivesOffset, 0}},{type = "fixed", pos={-20, objectivesOffset, -14}},{type = "fixed", pos={-20, objectivesOffset, 14}}}},
-        {id = 16, name = "GT20 #22 Battle Lines", objectives = {{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 14}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -14}}}},
-        {id = 17, name = "GT20 #23 The Scouring", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 14}},{type = "fixed", pos={8, objectivesOffset, -14}},{type = "fixed", pos={-8, objectivesOffset, 14}},{type = "fixed", pos={-8, objectivesOffset, -14}}}},
-        {id = 18, name = "GT20 #31 Overrun", objectives = {{type = "fixed", pos={16, objectivesOffset, 10}},{type = "fixed", pos={16, objectivesOffset, -10}},{type = "fixed", pos={0, objectivesOffset, 16}}, {type = "fixed", pos={-16, objectivesOffset, 10}},{type = "fixed", pos={-16, objectivesOffset, -10}},{type = "fixed", pos={0, objectivesOffset, -16}}}},
-        {id = 19, name = "GT20 #32 Sweep and Clear", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-        {id = 20, name = "GT20 #33 Priority Target", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-
-        {id = 7,   name = "Cr #1 Supplies from Above", objectives = crusade6obj },
-        {id = 8,   name = "Cr #2 Narrow the Search", objectives = crusade4obj },
-        {id = 9,   name = "Cr #3 Cut off the Head", objectives = crusade2obj },
-        {id = 10,  name = "Cr #4 Retrieval", objectives = crusade6obj },
-        {id = 11,  name = "Cr #5 Raze and Ruin", objectives = crusade6obj },
-
-        {id = 0, name = "None", objectives = {} },
-    }
-    },
-    {   id=4 , type = "Onslaught",
+    {   id=-1 , type = "None",
         objectivesList={
-            {id = 1, name = "EW #1 Lines of Battle", objectives = {{type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={30}},{type = "diagonal", orientation="x-z", pos={48}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={30}},{type = "diagonal", orientation="-xz", pos={48}}}},
-            {id = 2, name = "EW #2 All-out War", objectives = {{type = "fixed", pos={24, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -6}},{type = "fixed", pos={-24, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 6}},{type = "fixed", pos={30, objectivesOffset, 20}},{type = "fixed", pos={30, objectivesOffset, -20}},{type = "fixed", pos={-30, objectivesOffset, 20}},{type = "fixed", pos={-30, objectivesOffset, -20}}}},
-            {id = 3, name = "EW #3 Pathway to Glory", objectives = {{type = "fixed", pos={12, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -12}},{type = "fixed", pos={-12, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={24, objectivesOffset, 16}},{type = "fixed", pos={24, objectivesOffset, -16}},{type = "fixed", pos={-24, objectivesOffset, 16}},{type = "fixed", pos={-24, objectivesOffset, -16}}}},
-
-            {id = 4,  name = "Cr #2 Grand Assault", objectives = crusade8obj },
-            {id = 5,  name = "Cr #3 Field of Glory", objectives = crusade8obj },
-
             {id = 0, name = "None", objectives = {} },
         }
     },
-    {   id=5 , rotateUp = true, type = "ITC objectives ( 8th ed )",
-        objectivesList=oldITCobj
-    },
-    --[[{   id=6 , rotateUp = true, type = "#2 Custom",
-        objectivesList=oldITCobj
-    },
-    {   id=7 , rotateUp = true, type = "#3 Custom",
-        objectivesList=oldITCobj
-    },]]
-
 }
 
 function spawnObjectives()
@@ -1477,6 +1303,7 @@ function writeIngameMenu()
     self.createButton(deployIngameBtn)
     self.createButton(areaBtn)
     self.createButton(quartersBtn)
+    print("Deploy type: " .. deployTypeSelected)
     local DeployListSelected=DeployZonesData[deployTypeSelected].zones
     btnA.label = DeployListSelected[deploySelected].name
     if #objectivesData[objectivesTypeSelected]>0 then
