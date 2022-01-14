@@ -13824,55 +13824,6 @@
       "XmlUI": ""
     },
     {
-      "GUID": "51ee2f",
-      "Name": "Custom_Model",
-      "Transform": {
-        "posX": 80.0,
-        "posY": -5.0,
-        "posZ": 0.0,
-        "rotX": 0.0799,
-        "rotY": 89.9897,
-        "rotZ": 359.9831,
-        "scaleX": 0.1,
-        "scaleY": 0.1,
-        "scaleZ": 0.1
-      },
-      "Nickname": "#3: Search and Destroy",
-      "Description": "",
-      "GMNotes": "",
-      "ColorDiffuse": {
-        "r": 0.5,
-        "g": 0.5,
-        "b": 0.5
-      },
-      "LayoutGroupSortIndex": 0,
-      "Locked": true,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/929311677228557194/2C2FD3DC79EE5E844D6BFAA49ECF6B21C72A246A/",
-        "DiffuseURL": "",
-        "NormalURL": "",
-        "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/929311677228789723/30C5477595CD1E06E955200433657907C192EA8A/",
-        "Convex": false,
-        "MaterialIndex": 3,
-        "TypeIndex": 0,
-        "CastShadows": false
-      },
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": ""
-    },
-    {
       "GUID": "573333",
       "Name": "Custom_Tile",
       "Transform": {
