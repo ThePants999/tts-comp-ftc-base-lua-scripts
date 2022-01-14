@@ -47,12 +47,6 @@ function onLoad(saved_data)
     if simulation then print("THIS IS "..currentTurn.." TURN") end
     -- DEPLOY MENU VARIABLES
     deployBag = {} -- not used
-    KTitems = getObjectFromGUID(KTitemsGUID)
-    if sizeData[mapSizeSelected].type == "KT" then
-        phases=phasesKT
-    else
-        phases=phases40k
-    end
     _40Kitems = getObjectFromGUID(_40KitemsGUID)
 
     -- REST OF CODE
@@ -87,7 +81,6 @@ function onLoad(saved_data)
     if not inGame then
         makeAnnouncement()
     end
-    --KTitems.call("buttonClick_recall")
 end
 
 function onSave()
@@ -114,7 +107,8 @@ end
 function makeAnnouncement()
     local features={
     'Score sheet updated for GT22.',
-    'Non-GT missions removed from DZ/objective selector',
+    'Non-GT missions removed from DZ/objective selector.',
+    'Unused features removed: action camera, old psychic power/token bags, old KT support.',
     'TODO more coming'
     }
     printToAll("NEW FEATURES:", "Yellow")
@@ -130,11 +124,6 @@ sizeData={
     {type="9th", id=2, name='I n c u r s i o n - 44" x 30"', scale={1.22,1,0.83}, defaultObjectives=0},
     {type="9th", id=3, name='S t r i k e   F o r c e - 44" x 60"', scale={0.83*2,1,1.22}, defaultObjectives=0},
     {type="9th", id=4, name='O n s l a u g h t - 44" x 90"', scale={0.83*3,1,1.22}, defaultObjectives=0},
-    {type="8th", id=5, name="L e g a c y   -   4' x 4'", scale={1.33,1,1.333}, defaultObjectives=0},
-    {type="8th", id=6, name="L e g a c y   -   6' x 4'", scale={2,1,1.333}, defaultObjectives=0},
-    {type="8th", id=7, name="L e g a c y   -   8' x 4'", scale={2.66,1,1.333}, defaultObjectives=0},
-    {type="KT",  id=8, name='K i l l     T e a m   -   30" x 20"', scale={0.83,1,0.61}, defaultObjectives=0},
-
 }
 
 menuSizeX = 0
@@ -232,12 +221,6 @@ function confirmSizeMat(type)
     gameMode= type
     sizeConfirmed=true
     mat.setScale(sizeData[mapSizeSelected].scale)
-    if sizeData[mapSizeSelected].type == "KT" then
-        KTitems.call("buttonClick_place")
-        phases=phasesKT
-    else
-        phases=phases40k
-    end
     --updateDeployObjectivesSelection()
     self.setRotation({0,270,0})
     writeMenus()
@@ -809,7 +792,6 @@ end
 
 
 showBagsVariable = false
-KTitemsGUID = "d6cb38"
 _40KitemsGUID = "5549a7"
 simulation = false -- is used to test in single player
 redFirstLbl = "R  e  d    p l a y e r    f i r s t\n(click to toggle)"
@@ -820,8 +802,7 @@ checkEnd = false -- used to display or not the ingame labels of deployment and i
 armyMover = ""
 first = "Red"
 currentTurn = "Red"
-phases40k = {"Command", "Movement", "Psychic", "Shooting", "Charge", "Fight", "Morale"}
-phasesKT = {"Initiative", "Movement", "Psychic", "Shooting", "Fight", "Morale"}
+phases = {"Command", "Movement", "Psychic", "Shooting", "Charge", "Fight", "Morale"}
 currentPhase = 1
 startBtn = {
     index = 1, label = "S T A R T  G A M E", click_function = "startGame", function_owner = self,
@@ -847,7 +828,7 @@ menuZ = 1.05-1.05
 arrowOffset = 7.5
 -- DEPLOY ZONES VARIABLES
 
-otherBagsGUID = { "5549a7", "d6cb38"} -- 40k / kt tems
+otherBagsGUID = { "5549a7" } -- 40k items
 --deployBagGUID={}
 
 deploymentIngamePlaced = false
@@ -1315,10 +1296,6 @@ function writeIngameMenu()
 
     nextPhaseBtn.color = currentTurn
     local visibleTo=nextPhaseBtn.color
-    if sizeData[mapSizeSelected].type == "KT" then
-        nextPhaseBtn.color = "Grey"
-        visibleTo=""
-    end
     Global.UI.setAttribute("passTurn", "visibility", visibleTo)
     Global.UI.setAttribute("passTurnBtn", "color", nextPhaseBtn.color)
     nextPhaseBtn.label = phases[currentPhase].."\nNEXT PHASE"
@@ -1401,7 +1378,6 @@ function nextPhaseFromGlobal(params)
 end
 
 function nextPhase(obj, player_color_click, alt_click)
-    if player_color_click ~= currentTurn and sizeData[mapSizeSelected].type ~= "KT" then return end
     resetActivationTokens()
     if alt_click then
         passTurn(obj, player_color_click, alt_click)
@@ -1589,7 +1565,7 @@ function deployTypeUpDown(upDown)
     end
     objectivesSelected = #objectivesData[objectivesTypeSelected].objectivesList
     deploySelected = #DeployZonesData[deployTypeSelected].zones
-    --print("Set dep to "..deploySelected)
+
     writeMenus()
     placeDeploy()
     destroyAllObjectives()
@@ -1788,9 +1764,6 @@ end
 function recallAll()
     destroyAllObjectives()
     destroyDeployZones()
-    if KTitems then
-        KTitems.call("buttonClick_recall")
-    end
 end
 
 function none()
