@@ -108,8 +108,7 @@ function makeAnnouncement()
     local features={
     'Score sheet updated for GT22.',
     'Non-GT missions removed from DZ/objective selector.',
-    'Unused features removed: action camera, old psychic power/token bags, old KT support.',
-    'TODO more coming'
+    'Unused features removed: action camera, old psychic power/token bags, old KT support, 8e map sizes.',
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
