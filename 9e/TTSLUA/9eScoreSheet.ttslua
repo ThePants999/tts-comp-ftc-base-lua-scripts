@@ -6,7 +6,6 @@ version_card = "2021-02-10"
 version_data = "error"
 
 repo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
-usePhubarVersion = true
 
 victoryCounterGuid={}
 victoryCounterGuid[1]="8b0541"
@@ -224,7 +223,7 @@ function sec_xyFromExternal(x, y, alt, id)
 	end
 end
 
-function onload(save_data) -- PHUBAR version
+function onload(save_data)
 	if save_data ~= "" then
 		local data = JSON.decode(save_data)
 		if data then
@@ -237,26 +236,24 @@ function onload(save_data) -- PHUBAR version
 			selectedPack = data.selectedPack
 		end
 	end
-----------
-	if usePhubarVersion then
-		self.clearButtons()
-		if not scoresheetActive then
-			self.createButton(enableBtn)
-			return
-		end
-		Wait.time(function() self.setPosition({78,1,-1}) end, 1)
-		self.setLock(true)
-		local spawnerR= getObjectFromGUID(spawner_GUID[1])
-		local spawnerB= getObjectFromGUID(spawner_GUID[2])
 
-		if spawnerR then
-			spawnerR.call("setRepoUrl", {url=repo})
-		end
-		if spawnerB then
-			spawnerB.call("setRepoUrl", {url=repo})
-		end
+	self.clearButtons()
+	if not scoresheetActive then
+		self.createButton(enableBtn)
+		return
 	end
------------
+	Wait.time(function() self.setPosition({78,1,-1}) end, 1)
+	self.setLock(true)
+	local spawnerR= getObjectFromGUID(spawner_GUID[1])
+	local spawnerB= getObjectFromGUID(spawner_GUID[2])
+
+	if spawnerR then
+		spawnerR.call("setRepoUrl", {url=repo})
+	end
+	if spawnerB then
+		spawnerB.call("setRepoUrl", {url=repo})
+	end
+
 	 WebRequest.get( repo .. "index.json", function(index_web)
 		self.createButton( playerOneTitle )
 		self.createButton( playerTwoTitle )
@@ -276,23 +273,12 @@ function onload(save_data) -- PHUBAR version
 		packsIDs = JSON.decode(index_web.text)
 		version_data = packsIDs.ver
 
-		if data and false then
-
-			if #data.packsData == 0 then
-				getPacks()
-			end
-				print("loaded data2")
-				primary = data.primary
-				secondary = data.secondary
-				packsData = data.packsData
-				selectedPack = data.selectedPack
-				Wait.frames(function() updateAll(false) end, 3)
-		end
 		if #packsData == 0 then
 			getPacks()
 		else
 			Wait.frames(function() updateAll(false) end, 3)
 		end
+
 		local b_xpos = 0
 		local b_ypos = -3.75
 		local b_index = 5
@@ -960,14 +946,16 @@ function playerSum(pId)
 		sec_sum = sec_sum + secondary[pId][k][2]
 	end
 	if sec_sum > 45 then sec_sum = 45 end
-	if usePhubarVersion then
-		local playerCounter = getObjectFromGUID(victoryCounterGuid[pId]) -- Phubar add
-		if playerCounter then
-			playerCounter.Counter.setValue( pri_sum + sec_sum + 10)
-		end
-	end
-	return pri_sum + sec_sum + 10
+
+	local score = pri_sum + sec_sum + 10
 	-- painted army gives +10
+
+	local playerCounter = getObjectFromGUID(victoryCounterGuid[pId])
+	if playerCounter then
+		playerCounter.Counter.setValue(score)
+	end
+
+	return score
 end
 
 function getParams()
