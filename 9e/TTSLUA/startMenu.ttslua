@@ -114,6 +114,7 @@ end
 function makeAnnouncement()
     local features={
     'Score sheet updated for GT22.',
+    'Non-GT missions removed from DZ/objective selector',
     'TODO more coming'
     }
     printToAll("NEW FEATURES:", "Yellow")

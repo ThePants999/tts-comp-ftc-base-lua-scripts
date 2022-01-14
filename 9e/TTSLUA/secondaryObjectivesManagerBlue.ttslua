@@ -1,8 +1,7 @@
 -- FTC-GUID: 471de1
 
 scoresheet_GUID="06d627"
---repo = "https://raw.githubusercontent.com/PhubarBCS/ttsTest/master/"
-repo = "https://raw.githubusercontent.com/GenWilhelm/tts_score_card/master/9e/"
+repo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
 blankObjCard_GUID = "d618cb"
 menuX=0
 menuY=6.07
@@ -87,7 +86,6 @@ function writeMenu()
         upBtn.position= {menuX+arrowOffset, menuY, menuZ+(i-1)*btnRowOffset}
         downBtn.position= {menuX-arrowOffset, menuY, menuZ+(i-1)*btnRowOffset}
         if i==1 then
-            --selectionBtn.label="#"..selected[2].." "..secondaryObjectivesList[selected[2]].name
             selectionBtn.label="#"..selected[1].." "..packName
         end
         if i==2 then
@@ -125,8 +123,6 @@ function setObj(obj, color, alt)
         return
     end
     local id=secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]].id
-    --print("WANTED "..id)
-    --print("Spawning for "..color.."  ID   "..id)
     if scoresheet then
         if not scoresheet.getVar("scoresheetActive") then printToColor("Enable scoresheet first!", color, "Red") return end
         scoresheet.call("addSecondaryForPlayer", {clicker=color, secID=id } )
@@ -136,11 +132,9 @@ end
 function spawnCard(obj, color, alt)
     local obj=secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]]
     local id=obj.id
-    --print("Spawning OBJ "..color.."  ID   "..id)
     createCard(obj.name, obj.description, obj.id, 0)
     if obj.actions then
         for i, action in ipairs(obj.actions) do
-            --print("Also ACT "..action.name.."  ID   "..action.id)
             createCard(action.name, action.description, action.id, i)
         end
     end
@@ -204,7 +198,6 @@ end
 function getRepoList()
     repoListReady=false
     WebRequest.get(repo.."index.json", function(web) initRepoList(web) end)
-    --WebRequest.get("http://campaign40k.altervista.org/ttsData/SecObj.txt", function(web) init(web) end)
 end
 
 function repoListReady()
@@ -241,8 +234,6 @@ end
 function getDataFromRepo()
     local url=repo..availablesRepo[selected[1]]..".json"
     WebRequest.get(url, function(web) initData(web) end)
-    --WebRequest.get("https://raw.githubusercontent.com/PhubarBCS/ttsTest/master/secObj", function(web) initData(web) end)
-    --WebRequest.get("http://campaign40k.altervista.org/ttsData/SecObj.txt", function(web) init(web) end)
 end
 
 function initData(web_data)
@@ -293,7 +284,6 @@ function upDown(counter, amt)
     if counter == "pack" then
         if not startGameObj.getVar("inGame") then
             scoresheet.call("packFromExt", {index= selected[index]} )
-
         end
         getDataFromRepo()
         return
