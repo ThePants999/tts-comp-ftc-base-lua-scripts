@@ -12,7 +12,6 @@ secondaryObj_GUID = {"cff35b","471de1"}
 cpCounter_GUID={"e446f7","deb9f2"}
 
 function onLoad(saved_data)
-    --testDeployRIC()
     --self.setPosition({40,-4,0})
     self.setRotation({0,270,0})
     -- load from saved
@@ -20,7 +19,6 @@ function onLoad(saved_data)
         local loaded_data = JSON.decode(saved_data)
         gameMode = loaded_data.svgameMode
         inGame = loaded_data.svinGame
-        checkEnd = loaded_data.svcheckEnd
         currentTurn = loaded_data.svcurrentTurn
         currentPhase = loaded_data.svcurrentPhase
         mapSizeSelected = loaded_data.svmapSizeSelected
@@ -28,7 +26,6 @@ function onLoad(saved_data)
         deployTypeSelected = loaded_data.svdeployTypeSelected
         deploySelected = loaded_data.svdeploySelected
         areaPlaced = loaded_data.svareaPlaced
-        deploymentPregamePlaced = loaded_data.svdeploymentPregamePlaced
         deploymentIngamePlaced = loaded_data.svdeploymentIngamePlaced
         objectivesTypeSelected = loaded_data.svobjectivesTypeSelected
         objectivesSelected = loaded_data.svobjectivesSelected
@@ -46,8 +43,6 @@ function onLoad(saved_data)
     mat = getObjectFromGUID(mat_GUID)
     if simulation then print("THIS IS "..currentTurn.." TURN") end
     -- DEPLOY MENU VARIABLES
-    deployBag = {} -- not used
-    _40Kitems = getObjectFromGUID(_40KitemsGUID)
 
     -- REST OF CODE
     redTurnCounter = getObjectFromGUID("055302")
@@ -71,11 +66,6 @@ function onLoad(saved_data)
     else
         areaBtn.label = areaLblClosed
     end
-    if showBagsVariable then
-        showBags()
-    else
-        Wait.frames(hideBags, 2)
-    end
     gameTurnCounter.call("checkGameEnd")
     writeMenus()
     if not inGame then
@@ -89,13 +79,11 @@ function onSave()
         svgameMode = gameMode,
         svcurrentTurn = currentTurn,
         svcurrentPhase = currentPhase,
-        svcheckEnd = checkEnd,
         svmapSizeSelected=mapSizeSelected,
         svsizeConfirmed=sizeConfirmed,
         svdeployTypeSelected = deployTypeSelected,
         svdeploySelected = deploySelected,
         svareaPlaced = areaPlaced,
-        svdeploymentPregamePlaced = deploymentPregamePlaced,
         svdeploymentIngamePlaced = deploymentIngamePlaced,
         svobjectivesTypeSelected = objectivesTypeSelected,
         svobjectivesSelected = objectivesSelected,
@@ -177,7 +165,6 @@ function writeSizeMenu()
         return
     end
     self.createButton(sizeMenuBtn)
-    --sizeBtn.label=sizeName[sizeSelected]
     sizeBtn.label=sizeData[mapSizeSelected].name
     self.createButton(sizeBtn)
     self.createButton(sizeUpBtn)
@@ -221,7 +208,6 @@ function confirmSizeMat(type)
     gameMode= type
     sizeConfirmed=true
     mat.setScale(sizeData[mapSizeSelected].scale)
-    --updateDeployObjectivesSelection()
     self.setRotation({0,270,0})
     writeMenus()
     if gameMode == "game" then
@@ -240,7 +226,6 @@ function updateDeployObjectivesSelection()
     for i, objectives in ipairs(objectivesData) do
         if objectives.id == sizeData[mapSizeSelected].id then
             objectivesTypeSelected = i
-            --printToAll("Obj type id/i".. objectives.id.."/"..i, "Orange")
         end
     end
     deploySelected = #DeployZonesData[deployTypeSelected].zones
@@ -254,9 +239,6 @@ function switchToTerrainEditor()
         pos=obj.getPosition()
         if ((pos.y > -8 and pos.y < 0.36) or pos.y > 0.71) and not obj.getVar("keepForTerrainEditor") then
             obj.destroy()
-            --print("Deleting "..obj.getName())
-        else
-            --print("KEEP "..obj.getName().."  "..pos.y)
         end
     end
     printToAll("DONE!", "Yellow")
@@ -334,8 +316,6 @@ DeployZonesData = {
         }
     },
 }
-
-
 
 deployLineHeight = 2.1
 deployLineYPos = deployLineHeight-0.1
@@ -574,14 +554,11 @@ function drawTriangle(drawData)
         mapHeight = mat.getScale().z * sizeMulti
     end
 
-
     local triBase = 0 -- triangle with hypotenuse as the needed deploy line
     local triHeight = 0 -- triangle with hypotenuse as the needed deploy line
 
     local edgeAngle = 0 -- angle of the line from the given map edge
     local edgeAngleRad = 0
-
-
 
     triBase = mapBase
     triHeight = mapHeight/2
@@ -829,14 +806,11 @@ end
 -- END deploy zones MANAGER
 
 
-showBagsVariable = false
-_40KitemsGUID = "5549a7"
 simulation = false -- is used to test in single player
 redFirstLbl = "R  e  d    p l a y e r    f i r s t\n(click to toggle)"
 blueFirstLbl = "B l u e    p l a y e r    f i r s t\n(click to toggle)"
 inGame = false
 gameTurnCounter = nil
-checkEnd = false -- used to display or not the ingame labels of deployment and itc
 armyMover = ""
 first = "Red"
 currentTurn = "Red"
@@ -864,29 +838,22 @@ notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Wa
 menuX = 15
 menuZ = 1.05-1.05
 arrowOffset = 7.5
+
 -- DEPLOY ZONES VARIABLES
 
-otherBagsGUID = { "5549a7" } -- 40k items
---deployBagGUID={}
 
 deploymentIngamePlaced = false
-deploymentPregamePlaced = false
-deployMenu = true -- if the menu is open or not
-deployLblOpen = "Hide deployment menu"
-deployLblOpen = "S e l e c t    d e p l o y m e n t    z o n e s"
-deployLblClosed = "Show deployment zones"
 deployIngameLblOpen = "H i d e\nd e p l o y m e n t\nz o n e s"
 deployIngameLblClosed = "S h o w\nd e p l o y m e n t\nz o n e s"
-numberDeployZones = 6
 defaultDeployHeight=2
 deployOffset = 0
 deployTypeMenuBtn = {
-    index = 1, label = deployLblClosed, click_function = "hideShowDeployMenu", function_owner = self,
-    position = { - 12.5, 5, 1.4}, rotation = {0, 0, 0}, height = 450, width = 8000,
+    index = 1, label = "S e l e c t    d e p l o y m e n t    z o n e s", click_function = "none", function_owner = self,
+    position = { - menuX, 5, menuZ - 1.2}, rotation = {0, 0, 0}, height = 450, width = 8000,
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
 deployTypeBtn = {
-    index = i, label = "Zone", click_function = "togglePregameDeploy", function_owner = self,
+    index = i, label = "", click_function = "none", function_owner = self,
     position = { - menuX, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 6000,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
@@ -902,13 +869,8 @@ deployTypeDownBtn = {
 }
 
 secondRowOffset= 1.2
-deployMenuBtn = {
-    index = 1, label = deployLblClosed, click_function = "hideShowDeployMenu", function_owner = self,
-    position = { - 12.5, 5, 1.4}, rotation = {0, 0, 0}, height = 450, width = 8000,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
 deployBtn = {
-    index = i, label = "Zone", click_function = "togglePregameDeploy", function_owner = self,
+    index = i, label = "", click_function = "none", function_owner = self,
     position = { - menuX, 5, menuZ+secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 6000,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
@@ -1033,18 +995,9 @@ function setObjectivesHeight()
 end
 --END objectives manager
 
-objectivesMenu = true -- if the menu is open or not
-objectivesLblOpen = "H i d e   I T C   m e n u"
-objectivesLblOpen = "S e l e c t    o b j e c t i v e s"
-objectivesLblClosed = "S h o w   I T C   o b j e c t i v e s"
 objectivesOffset = 0
-objectivesTypeMenuBtn = {
-    index = 1, label = objectivesLblClosed, click_function = "hideShowObjectivesMenu", function_owner = self,
-    position = {menuX, 5, 1.4}, rotation = {0, 0, 0}, height = 450, width = 8000,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
 objectivesTypeBtn = {
-    index = i, label = " W  I  P", click_function = "none", function_owner = self,
+    index = i, label = "", click_function = "none", function_owner = self,
     position = {menuX, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 6000,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
@@ -1059,14 +1012,13 @@ objectivesTypeDownBtn = {
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
 
-
 objectivesMenuBtn = {
-    index = 1, label = objectivesLblClosed, click_function = "hideShowObjectivesMenu", function_owner = self,
-    position = {menuX, 5, 1.4}, rotation = {0, 0, 0}, height = 450, width = 8000,
+    index = 1, label = "S e l e c t    o b j e c t i v e s", click_function = "none", function_owner = self,
+    position = {menuX, 5, menuZ-secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 8000,
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
 objectivesBtn = {
-    index = i, label = " W  I  P", click_function = "none", function_owner = self,
+    index = i, label = "", click_function = "none", function_owner = self,
     position = {menuX, 5,  menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 6000,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
@@ -1100,14 +1052,7 @@ objectivesOffsetDownBtn = {
     position = {menuX + 1.4*arrowOffset, 5, menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
-sheetEnableLbl = "Place one\nITC Sheet"
-sheetEnable2Lbl = "Place two\nITC Sheet"
-sheetDisableLbl = "Hide\nITC Sheets"
 
--- ITC SHEET VARIABLES
-
-numberOfSheet = 0 -- 0 closed, 1 sheet in common, 2 one sheet per player
-sheetOpen = false
 -- AREA DENIAL
 areaPlaced = false
 areaLblOpen = "Hide\nArea Denial"
@@ -1126,58 +1071,8 @@ quartersBtn = {
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 position = {menuX, 5, menuZ}
---
-btnALbl = "Choosen deployment\n\n"
-btnA = {
-    index = 1, label = btnALbl, click_function = "none", function_owner = self,
-    position = { - menuX + 3, 5, menuZ }, rotation = {0, 0, 0}, height = 00, width = 00,
-    font_size = 400, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-btnBLbl = "ITC Scenario selected\n\n"
-btnB = {
-    index = 1, label = btnBLbl, click_function = "none", function_owner = self,
-    position = {menuX - 3, 5, menuZ}, rotation = {0, 0, 0}, height = 00, width = 00,
-    font_size = 400, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
---- SIZE VARIABLES
-
-sizeSelected = 2
----
 
 
-
-
-function showBags()
-    showHideBags(true)
-end
-function hideBags()
-    showHideBags(false)
-end
-
-
-function showHideBags(show)
-    local centerCircle=getObjectFromGUID(centerCircle_GUID)
-    centerCircle.interactable=show
-    local deployBag2 = {}
-    local deployBagGUID2 = {}
-    if show then
-        newY = 3
-    else
-        newY = -3
-    end
-    local oldPos = {}
-
-    for i, guid in ipairs(otherBagsGUID) do
-        bag = getObjectFromGUID(guid)
-        oldPos = bag.getPosition()
-        bag.setPosition{oldPos.x, newY, oldPos.z}
-        bag.interactable = show
-        if show == false then
-            bag.clearButtons()
-        end
-    end
-
-end
 
 
 function writeMenus()
@@ -1205,26 +1100,18 @@ function writeStartMenu()
 end
 
 function writeDeployMenu()
-    if deployMenu == false then
-        deployMenuBtn.position = { - menuX, 5, menuZ+secondRowOffset}
-        deployMenuBtn.label = deployLblClosed
-    end
-    if deployMenu == true then
-        deployTypeMenuBtn.position = { - menuX, 5, menuZ - 1.2}
-        deployTypeMenuBtn.label = deployLblOpen
-        local DeployListSelected=DeployZonesData[deployTypeSelected].zones
-        deployBtn.label = DeployListSelected[deploySelected].name
-        deployTypeBtn.label = DeployZonesData[deployTypeSelected].type
-        self.createButton(deployTypeBtn)
-        self.createButton(deployTypeUpBtn)
-        self.createButton(deployTypeDownBtn)
-        self.createButton(deployBtn)
-        self.createButton(deployUpBtn)
-        self.createButton(deployDownBtn)
-        self.createButton(deployOffsetMenuBtn)
-        self.createButton(deployOffsetUpBtn)
-        self.createButton(deployOffsetDownBtn)
-    end
+    local DeployListSelected=DeployZonesData[deployTypeSelected].zones
+    deployBtn.label = DeployListSelected[deploySelected].name
+    deployTypeBtn.label = DeployZonesData[deployTypeSelected].type
+    self.createButton(deployTypeBtn)
+    self.createButton(deployTypeUpBtn)
+    self.createButton(deployTypeDownBtn)
+    self.createButton(deployBtn)
+    self.createButton(deployUpBtn)
+    self.createButton(deployDownBtn)
+    self.createButton(deployOffsetMenuBtn)
+    self.createButton(deployOffsetUpBtn)
+    self.createButton(deployOffsetDownBtn)
     self.createButton(deployTypeMenuBtn)
 end
 
@@ -1235,34 +1122,27 @@ function writeObjMenu()
     if #objectivesData[objectivesTypeSelected].objectivesList == 0 then
         return
     end
-    if objectivesMenu == false then
-        objectivesMenuBtn.position = {menuX, 5, menuZ-secondRowOffset}
-        objectivesMenuBtn.label = objectivesLblClosed
-    end
-    if objectivesMenu == true then
-        objectivesMenuBtn.position = {menuX, 5, menuZ-secondRowOffset}
-        objectivesMenuBtn.label = objectivesLblOpen
-        local selectedObjectivesBySize = objectivesData[objectivesTypeSelected].objectivesList
-        if not selectedObjectivesBySize[objectivesSelected] then
-            objectivesSelected=#selectedObjectivesBySize
-        end
-        objectivesBtn.label = selectedObjectivesBySize[objectivesSelected].name
-        objectivesTypeBtn.label = objectivesData[objectivesTypeSelected].type
-        objectivesOffsetBtn.label = tostring(objectivesOffset)
-        self.createButton(objectivesTypeBtn)
-        self.createButton(objectivesTypeUpBtn)
-        self.createButton(objectivesTypeDownBtn)
-        self.createButton(objectivesBtn)
-        self.createButton(objectivesUpBtn)
-        self.createButton(objectivesDownBtn)
 
-        self.createButton(objectivesOffsetDownBtn)
-        self.createButton(objectivesOffsetUpBtn)
-        --self.createButton(objectivesOffsetDownBtn)
-        --self.createButton(objectivesOffsetBtn)
-
+    local selectedObjectivesBySize = objectivesData[objectivesTypeSelected].objectivesList
+    if not selectedObjectivesBySize[objectivesSelected] then
+        objectivesSelected=#selectedObjectivesBySize
     end
+    objectivesBtn.label = selectedObjectivesBySize[objectivesSelected].name
+    objectivesTypeBtn.label = objectivesData[objectivesTypeSelected].type
+    objectivesOffsetBtn.label = tostring(objectivesOffset)
+
     self.createButton(objectivesMenuBtn)
+
+    self.createButton(objectivesTypeBtn)
+    self.createButton(objectivesTypeUpBtn)
+    self.createButton(objectivesTypeDownBtn)
+
+    self.createButton(objectivesBtn)
+    self.createButton(objectivesUpBtn)
+    self.createButton(objectivesDownBtn)
+
+    self.createButton(objectivesOffsetDownBtn)
+    self.createButton(objectivesOffsetUpBtn)
     self.createButton(objectivesOffsetMenuBtn)
 end
 
@@ -1270,14 +1150,7 @@ function writeIngameMenu()
     self.createButton(deployIngameBtn)
     self.createButton(areaBtn)
     self.createButton(quartersBtn)
-    print("Deploy type: " .. deployTypeSelected)
     local DeployListSelected=DeployZonesData[deployTypeSelected].zones
-    btnA.label = DeployListSelected[deploySelected].name
-    if #objectivesData[objectivesTypeSelected]>0 then
-        btnB.label = btnBLbl..objectivesData[objectivesTypeSelected][objectivesSelected].name
-    else
-        btnB.label = "No objectives"
-    end
 
     nextPhaseBtn.color = currentTurn
     local visibleTo=nextPhaseBtn.color
@@ -1288,11 +1161,7 @@ function writeIngameMenu()
         nextPhaseBtn.label = phases[currentPhase].."\nPASS TURN"
     end
     Global.UI.setValue("passTurnTxt", nextPhaseBtn.label)
-    if checkEnd == false then
-        self.createButton(btnA) -- Reminder deployment selected
-        --self.createButton(btnB) -- Reminder objectives selected
-        self.createButton(nextPhaseBtn)
-    end
+    self.createButton(nextPhaseBtn)
 end
 
 function startGame(obj, player, alt)
@@ -1319,30 +1188,15 @@ function startGame(obj, player, alt)
             getObjectFromGUID(guid).call("writeMenu")
         end
     end
-    --WebRequest.get("http://campaign40k.altervista.org/campaign/statistics.php?name=40KGame", none)
+
     startCustomTurns()
     destroyDeployZones()
     deploymentIngamePlaced = false
     areaPlaced = false
     local DeployListSelected=DeployZonesData[deployTypeSelected].zones
-    btnA.label = DeployListSelected[deploySelected].name
-    if #objectivesData[sizeSelected]>0 then
-        btnB.label = btnBLbl..objectivesData[sizeSelected][objectivesSelected].name
-    else
-        btnB.label = "No objectives"
-    end
     broadcastToAll(phases[currentPhase].." phase", "Yellow")
     resetActivationTokens()
     Notes.setNotes("")
-    if false then -- deploy text
-        local deplymentSeletedTxt = spawnObject({
-            type = "3DText",
-            position = {53, 1, 12},
-            rotation = {90, 90, 0},
-            scale = {1, 2, 1}
-        })
-        deplymentSeletedTxt.TextTool.setValue(btnALbl..deployBag[deploySelected].getName())
-    end
     writeMenus()
     simulation = false
 end
@@ -1445,38 +1299,13 @@ function togglePlyr()
     writeMenus()
 end
 
-function hideShowDeployMenu()
-    if deployMenu == false then
-        deployMenu = true
-    else
-        deployMenu = false
-        deployMenu = true -- for always open menu
-    end
-    writeMenus()
-end
-
-function hideShowObjectivesMenu()
-    if objectivesMenu == false then
-        objectivesMenu = true
-    else
-        objectivesMenu = false
-        objectivesMenu = true -- for always open menu
-    end
-    writeMenus()
-end
-
-
-
 function placeDeploy()
     destroyDeployZones()
     local data= DeployZonesData[deployTypeSelected].zones[deploySelected]
     drawDeployZone(data)
     if data.objectivesID then
-    --    print("\n\nObj wanted "..data.objectivesID)
         for i, setup in ipairs(objectivesData[objectivesTypeSelected].objectivesList) do
-        --    print("ID "..setup.id.." name "..setup.name )
             if setup.id == data.objectivesID then
-        --        printToAll("Found obj "..setup.name.." "..i, "Green")
                 objectivesSelected = i
                 for j, type in ipairs(objectivesData) do
                     if type.id ==  DeployZonesData[deployTypeSelected].id then
@@ -1488,21 +1317,6 @@ function placeDeploy()
         end
     end
     writeMenus()
-end
-
-function togglePregameDeploy()
-    if deploymentPregamePlaced == false then -- place
-
-        if deploySelected <= numberDeployZones then
-            --deployBag[deploySelected].call("buttonClick_place")
-        end
-        deploymentPregamePlaced = true
-    else -- recall
-        if deploySelected <= numberDeployZones then
-            --deployBag[deploySelected].call("buttonClick_recall")
-        end
-        deploymentPregamePlaced = false
-    end
 end
 
 function deployTypeUp()
@@ -1557,7 +1371,7 @@ function deployTypeUpDown(upDown)
 end
 
 function deployUp()
-deployUpDown(true)
+    deployUpDown(true)
 end
 
 function deployDown()
@@ -1685,14 +1499,12 @@ function showHideIngameDeployment()
     if deploymentIngamePlaced == false then -- place
         deployIngameBtn.label = deployIngameLblOpen
         if deploySelected < #DeployZonesData[deployTypeSelected].zones then
-            --deployBag[deploySelected].call("buttonClick_place")
             drawDeployZone(DeployZonesData[deployTypeSelected].zones[deploySelected])
         end
         deploymentIngamePlaced = true
     else -- recall
         deployIngameBtn.label = deployIngameLblClosed
         if deploySelected < #DeployZonesData[deployTypeSelected].zones then
-            --deployBag[deploySelected].call("buttonClick_recall")
             destroyDeployZones()
         end
         deploymentIngamePlaced = false
@@ -1705,7 +1517,6 @@ function showHideAreaDeny()
         areaBtn.label = areaLblOpen
         drawCircle({color="White", fromCenter=6}, "areaDeny")
         drawCircle({color="White", fromCenter=12}, "areaDeny")
-        --areaBag.call("buttonClick_place")
         areaPlaced = true
     else -- recall
         areaBtn.label = areaLblClosed
@@ -1714,7 +1525,6 @@ function showHideAreaDeny()
                 obj.destroy()
             end
         end
-        --areaBag.call("buttonClick_recall")
         areaPlaced = false
     end
     writeMenus()
@@ -1726,7 +1536,6 @@ function showHideQuarters()
         local lineScale = {x = 5, y = deployLineHeight, z = 0.02}
         local mapBase = mat.getScale().z * sizeMulti --short edge
         local mapHeight = mat.getScale().x * sizeMulti --long edge
-        --quartersBag.call("buttonClick_place")
         --(linePos, lineRot, lineScale, color, orientation, type)
         lineScale.x = mapHeight
         spawnLine({0, deployLineHeight, 0}, {0,0,0}, lineScale, "White", "quarter")
@@ -1735,7 +1544,6 @@ function showHideQuarters()
         quartersPlaced = true
     else -- recall
         quartersBtn.label = quartersLblClosed
-        --quartersBag.call("buttonClick_recall")
         for i, obj in ipairs(getAllObjects()) do
             if obj.getGMNotes() == "quarter" then
                 obj.destroy()
