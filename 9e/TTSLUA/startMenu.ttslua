@@ -106,9 +106,10 @@ end
 
 function makeAnnouncement()
     local features={
-    'Score sheet updated for GT22.',
-    'Non-GT missions removed from DZ/objective selector.',
-    'Unused features removed: action camera, old psychic power/token bags, old KT support, 8e map sizes.',
+    '2.35: Score sheet updated for GT22.',
+    '2.35: Non-GT missions removed from DZ/objective selector.',
+    '2.35: Unused features removed: action camera, old psychic power/token bags, old KT support, 8e map sizes.',
+    '2.36: Nachmund Strike Force missions added.',
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -262,34 +263,72 @@ function switchToTerrainEditor()
 end
 -- END size changer
 
+objectivesData = {
+    {   id=1 , type = "Strike Force",
+        objectivesList={
+            {id = 12, name = "Nachmund #11 Recover The Relics", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
+            {id = 13, name = "Nachmund #12 Tear Down Their Icons", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+            {id = 14, name = "Nachmund #13 Data Scry-Salvage", objectives = {{type = "diagonal", orientation="xz", pos={18}},{type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}}}},
+            {id = 15, name = "Nachmund #21 Abandoned Sanctuaries", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 14}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -14}}}},
+            {id = 16, name = "Nachmund #22 Conversion", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+            {id = 17, name = "Nachmund #23 The Scouring", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={9, objectivesOffset, 12}},{type = "fixed", pos={9, objectivesOffset, -12}},{type = "fixed", pos={-9, objectivesOffset, 12}},{type = "fixed", pos={-9, objectivesOffset, -12}}}},
+            {id = 18, name = "Nachmund #31 Tide of Conviction", objectives = {{type = "fixed", pos={6, objectivesOffset, 6}},{type = "fixed", pos={-18, objectivesOffset, 6}},{type = "fixed", pos={0, objectivesOffset, 15}}, {type = "fixed", pos={18, objectivesOffset, -6}},{type = "fixed", pos={-6, objectivesOffset, -6}},{type = "fixed", pos={0, objectivesOffset, -15}}}},
+            {id = 19, name = "Nachmund #32 Death and Zeal", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+            {id = 20, name = "Nachmund #33 Secure Missing Artefacts", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+
+            {id = 0, name = "None", objectives = {} },
+        }
+    },
+    {   id=2 , type = "Incursion",
+        objectivesList={
+            {id = 12, name = "Nachmund #11 Crossfire", objectives = {{type = "fixed", pos={12, objectivesOffset, 10}},{type = "fixed", pos={-12, objectivesOffset, -10}},{type = "fixed", pos={12, objectivesOffset, -10}},{type = "fixed", pos={-12, objectivesOffset, 10}}}},
+            {id = 13, name = "Nachmund #12 Resupply", objectives = {{type = "fixed", pos={16, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -12}},{type = "fixed", pos={-16, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
+            {id = 14, name = "Nachmund #13 Raid", objectives = {{type = "fixed", pos={14, objectivesOffset, 8}},{type = "fixed", pos={14, objectivesOffset, -8}},{type = "fixed", pos={-14, objectivesOffset, 8}},{type = "fixed", pos={-14, objectivesOffset, -8}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, -12}}}},
+            {id = 15, name = "Nachmund #21 Centre Ground", objectives = {{type = "fixed", pos={16.83, objectivesOffset, -8}},{type = "fixed", pos={-16.83, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
+            {id = 16, name = "Nachmund #22 Ascension", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, -12}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
+            {id = 17, name = "Nachmund #23 Forward Push", objectives = {{type = "fixed", pos={16, objectivesOffset, 6}},{type = "fixed", pos={3, objectivesOffset, -9}},{type = "fixed", pos={-3, objectivesOffset, 9}},{type = "fixed", pos={-16, objectivesOffset, -6}}}},
+            {id = 18, name = "Nachmund #31 Rise of the Machine Spirit", objectives = {{type = "fixed", pos={12, objectivesOffset, 9}},{type = "fixed", pos={-12, objectivesOffset, -9}},{type = "fixed", pos={12, objectivesOffset, -9}},{type = "fixed", pos={-12, objectivesOffset, 9}}}},
+            {id = 19, name = "Nachmund #32 Show of Force", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 10}},{type = "fixed", pos={0, objectivesOffset, -10}}}},
+            {id = 20, name = "Nachmund #33 Reconaissance Mission", objectives = {{type = "fixed", pos={12, objectivesOffset, 10}},{type = "fixed", pos={-12, objectivesOffset, -10}},{type = "fixed", pos={12, objectivesOffset, -10}},{type = "fixed", pos={-12, objectivesOffset, 10}}}},
+
+            {id = 0, name = "None", objectives = {} },
+        }
+    },
+    {   id=-1 , type = "None",
+        objectivesList={
+            {id = 0, name = "None", objectives = {} },
+        }
+    },
+}
+
 -- DEPLOY ZONES MANAGER
 DeployZonesData = {
     { id=1 , type = "Strike Force",
         zones={
-            {name = "GT20 #11 Retrieval Mission", objectivesID= 12, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
-            {name = "GT20 #12 Scorched Earth", objectivesID= 13, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-            {name = "GT20 #13 Vital Intelligence", objectivesID= 14,draw = {--[[1]]{type = "diagonal", color = "Teal", position = "-z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "z" , fromCenter = 12}}},
-            {name = "GT20 #21 Surround and Destroy", objectivesID= 15, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-            {name = "GT20 #22 Battle Lines", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0}}},
-            {name = "GT22 #23 The Scouring", objectivesID= 17, draw = {--[[1]]{type = "line", color="Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color="Red", position = "-x", fromCenter = 12}}},
-            {name = "GT20 #31 Overrun", objectivesID= 18, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-            {name = "GT20 #32 Sweep and Clear",  objectivesID= 19, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "GT20 #33 Priority Target",  objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "Nachmund #11 Recover The Relics", objectivesID= 12, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
+            {name = "Nachmund #12 Tear Down Their Icons", objectivesID= 13, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "Nachmund #13 Data Scry-Salvage", objectivesID= 14,draw = {--[[1]]{type = "diagonal", color = "Teal", position = "-z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "z" , fromCenter = 12}}},
+            {name = "Nachmund #21 Abandoned Sanctuaries", objectivesID= 15, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
+            {name = "Nachmund #22 Conversion", objectivesID= 16, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "Nachmund #23 The Scouring", objectivesID= 17, draw = {--[[1]]{type = "line", color="Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color="Red", position = "-x", fromCenter = 12}}},
+            {name = "Nachmund #31 Tide of Conviction", objectivesID= 18, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
+            {name = "Nachmund #32 Death and Zeal", objectivesID= 19, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "Nachmund #33 Secure Missing Artefacts", objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
 
             {name = "None", draw = {type = "none"}},
         }
     },
     { id=2 , type = "Incursion",
         zones={
-            {name = "GT20 #11 Crossfire",  objectivesID= 12, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "GT20 #12 Resupply", objectivesID= 13, draw = {--[[1]]{type = "line", color = "Teal", position = "z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "-z", fromCenter = 9}}},
-            {name = "GT20 #13 Raid", objectivesID= 14, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "GT20 #21 Centre Ground",  objectivesID= 15, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
-            {name = "GT20 #22 Ascension", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 9}}},
-            {name = "GT20 #23 Forward Push", objectivesID= 17, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "GT20 #31 Rise of the Machine Spirit",  objectivesID= 18, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "GT20 #32 Show of Force", objectivesID= 19, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "GT20 #33 Reconaissance Mission",  objectivesID= 20, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "Nachmund #11 Crossfire",  objectivesID= 12, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "Nachmund #12 Resupply", objectivesID= 13, draw = {--[[1]]{type = "line", color = "Teal", position = "z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "-z", fromCenter = 9}}},
+            {name = "Nachmund #13 Raid", objectivesID= 14, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "Nachmund #21 Centre Ground",  objectivesID= 15, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "Nachmund #22 Ascension", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 9},--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 9}}},
+            {name = "Nachmund #23 Forward Push", objectivesID= 17, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "Nachmund #31 Rise of the Machine Spirit",  objectivesID= 18, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "Nachmund #32 Show of Force", objectivesID= 19, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "Nachmund #33 Reconaissance Mission",  objectivesID= 20, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
 
             {name = "None", draw = {type = "none"}},
         }
@@ -903,61 +942,10 @@ deployOffsetDownBtn = {
     position = {-menuX - 1.4*arrowOffset, 5, menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
+
 -- OBJECTIVES MANAGER
 defaultObjectivesHeight=1.22
 originalObjectivesGuid={"573333","764a2e","6d45cf","33e32b","f32864","a91751",--[[repeating 1 and 2]]"573333","764a2e"} -- last two are placeholders
-crusade2obj={{type = "fixed", pos={2, objectivesOffset, 0}},{type = "fixed", pos={-2, objectivesOffset, 0}}}
-crusade3obj={{type = "fixed", pos={2, objectivesOffset, 2}},{type = "fixed", pos={2, objectivesOffset, -2}},{type = "fixed", pos={-2, objectivesOffset, 2}}}
-crusade4obj={{type = "fixed", pos={2, objectivesOffset, 2}},{type = "fixed", pos={2, objectivesOffset, -2}},{type = "fixed", pos={-2, objectivesOffset, 2}},{type = "fixed", pos={-2, objectivesOffset, -2}}}
-crusade6obj={{type = "fixed", pos={2, objectivesOffset, 4}},{type = "fixed", pos={2, objectivesOffset, 0}},{type = "fixed", pos={2, objectivesOffset, -4}},{type = "fixed", pos={-2, objectivesOffset, 4}},{type = "fixed", pos={-2, objectivesOffset, 0}},{type = "fixed", pos={-2, objectivesOffset, -4}}}
-crusade8obj={{type = "fixed", pos={2, objectivesOffset, 6}},{type = "fixed", pos={2, objectivesOffset, 2}},{type = "fixed", pos={2, objectivesOffset, -2}},{type = "fixed", pos={2, objectivesOffset, -6}},{type = "fixed", pos={-2, objectivesOffset, 6}},{type = "fixed", pos={-2, objectivesOffset, 2}},{type = "fixed", pos={-2, objectivesOffset, -2}},{type = "fixed", pos={-2, objectivesOffset, -6}}}
-oldITCobj={
-    {id = 1, name = "#1 ITC Seize Ground",          objectives = {{type = "fixed", pos={18, objectivesOffset, 12}},{type = "fixed", pos={18, objectivesOffset, -12}},{type = "fixed", pos={8, objectivesOffset, 0}},{type = "fixed", pos={-18, objectivesOffset, 12}},{type = "fixed", pos={-18, objectivesOffset, -12}},{type = "fixed", pos={-8, objectivesOffset, 0}}}},
-    {id = 2, name = "#2 ITC Cut to the Heart",      objectives = {{type = "fixed", pos={0, objectivesOffset, -24}},{type = "fixed", pos={0, objectivesOffset,   24}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-    {id = 3, name = "#3 ITC Nexus Control",         objectives = {{type = "fixed", pos={2, objectivesOffset, 24}},{type = "fixed", pos={-2, objectivesOffset,  24}},{type = "fixed", pos={2, objectivesOffset, -24}},{type = "fixed", pos={-2, objectivesOffset, -24}}}},
-    {id = 4, name = "#4 ITC What's Yours is Mine",  objectives = {{type = "fixed", pos={2, objectivesOffset, 24}},{type = "fixed", pos={-2, objectivesOffset,   24}},{type = "fixed", pos={2, objectivesOffset, -24}},{type = "fixed", pos={-2, objectivesOffset, -24}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-    {id = 5, name = "#5 ITC Precious Cargo",        objectives = {{type = "fixed", pos={18, objectivesOffset, 12}},{type = "fixed", pos={18, objectivesOffset, -12}},{type = "fixed", pos={-18, objectivesOffset, 12}},{type = "fixed", pos={-18, objectivesOffset, -12}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-    {id = 6, name = "#6 ITC Crucible of Champions", objectives = {{type = "fixed", pos={0, objectivesOffset, 18}},{type = "fixed", pos={0, objectivesOffset,   -18}},{type = "fixed", pos={24, objectivesOffset, 0}},{type = "fixed", pos={-24, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-    {id = 0, name = "None", objectives = {} },
-}
-
-objectivesData = {
-    {   id=1 , type = "Strike Force",
-        objectivesList={
-            {id = 12, name = "GT20 #11 Retrieval Mission", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
-            {id = 13, name = "GT20 #12 Scorched Earth", objectives = {{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={12, objectivesOffset, -12}},{type = "fixed", pos={12, objectivesOffset, 12}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={-12, objectivesOffset, -12}},{type = "fixed", pos={-12, objectivesOffset, 12}}}},
-            {id = 14, name = "GT20 #13 Vital Intelligence", objectives = {{type = "diagonal", orientation="xz", pos={18}}, {type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}}}},
-            {id = 15, name = "GT20 #21 Surround and Destroy", objectives = {{type = "fixed", pos={10, objectivesOffset, 0}},{type = "fixed", pos={20, objectivesOffset, -14}},{type = "fixed", pos={20, objectivesOffset, 14}},{type = "fixed", pos={-10, objectivesOffset, 0}},{type = "fixed", pos={-20, objectivesOffset, -14}},{type = "fixed", pos={-20, objectivesOffset, 14}}}},
-            {id = 16, name = "GT20 #22 Battle Lines", objectives = {{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 14}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -14}}}},
-            {id = 17, name = "GT22 #23 The Scouring", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={9, objectivesOffset, 12}},{type = "fixed", pos={9, objectivesOffset, -12}},{type = "fixed", pos={-9, objectivesOffset, 12}},{type = "fixed", pos={-9, objectivesOffset, -12}}}},
-            {id = 18, name = "GT20 #31 Overrun", objectives = {{type = "fixed", pos={16, objectivesOffset, 10}},{type = "fixed", pos={16, objectivesOffset, -10}},{type = "fixed", pos={0, objectivesOffset, 16}}, {type = "fixed", pos={-16, objectivesOffset, 10}},{type = "fixed", pos={-16, objectivesOffset, -10}},{type = "fixed", pos={0, objectivesOffset, -16}}}},
-            {id = 19, name = "GT20 #32 Sweep and Clear", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-            {id = 20, name = "GT20 #33 Priority Target", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-
-            {id = 0, name = "None", objectives = {} },
-        }
-    },
-    {   id=2 , type = "Incursion",
-        objectivesList={
-            {id = 12, name = "GT20 #11 Crossfire", objectives = {{type = "fixed", pos={12, objectivesOffset, 10}},{type = "fixed", pos={-12, objectivesOffset, -10}},{type = "fixed", pos={12, objectivesOffset, -10}},{type = "fixed", pos={-12, objectivesOffset, 10}}}},
-            {id = 13, name = "GT20 #12 Resupply", objectives = {{type = "fixed", pos={16, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -12}},{type = "fixed", pos={-16, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 14, name = "GT20 #13 Raid", objectives = {{type = "fixed", pos={14, objectivesOffset, 8}},{type = "fixed", pos={14, objectivesOffset, -8}},{type = "fixed", pos={-14, objectivesOffset, 8}},{type = "fixed", pos={-14, objectivesOffset, -8}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, -12}}}},
-            {id = 15, name = "GT20 #21 Centre Ground", objectives = {{type = "fixed", pos={16.83, objectivesOffset, -8}},{type = "fixed", pos={-16.83, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
-            {id = 16, name = "GT20 #22 Ascension", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 12}},{type = "fixed", pos={0, objectivesOffset, -12}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 17, name = "GT20 #23 Forward Push", objectives = {{type = "fixed", pos={16, objectivesOffset, 6}},{type = "fixed", pos={3, objectivesOffset, -9}},{type = "fixed", pos={-3, objectivesOffset, 9}},{type = "fixed", pos={-16, objectivesOffset, -6}}}},
-            {id = 18, name = "GT20 #31 Rise of the Machine Spirit", objectives = {{type = "fixed", pos={12, objectivesOffset, 9}},{type = "fixed", pos={-12, objectivesOffset, -9}},{type = "fixed", pos={12, objectivesOffset, -9}},{type = "fixed", pos={-12, objectivesOffset, 9}}}},
-            {id = 19, name = "GT20 #32 Show of Force", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 10}},{type = "fixed", pos={0, objectivesOffset, -10}}}},
-            {id = 20, name = "GT20 #33 Reconaissance Mission", objectives = {{type = "fixed", pos={12, objectivesOffset, 10}},{type = "fixed", pos={-12, objectivesOffset, -10}},{type = "fixed", pos={12, objectivesOffset, -10}},{type = "fixed", pos={-12, objectivesOffset, 10}}}},
-
-            {id = 0, name = "None", objectives = {} },
-        }
-    },
-    {   id=-1 , type = "None",
-        objectivesList={
-            {id = 0, name = "None", objectives = {} },
-        }
-    },
-}
 
 function spawnObjectives()
     destroyAllObjectives()
@@ -1049,9 +1037,7 @@ objectivesMenu = true -- if the menu is open or not
 objectivesLblOpen = "H i d e   I T C   m e n u"
 objectivesLblOpen = "S e l e c t    o b j e c t i v e s"
 objectivesLblClosed = "S h o w   I T C   o b j e c t i v e s"
---numberItcZones = 6
 objectivesOffset = 0
---objectivesSelected = numberItcZones + 1
 objectivesTypeMenuBtn = {
     index = 1, label = objectivesLblClosed, click_function = "hideShowObjectivesMenu", function_owner = self,
     position = {menuX, 5, 1.4}, rotation = {0, 0, 0}, height = 450, width = 8000,
