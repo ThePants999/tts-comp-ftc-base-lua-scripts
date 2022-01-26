@@ -66,66 +66,7 @@ function onLoad(saved_data)
     else
         Global.UI.setAttribute("main", "active", "false")
     end
-    WebRequest.get( "https://raw.githubusercontent.com/PhubarBCS/FTC/master/warning.json", function(index_web) checkIfWarning(index_web) end)
 end
-
-function checkIfWarning(index_web)
-    local data = JSON.decode(index_web.text)
-    local nowIs = os.date("*t", os.time())
-    -- TEST LINES
-    --data.expireDate={13,9,1020}
-    --print("EXPIRE "..data.expireDate[1].." / "..data.expireDate[2].." / "..data.expireDate[3])
-    --print("NOW "..nowIs.day.." / "..nowIs.month.." / "..nowIs.year)
-    if data.manualEnable then
-        if data.forceEnabledTo then
-            showRedirectFromWeb(data.message)
-            return
-        end
-        return
-    end
-
-    if (nowIs.day <= data.expireDate[1] and nowIs.month <= data.expireDate[2] and  nowIs.year <= data.expireDate[3]) then
-        showRedirectFromWeb(data.message)
-    end
-end
-
-function showRedirectFromWeb(txt)
-    Global.UI.setValue("coreRedirect", txt)
-    Global.UI.setAttribute("main", "active", "false")
-    Global.UI.setAttribute("redirect", "active", "true")
-end
-
-function showRedirect()
-    local newMods={
-        {name="40k base map", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121424734"},
-        {name="40k army builder", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121426653"},
-        {name="Apocalypse base map:", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121428591"},
-        {name="Apocalypse army builder:", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121427647"},
-        {name="Old BCB map converter:", url=" https://steamcommunity.com/sharedfiles/filedetails/?id=2121425412"}
-    }
-    local txt1="It also has a new name, here the new links:\n\n"
-    local txt2=""
-    local txt3="Links in the notes in the right, for copypaste."
-    for i, entry in ipairs(newMods) do
-        txt2=txt2..entry.name.."\n"..entry.url.."\n\n"
-    end
-    txt1="BACON CAT BUG does not work on this mod so please dont contact him.\nHe left.\n\nContact GenWilhelm, Mothman Zack, or Zyllos\nin any of the discord servers\nif you have any suggestion or bug report.\n\nThis message will stay for a while (but not too much)."
-    txt2=""
-    txt3=""
-    --Wait.time(function() Notes.setNotes(txt2) end, 1)
-    Global.UI.setValue("coreRedirect", txt1..txt2..txt3)
-    Global.UI.setAttribute("main", "active", "false")
-    Global.UI.setAttribute("redirect", "active", "true")
-
-end
-
-function closeRedir()
-    Global.UI.setAttribute("redirect", "active", "false")
-    if allowMenu then
-        Global.UI.setAttribute("main", "active", "true")
-    end
-end
-
 
 function autoSeatPerson(_person)
     if _person.steam_id == redPlayerID then
