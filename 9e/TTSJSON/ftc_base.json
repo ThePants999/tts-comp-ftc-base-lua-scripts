@@ -13777,6 +13777,360 @@
       "LuaScript": "",
       "LuaScriptState": "",
       "XmlUI": ""
+    },
+    {
+      "GUID": "ea92de",
+      "Name": "Figurine_Custom",
+      "Transform": {
+        "posX": 26.7803783,
+        "posY": 1.0670439,
+        "posZ": 29.1162071,
+        "rotX": -1.89998912E-06,
+        "rotY": 180.00412,
+        "rotZ": 4.26818531E-07,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Banner red",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 0.856,
+        "g": 0.0999996,
+        "b": 0.09399957
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1769324303218623137/068EFD84B5CAC5C8CC291E939F69B5A8313B5B18/",
+        "ImageSecondaryURL": "http://cloud-3.steamusercontent.com/ugc/1769324303218623137/068EFD84B5CAC5C8CC291E939F69B5A8313B5B18/",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "862b29",
+      "Name": "Figurine_Custom",
+      "Transform": {
+        "posX": -26.79626,
+        "posY": 1.06704593,
+        "posZ": -29.160326,
+        "rotX": 1.69441284E-06,
+        "rotY": 0.0125754252,
+        "rotZ": -3.19933122E-07,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Banner blue",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 0.117999606,
+        "g": 0.53,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1769324303218623137/068EFD84B5CAC5C8CC291E939F69B5A8313B5B18/",
+        "ImageSecondaryURL": "http://cloud-3.steamusercontent.com/ugc/1769324303218623137/068EFD84B5CAC5C8CC291E939F69B5A8313B5B18/",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "d713b6",
+      "Name": "Custom_Dice",
+      "Transform": {
+        "posX": 26.75206,
+        "posY": 1.299632,
+        "posZ": 30.9577885,
+        "rotX": 321.172852,
+        "rotY": 176.2455,
+        "rotZ": 234.516418,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": false,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1734440976653253976/4CE026C43E4A2675464124745CAC35A0B1DFC229/",
+        "ImageSecondaryURL": "",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomDice": {
+          "Type": 3
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "RotationValues": [
+        {
+          "Value": "1",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 234.0
+          }
+        },
+        {
+          "Value": "2",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -233.0
+          }
+        },
+        {
+          "Value": "3",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 20.0
+          }
+        },
+        {
+          "Value": "4",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -17.0
+          }
+        },
+        {
+          "Value": "5",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 90.0
+          }
+        },
+        {
+          "Value": "6",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -161.0
+          }
+        },
+        {
+          "Value": "7",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 307.0
+          }
+        },
+        {
+          "Value": "8",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -304.0
+          }
+        },
+        {
+          "Value": "9",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 163.0
+          }
+        },
+        {
+          "Value": "10",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -90.0
+          }
+        }
+      ]
+    },
+    {
+      "GUID": "4f042d",
+      "Name": "Custom_Dice",
+      "Transform": {
+        "posX": -26.772871,
+        "posY": 1.29965031,
+        "posZ": -31.1475735,
+        "rotX": 321.17334,
+        "rotY": 358.963135,
+        "rotZ": 235.417969,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": false,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1734440976653253976/4CE026C43E4A2675464124745CAC35A0B1DFC229/",
+        "ImageSecondaryURL": "",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomDice": {
+          "Type": 3
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "RotationValues": [
+        {
+          "Value": "1",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 234.0
+          }
+        },
+        {
+          "Value": "2",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -233.0
+          }
+        },
+        {
+          "Value": "3",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 20.0
+          }
+        },
+        {
+          "Value": "4",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -17.0
+          }
+        },
+        {
+          "Value": "5",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 90.0
+          }
+        },
+        {
+          "Value": "6",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -161.0
+          }
+        },
+        {
+          "Value": "7",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 307.0
+          }
+        },
+        {
+          "Value": "8",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -304.0
+          }
+        },
+        {
+          "Value": "9",
+          "Rotation": {
+            "x": -38.0,
+            "y": 0.0,
+            "z": 163.0
+          }
+        },
+        {
+          "Value": "10",
+          "Rotation": {
+            "x": 38.0,
+            "y": 180.0,
+            "z": -90.0
+          }
+        }
+      ]
     }
   ]
 }
