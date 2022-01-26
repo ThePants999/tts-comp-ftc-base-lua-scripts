@@ -6798,22 +6798,23 @@
         "posX": 67.0,
         "posY": 0.949998438,
         "posZ": 14.0,
-        "rotX": -3.1135977E-07,
+        "rotX": -1.25511781E-06,
         "rotY": 269.999817,
         "rotZ": 180.0,
         "scaleX": 0.5,
         "scaleY": 1.0,
         "scaleZ": 0.5
       },
-      "Nickname": "[b][i]Order Received[/i][/b]",
+      "Nickname": "[b][i]Action in progress[/i][/b]",
       "Description": "",
       "GMNotes": "",
       "ColorDiffuse": {
-        "r": 1.0,
+        "r": 0.139404863,
         "g": 1.0,
-        "b": 1.0
+        "b": 0.0
       },
       "LayoutGroupSortIndex": 0,
+      "Value": 0,
       "Locked": false,
       "Grid": true,
       "Snap": true,
@@ -6847,16 +6848,68 @@
       "Name": "Custom_Token",
       "Transform": {
         "posX": 67.0,
-        "posY": 0.9499984,
+        "posY": 0.949998438,
         "posZ": 15.9999552,
-        "rotX": -2.783107E-06,
+        "rotX": 3.67317028E-07,
         "rotY": 269.9995,
-        "rotZ": -1.05934191E-06,
+        "rotZ": -2.46803916E-06,
         "scaleX": 0.5,
         "scaleY": 1.0,
         "scaleZ": 0.5
       },
-      "Nickname": "[b][i]Order Issued[/i][/b]",
+      "Nickname": "[b][i]Action completed (red)[/i][/b]",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 0.0,
+        "b": 0.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": true,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068921484521054/8F41FC4B8F831A513D6D87F2527B06379C4373A9/",
+        "ImageSecondaryURL": "",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomToken": {
+          "Thickness": 0.1,
+          "MergeDistancePixels": 25.0,
+          "StandUp": false,
+          "Stackable": true
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "23c297",
+      "Name": "Custom_Token",
+      "Transform": {
+        "posX": 67.0,
+        "posY": 0.9499984,
+        "posZ": 18.0,
+        "rotX": -2.74914925E-07,
+        "rotY": 269.999481,
+        "rotZ": -1.67097392E-06,
+        "scaleX": 0.5,
+        "scaleY": 1.0,
+        "scaleZ": 0.5
+      },
+      "Nickname": "[b][i]Action completed (blue)[/i][/b]",
       "Description": "",
       "GMNotes": "",
       "ColorDiffuse": {
@@ -6865,6 +6918,7 @@
         "b": 1.0
       },
       "LayoutGroupSortIndex": 0,
+      "Value": 0,
       "Locked": false,
       "Grid": true,
       "Snap": true,
