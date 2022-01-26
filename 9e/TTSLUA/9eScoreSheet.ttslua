@@ -242,7 +242,7 @@ function onload(save_data)
 		self.createButton(enableBtn)
 		return
 	end
-	Wait.time(function() self.setPosition({78,1,-1}) end, 1)
+	Wait.time(function() self.setPosition({74,1,-1}) end, 1)
 	self.setLock(true)
 	local spawnerR= getObjectFromGUID(spawner_GUID[1])
 	local spawnerB= getObjectFromGUID(spawner_GUID[2])
