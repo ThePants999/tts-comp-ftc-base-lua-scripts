@@ -8318,7 +8318,7 @@
         "scaleZ": 0.5
       },
       "Nickname": "[b][i]1 Markerlight[/i][/b]",
-      "Description": "[b][u]All Effects Are Cumulative[/u][/b]\n1: Re-roll hits of 1 for T'AU EMPIRE.",
+      "Description": "",
       "GMNotes": "",
       "ColorDiffuse": {
         "r": 1.0,
@@ -8369,7 +8369,7 @@
             "scaleZ": 0.5
           },
           "Nickname": "[b][i]5+ Markerlights[/i][/b]",
-          "Description": "[b][u]All Effects Are Cumulative[/u][/b]\n1: Re-roll hits of 1 for T'AU EMPIRE.\n\n2: Destoyer/Seeker missiles use BS.\n\n3: No cover bonus to saves.\n\n4: No movement/advance penalty for Heavy/Assault weapons for T'AU EMPIRE.\n\n5: +1 to hit for T'AU EMPIRE.",
+          "Description": "",
           "GMNotes": "",
           "ColorDiffuse": {
             "r": 1.0,
@@ -8420,7 +8420,7 @@
             "scaleZ": 0.5
           },
           "Nickname": "[b][i]4 Markerlights[/i][/b]",
-          "Description": "[b][u]All Effects Are Cumulative[/u][/b]\n1: Re-roll hits of 1 for T'AU EMPIRE.\n\n2: Destoyer/Seeker missiles use BS.\n\n3: No cover bonus to saves.\n\n4: No movement/advance penalty for Heavy/Assault weapons for T'AU EMPIRE.",
+          "Description": "",
           "GMNotes": "",
           "ColorDiffuse": {
             "r": 1.0,
@@ -8471,7 +8471,7 @@
             "scaleZ": 0.5
           },
           "Nickname": "[b][i]3 Markerlights[/i][/b]",
-          "Description": "[b][u]All Effects Are Cumulative[/u][/b]\n1: Re-roll hits of 1 for T'AU EMPIRE.\n\n2: Destoyer/Seeker missiles use BS.\n\n3: No cover bonus to saves.",
+          "Description": "",
           "GMNotes": "",
           "ColorDiffuse": {
             "r": 1.0,
@@ -8522,7 +8522,7 @@
             "scaleZ": 0.5
           },
           "Nickname": "[b][i]2 Markerlights[/i][/b]",
-          "Description": "[b][u]All Effects Are Cumulative[/u][/b]\n1: Re-roll hits of 1 for T'AU EMPIRE.\n\n2: Destoyer/Seeker missiles use BS.",
+          "Description": "",
           "GMNotes": "",
           "ColorDiffuse": {
             "r": 1.0,
