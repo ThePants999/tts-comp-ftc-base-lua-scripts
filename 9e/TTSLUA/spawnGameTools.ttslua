@@ -266,7 +266,7 @@ end
 function hideShowArmy(color, hideShow)
     hiddenZone["Red"] = getObjectFromGUID(hiddenZoneRed_GUID)
     hiddenZone["Blue"] = getObjectFromGUID(hiddenZoneBlue_GUID)
-    local zoneData={position={hide={x=0, y=0.75, z=74.25}, show={x=0, y=-50.75, z=74.25}}, scale={hide={x=93.5, y=230, z=48}, show={0.1,0.1,0.1}}}
+    local zoneData={position={hide={x=20, y=0.75, z=74.25}, show={x=0, y=-50.75, z=74.25}}, scale={hide={x=140, y=230, z=48}, show={0.1,0.1,0.1}}}
 
 
     local hideIndex="hide"
