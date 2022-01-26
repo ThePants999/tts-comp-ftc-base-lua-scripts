@@ -14212,8 +14212,8 @@
         "scaleY": 1.0,
         "scaleZ": 1.0
       },
-      "Nickname": "Banner red",
-      "Description": "",
+      "Nickname": "Sticky objective control",
+      "Description": "Objective owned by Red until controlled by Blue at the beginning of any phase",
       "GMNotes": "",
       "ColorDiffuse": {
         "r": 0.856,
@@ -14258,8 +14258,8 @@
         "scaleY": 1.0,
         "scaleZ": 1.0
       },
-      "Nickname": "Banner blue",
-      "Description": "",
+      "Nickname": "Sticky objective control",
+      "Description": "Objective owned by Blue until controlled by Red at the beginning of any phase",
       "GMNotes": "",
       "ColorDiffuse": {
         "r": 0.117999606,
@@ -14294,17 +14294,17 @@
       "GUID": "d713b6",
       "Name": "Custom_Dice",
       "Transform": {
-        "posX": 26.75206,
-        "posY": 1.299632,
-        "posZ": 30.9577885,
-        "rotX": 321.172852,
-        "rotY": 176.2455,
-        "rotZ": 234.516418,
+        "posX": 26.7989712,
+        "posY": 1.29964972,
+        "posZ": 32.21395,
+        "rotX": 321.17334,
+        "rotY": 180.0,
+        "rotZ": 235.42067,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
       },
-      "Nickname": "",
+      "Nickname": "Mission selection die",
       "Description": "",
       "GMNotes": "",
       "ColorDiffuse": {
@@ -14425,17 +14425,17 @@
       "GUID": "4f042d",
       "Name": "Custom_Dice",
       "Transform": {
-        "posX": -26.772871,
-        "posY": 1.29965031,
-        "posZ": -31.1475735,
-        "rotX": 321.17334,
-        "rotY": 358.963135,
-        "rotZ": 235.417969,
+        "posX": -26.78458,
+        "posY": 1.2996484,
+        "posZ": -32.28503,
+        "rotX": 321.173248,
+        "rotY": 0.0,
+        "rotZ": 235.418549,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
       },
-      "Nickname": "",
+      "Nickname": "Mission selection die",
       "Description": "",
       "GMNotes": "",
       "ColorDiffuse": {
@@ -14551,6 +14551,314 @@
           }
         }
       ]
-    }
+    },
+    {
+      "GUID": "c09349",
+      "Name": "Custom_Assetbundle",
+      "Transform": {
+        "posX": 28.0,
+        "posY": 1.2,
+        "posZ": 37.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.5,
+        "scaleY": 1.0,
+        "scaleZ": 1.5
+      },
+      "Nickname": "Blue dice camera",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomAssetbundle": {
+        "AssetbundleURL": "https://raw.githubusercontent.com/RobMayer/TTSLibrary/master/cameras/cam_p2_screenh.unity3d",
+        "AssetbundleSecondaryURL": "https://raw.githubusercontent.com/RobMayer/TTSLibrary/master/cameras/cam_mat.unity3d",
+        "MaterialIndex": 2,
+        "TypeIndex": 1,
+        "LoopingEffectIndex": 0
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "96a319",
+      "Name": "Custom_Assetbundle",
+      "Transform": {
+        "posX": -18.66,
+        "posY": 7.63,
+        "posZ": -28.97,
+        "rotX": 90.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 0.0,
+        "scaleY": 0.0,
+        "scaleZ": 0.0
+      },
+      "Nickname": "Blue dice cam",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomAssetbundle": {
+        "AssetbundleURL": "https://raw.githubusercontent.com/RobMayer/TTSLibrary/master/cameras/cam_p2_source.unity3d",
+        "AssetbundleSecondaryURL": "https://raw.githubusercontent.com/RobMayer/TTSLibrary/master/cameras/cam_mat.unity3d",
+        "MaterialIndex": 2,
+        "TypeIndex": 4,
+        "LoopingEffectIndex": 0
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "19b9bf",
+      "Name": "Custom_Assetbundle",
+      "Transform": {
+        "posX": 18.6627254,
+        "posY": 7.63252163,
+        "posZ": 28.9743652,
+        "rotX": 90.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 0.0,
+        "scaleY": 0.0,
+        "scaleZ": 0.0
+      },
+      "Nickname": "Red dice camera",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomAssetbundle": {
+        "AssetbundleURL": "https://raw.githubusercontent.com/RobMayer/TTSLibrary/master/cameras/cam_p3_source.unity3d",
+        "AssetbundleSecondaryURL": "https://raw.githubusercontent.com/RobMayer/TTSLibrary/master/cameras/cam_mat.unity3d",
+        "MaterialIndex": 2,
+        "TypeIndex": 4,
+        "LoopingEffectIndex": 0
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "48dcae",
+      "Name": "Custom_Assetbundle",
+      "Transform": {
+        "posX": -28.0,
+        "posY": 1.2,
+        "posZ": -37.0,
+        "rotX": -1.52453936E-06,
+        "rotY": 0.0,
+        "rotZ": 5.09243932E-07,
+        "scaleX": 1.5,
+        "scaleY": 1.0,
+        "scaleZ": 1.5
+      },
+      "Nickname": "Red dice cam",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomAssetbundle": {
+        "AssetbundleURL": "https://raw.githubusercontent.com/RobMayer/TTSLibrary/master/cameras/cam_p3_screenh.unity3d",
+        "AssetbundleSecondaryURL": "https://raw.githubusercontent.com/RobMayer/TTSLibrary/master/cameras/cam_mat.unity3d",
+        "MaterialIndex": 2,
+        "TypeIndex": 1,
+        "LoopingEffectIndex": 0
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "470248",
+      "Name": "Custom_Model",
+      "Transform": {
+        "posX": 26.800703,
+        "posY": 0.9390764,
+        "posZ": 30.731733,
+        "rotX": -0.000813559571,
+        "rotY": 89.99133,
+        "rotZ": -0.00122449861,
+        "scaleX": 0.82499975,
+        "scaleY": 0.82499975,
+        "scaleZ": 0.82499975
+      },
+      "Nickname": "Banner (Red)",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 0.9999998,
+        "g": 0.9921616,
+        "b": 0.9999998
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomMesh": {
+        "MeshURL": "https://drive.google.com/uc?export=download&id=0BwpXdiEgZ5GzX1E0OVZ4OVI3NEU",
+        "DiffuseURL": "http://i.imgur.com/LlVaWAa.jpg",
+        "NormalURL": "http://i.imgur.com/OwdSyxh.jpg",
+        "ColliderURL": "https://drive.google.com/uc?export=download&id=0BwpXdiEgZ5GzQlFJOWVXUEFkVjA",
+        "Convex": true,
+        "MaterialIndex": 0,
+        "TypeIndex": 0,
+        "CustomShader": {
+          "SpecularColor": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "SpecularIntensity": 0.0,
+          "SpecularSharpness": 7.0,
+          "FresnelStrength": 0.4
+        },
+        "CastShadows": true
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "d279f4",
+      "Name": "Custom_Model",
+      "Transform": {
+        "posX": -26.8319225,
+        "posY": 0.9392165,
+        "posZ": -30.7317333,
+        "rotX": 0.010883511,
+        "rotY": 269.987762,
+        "rotZ": 0.0272385031,
+        "scaleX": 0.82499975,
+        "scaleY": 0.82499975,
+        "scaleZ": 0.82499975
+      },
+      "Nickname": "Banner (Blue)",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 0.9999998,
+        "g": 0.992162049,
+        "b": 0.9999998
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomMesh": {
+        "MeshURL": "https://drive.google.com/uc?export=download&id=0BwpXdiEgZ5GzX1E0OVZ4OVI3NEU",
+        "DiffuseURL": "http://i.imgur.com/YNibEhf.jpg",
+        "NormalURL": "http://i.imgur.com/OwdSyxh.jpg",
+        "ColliderURL": "https://drive.google.com/uc?export=download&id=0BwpXdiEgZ5GzQlFJOWVXUEFkVjA",
+        "Convex": true,
+        "MaterialIndex": 0,
+        "TypeIndex": 0,
+        "CustomShader": {
+          "SpecularColor": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "SpecularIntensity": 0.0,
+          "SpecularSharpness": 7.0,
+          "FresnelStrength": 0.4
+        },
+        "CastShadows": true
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
   ]
 }
