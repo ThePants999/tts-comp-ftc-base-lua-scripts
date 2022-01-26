@@ -211,33 +211,9 @@ function placeToGray(player, value, id)
     --player.changeColor("Grey")
     --player.team="None"
 end
-function openTerrain()
-    Global.UI.setAttribute("terrainInfo1", "active", "true")
-    Global.UI.setAttribute("terrainInfo2", "active", "false")
-end
-function page2Terrain()
-    Global.UI.setAttribute("terrainInfo1", "active", "false")
-    Global.UI.setAttribute("terrainInfo2", "active", "true")
-end
-function closeTerrain()
-    Global.UI.setAttribute("terrainInfo1", "active", "false")
-    Global.UI.setAttribute("terrainInfo2", "active", "false")
-end
-function openGame()
-    Global.UI.setAttribute("gameInfo1", "active", "true")
-    Global.UI.setAttribute("gameInfo2", "active", "false")
-end
-function page2Game()
-    Global.UI.setAttribute("gameInfo1", "active", "false")
-    Global.UI.setAttribute("gameInfo2", "active", "true")
-end
-function closeGame()
-    Global.UI.setAttribute("gameInfo1", "active", "false")
-    Global.UI.setAttribute("gameInfo2", "active", "false")
-end
 function closeMenu(player, value, id)
     player.team="None"
-    broadcastToColor("READ INSTRUCTIONS FIRST!\n(Purple buttons on table)", player.color, "Purple")
+    broadcastToColor("READ INSTRUCTIONS FIRST!\n(Click Notebook at the top)", player.color, "Purple")
 end
 
 backPosition={{0,0,0},{0,0,0},{0,0,0},{0,0,0}}
