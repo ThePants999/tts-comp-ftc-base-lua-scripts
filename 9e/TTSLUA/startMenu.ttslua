@@ -98,7 +98,7 @@ function makeAnnouncement()
     '2.35: Non-GT missions removed from DZ/objective selector.',
     '2.35: Unused features removed: action camera, old psychic power/token bags, old KT support, 8e map sizes.',
     '2.36: Nachmund Strike Force missions added.',
-    '2.37: Added chess clock, reserves boards, banners, mission dice.'
+    '2.37: Added chess clock, reserves boards, banners, mission dice, action tokens.'
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -907,7 +907,7 @@ deployOffsetDownBtn = {
 }
 
 -- OBJECTIVES MANAGER
-defaultObjectivesHeight=1.22
+defaultObjectivesHeight=1.0
 originalObjectivesGuid={"573333","764a2e","6d45cf","33e32b","f32864","a91751",--[[repeating 1 and 2]]"573333","764a2e"} -- last two are placeholders
 
 function spawnObjectives()
@@ -1482,8 +1482,8 @@ function objectivesOffsetDown()
 end
 
 function objectivesOffsetUpDown(upDown) -- true up, false down
-    local amt = 1
-    if not upDown then amt = -1 end
+    local amt = 0.2
+    if not upDown then amt = -0.2 end
     objectivesOffset = objectivesOffset + amt
     if objectivesOffset > 25 then
         objectivesOffset = 25
