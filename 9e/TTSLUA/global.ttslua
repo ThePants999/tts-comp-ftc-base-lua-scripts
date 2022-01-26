@@ -1,7 +1,5 @@
 --[[ Lua code. See documentation: https://api.tabletopsimulator.com/ --]]
 
-enableObjectivesDecks=true
-
 turnOrder={}
 nonPlaying={"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink" }
 allowMenu=true
