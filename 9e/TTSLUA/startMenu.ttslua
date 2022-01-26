@@ -98,6 +98,7 @@ function makeAnnouncement()
     '2.35: Non-GT missions removed from DZ/objective selector.',
     '2.35: Unused features removed: action camera, old psychic power/token bags, old KT support, 8e map sizes.',
     '2.36: Nachmund Strike Force missions added.',
+    '2.37: Added chess clock, reserves boards, banners, mission dice.'
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
