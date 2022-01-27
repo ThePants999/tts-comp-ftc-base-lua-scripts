@@ -866,7 +866,7 @@ function changeButtonColors()
 				width = "180"
 				height = "120"
 				rectAlignment = "UpperRight"
-				offsetXY = "-200 0"
+				offsetXY = "-270 0"
 				allowDragging = "true"
 				restrictDraggingToParentBounds = "false"
 				returnToOriginalPositionWhenReleased = "false"
