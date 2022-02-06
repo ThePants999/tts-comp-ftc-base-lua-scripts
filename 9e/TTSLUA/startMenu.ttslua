@@ -99,7 +99,8 @@ function makeAnnouncement()
     '2.35: Unused features removed: action camera, old psychic power/token bags, old KT support, 8e map sizes.',
     '2.36: Nachmund Strike Force missions added.',
     '2.37: Added chess clock, reserves boards, dice cams, banners and objective control markers, mission dice, action tokens.',
-    '2.37: Objectives now have a mat-style state.'
+    '2.37: Objectives now have a mat-style state.',
+    '2.38: Mat-style state is now the default for objectives.'
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
