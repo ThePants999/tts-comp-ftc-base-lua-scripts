@@ -910,13 +910,14 @@ deployOffsetDownBtn = {
 
 -- OBJECTIVES MANAGER
 defaultObjectivesHeight=1.0
-originalObjectivesGuid={"573333","764a2e","6d45cf","33e32b","f32864","a91751",--[[repeating 1 and 2]]"573333","764a2e"} -- last two are placeholders
+templateObjectiveGuid="573333"
 
 function spawnObjectives()
     destroyAllObjectives()
     local selectedObjectivesBySize= objectivesData[objectivesTypeSelected].objectivesList
     local spawned = nil
     local pos={}
+    local template = getObjectFromGUID(templateObjectiveGuid)
     for i, objective in ipairs(selectedObjectivesBySize[objectivesSelected].objectives) do
         pos=objective.pos
         if objectivesOffset == nil then pos[2] = 1 else pos[2] = defaultObjectivesHeight+ objectivesOffset end
@@ -926,7 +927,7 @@ function spawnObjectives()
             if objective.type=="diagonal" then
                 pos=calcDiagonalPos(objective.orientation, pos[1], pos[2])
             end
-        spawned = getObjectFromGUID(originalObjectivesGuid[i]).clone({ position = pos })
+        spawned = template.clone({ position = pos })
         spawned.setGMNotes("objective")
         spawned.setPosition(pos)
         local rotZ = 180
