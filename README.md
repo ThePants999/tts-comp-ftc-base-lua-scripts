@@ -1,5 +1,5 @@
 # Competitive FTC Base: LUA scripts
-Comp FTC Map Base LUA Scripts v2.38
+Comp FTC Map Base LUA Scripts v2.39
 
 The following files contain all the LUA scripts contained in the Competitive FTC Base Map for the TTS 40k community. If a file does not exist for an object within the TTS save, then that object does not contain any scripts.
 
@@ -8,6 +8,12 @@ This repo now contains the actual TTS JSON file. To produce the JSON file, run t
 Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and elements contained within it!
 
 ## Update History:
+
+### v2.39
+
+* Nachmund Incursion missions added.
+* Fixed broken objective marker scaling (broken in v2.38).
+* Objectives are now spawned from a single, hidden template; markers 1-6 are now standalone and never cloned. The template has the "objective" tag built into its alternate states so that spawned objectives correctly despawn/change height even after having their state changed.
 
 ### v2.38
 
