@@ -94,16 +94,8 @@ end
 
 function makeAnnouncement()
     local features={
-    '2.35: Score sheet updated for GT22.',
-    '2.35: Non-GT missions removed from DZ/objective selector.',
-    '2.35: Unused features removed: action camera, old psychic power/token bags, old KT support, 8e map sizes.',
-    '2.36: Nachmund Strike Force missions added.',
-    '2.37: Added chess clock, reserves boards, dice cams, banners and objective control markers, mission dice, action tokens.',
-    '2.37: Objectives now have a mat-style state.',
-    '2.38: Mat-style state is now the default for objectives.',
-    '2.39: Fixed objective scaling issues, and objectives correctly despawn/change height even when state changed.',
-    '2.39: Nachmund Incursion missions added.',
-    '2.40: Missing center objectives added to Incursion missions.'
+    '2.40: Missing center objectives added to Incursion missions.',
+    '2.41: Nephilim support added'
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -254,30 +246,30 @@ end
 objectivesData = {
     {   id=1 , type = "Strike Force",
         objectivesList={
-            {id = 12, name = "Nachmund #11 Recover The Relics", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
-            {id = 13, name = "Nachmund #12 Tear Down Their Icons", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-            {id = 14, name = "Nachmund #13 Data Scry-Salvage", objectives = {{type = "diagonal", orientation="xz", pos={18}},{type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}}}},
-            {id = 15, name = "Nachmund #21 Abandoned Sanctuaries", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 14}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -14}}}},
-            {id = 16, name = "Nachmund #22 Conversion", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-            {id = 17, name = "Nachmund #23 The Scouring", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={9, objectivesOffset, 12}},{type = "fixed", pos={9, objectivesOffset, -12}},{type = "fixed", pos={-9, objectivesOffset, 12}},{type = "fixed", pos={-9, objectivesOffset, -12}}}},
-            {id = 18, name = "Nachmund #31 Tide of Conviction", objectives = {{type = "fixed", pos={6, objectivesOffset, 6}},{type = "fixed", pos={-18, objectivesOffset, 6}},{type = "fixed", pos={0, objectivesOffset, 15}}, {type = "fixed", pos={18, objectivesOffset, -6}},{type = "fixed", pos={-6, objectivesOffset, -6}},{type = "fixed", pos={0, objectivesOffset, -15}}}},
-            {id = 19, name = "Nachmund #32 Death and Zeal", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-            {id = 20, name = "Nachmund #33 Secure Missing Artefacts", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+            {id = 12, name = "#11 Recover The Relics", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
+            {id = 13, name = "#12 Tear Down Their Icons", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+            {id = 14, name = "#13 Data Scry-Salvage", objectives = {{type = "diagonal", orientation="xz", pos={18}},{type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}}}},
+            {id = 15, name = "#21 Abandoned Sanctuaries", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 14}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -14}}}},
+            {id = 16, name = "#22 Conversion", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+            {id = 17, name = "#23 The Scouring", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={9, objectivesOffset, 12}},{type = "fixed", pos={9, objectivesOffset, -12}},{type = "fixed", pos={-9, objectivesOffset, 12}},{type = "fixed", pos={-9, objectivesOffset, -12}}}},
+            {id = 18, name = "#31 Tide of Conviction", objectives = {{type = "fixed", pos={6, objectivesOffset, 6}},{type = "fixed", pos={-18, objectivesOffset, 6}},{type = "fixed", pos={0, objectivesOffset, 15}}, {type = "fixed", pos={18, objectivesOffset, -6}},{type = "fixed", pos={-6, objectivesOffset, -6}},{type = "fixed", pos={0, objectivesOffset, -15}}}},
+            {id = 19, name = "#32 Death and Zeal", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+            {id = 20, name = "#33 Secure Missing Artefacts", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
 
             {id = 0, name = "None", objectives = {} },
         }
     },
     {   id=2 , type = "Incursion",
         objectivesList={
-            {id = 12, name = "Nachmund #11 Cleanse The Land", objectives = {{type = "fixed", pos={12, objectivesOffset, 9}},{type = "fixed", pos={-12, objectivesOffset, -9}},{type = "fixed", pos={12, objectivesOffset, -9}},{type = "fixed", pos={-12, objectivesOffset, 9}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 13, name = "Nachmund #12 Deliverance", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 14, name = "Nachmund #13 Desperate Raid", objectives = {{type = "fixed", pos={16, objectivesOffset, -6}},{type = "fixed", pos={16, objectivesOffset, 10}},{type = "fixed", pos={-16, objectivesOffset, -10}},{type = "fixed", pos={-16, objectivesOffset, 6}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
-            {id = 15, name = "Nachmund #21 Sacred Ground", objectives = {{type = "fixed", pos={16.83, objectivesOffset, -8}},{type = "fixed", pos={-16.83, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
-            {id = 16, name = "Nachmund #22 Ascension", objectives = {{type = "fixed", pos={8, objectivesOffset, -8}},{type = "fixed", pos={-16, objectivesOffset, -8}},{type = "fixed", pos={16, objectivesOffset, 8}},{type = "fixed", pos={-8, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 17, name = "Nachmund #23 Surge of Faith", objectives = {{type = "fixed", pos={16, objectivesOffset, 6}},{type = "fixed", pos={3, objectivesOffset, -9}},{type = "fixed", pos={-3, objectivesOffset, 9}},{type = "fixed", pos={-16, objectivesOffset, -6}}}},
-            {id = 18, name = "Nachmund #31 Rise of the Machine Spirit", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 19, name = "Nachmund #32 Display of Spiritual Might", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
-            {id = 20, name = "Nachmund #33 Reconnaissance Mission", objectives = {{type = "diagonal", pos={16, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={16, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={10, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={10, objectivesOffset}, orientation = "x-z"}}},
+            {id = 12, name = "#11 Cleanse The Land", objectives = {{type = "fixed", pos={12, objectivesOffset, 9}},{type = "fixed", pos={-12, objectivesOffset, -9}},{type = "fixed", pos={12, objectivesOffset, -9}},{type = "fixed", pos={-12, objectivesOffset, 9}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
+            {id = 13, name = "#12 Deliverance", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"},{type = "fixed", pos={0, objectivesOffset, 0}}}},
+            {id = 14, name = "#13 Desperate Raid", objectives = {{type = "fixed", pos={16, objectivesOffset, -6}},{type = "fixed", pos={16, objectivesOffset, 10}},{type = "fixed", pos={-16, objectivesOffset, -10}},{type = "fixed", pos={-16, objectivesOffset, 6}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
+            {id = 15, name = "#21 Sacred Ground", objectives = {{type = "fixed", pos={16.83, objectivesOffset, -8}},{type = "fixed", pos={-16.83, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
+            {id = 16, name = "#22 Ascension", objectives = {{type = "fixed", pos={8, objectivesOffset, -8}},{type = "fixed", pos={-16, objectivesOffset, -8}},{type = "fixed", pos={16, objectivesOffset, 8}},{type = "fixed", pos={-8, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
+            {id = 17, name = "#23 Surge of Faith", objectives = {{type = "fixed", pos={16, objectivesOffset, 6}},{type = "fixed", pos={3, objectivesOffset, -9}},{type = "fixed", pos={-3, objectivesOffset, 9}},{type = "fixed", pos={-16, objectivesOffset, -6}}}},
+            {id = 18, name = "#31 Rise of the Machine Spirit", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"},{type = "fixed", pos={0, objectivesOffset, 0}}}},
+            {id = 19, name = "#32 Display of Spiritual Might", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
+            {id = 20, name = "#33 Reconnaissance Mission", objectives = {{type = "diagonal", pos={16, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={16, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={10, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={10, objectivesOffset}, orientation = "x-z"}}},
 
             {id = 0, name = "None", objectives = {} },
         }
@@ -293,30 +285,30 @@ objectivesData = {
 DeployZonesData = {
     { id=1 , type = "Strike Force",
         zones={
-            {name = "Nachmund #11 Recover The Relics", objectivesID= 12, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
-            {name = "Nachmund #12 Tear Down Their Icons", objectivesID= 13, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
-            {name = "Nachmund #13 Data Scry-Salvage", objectivesID= 14,draw = {--[[1]]{type = "diagonal", color = "Teal", position = "-z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "z" , fromCenter = 12}}},
-            {name = "Nachmund #21 Abandoned Sanctuaries", objectivesID= 15, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-            {name = "Nachmund #22 Conversion", objectivesID= 16, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "Nachmund #23 The Scouring", objectivesID= 17, draw = {--[[1]]{type = "line", color="Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color="Red", position = "-x", fromCenter = 12}}},
-            {name = "Nachmund #31 Tide of Conviction", objectivesID= 18, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-            {name = "Nachmund #32 Death and Zeal", objectivesID= 19, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "Nachmund #33 Secure Missing Artefacts", objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "#11 Recover The Relics", objectivesID= 12, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
+            {name = "#12 Tear Down Their Icons", objectivesID= 13, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "#13 Data Scry-Salvage", objectivesID= 14,draw = {--[[1]]{type = "diagonal", color = "Teal", position = "-z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "z" , fromCenter = 12}}},
+            {name = "#21 Abandoned Sanctuaries", objectivesID= 15, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
+            {name = "#22 Conversion", objectivesID= 16, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "#23 The Scouring", objectivesID= 17, draw = {--[[1]]{type = "line", color="Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color="Red", position = "-x", fromCenter = 12}}},
+            {name = "#31 Tide of Conviction", objectivesID= 18, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
+            {name = "#32 Death and Zeal", objectivesID= 19, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "#33 Secure Missing Artefacts", objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
 
             {name = "None", draw = {type = "none"}},
         }
     },
     { id=2 , type = "Incursion",
         zones={
-            {name = "Nachmund #11 Cleanse The Land",  objectivesID= 12, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "Nachmund #12 Deliverance",  objectivesID= 13, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "Nachmund #13 Desperate Raid", objectivesID= 14, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "Nachmund #21 Sacred Ground",  objectivesID= 15, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
-            {name = "Nachmund #22 Ascension", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "Nachmund #23 Surge of Faith", objectivesID= 17, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "Nachmund #31 Rise of the Machine Spirit",  objectivesID= 18, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "Nachmund #32 Display of Spiritual Might", objectivesID= 19, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "Nachmund #33 Reconnaissance Mission",  objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "#11 Cleanse The Land",  objectivesID= 12, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "#12 Deliverance",  objectivesID= 13, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "#13 Desperate Raid", objectivesID= 14, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "#21 Sacred Ground",  objectivesID= 15, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "#22 Ascension", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "#23 Surge of Faith", objectivesID= 17, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "#31 Rise of the Machine Spirit",  objectivesID= 18, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+            {name = "#32 Display of Spiritual Might", objectivesID= 19, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "#33 Reconnaissance Mission",  objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
 
             {name = "None", draw = {type = "none"}},
         }
@@ -820,6 +812,7 @@ gameTurnCounter = nil
 armyMover = ""
 first = "Red"
 currentTurn = "Red"
+cpEveryTurn = true
 phases = {"Command", "Movement", "Psychic", "Shooting", "Charge", "Fight", "Morale"}
 currentPhase = 1
 startBtn = {
@@ -1253,12 +1246,22 @@ function passTurn(obj, player_color_click, alt_click)
         currentTurn = "Blue" -- it has to be the opposite
         blueTurnCounter.call("increaseSelf")
         blueCpCounter.Counter.increment()
-        Wait.time(function() broadcastToAll("Blue CPs incremented!", "Blue") end, 0.3)
+        if cpEveryTurn then
+          redCpCounter.Counter.increment()
+          Wait.time(function() broadcastToAll("Both CPs incremented!", "White") end, 0.3)
+        else
+          Wait.time(function() broadcastToAll("Blue CPs incremented!", "Blue") end, 0.3)
+        end
     else
         currentTurn = "Red"
         redTurnCounter.call("increaseSelf")
         redCpCounter.Counter.increment()
-        Wait.time(function() broadcastToAll("Red CPs incremented!", "Red") end, 0.3)
+        if cpEveryTurn then
+          blueCpCounter.Counter.increment()
+          Wait.time(function() broadcastToAll("Both CPs incremented!", "White") end, 0.3)
+        else
+          Wait.time(function() broadcastToAll("Red CPs incremented!", "Red") end, 0.3)
+        end
     end
     if simulation then
         broadcastToAll("It's "..currentTurn.." turn", currentTurn)
