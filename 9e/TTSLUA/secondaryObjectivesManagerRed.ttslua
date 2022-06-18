@@ -74,7 +74,7 @@ function onLoad(save_state)
     self.setScale({0.6,1,0.6})
     scoresheet = getObjectFromGUID(scoresheet_GUID)
     getRepoList()
-    Wait.time(function() getDataFromRepo() end , 0.5)
+    Wait.time(function() getDataFromRepo() end , 2.0)
 end
 
 function writeMenu()
