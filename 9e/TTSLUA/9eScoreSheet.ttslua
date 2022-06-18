@@ -764,6 +764,15 @@ function pack(_, _, alt)
 		packButton.label = packsData[i].name
 		self.editButton( packButton )
 
+		startGameObj= getObjectFromGUID(Global.getVar("startMenu_GUID"))
+		if string.find(packsData[i].name, "Nachmund") then
+			-- Nachmund missions grant one CP per battle round
+			startGameObj.setVar("cpEveryTurn", false)
+		else
+			-- Nephilim and onwards grant one CP per player turn
+			startGameObj.setVar("cpEveryTurn", true)
+		end
+
 		updateAll(true)
 	else
 		printToAll("WARNING: Changing mission pack will reset objectives. Click again to confirm.", {r=1,g=0,b=0})
