@@ -9,7 +9,7 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 
 ## Update History:
 
-### v2.39
+### v2.40
 
 * Some Incursion missions were missing their center objective, now added.
 
