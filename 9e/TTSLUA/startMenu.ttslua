@@ -103,6 +103,7 @@ function makeAnnouncement()
     '2.38: Mat-style state is now the default for objectives.',
     '2.39: Fixed objective scaling issues, and objectives correctly despawn/change height even when state changed.',
     '2.39: Nachmund Incursion missions added.',
+    '2.40: Missing center objectives added to Incursion missions.'
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -268,13 +269,13 @@ objectivesData = {
     },
     {   id=2 , type = "Incursion",
         objectivesList={
-            {id = 12, name = "Nachmund #11 Cleanse The Land", objectives = {{type = "fixed", pos={12, objectivesOffset, 9}},{type = "fixed", pos={-12, objectivesOffset, -9}},{type = "fixed", pos={12, objectivesOffset, -9}},{type = "fixed", pos={-12, objectivesOffset, 9}}}},
-            {id = 13, name = "Nachmund #12 Deliverance", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"}}},
+            {id = 12, name = "Nachmund #11 Cleanse The Land", objectives = {{type = "fixed", pos={12, objectivesOffset, 9}},{type = "fixed", pos={-12, objectivesOffset, -9}},{type = "fixed", pos={12, objectivesOffset, -9}},{type = "fixed", pos={-12, objectivesOffset, 9}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
+            {id = 13, name = "Nachmund #12 Deliverance", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"},{type = "fixed", pos={0, objectivesOffset, 0}}}},
             {id = 14, name = "Nachmund #13 Desperate Raid", objectives = {{type = "fixed", pos={16, objectivesOffset, -6}},{type = "fixed", pos={16, objectivesOffset, 10}},{type = "fixed", pos={-16, objectivesOffset, -10}},{type = "fixed", pos={-16, objectivesOffset, 6}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
             {id = 15, name = "Nachmund #21 Sacred Ground", objectives = {{type = "fixed", pos={16.83, objectivesOffset, -8}},{type = "fixed", pos={-16.83, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
             {id = 16, name = "Nachmund #22 Ascension", objectives = {{type = "fixed", pos={8, objectivesOffset, -8}},{type = "fixed", pos={-16, objectivesOffset, -8}},{type = "fixed", pos={16, objectivesOffset, 8}},{type = "fixed", pos={-8, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
             {id = 17, name = "Nachmund #23 Surge of Faith", objectives = {{type = "fixed", pos={16, objectivesOffset, 6}},{type = "fixed", pos={3, objectivesOffset, -9}},{type = "fixed", pos={-3, objectivesOffset, 9}},{type = "fixed", pos={-16, objectivesOffset, -6}}}},
-            {id = 18, name = "Nachmund #31 Rise of the Machine Spirit", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"}}},
+            {id = 18, name = "Nachmund #31 Rise of the Machine Spirit", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"},{type = "fixed", pos={0, objectivesOffset, 0}}}},
             {id = 19, name = "Nachmund #32 Display of Spiritual Might", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
             {id = 20, name = "Nachmund #33 Reconnaissance Mission", objectives = {{type = "diagonal", pos={16, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={16, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={10, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={10, objectivesOffset}, orientation = "x-z"}}},
 
@@ -838,7 +839,7 @@ nextPhaseBtn = {
     font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
 }
 
-notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported. Please see xxx for other mission packs.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found by clicking the relative purple buttons on the table.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
+notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported. Please see xxx for other mission packs.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found in the Notebook.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
 --
 menuX = 15
 menuZ = 1.05-1.05
