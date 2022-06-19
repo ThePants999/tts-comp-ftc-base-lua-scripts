@@ -254,7 +254,7 @@ function onload(save_data)
 		spawnerB.call("setRepoUrl", {url=repo})
 	end
 
-	 WebRequest.get( repo .. "index.json", function(index_web)
+	WebRequest.get( repo .. "index.json", function(index_web)
 		self.createButton( playerOneTitle )
 		self.createButton( playerTwoTitle )
 		self.createButton( playerTotal[1] )
@@ -507,12 +507,12 @@ function onload(save_data)
 		end
 
 		Wait.time(slowUpdate, 2)
-	--[[	Timer.create({
-			identifier     = "scorecard_timer_" .. math.random(1000000),
-			function_name  = "slowUpdate",
-			delay          = 2,
-			repetitions    = 0
-		})]]
+		--[[	Timer.create({
+				identifier     = "scorecard_timer_" .. math.random(1000000),
+				function_name  = "slowUpdate",
+				delay          = 2,
+				repetitions    = 0
+			})]]
 	end)
 	if selectedPack.index == 0  then
 		Wait.time(function() pack(self, "Red", false) end, 1)

@@ -1,13 +1,18 @@
 --[[ Lua code. See documentation: https://api.tabletopsimulator.com/ --]]
 
-turnOrder={}
-nonPlaying={"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink" }
-allowMenu=true
-allowAutoSeat=true
-redPlayerID=""
-bluePlayerID=""
-startMenu_GUID="738804"
-startMenu=nil
+turnOrder = {}
+nonPlaying = {"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink" }
+allowMenu = true
+allowAutoSeat = true
+redPlayerID = ""
+bluePlayerID = ""
+startMenu_GUID = "738804"
+startMenu = nil
+
+packsRepo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
+packs = nil
+packsStatus = "pending"
+packsToDownload = nil
 
 redDiceMat_GUID="c57d70"
 blueDiceMat_GUID="a84ed2"
@@ -33,6 +38,8 @@ function onSave()
 end
 
 function onLoad(saved_data)
+    WebRequest.get(packsRepo.."index.json", initRepoList)
+
     Turns.enable=false
     --- load vars from saved
     if saved_data ~= "" then
@@ -63,6 +70,39 @@ function onLoad(saved_data)
         end
     else
         Global.UI.setAttribute("main", "active", "false")
+    end
+end
+
+function initRepoList(web_data)
+    if not web_data then
+        packsStatus = "failed"
+        print("Failed to download mission pack list!")
+    else
+        local data = JSON.decode(web_data.text)
+        packs = {}
+        packs.names = data.packs
+        packs.data = {}
+
+        for index, pack in ipairs(data.packs) do
+            packsToDownload = packsToDownload + 1
+            local url = packsRepo..pack..".json"
+            WebRequest.get(url, function(web) initPackData(pack, web) end)
+        end
+    end
+end
+
+function initPackData(pack, web_data)
+    if not web_data then
+        packsStatus = "failed"
+        print("Failed to download mission pack " .. pack)
+    else
+        local data = JSON.decode(web_data.text)
+        packs.data[pack] = data
+
+        packsToDownload = packsToDownload - 1
+        if packsStatus == "pending" and packsToDownload == 0 then
+            packsStatus = "success"
+        end
     end
 end
 
