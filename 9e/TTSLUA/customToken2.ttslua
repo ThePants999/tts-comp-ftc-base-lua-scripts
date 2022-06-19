@@ -1,4 +1,0 @@
--- FTC-GUID: 74594d
-function onLoad()
-self.interactable=false
-end

@@ -2,9 +2,9 @@ function WriteLuaScriptToJsonContent([int]$jsonLineNumber, [int]$luaScriptFileId
 {
 	$fileName = ('{0}{1}' -f $pathLua, $luaScriptFiles[$luaScriptFileIdx])
 	$luaContent = Get-Content $fileName | Out-String | ConvertTo-Json
-	
+
 	$curJsonContentOnLine = $jsonContent[$jsonLineNumber] -replace ".{3}$"
-	
+
 	Write-Host "Writing to JSON line number $jsonLineNumber. " -NoNewLine
 	$jsonContent[$jsonLineNumber] = $curJsonContentOnLine + $luaContent + ","
 }
@@ -12,13 +12,13 @@ function WriteLuaScriptToJsonContent([int]$jsonLineNumber, [int]$luaScriptFileId
 $pathLua = '..\TTSLUA\'
 $luaScriptFiles = @('global.ttslua')
 $luaScriptFiles += Get-ChildItem $pathLua -include *.ttslua -exclude global.ttslua -name
- 
+
 $pathJson = '..\TTSJSON\'
 $jsonName = 'ftc_base'
 $jsonExt = '.json'
 $jsonCompileUpdate = '_compiled'
 
-$regexLuaGUID = '-- FTC-GUID: (.*)'
+$regexLuaGUID = '(?<=-- FTC-GUID:.*)([0-9a-f]{6})'
 $regexJsonGUID = '"GUID": "(.*)"'
 $regexJsonLuaScript = '"LuaScript": '
 
@@ -41,7 +41,7 @@ if($version -ne "")
 }
 
 $luaContent = ''
-$luaGUID = @()
+$luaGUIDs = @()
 # pull each of the GUIDs and store them, ignore the first lua file as it's the global file with no GUID
 for($luaIdx = 1; $luaIdx -lt $luaScriptFiles.Count; $luaIdx++)
 {
@@ -53,28 +53,31 @@ for($luaIdx = 1; $luaIdx -lt $luaScriptFiles.Count; $luaIdx++)
 		Pause
 		exit
 	}
-	
-	# grab the contents of the lua script file and capture the GUID from the first line
-	Write-Host "Searching for GUID in $fileName... " -NoNewLine
+
+	# grab the contents of the lua script file and capture the GUIDs from the first line
+	Write-Host "Searching for GUIDs in $fileName... " -NoNewLine
 	$luaContent = Get-Content $fileName
-	$luaGUID += $luaContent[0] | Select-String $regexLuaGUID
-	# test to see if we received a valid GUID
-	if($luaGUID[$luaIdx - 1] -eq 0)
+	$results = $luaContent[0] | Select-String -AllMatches -Pattern $regexLuaGUID
+
+	# test to see if we received valid GUIDs
+	if($results.Matches.Length -eq 0)
 	{
-		Write-Host "No GUID found! Ending compilation..."
+		Write-Host "No GUIDs found! Ending compilation..."
 		Pause
 		exit
 	}
 
-	if($luaGUID.Matches[$luaIdx - 1].Groups[1].Value -eq "")
+	Write-Host "GUIDs " -NoNewLine
+	foreach($match in $results.Matches)
 	{
-		Write-Host "No GUID found! Ending compilation..."
-		Pause
-		exit
+		# For each found GUID, store the combo of that GUID and the current file
+		# index. (The comma in the append operation ensures we append an array,
+		# rather than unrolling it and appending the contents.)
+		$guid = $match.Value
+		$luaGUIDs += , @($guid, $luaIdx)
+		Write-Host "$guid " -NoNewLine
 	}
-	
-	$guidStr = $luaGUID.Matches[$luaIdx - 1].Groups[1].Value
-	Write-Host "GUID $guidStr found."
+	Write-Host "found."
 }
 
 # grab the contents of the json file
@@ -97,33 +100,32 @@ WriteLuaScriptToJsonContent $lineNum 0
 Write-Host 'Successful update.'
 
 # iterate through the lua script GUIDs
-for($idx = 0; $idx -lt $luaGUID.Count; $idx++)
+foreach($guid in $luaGUIDs)
 {
-	$num = $idx + 1
-	if($num -lt 10) { $num = "0$num" }
-	$numOf = $luaGUID.Count
-	$findGUID = $luaGUID.Matches[$idx].Groups[1].Value
-	Write-Host "Locating GUID $findGUID $num out of $numOf... " -NoNewLine
-	
-	$GUIDfound = 'False'
+	$findGUID = $guid[0]
+	$fileIndex = $guid[1]
+	$fileName = $luaScriptFiles[$fileIndex]
+	Write-Host "Locating GUID $findGUID for $fileName... " -NoNewLine
+
+	$GUIDfound = $false
 	# check against the list of GUIDs from the json file
 	for($jsonGUIDIdx = 0; $jsonGUIDIdx -lt $jsonGUIDLine.Count; $jsonGUIDIdx++)
 	{
 		$jsonGUID = $jsonGUIDLine.Matches[$jsonGUIDIdx].Groups[1].Value
-		# match the json GUID with the lua script GUID then modify json content 
+		# match the json GUID with the lua script GUID then modify json content
 		if($findGUID -eq $jsonGUID)
 		{
 			$lineNum = $jsonLuaScriptLine[$jsonGUIDIdx + 1].LineNumber - 1
 			Write-Host 'GUID found! ' -NoNewLine
-			WriteLuaScriptToJsonContent $lineNum ($idx + 1)
-			$GUIDfound = 'True'
+			WriteLuaScriptToJsonContent $lineNum $fileIndex
+			$GUIDfound = $true
 			Write-Host 'Successful update!'
 			$jsonGUIDIdx = $jsonGUIDLine.Count
 		}
 	}
-	
+
 	# stop if no GUID match was found
-	if($GUIDfound -eq 'False')
+	if(!($GUIDfound))
 	{
 		Write-Host 'GUID not found! Ending compilation...'
 		Pause

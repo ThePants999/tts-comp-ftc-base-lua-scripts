@@ -1,4 +1,4 @@
--- FTC-GUID: cff35b
+-- FTC-GUID: 471de1,cff35b
 
 scoresheet_GUID="06d627"
 repo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
@@ -241,6 +241,7 @@ function initData(web_data)
         print("NO WEB DATA")
 	else
 		local data= JSON.decode(web_data.text)
+        --print(data.ver)
         secondaryObjectivesList = data.factions
         packName= data.name
     end
