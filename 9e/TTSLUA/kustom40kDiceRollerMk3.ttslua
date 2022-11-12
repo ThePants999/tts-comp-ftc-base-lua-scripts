@@ -110,7 +110,7 @@ end
 
 --Sets default description.
 function setDefaultState()
-	self.setDescription(JSON.encode_pretty({Results = 'no', SmoothDice = 'no', Rows = 'yes', SortNoRows = 'asc', Step = 1.05, Version = ver}))
+	self.setDescription(JSON.encode_pretty({Results = 'no', SmoothDice = 'no', RotateDice = 'no', Rows = 'yes', SortNoRows = 'asc', Step = 1.05, Version = ver}))
 end
 
 --Creates a table and sorts the dice guids by value.
@@ -251,10 +251,11 @@ function takeDiceOut(tab)
 		params.params = {diceGuids[key]}
 		params.smooth = false
 		if data.SmoothDice == 'yes' then params.smooth = true end
-			self.takeObject(params)
-			n = n + 1
-		end
+
+		self.takeObject(params)
+		n = n + 1
 	end
+end
 
 	printresultsTable()
 --[[Benchmarking code
@@ -312,6 +313,8 @@ end
 --Sets the value of the physical dice object and reorients them if needed.
 function setValueCallback(obj, tab)
     function insidef()
+        local data = JSON.decode(self.getDescription())
+
         obj.setValue(tab[1])
         if obj.tag == 'Dice' then
             objType = tostring(obj)
@@ -333,29 +336,32 @@ function setValueCallback(obj, tab)
         local r = obj.getRotation()
         local v = obj.getValue()
 
-        if callFaces == 4 then
-            obj.setRotation({r.x, rot.y + RotValues_4[v], r.z})
+        if data.RotateDice == 'yes' then
+            if callFaces == 4 then
+                obj.setRotation({r.x, rot.y + RotValues_4[v], r.z})
+            end
+
+            if callFaces == 6 then
+                obj.setRotation({r.x, rot.y + RotValues_6[v], r.z})
+            end
+
+            if callFaces == 8 then
+                obj.setRotation({r.x, rot.y + RotValues_8[v], r.z})
+            end
+
+            if callFaces == 10 then
+                obj.setRotation({r.x, rot.y + RotValues_10[v], r.z})
+            end
+
+            if callFaces == 12 then
+                obj.setRotation({r.x, rot.y + RotValues_12[v], r.z})
+            end
+
+            if callFaces == 20 then
+                obj.setRotation({r.x, rot.y + RotValues_20[v], r.z})
+            end
         end
 
-        if callFaces == 6 then
-            obj.setRotation({r.x, rot.y + RotValues_6[v], r.z})
-        end
-
-        if callFaces == 8 then
-            obj.setRotation({r.x, rot.y + RotValues_8[v], r.z})
-        end
-
-        if callFaces == 10 then
-            obj.setRotation({r.x, rot.y + RotValues_10[v], r.z})
-        end
-
-        if callFaces == 12 then
-            obj.setRotation({r.x, rot.y + RotValues_12[v], r.z})
-        end
-
-        if callFaces == 20 then
-            obj.setRotation({r.x, rot.y + RotValues_20[v], r.z})
-        end
         return 1
     end
 

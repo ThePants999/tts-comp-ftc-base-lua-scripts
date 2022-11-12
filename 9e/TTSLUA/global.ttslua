@@ -12,7 +12,7 @@ startMenu = nil
 packsRepo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
 packs = nil
 packsStatus = "pending"
-packsToDownload = nil
+packsToDownload = 0
 
 redDiceMat_GUID="c57d70"
 blueDiceMat_GUID="a84ed2"
