@@ -82,7 +82,7 @@
     "LutContribution": 1.0
   },
   "Hands": {
-    "Enable": true,
+    "Enable": false,
     "DisableUnused": true,
     "Hiding": 0
   },
