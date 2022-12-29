@@ -3,6 +3,11 @@
 -- Having all these GUIDs centrally managed helps to ensure that any changes to
 -- them only need to be made in one place, and hard-to-find stuff isn't inadvertently
 -- broken.
+--
+-- If you're looking at this and thinking "surely this should be a table" - why,
+-- yes it should. Unfortunately, I saw the documentation for Object.getVar said
+-- "Cannot return a table", and missed that Object.getTable existed, and now I'm
+-- too lazy to change it all again.
 centerCircle_GUID = "51ee2f"
 templateObjective_GUID = "573333"
 startMenu_GUID = "738804"
