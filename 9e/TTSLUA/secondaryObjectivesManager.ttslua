@@ -1,7 +1,5 @@
 -- FTC-GUID: 471de1,cff35b
 
-repo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
-
 menuX=0
 menuY=6.07
 menuZ=0
