@@ -5,11 +5,11 @@
 version_card = "2021-02-10"
 version_data = "error"
 
-repo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
+repo = Global.getVar("packsRepo")
 
 victoryCounterGuid={}
-victoryCounterGuid[1]="8b0541"
-victoryCounterGuid[2]="a77a54"
+victoryCounterGuid[1]=Global.getVar("redVPCounter_GUID")
+victoryCounterGuid[2]=Global.getVar("blueVPCounter_GUID")
 
 -- Button indexes
 BTN_IX_PRIMARY_2 = 1
@@ -24,7 +24,6 @@ enableBtn = { label="ENABLE\nGT\nSCORESHEET\n\n(click here)\n\nDon't enable if y
 }
 
 scoresheetActive=false
-spawner_GUID = {"cff35b","471de1"}
 changeSpawnerPack = true
 
 -- round, player, scored
@@ -132,8 +131,8 @@ function enableSheet()
 	--writeMenu()
 	self.script_state = onSave()
 	onload(self.script_state)
-	startGameObj= getObjectFromGUID(Global.getVar("startMenu_GUID"))
-	redObjSpawner= getObjectFromGUID("cff35b")
+	startGameObj = getObjectFromGUID(Global.getVar("startMenu_GUID"))
+	redObjSpawner = getObjectFromGUID(Global.getVar("redSecondaryManager_GUID"))
 	Wait.time(function() if not startGameObj.getVar("inGame") then packFromExt({index= redObjSpawner.GetTable("selected")[1]} ) end end, 1.5)
 end
 
@@ -244,8 +243,8 @@ function onload(save_data)
 	end
 	Wait.time(function() self.setPosition({74,1,-1}) end, 1)
 	self.setLock(true)
-	local spawnerR= getObjectFromGUID(spawner_GUID[1])
-	local spawnerB= getObjectFromGUID(spawner_GUID[2])
+	local spawnerR= getObjectFromGUID(Global.getVar("redSecondaryManager_GUID"))
+	local spawnerB= getObjectFromGUID(Global.getVar("blueSecondaryManager_GUID"))
 
 	if spawnerR then
 		spawnerR.call("setRepoUrl", {url=repo})

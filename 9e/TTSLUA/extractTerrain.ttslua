@@ -19,7 +19,9 @@ playZoneScale= {{x=48.2, y=100, z=48.2} ,
 }
 selectedMat=2
 
-
+mat_GUID = Global.getVar("mat_GUID")
+felt_GUID = Global.getVar("felt_GUID")
+tableSideBottom_GUID = Global.getVar("tableSideBottom_GUID")
 
 function onLoad()
 
@@ -86,25 +88,13 @@ confirmNoBtnDelete={
 
 
 function assignVariables()
-    --[[
-    playZone=getObjectFromGUID('5d3218')
-    junkyard1=getObjectFromGUID('894611')
-    junkyard2=getObjectFromGUID('2ae8cf')
-    junkyard3=getObjectFromGUID('d32b38')
-    junkyard4=getObjectFromGUID('0b6f7d')
-    table=getObjectFromGUID('948ce5')
-    mat=getObjectFromGUID('4ee1f2')
-    matUrlDisplay=getObjectFromGUID('c5e288')
-    matUrlDisplay.setPosition({0,-5.53,0})
-    --matUrlDisplay.setPosition({42,5,0})
-    ]]--
-    table=getObjectFromGUID('948ce5')
-    mat=getObjectFromGUID('4ee1f2')
+    table=getObjectFromGUID(Global.getVar("table_GUID"))
+    mat=getObjectFromGUID(Global.getVar("mat_GUID"))
     mat.setPosition({0,mat.getPosition().y,mat.getPosition().z})
-    matUrlDisplay=getObjectFromGUID('c5e288')
+    matUrlDisplay=getObjectFromGUID(Global.getVar("matURLDisplay_GUID"))
     Wait.frames(hideOther, 5)
     matUrlDisplay.setPosition({185,-6,0})
-    flexControl=getObjectFromGUID('bd69bd')
+    flexControl=getObjectFromGUID(Global.getVar("flexControl_GUID"))
     YNButtonsExtract=false
     YNButtonsDelete=false
     label0="E X P O R T\nT E R R A I N"
@@ -190,10 +180,10 @@ function hideYNButtonsDelete()
 end
 
 function extract()
-    broadcastToAll("EXTRATCING TERRAIN\nwait some seconds ...", "Yellow")
-    mat=getObjectFromGUID("4ee1f2")
+    broadcastToAll("EXTRACTING TERRAIN\nwait a few seconds ...", "Yellow")
+    mat=getObjectFromGUID(Global.getVar("mat_GUID"))
     createDebugMat()
-    local startMenu=getObjectFromGUID("738804")
+    local startMenu=getObjectFromGUID(Global.getVar("startMenu_GUID"))
     startMenu.call("recallAll")
     Wait.time(extract2, 2)
 end
@@ -256,20 +246,26 @@ function createDebugMat()
 end
 
 function deleteTable()
-    --flexTable=getObjectFromGUID(flexTableGuid)
     local guidList = {
-        "afc863","c8edca","393bf7","12c65e","f938a2","9f95fd","35b95f",
-        "5af8f2","4ee1f2","bd69bd", "28865a", "9f95fd"
+        Global.getVar("tableLeg1_GUID"),
+        Global.getVar("tableLeg2_GUID"),
+        Global.getVar("tableLeg3_GUID"),
+        Global.getVar("tableLeg4_GUID"),
+        tableSideBottom_GUID,
+        Global.getVar("tableSideTop_GUID"),
+        Global.getVar("tableSideLeft_GUID"),
+        Global.getVar("tableSideRight_GUID"),
+        Global.getVar("flexControl_GUID"),
+        mat_GUID,
+        felt_GUID
     }
-    
+
     for i, tbl in ipairs(guidList) do
       local obj = getObjectFromGUID(tbl)
       if obj ~= nil then
         obj.destroy()
       end
     end
-    --mat.destroy()
-    --flexControl.destroy()
 end
 
 function deleteSelf()
@@ -279,8 +275,8 @@ function deleteSelf()
 end
 
 function deleteTerrain()
-    broadcastToAll("DELETING TERRAIN\nwait some seconds ...", "Red")
-    local startMenu=getObjectFromGUID("738804")
+    broadcastToAll("DELETING TERRAIN\nwait a few seconds ...", "Red")
+    local startMenu=getObjectFromGUID(Global.getVar("startMenu_GUID"))
     startMenu.call("recallAll")
     Wait.time(deleteTerrain2, 2)
 end
@@ -293,7 +289,7 @@ end
 function deleteTerrain3()
     local zoneObj=playZone.getObjects()
     for i, obj in ipairs(zoneObj) do
-        if obj.getGUID() ~= "4ee1f2" and obj.getGUID() ~= "28865a" and obj.getGUID() ~= "f938a2" then
+        if obj.getGUID() ~= mat_GUID and obj.getGUID() ~= felt_GUID and obj.getGUID() ~= tableSideBottom_GUID then
             obj.destroy()
         end
     end
@@ -301,15 +297,10 @@ function deleteTerrain3()
 end
 
 function spawnPlayZone()
-    --local startMenu=getObjectFromGUID("738804")
-    --selectedMat= startMenu.getVar("matSize")
-    --playZoneData.scale=playZoneScale[selectedMat]
     playZoneData.scale=mat.getScale()
-
     playZoneData.scale.x=playZoneData.scale.x*36.02+0.2
     playZoneData.scale.y=100
     playZoneData.scale.z=playZoneData.scale.z*35.83+0.2
-    --print("Scale: "..playZoneData.scale.x.." * "..playZoneData.scale.y.." * "..playZoneData.scale.z)
     playZone=spawnObject(playZoneData)
 end
 

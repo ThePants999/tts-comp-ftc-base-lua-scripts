@@ -92,19 +92,6 @@ instructionsBBtn={ label=instructionsLbl, click_function="resetTokens", function
             font_size=190, color="Green", font_color={1,1,1}
 }
 
-activation_GUID="229946"
-wounds_GUID="ad63ba"
-
-function getDataFromExternalUrl()
-    local data=nil
-    data=WebRequest.get("https://raw.githubusercontent.com/GenWilhelm/ITC_score_card/master/9e_eternal_war", function(a) webRequestCallback(a) end)
-    print(data)
-    local dataTable={}
-    return dataTable
-end
-
-
-
 function webRequestCallback(webReturn)
     print("Web Request Returned")
     print(webReturn.is_done)
@@ -123,13 +110,12 @@ function printData(table)
 end
 
 function onLoad()
-    --printData(getDataFromExternalUrl())
     self.setName("Spawn game tools")
     self.setPosition({80,-5,0})
     self.setRotation({0,0,0})
     self.setScale({1,1,1})
-    activation=getObjectFromGUID(activation_GUID)
-    wounds=getObjectFromGUID(wounds_GUID)
+    activation=getObjectFromGUID(Global.getVar("activation_GUID"))
+    wounds=getObjectFromGUID(Global.getVar("wounds_GUID"))
     lockItem(activation)
     lockItem(wounds)
     lockItem(self)
@@ -237,11 +223,7 @@ end
 
 -- HIDE SHOW ARMY MANAGER
 
-hiddenZoneRed_GUID="28419e"
-hiddenZoneBlue_GUID="e1e91a"
 hiddenZone={}
---hiddenZone["Red"]=nil
---hiddenZone["Blue"]=nil
 
 function hideArmyR(obj, player, alt)
     if player ~= "Red" then print("INTRUDER") return end
@@ -264,8 +246,8 @@ function showArmyB(obj, player, alt)
 end
 
 function hideShowArmy(color, hideShow)
-    hiddenZone["Red"] = getObjectFromGUID(hiddenZoneRed_GUID)
-    hiddenZone["Blue"] = getObjectFromGUID(hiddenZoneBlue_GUID)
+    hiddenZone["Red"] = getObjectFromGUID(Global.getVar("redHiddenZone_GUID"))
+    hiddenZone["Blue"] = getObjectFromGUID(Global.getVar("blueHiddenZone_GUID"))
     local zoneData={position={hide={x=20, y=0.75, z=74.25}, show={x=0, y=-50.75, z=74.25}}, scale={hide={x=140, y=230, z=48}, show={0.1,0.1,0.1}}}
 
 
@@ -280,28 +262,6 @@ function hideShowArmy(color, hideShow)
     hiddenZone[color].setPosition(zoneData.position[hideIndex])
     hiddenZone[color].setScale(zoneData.scale[hideIndex])
     hiddenZone[color].setRotation({0,0,0})
-
-    --[[
-    OLD CODE
-    local visibleFor=color
-    local invisibleFor={}
-    if hideShow then -- hide
-        invisibleFor=Player.getColors()
-        invisibleFor= removeVal(invisibleFor,visibleFor )
-    end
-    print("\n\n")
-    for j, col in ipairs(invisibleFor) do
-        print(col)
-    end
-    print("\n\n")
-    local obj=nil
-    for i, hit_info in ipairs(Physics.cast(destinationZoneData)) do
-        obj=hit_info.hit_object
-        print("Y "..obj.getPosition().y)
-        if obj.getPosition().y > 0.7 then
-            obj.setInvisibleTo(invisibleFor)
-        end
-    end]]
 end
 
 -- END Hide show army manager

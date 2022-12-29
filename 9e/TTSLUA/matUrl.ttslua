@@ -7,7 +7,7 @@ lightSkyColor = {}
 lightColor = {}
 manageLighting=true
 function refreshSurface()
-    obj_surface = getObjectFromGUID("4ee1f2")
+    obj_surface = getObjectFromGUID(Global.getVar("mat_GUID"))
 end
 
 function onSave()
@@ -60,8 +60,8 @@ function onLoad(saved_data)
          lightReflectionIntesity = nil
     end
 
-    flexControl = getObjectFromGUID('bd69bd')
-    obj_surface = getObjectFromGUID("4ee1f2")
+    flexControl = getObjectFromGUID(Global.getVar("flexControl_GUID"))
+    obj_surface = getObjectFromGUID(Global.getVar("mat_GUID"))
     Xoffset=2
     Yoffset=3
     if obj_surface ~= nil and obj_surface.getVar("version")>= 2.0 then
@@ -169,7 +169,7 @@ function createDeleteButton()
 end
 
 function retriveUrl()
-    obj_surface = getObjectFromGUID("4ee1f2")
+    obj_surface = getObjectFromGUID(Global.getVar("mat_GUID"))
     url = obj_surface.getCustomObject().diffuse
     rewriteUrl()
     lightEquatorColor = Lighting.getAmbientEquatorColor()
@@ -244,7 +244,7 @@ end
 
 function updateSurfaceMat()
     local newUrl=url
-    obj_surface = getObjectFromGUID("4ee1f2")
+    obj_surface = getObjectFromGUID(Global.getVar("mat_GUID"))
     local matDebugObject=nil
     for i,obj in ipairs(getAllObjects()) do
         if obj.getName()== "Mat url debug" then matDebugObject=obj end

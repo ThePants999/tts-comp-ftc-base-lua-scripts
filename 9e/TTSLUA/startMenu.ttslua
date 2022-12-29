@@ -7,9 +7,7 @@
 
 keepForTerrainEditor = true
 
-secondaryObj_GUID = {"cff35b","471de1"}
-
-cpCounter_GUID={"e446f7","deb9f2"}
+mat_GUID = Global.getVar("mat_GUID")
 
 function onLoad(saved_data)
     --self.setPosition({40,-4,0})
@@ -45,11 +43,11 @@ function onLoad(saved_data)
     -- DEPLOY MENU VARIABLES
 
     -- REST OF CODE
-    redTurnCounter = getObjectFromGUID("055302")
-    blueTurnCounter = getObjectFromGUID("7e4111")
-    gameTurnCounter = getObjectFromGUID("ee92cf")
-    redCpCounter = getObjectFromGUID(cpCounter_GUID[1])
-    blueCpCounter = getObjectFromGUID(cpCounter_GUID[2])
+    redTurnCounter = getObjectFromGUID(Global.getVar("redTurnCounter_GUID"))
+    blueTurnCounter = getObjectFromGUID(Global.getVar("blueTurnCounter_GUID"))
+    gameTurnCounter = getObjectFromGUID(Global.getVar("gameTurnCounter_GUID"))
+    redCpCounter = getObjectFromGUID(Global.getVar("redCPCounter_GUID"))
+    blueCpCounter = getObjectFromGUID(Global.getVar("blueCPCounter_GUID"))
     if inGame == false then
         --broadcastToAll("The mod will keep track of how many times a game is started or a map is exported.\nNo other data will be sent!", "Orange")
         Notes.setNotes(notePadTxt)
@@ -156,7 +154,7 @@ confirmBtn2={
 }
 
 function refreshMat()
-    mat = getObjectFromGUID("4ee1f2")
+    mat = getObjectFromGUID(mat_GUID)
 end
 
 function writeSizeMenu()
@@ -319,8 +317,6 @@ DeployZonesData = {
 
 deployLineHeight = 2.1
 deployLineYPos = deployLineHeight-0.1
-mat_GUID = "4ee1f2"
-centerCircle_GUID="51ee2f"
 sizeMulti = 36
 
 function drawDeployZone(zone)
@@ -619,7 +615,7 @@ function drawQuarter(drawData)
 end
 
 function drawCircle(drawData, type)
-    local originalCircle=getObjectFromGUID(centerCircle_GUID)
+    local originalCircle=getObjectFromGUID(Global.getVar("centerCircle_GUID"))
     local circleObj = originalCircle.clone({ position = {0, -5, 0}})
     if circleObj then
         circleObj.setLock(true)
@@ -659,7 +655,7 @@ function drawCircleInZone(drawData, type)
 end
 
 function drawCircleNotCentered(drawData, type, centerX, centerZ)
-    local originalCircle=getObjectFromGUID(centerCircle_GUID)
+    local originalCircle=getObjectFromGUID(Global.getVar("centerCircle_GUID"))
     local circleObj = originalCircle.clone({ position = {0, -5, 0}})
     if circleObj then
         circleObj.setLock(true)
@@ -908,14 +904,13 @@ deployOffsetDownBtn = {
 
 -- OBJECTIVES MANAGER
 defaultObjectivesHeight=1.0
-templateObjectiveGuid="573333"
 
 function spawnObjectives()
     destroyAllObjectives()
     local selectedObjectivesBySize= objectivesData[objectivesTypeSelected].objectivesList
     local spawned = nil
     local pos={}
-    local template = getObjectFromGUID(templateObjectiveGuid)
+    local template = getObjectFromGUID(Global.getVar("templateObjective_GUID"))
     for i, objective in ipairs(selectedObjectivesBySize[objectivesSelected].objectives) do
         pos=objective.pos
         if objectivesOffset == nil then pos[2] = 1 else pos[2] = defaultObjectivesHeight+ objectivesOffset end
@@ -1184,7 +1179,7 @@ function startGame(obj, player, alt)
     end
     Global.call("recordPlayers")
     inGame = true
-    secondaryObj_GUID = {"cff35b","471de1"}
+    secondaryObj_GUID = {Global.getVar("redSecondaryManager_GUID"),Global.getVar("blueSecondaryManager_GUID")}
     for i, guid in ipairs(secondaryObj_GUID) do
         if getObjectFromGUID(guid) then
             getObjectFromGUID(guid).call("writeMenu")

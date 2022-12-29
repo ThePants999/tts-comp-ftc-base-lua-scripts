@@ -2,9 +2,8 @@
 -- MAT obj_surface
 version=2.02
 function onLoad()
-    flexControl = getObjectFromGUID('bd69bd')
-    gameMenu= getObjectFromGUID('738804')
-    presetTerrain= getObjectFromGUID('ec840d')
+    flexControl = getObjectFromGUID(Global.getVar("flexControl_GUID"))
+    gameMenu= getObjectFromGUID(Global.getVar("startMenu_GUID"))
     self.interactable=false
     Wait.time(refresh, 0.05)
     --showMenu()
@@ -58,7 +57,6 @@ function confirmTerrain()
 end
 
 function deleteTerrain()
-    --presetTerrain.call("writeMenu")
     deleteTerrain1()
 end
 

@@ -1,21 +1,56 @@
 --[[ Lua code. See documentation: https://api.tabletopsimulator.com/ --]]
 
+-- Having all these GUIDs centrally managed helps to ensure that any changes to
+-- them only need to be made in one place, and hard-to-find stuff isn't inadvertently
+-- broken.
+centerCircle_GUID = "51ee2f"
+templateObjective_GUID = "573333"
+startMenu_GUID = "738804"
+redDiceMat_GUID = "c57d70"
+blueDiceMat_GUID = "a84ed2"
+redSecondaryManager_GUID = "cff35b"
+blueSecondaryManager_GUID = "471de1"
+redVPCounter_GUID = "8b0541"
+blueVPCounter_GUID = "a77a54"
+redCPCounter_GUID = "e446f7"
+blueCPCounter_GUID = "deb9f2"
+redTurnCounter_GUID = "055302"
+blueTurnCounter_GUID = "7e4111"
+gameTurnCounter_GUID = "ee92cf"
+redHiddenZone_GUID="28419e"
+blueHiddenZone_GUID="e1e91a"
+scoresheet_GUID = "06d627"
+blankObjCard_GUID = "d618cb"
+activation_GUID = "229946"
+wounds_GUID = "ad63ba"
+
+table_GUID = "948ce5"
+felt_GUID = "28865a"
+mat_GUID = "4ee1f2"
+matURLDisplay_GUID = "c5e288"
+flexControl_GUID = "bd69bd"
+tableLeg1_GUID = "afc863"
+tableLeg2_GUID = "c8edca"
+tableLeg3_GUID = "393bf7"
+tableLeg4_GUID = "12c65e"
+tableSideBottom_GUID = "f938a2"
+tableSideTop_GUID = "35b95f"
+tableSideLeft_GUID = "9f95fd"
+tableSideRight_GUID = "5af8f2"
+extractTerrain_GUID = "70b9f6"
+
 turnOrder = {}
 nonPlaying = {"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink" }
 allowMenu = true
 allowAutoSeat = true
 redPlayerID = ""
 bluePlayerID = ""
-startMenu_GUID = "738804"
 startMenu = nil
 
 packsRepo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
 packs = nil
 packsStatus = "pending"
 packsToDownload = 0
-
-redDiceMat_GUID="c57d70"
-blueDiceMat_GUID="a84ed2"
 
 function nextPhase(playerObj, button, elementId)
     local altClick= false
@@ -260,23 +295,21 @@ backPosition={{0,0,0},{0,0,0},{0,0,0},{0,0,0}}
 function goToDiceRoller(player, value, id)
     local matPositionOffset=12
     local color=player.color
-    local diceMatGUID="b14cd6"
+    local diceMatGUID=redDiceMat_GUID
     local i=1
     if color == "Red" then
-        diceMatGUID="c57d70"
         i=1
     end
     if color == "Orange" then
-        diceMatGUID="c57d70"
         i=2
     end
     if color == "Blue" then
-        diceMatGUID="a84ed2"
+        diceMatGUID = blueDiceMat_GUID
         i=3
         matPositionOffset=-matPositionOffset
     end
     if color == "Teal" then
-        diceMatGUID="a84ed2"
+        diceMatGUID = blueDiceMat_GUID
         i=4
         matPositionOffset=-matPositionOffset
     end

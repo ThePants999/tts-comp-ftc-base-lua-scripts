@@ -3,7 +3,7 @@ keepForTerrainEditor = true
 
 tableHeightOffset = -9
 function refreshSurface()
-    obj_surface = getObjectFromGUID("4ee1f2")
+    obj_surface = getObjectFromGUID(Global.getVar("mat_GUID"))
 end
 function onSave()
     saved_data = JSON.encode({tid=tableImageData, cd=checkData})
@@ -31,18 +31,18 @@ function onload(saved_data)
             obj.interactable = false --RIC
         end
     end
-    exportObj = getObjectFromGUID("70b9f6")
+    exportObj = getObjectFromGUID(Global.getVar("extractTerrain_GUID"))
     --Establish references to table parts
-    obj_leg1 = getObjectFromGUID("afc863")
-    obj_leg2 = getObjectFromGUID("c8edca")
-    obj_leg3 = getObjectFromGUID("393bf7")
-    obj_leg4 = getObjectFromGUID("12c65e")
-    obj_surface = getObjectFromGUID("4ee1f2")
-    obj_surface2 = getObjectFromGUID("28865a")
-    obj_side_top = getObjectFromGUID("35b95f")
-    obj_side_bot = getObjectFromGUID("f938a2")
-    obj_side_lef = getObjectFromGUID("9f95fd")
-    obj_side_rig = getObjectFromGUID("5af8f2")
+    obj_leg1 = getObjectFromGUID(Global.getVar("tableLeg1_GUID"))
+    obj_leg2 = getObjectFromGUID(Global.getVar("tableLeg2_GUID"))
+    obj_leg3 = getObjectFromGUID(Global.getVar("tableLeg3_GUID"))
+    obj_leg4 = getObjectFromGUID(Global.getVar("tableLeg4_GUID"))
+    obj_surface = getObjectFromGUID(Global.getVar("mat_GUID"))
+    obj_surface2 = getObjectFromGUID(Global.getVar("felt_GUID"))
+    obj_side_top = getObjectFromGUID(Global.getVar("tableSideTop_GUID"))
+    obj_side_bot = getObjectFromGUID(Global.getVar("tableSideBottom_GUID"))
+    obj_side_lef = getObjectFromGUID(Global.getVar("tableSideLeft_GUID"))
+    obj_side_rig = getObjectFromGUID(Global.getVar("tableSideRight_GUID"))
 
     controlActive = false
     createOpenCloseButton()
@@ -572,8 +572,17 @@ end
 ref_noninteractable2 = {}
 
 ref_noninteractable= {
-    "afc863","c8edca","393bf7","12c65e","f938a2","9f95fd","35b95f",
-    "5af8f2","4ee1f2", "28865a","bd69bd"
+    Global.getVar("tableSideBottom_GUID"),
+    Global.getVar("tableSideTop_GUID"),
+    Global.getVar("tableSideLeft_GUID"),
+    Global.getVar("tableSideRight_GUID"),
+    Global.getVar("tableLeg1_GUID"),
+    Global.getVar("tableLeg2_GUID"),
+    Global.getVar("tableLeg3_GUID"),
+    Global.getVar("tableLeg4_GUID"),
+    Global.getVar("mat_GUID"),
+    Global.getVar("felt_GUID"),
+    Global.getVar("flexControl_GUID")
 }
 
 ref_playerColor = {

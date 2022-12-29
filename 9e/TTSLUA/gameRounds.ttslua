@@ -23,13 +23,9 @@ continueBtn={
     font_size=90, color={0,0.6,0}, font_color={1,1,1}
 }
 function onLoad()
-    --self.setPosition({71.5,-1.32,0})
-    --self.clearButtons()
-    --self.createButton(titleBtn)
-    counterA=getObjectFromGUID("8b0541")
-    counterB=getObjectFromGUID("a77a54")
-    startObject=getObjectFromGUID("738804")
-    --writeButtons()
+    counterA=getObjectFromGUID(Global.getVar("redVPCounter_GUID"))
+    counterB=getObjectFromGUID(Global.getVar("blueVPCounter_GUID"))
+    startObject=getObjectFromGUID(Global.getVar("startMenu_GUID"))
 end
 
 function writeButtons()
@@ -40,7 +36,7 @@ end
 
 function checkGameEnd()
     if self.Counter.getValue() > 5 then
-        startObject.setVar("checkEnd", true)
+        --[[startObject.setVar("checkEnd", true)
         startObject.call("writeMenus")
     end
     if self.Counter.getValue() == 6 then
@@ -53,7 +49,7 @@ function checkGameEnd()
         continueBtn.label="Continue\n4+"
         writeButtons()
     end
-    if self.Counter.getValue() > 7 then
+    if self.Counter.getValue() > 7 then--]]
         broadcastToAll("GAME OVER", "Red")
         gameOver()
 

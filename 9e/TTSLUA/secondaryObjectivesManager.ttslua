@@ -1,8 +1,7 @@
 -- FTC-GUID: 471de1,cff35b
 
 repo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
-scoresheet_GUID="06d627"
-blankObjCard_GUID = "d618cb"
+
 menuX=0
 menuY=6.07
 menuZ=0
@@ -52,10 +51,9 @@ showSetBtn = true
 
 function onLoad(save_state)
     startGameObj= getObjectFromGUID(Global.getVar("startMenu_GUID"))
-
-    blankCard = getObjectFromGUID(blankObjCard_GUID)
+    blankCard = getObjectFromGUID(Global.getVar("blankObjCard_GUID"))
     --blankCardData = blankCard.getData()
-    if self.getGUID() == "cff35b" then
+    if self.getGUID() == Global.getVar("redSecondaryManager_GUID") then
         self.setName("Secondary Objectives Manager Red")
         self.setPosition({-19,-5,35.25})
         self.setRotation({0,0,0})
@@ -72,7 +70,7 @@ function onLoad(save_state)
     end
 
     self.setScale({0.6,1,0.6})
-    scoresheet = getObjectFromGUID(scoresheet_GUID)
+    scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
     getRepoList()
     Wait.time(function() getDataFromRepo() end , 2.0)
 end
