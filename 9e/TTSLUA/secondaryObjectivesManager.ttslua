@@ -51,7 +51,6 @@ end
 function onLoad(save_state)
     startGameObj= getObjectFromGUID(Global.getVar("startMenu_GUID"))
     blankCard = getObjectFromGUID(Global.getVar("blankObjCard_GUID"))
-    --blankCardData = blankCard.getData()
     if self.getGUID() == Global.getVar("redSecondaryManager_GUID") then
         self.setName("Secondary Objectives Manager Red")
         self.setPosition({-19,-5,35.25})
@@ -187,24 +186,6 @@ function createCard(name, desc, id, counter)
         })
     end
     Wait.frames(function() card.call("writeMenu") end, 2)
-end
-
-function setCardStats(card,name, desc, id) -- not used
-
-    if card then
-        card.setColorTint("Grey")
-        card.setName(name)
-        card.setDescription(desc)
-        card.setGMNotes(id)
-
-        card.setScale({6,0.2,4})
-        card.setRotation(self.getRotation())
-        card.setLock(false)
-        card.interactable=true
-        Wait.frames(function() card.call("writeMenu") end, 5)
-
-
-    end
 end
 
 function upDown(counter, amt)
