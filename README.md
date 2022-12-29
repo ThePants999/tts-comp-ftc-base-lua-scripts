@@ -9,6 +9,10 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 
 ## Update History:
 
+### v2.43
+
+* More visible and stable banner models.
+
 ### v2.42
 
 * Dice roller tweaked to (customisably) no longer rotate dice after spawning them, in the hopes of fixing physics issues encountered by some players.

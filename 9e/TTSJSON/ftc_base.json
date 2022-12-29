@@ -14882,20 +14882,20 @@
         "posX": 26.800703,
         "posY": 0.9390764,
         "posZ": 30.731733,
-        "rotX": -0.000813559571,
-        "rotY": 89.99133,
-        "rotZ": -0.00122449861,
-        "scaleX": 0.82499975,
-        "scaleY": 0.82499975,
-        "scaleZ": 0.82499975
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.5,
+        "scaleY": 1.5,
+        "scaleZ": 1.5
       },
       "Nickname": "Banner (Red)",
       "Description": "",
       "GMNotes": "",
       "ColorDiffuse": {
-        "r": 0.9999998,
-        "g": 0.9921616,
-        "b": 0.9999998
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -14912,23 +14912,13 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomMesh": {
-        "MeshURL": "https://drive.google.com/uc?export=download&id=0BwpXdiEgZ5GzX1E0OVZ4OVI3NEU",
-        "DiffuseURL": "http://i.imgur.com/LlVaWAa.jpg",
-        "NormalURL": "http://i.imgur.com/OwdSyxh.jpg",
-        "ColliderURL": "https://drive.google.com/uc?export=download&id=0BwpXdiEgZ5GzQlFJOWVXUEFkVjA",
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/5116683731122370651/404AC8C39711156262DBBDAC9B63B13B58044499/",
+        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/5095291632891632291/D2B08386D345A4FE03BC65C3FE634EC427E902C4/",
+        "NormalURL": "",
+        "ColliderURL": "",
         "Convex": true,
-        "MaterialIndex": 0,
-        "TypeIndex": 0,
-        "CustomShader": {
-          "SpecularColor": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "SpecularIntensity": 0.0,
-          "SpecularSharpness": 7.0,
-          "FresnelStrength": 0.4
-        },
+        "MaterialIndex": 1,
+        "TypeIndex": 1,
         "CastShadows": true
       },
       "LuaScript": "",
@@ -14942,20 +14932,20 @@
         "posX": -26.8319225,
         "posY": 0.9392165,
         "posZ": -30.7317333,
-        "rotX": 0.010883511,
-        "rotY": 269.987762,
-        "rotZ": 0.0272385031,
-        "scaleX": 0.82499975,
-        "scaleY": 0.82499975,
-        "scaleZ": 0.82499975
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.5,
+        "scaleY": 1.5,
+        "scaleZ": 1.5
       },
       "Nickname": "Banner (Blue)",
       "Description": "",
       "GMNotes": "",
       "ColorDiffuse": {
-        "r": 0.9999998,
-        "g": 0.992162049,
-        "b": 0.9999998
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -14972,23 +14962,13 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomMesh": {
-        "MeshURL": "https://drive.google.com/uc?export=download&id=0BwpXdiEgZ5GzX1E0OVZ4OVI3NEU",
-        "DiffuseURL": "http://i.imgur.com/YNibEhf.jpg",
-        "NormalURL": "http://i.imgur.com/OwdSyxh.jpg",
-        "ColliderURL": "https://drive.google.com/uc?export=download&id=0BwpXdiEgZ5GzQlFJOWVXUEFkVjA",
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/5116683731122370651/404AC8C39711156262DBBDAC9B63B13B58044499/",
+        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/5095291632891628911/F8E575A79E0BC121B939AEB5C93394247E05E8C2/",
+        "NormalURL": "",
+        "ColliderURL": "",
         "Convex": true,
-        "MaterialIndex": 0,
-        "TypeIndex": 0,
-        "CustomShader": {
-          "SpecularColor": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "SpecularIntensity": 0.0,
-          "SpecularSharpness": 7.0,
-          "FresnelStrength": 0.4
-        },
+        "MaterialIndex": 1,
+        "TypeIndex": 1,
         "CastShadows": true
       },
       "LuaScript": "",
