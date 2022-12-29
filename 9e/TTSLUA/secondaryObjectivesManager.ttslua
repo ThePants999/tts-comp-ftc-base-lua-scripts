@@ -37,17 +37,18 @@ setObjBtn = {
     position = { 0,0,0}, rotation = {0, 0, 0}, height = 450, width = 2800,
     font_size = 200, color = {0,0,0}, font_color = {1,1,1}
 }
-secondaryObjectivesList={}
 
-functions={"Pack","Faction", "Category", "Objective"}
+functions={"Pack", "Faction", "Category", "Objective"}
 selected = {1,1,1,1}
-availablesRepo={}
-packName=""
-repoListReady=false
+packs = {}
 factionSelected=1
 categorySelectd=1
 objectiveSelected=1
 showSetBtn = true
+
+function selectedPack()
+    return packs.data[packs.names[selected[1]]]
+end
 
 function onLoad(save_state)
     startGameObj= getObjectFromGUID(Global.getVar("startMenu_GUID"))
@@ -71,11 +72,26 @@ function onLoad(save_state)
 
     self.setScale({0.6,1,0.6})
     scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
-    getRepoList()
-    Wait.time(function() getDataFromRepo() end , 2.0)
+    Wait.condition(packDataReady, function() return Global.getVar("packsStatus") ~= "pending" end, 5.0, function() broadcastToAll("Timed out waiting to download objectives", "Red") end)
+end
+
+function packDataReady()
+    if Global.getVar("packsStatus") == "success" then
+        packs = Global.getTable("packs")
+        writeMenu()
+    else
+        broadcastToAll("Failed to download objectives, please check your connection.", "Red")
+    end
+end
+
+function packDataTimeout()
+    broadcastToAll("Timed out waiting to download objectives", "Red")
 end
 
 function writeMenu()
+    print("Writing menu, pack selection is:")
+    print(selected[1])
+    print(selectedPack().name)
     self.clearButtons()
     self.createButton(titleBtn)
     local rows=4
@@ -84,17 +100,17 @@ function writeMenu()
         upBtn.position= {menuX+arrowOffset, menuY, menuZ+(i-1)*btnRowOffset}
         downBtn.position= {menuX-arrowOffset, menuY, menuZ+(i-1)*btnRowOffset}
         if i==1 then
-            selectionBtn.label="#"..selected[1].." "..packName
+            selectionBtn.label="#"..selected[1].." "..selectedPack().name
         end
         if i==2 then
-            selectionBtn.label="#"..selected[2].." "..secondaryObjectivesList[selected[2]].name
+            selectionBtn.label="#"..selected[2].." "..selectedPack().factions[selected[2]].name
         end
         if i==3 then
-            selectionBtn.label="#"..selected[3].." "..secondaryObjectivesList[selected[2]].categories[selected[3]].name
+            selectionBtn.label="#"..selected[3].." "..selectedPack().factions[selected[2]].categories[selected[3]].name
         end
         if i==4 then
-            selectionBtn.tooltip=secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]].description
-            selectionBtn.label="#"..selected[4].." "..secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]].name
+            selectionBtn.tooltip=selectedPack().factions[selected[2]].categories[selected[3]].objectives[selected[4]].description
+            selectionBtn.label="#"..selected[4].." "..selectedPack().factions[selected[2]].categories[selected[3]].objectives[selected[4]].name
         end
         upBtn.click_function= "up"..functions[i]
         downBtn.click_function= "down"..functions[i]
@@ -120,7 +136,7 @@ function setObj(obj, color, alt)
         printToColor("Game starded, cannot modify!", color, "Red")
         return
     end
-    local id=secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]].id
+    local id=selectedPack().factions[selected[2]].categories[selected[3]].objectives[selected[4]].id
     if scoresheet then
         if not scoresheet.getVar("scoresheetActive") then printToColor("Enable scoresheet first!", color, "Red") return end
         scoresheet.call("addSecondaryForPlayer", {clicker=color, secID=id } )
@@ -128,7 +144,7 @@ function setObj(obj, color, alt)
 end
 
 function spawnCard(obj, color, alt)
-    local obj=secondaryObjectivesList[selected[2]].categories[selected[3]].objectives[selected[4]]
+    local obj=selectedPack().factions[selected[2]].categories[selected[3]].objectives[selected[4]]
     local id=obj.id
     createCard(obj.name, obj.description, obj.id, 0)
     if obj.actions then
@@ -193,65 +209,12 @@ function setCardStats(card,name, desc, id) -- not used
     end
 end
 
-function getRepoList()
-    repoListReady=false
-    WebRequest.get(repo.."index.json", function(web) initRepoList(web) end)
-end
-
-function repoListReady()
-    if repoListReady then
-        return false
-    else
-        return false
-    end
-end
-
-function setRepoUrl(params)
-    repo = params.url
-    getRepoList()
-end
-
-function setRepo(params)
-    selected[1]= params.index
-    selected[2] = 1
-    selected[3] = 1
-    selected[4] = 1
-    getDataFromRepo()
-end
-
-function initRepoList(web_data)
-	if not web_data then
-        print("NO WEB DATA")
-	else
-		local data= JSON.decode(web_data.text)
-        availablesRepo= data.packs
-        repoListReady=true
-    end
-end
-
-function getDataFromRepo()
-    local url=repo..availablesRepo[selected[1]]..".json"
-    WebRequest.get(url, function(web) initData(web) end)
-end
-
-function initData(web_data)
-	if not web_data then
-        print("NO WEB DATA")
-	else
-		local data= JSON.decode(web_data.text)
-        --print(data.ver)
-        secondaryObjectivesList = data.factions
-        packName= data.name
-    end
-    writeMenu()
-end
-
 function upDown(counter, amt)
     local maxValue=1
     local currentValue=1
     local index= 1
     if counter == "pack" then
-        maxValue=#availablesRepo
+        maxValue=#packs.names
         index = 1
 
         selected[2] = 1
@@ -260,18 +223,18 @@ function upDown(counter, amt)
 
     end
     if counter == "faction" then
-        maxValue=#secondaryObjectivesList
+        maxValue=#selectedPack().factions
         index = 2
         selected[3] = 1
         selected[4] = 1
     end
     if counter == "category" then
-        maxValue=#secondaryObjectivesList[selected[2]].categories
+        maxValue=#selectedPack().factions[selected[2]].categories
         index = 3
         selected[4] = 1
     end
     if counter == "objective" then
-        maxValue=#secondaryObjectivesList[selected[2]].categories[selected[3]].objectives
+        maxValue=#selectedPack().factions[selected[2]].categories[selected[3]].objectives
         index = 4
     end
     currentValue = selected[index]
@@ -283,8 +246,6 @@ function upDown(counter, amt)
         if not startGameObj.getVar("inGame") then
             scoresheet.call("packFromExt", {index= selected[index]} )
         end
-        getDataFromRepo()
-        return
     end
     writeMenu()
 end
