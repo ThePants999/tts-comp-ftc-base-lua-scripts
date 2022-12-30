@@ -92,10 +92,8 @@ end
 
 function makeAnnouncement()
     local features={
-    '2.40: Missing center objectives added to Incursion missions.',
-    '2.41: Nephilim support added',
     '2.42: Dice roller updated (see Steam Workshop page)',
-    '2.43: Improved banners'
+    '2.43: Major performance enhancements, and improved banners.'
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
