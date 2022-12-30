@@ -50,11 +50,8 @@ objectToPlaceDiceOnGUID = Global.getVar("redDiceMat_GUID")
 if self.guid == Global.getVar("blueDiceRoller_GUID") then
     objectToPlaceDiceOnGUID = Global.getVar("blueDiceMat_GUID")
 end
--- DELETE
-print("Placing on: " .. objectToPlaceDiceOnGUID)
 objectToPlaceDiceOn = getObjectFromGUID(objectToPlaceDiceOnGUID)
 if objectToPlaceDiceOn == nil then
-    print("Placing on self")
     objectToPlaceDiceOn = self
 end
 
@@ -130,18 +127,27 @@ function hasGuid(t, g)
 
 	return false
 end
+
 --Runs when non-dice is put into bag
 function onObjectEnterContainer(container, obj)
-    if container == self and obj.tag ~= "Dice" then
-        local pos = self.getPosition()
-        local f = self.getTransformRight()
-        self.takeObject({
-            position          = {pos.x+20,pos.y+50,pos.z+20},
-            smooth            = false,
-        })
-        return
+    if container == self then
+        if obj.tag == "Dice" then
+            collision_info = {collision_object = obj}
+            onCollisionEnter(collision_info)
+
+            --Creates a timer to take the dice out and position them.
+        	Wait.time(|| takeDiceOut(), 0.3)
+        else
+            local pos = self.getPosition()
+            local f = self.getTransformRight()
+            self.takeObject({
+                position          = {pos.x+20,pos.y+50,pos.z+20},
+                smooth            = false,
+            })
+        end
     end
 end
+
 --Runs when an object is dropped in bag.
 function onCollisionEnter(collision_info)
 	playerColor = lastHolder[collision_info.collision_object]
@@ -159,8 +165,8 @@ function onCollisionEnter(collision_info)
 			if faces == nil then
 				faces = tonumber(customFace[v.getCustomObject().type + 1])
 			end
-		diceGuidFaces[v.getGUID()] = faces
-		table.insert(sortedKeys, v.getGUID())
+            diceGuidFaces[v.getGUID()] = faces
+            table.insert(sortedKeys, v.getGUID())
 		end
 	end
 
@@ -170,8 +176,6 @@ clockstart = os.clock()
 resetclock = 1
 end--]]
 
---Creates a timer to take the dice out and position them.
-	Wait.time(|| takeDiceOut(), 0.3)
 end
 
 --Function to take the dice out of the bag and position them.

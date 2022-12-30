@@ -14,8 +14,10 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 * Major performance enhancement: mission pack data is no longer included in save files, eliminating the regular slowdown seen when the scoresheet was in use.
 * Minor performance enhancement: mission pack data is now downloaded once and shared between the scoreboard and secondary objective managers, speeding up load time and use of those features.
 * Mission-specific scoring no longer capped at 15 - now you can record those ludicrous Conversion scores!
-* Dice roller enhancements: support for moving the dice mat and/or roller separately, more readable last roll reports, added custom dice support, added sum of dice, removed the stupid PRNG seed handling
+* Dice roller enhancements: support for moving the dice mat and/or roller separately, more readable last roll reports, added custom dice support, replaced select buttons with roll buttons, added sum of dice, removed the stupid PRNG seed handling
 * More visible and stable banner models.
+
+Note that the old select buttons can be restored by adding this to the properties in the dice mat's Description field: `"SelOrRoll": "sel"`
 
 ### v2.42
 
