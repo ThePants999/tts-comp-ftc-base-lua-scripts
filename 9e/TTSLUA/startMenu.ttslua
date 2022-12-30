@@ -93,7 +93,7 @@ end
 function makeAnnouncement()
     local features={
     '2.42: Dice roller updated (see Steam Workshop page)',
-    '2.43: Major performance enhancements, and improved banners.'
+    '2.43: Major performance enhancements, mission scoring no longer capped at 15, and improved banners.'
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
