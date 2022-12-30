@@ -138,10 +138,10 @@ if($version -ne "")
 {
 	Write-Host "Writing to SaveName... " -NoNewLine
 	$jsonLine = $jsonContent[1] -replace ".{4}$"
-	$jsonContent[1] = $jsonLine + ' - ' + $version + '\n",'
+	$jsonContent[1] = $jsonLine + ' - ' + $version + '",'
 	Write-Host "Writing to GameMode... " -NoNewLine
 	$jsonLine = $jsonContent[2] -replace ".{4}$"
-	$jsonContent[2] = $jsonLine + ' - ' + $version + '\n",'
+	$jsonContent[2] = $jsonLine + ' - ' + $version + '",'
 	Write-Host "Done."
 }
 

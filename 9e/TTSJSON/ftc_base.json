@@ -1,19 +1,32 @@
 {
-  "SaveName": "FTC 40k Map Base 9th\n",
-  "GameMode": "FTC 40k Map Base 9th\n",
-  "Date": "2/11/2021 11:00:31 AM",
-  "VersionNumber": "v13.0.5",
-  "GameType": "",
-  "GameComplexity": "",
+  "SaveName": "FTC 40k Competitive 9e Map Base\n",
+  "GameMode": "FTC 40k Competitive 9e Map Base\n",
+  "Date": "30/12/2022 11:00:31 AM",
+  "VersionNumber": "v2.43",
+  "GameType": "Game",
+  "GameComplexity": "High Complexity",
   "PlayingTime": [
-    0,
-    0
+    120,
+    240
   ],
   "PlayerCounts": [
-    0,
-    0
+    2,
+    2
   ],
-  "Tags": [],
+  "Tags": [
+      "Strategy Games",
+      "Wargames",
+      "Miniature Games",
+      "40k",
+      "Warhammer",
+      "40,000",
+      "Warhammer 40k",
+      "FTC",
+      "Map",
+      "Base",
+      "Map Base",
+      "Competitive"
+  ],
   "Gravity": 0.5000001,
   "PlayArea": 1.0,
   "Table": "Table_None",
@@ -21,16 +34,6 @@
   "Note": "This is the GT fork of version 2.0+ of Forty Thousand Collection 'FTC' gaming template for Warhammer 40k.\n\nInstructions and credits can both be found in the Notepad.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server:\ndiscord.gg/XkBbs5M\n\nReport any bugs or issues at: https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues",
   "Rules": "",
   "MusicPlayer": {
-    "RepeatSong": true,
-    "PlaylistEntry": -1,
-    "CurrentAudioTitle": "Ultramarines Chant",
-    "CurrentAudioURL": "http://cloud-3.steamusercontent.com/ugc/773976977327440295/17C1CAA1F70F178395E93C05E55946061E695598/",
-    "AudioLibrary": [
-      {
-        "Item1": "http://cloud-3.steamusercontent.com/ugc/773976977327440295/17C1CAA1F70F178395E93C05E55946061E695598/",
-        "Item2": "Ultramarines Chant"
-      }
-    ]
   },
   "Grid": {
     "Type": 0,
