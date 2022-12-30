@@ -772,7 +772,6 @@ end
 
 function misPlus(x)
 	local mis = mission_score[x] + 1
-	if mis > 15 then mis = 15 end
 	mission_score[x] = mis
 	updateMission(x)
 end
