@@ -68,6 +68,11 @@ pipColorBtn=
   position={colorBtnOffset + 0.35 * 4 + 0.1, Yoffset, -0.87}, rotation={0, 0, 0}, height=50, width=250,
   font_size=60, color="White", font_color="Black"
 }
+customDiceBtn={
+    label="Custom Dice", click_function="customDice", function_owner=self,
+    position={colorBtnOffset+0.35*9, Yoffset ,-0.85}, rotation={0,0,0}, height=50, width=420,
+    font_size=60, color={1,1,1}, font_color={0,0,0}
+}
 
 clearDiceBtnIncrement=0.28
 clearDiceBtnLabel="Del\n"
@@ -105,6 +110,9 @@ warningBtn={
 }
 
 selectedColor="White"
+diceType="Die_6_Rounded"
+customDiceImage=nil
+customColorTint=nil
 
 function getDice()
     local dice={}
@@ -131,6 +139,21 @@ function getDice()
         end
     end
     return dice
+end
+
+function customDice(obj, player, alt)
+    diceType="custom_dice"
+
+    dice = getDice()
+    for _, die in ipairs(dice) do
+        local image = die.getCustomObject()["image"]
+        if image ~= nil then
+            customDiceImage = image
+            customColorTint = die.getColorTint()
+            printToColor("You have set a custom die!", player, "Yellow")
+            return
+        end
+    end
 end
 
 function selectDice(obj, player, alt)
@@ -179,12 +202,13 @@ end
 
 function SelectDeleteDiceX(action, n, selectOthers, lowUp, color)
     Player[color].clearSelectedObjects()
-    selDel=true
-    if action =="Del" then selDel=false end
-    local counter={0,0,0,0,0,0}
-    local numberName={"ones", "twos", "threes", "fours", "fives", "sixes"}
-    local text=color.." player deleted "
-    local somethingToPrint=false
+    selDel = true
+    if action == "Del" then selDel = false end
+    local counter = {0,0,0,0,0,0}
+    local numberName = {"ones", "twos", "threes", "fours", "fives", "sixes"}
+    local text = Player[color].steam_name .. " deleted "
+    local somethingToPrint = false
+
     for i, die in ipairs(getDice()) do
         if die.getValue() == n or (selectOthers and lowUp and die.getValue()< n)  or (selectOthers and not lowUp and die.getValue()> n) then
             if selDel then
@@ -199,8 +223,8 @@ function SelectDeleteDiceX(action, n, selectOthers, lowUp, color)
 
     for i, val in ipairs(counter) do
         if val > 0 then
-            text=text.." ** "..counter[i].." "..numberName[i]
-            somethingToPrint=true
+            text = text.." \u{00B7} " .. counter[i] .. " " .. numberName[i]
+            somethingToPrint = true
         end
     end
     if somethingToPrint then printToAll(text , "Yellow") end
@@ -236,7 +260,7 @@ end
 function clearDiceX(n, deleteLower, color)
     local counter={0,0,0,0,0,0}
     local numberName={"ones", "twos", "threes", "fours", "fives", "sixes"}
-    local text=color.." player deleted "
+    local text = Player[color].steam_name .. " deleted "
     local somethingToPrint=false
     for i, die in ipairs(getDice()) do
         if die.getValue() == n or (deleteLower and die.getValue()< n) then
@@ -246,7 +270,7 @@ function clearDiceX(n, deleteLower, color)
     end
     for i, val in ipairs(counter) do
         if val > 0 then
-            text=text.." ** "..counter[i].." "..numberName[i]
+            text=text.." \u{00B7} "..counter[i].." "..numberName[i]
             somethingToPrint=true
         end
     end
@@ -271,12 +295,10 @@ function spawnDice25(obj, player, alt)
 end
 
 function spawnDice(n,player)
-    --    '[' .. os.date("%H") .. ':' .. os.date("%M") .. ':' .. os.date("%S") .. ' UTC] '
     local currentTime = os.time()
     local disableTime=0.8
     if n>9 then disableTime=disableTime+0.3 end
     if currentTime-lastClick<disableTime then
-        --print("Wai a bit!")
         printToColor("Wait a bit!", player, "Yellow")
         return
     end
@@ -297,17 +319,21 @@ function spawnDice(n,player)
             end
         end
     end
-    local diceType="Die_6_Rounded"
-    if pipColorBtn.color == "Black" then
-      diceType = "Die_6"
+
+    if diceType ~= "custom_dice" or customDiceImage == nil then
+        if pipColorBtn.color == "Black" then
+            diceType = "Die_6"
+        elseif selectedColor == "White" then
+            diceType = "Die_6"
+        else
+            diceType = "Die_6_Rounded"
+        end
     end
-    if selectedColor== "White" then
-        diceType="Die_6"
-    end
+
     if offset+n>128 then n=128-offset end
     for i=1, n do
     local die=spawnObject({
-        type              =diceType,
+        type              = diceType,
         position          = self.positionToWorld({4-grid*1.5-col*0.25,0.5,-0.3+row*0.25}),
         callback_fucntion = function(obj) print("col: "..selectedColor) changeColor(obj, selectedColor) end,
         })
@@ -320,16 +346,22 @@ function spawnDice(n,player)
                 grid=grid+1
             end
         end
-    die.setColorTint(selectedColor)
+        if diceType == "custom_dice" and customDiceImage ~= nil then
+            die.setCustomObject({
+                image = customDiceImage,
+                type = 1
+            })
+            die.setColorTint(customColorTint)
+        else
+            die.setColorTint(selectedColor)
+        end
     end
 end
 
 function changeColor(obj, color)
     print("Color "..color)
     obj.setColorTint(color)
-
 end
-
 
 function onload()
     lastClick=os.time()
@@ -390,6 +422,7 @@ function onload()
 
     end
     self.createButton(lowerUpperBtn)
+    self.createButton(customDiceBtn)
     if self.getPosition().z < 0 then selectedColor="Blue" else selectedColor="Red" end modifyMenu(selectedColor)
 end
 
@@ -406,6 +439,7 @@ function modifyMenu4()
     modifyMenu("Green")
 end
 function modifyMenu(color)
+    diceType="Die_6_Rounded"
     selectedColor=color
     self.editButton({index=4, color=color})
     self.editButton({index=5, color=color})
@@ -426,7 +460,7 @@ function checkDice ()
 	if data==nil then
 		setDefaultState()
 		data = JSON.decode(self.getDescription())
-		printToAll('Warning - invalid description. Restored defaut configuration.', {0.8,0.5,0})
+		printToAll('Warning - invalid description. Restored default configuration.', {0.8,0.5,0})
 	end
 
     -- If the zone is moving, wait
@@ -526,7 +560,6 @@ function checkDice ()
     if totaldice==0
     then
         totaltext = ' '
-
     else
         totaltext='\nTot: '..totaldice
 
