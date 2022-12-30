@@ -22,8 +22,6 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 * Mission-specific scoring no longer capped at 15 - now you can record those ludicrous Conversion scores!
 * More visible and stable banner models.
 
-Note that the old select buttons can be restored by adding this to the properties in the dice mat's Description field: `"SelOrRoll": "sel"`
-
 ### v2.42
 
 * Dice roller tweaked to (customisably) no longer rotate dice after spawning them, in the hopes of fixing physics issues encountered by some players.
