@@ -86,9 +86,6 @@ function packDataTimeout()
 end
 
 function writeMenu()
-    print("Writing menu, pack selection is:")
-    print(selected[1])
-    print(selectedPack().name)
     self.clearButtons()
     self.createButton(titleBtn)
     local rows=4
@@ -133,10 +130,9 @@ function setObj(obj, color, alt)
         printToColor("Game starded, cannot modify!", color, "Red")
         return
     end
-    local id=selectedPack().factions[selected[2]].categories[selected[3]].objectives[selected[4]].id
     if scoresheet then
         if not scoresheet.getVar("scoresheetActive") then printToColor("Enable scoresheet first!", color, "Red") return end
-        scoresheet.call("addSecondaryForPlayer", {clicker=color, secID=id } )
+        scoresheet.call("addSecondaryForPlayer", {clicker=color, packID=packs.names[selected[1]], name=selectedPack().factions[selected[2]].categories[selected[3]].objectives[selected[4]].name})
     end
 end
 
@@ -221,11 +217,16 @@ function upDown(counter, amt)
     if currentValue < 1        then currentValue = maxValue end
     if currentValue > maxValue then currentValue = 1 end
     selected[index] = currentValue
-    if counter == "pack" then
+
+    -- A previous version kept the scoresheet's selected mission pack in sync
+    -- with the one selected here.  That's annoying when two players are trying
+    -- to enter secondaries simultaneously, so we no longer do that, and instead
+    -- when setting a secondary on the scoresheet, we specify the pack as well.
+    --[[if counter == "pack" then
         if not startGameObj.getVar("inGame") then
             scoresheet.call("packFromExt", {index= selected[index]} )
         end
-    end
+    end]]--
     writeMenu()
 end
 
