@@ -24,44 +24,39 @@ end
 
 function printResults(n)
 	if #lastRolls==0 then
-		printToAll("NO LAST ROLLS !!!\n", "Yellow")
+		printToAll("NO LAST ROLLS\n", "Yellow")
 	else
 		printToAll("LAST ROLLS\n")
 	end
 	for i, result in ipairs(lastRolls) do
 		if i<= n then
-			printToAll(i.."  "..string.sub(result.msg,3), result.color)
+			printToAll("-- " .. i .. " --\n" .. result.msg, result.color)
 		end
 	end
 end
 
 --Initialize Global Variables and pRNG Seed
-globalXoffset=-1.05
-if self.getPosition().x < 0 then globalXoffset=-globalXoffset end
-seedcounter = 0
-ver = 'BCB-2020-04-20 Hotfix Z'
+ver = 'BCB-2022-12-30'
 lastHolder = {}
 customFace = {4, 6, 8, 10, 12, 20}
 diceGuidFaces = {}
 sortedKeys = {}
 resultsTable = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 seedCounter = 0
-local function seedpRNG() -- constructor
-    local function private()
-      math.randomseed(tonumber(tostring(os.time()):gsub("%.", ""):reverse():sub(1, 7)) + tonumber(tostring(os.clock()):reverse():sub(1, 7)))
-      math.random()
-      math.random()
-      math.random()
-      math.random()
-    end
-    return {
-        func = function()
-            private()
-        end
-    }
+
+math.randomseed(os.time())
+
+objectToPlaceDiceOnGUID = Global.getVar("redDiceMat_GUID")
+if self.guid == Global.getVar("blueDiceRoller_GUID") then
+    objectToPlaceDiceOnGUID = Global.getVar("blueDiceMat_GUID")
 end
-local m = seedpRNG()
-m.func()
+-- DELETE
+print("Placing on: " .. objectToPlaceDiceOnGUID)
+objectToPlaceDiceOn = getObjectFromGUID(objectToPlaceDiceOnGUID)
+if objectToPlaceDiceOn == nil then
+    print("Placing on self")
+    objectToPlaceDiceOn = self
+end
 
 -- used to nil out a passed parameter
 --   remember, this will leave the parameter itself nil
@@ -151,12 +146,12 @@ end
 function onCollisionEnter(collision_info)
 	playerColor = lastHolder[collision_info.collision_object]
 	if collision_info.collision_object.getGUID() == nil then return end
-  clearDataForGC(diceGuidFaces)
-  clearDataForGC(sortedKeys)
+    clearDataForGC(diceGuidFaces)
+    clearDataForGC(sortedKeys)
 	diceGuidFaces = {}
 	sortedKeys = {}
 
---Save number of faces on dice
+    -- Save number of faces on dice
 	for k, v in ipairs(getAllObjects()) do
 		if v.tag == 'Dice' then
 			objType = tostring(v)
@@ -194,7 +189,7 @@ function takeDiceOut(tab)
 		printToAll('Warning - "step" can\'t be lower than 1. Restored default configuration.', {0.8, 0.5, 0})
 	end
 
-  clearDataForGC(diceGuids)
+    clearDataForGC(diceGuids)
 	diceGuids = {}
 	for k, v in pairs(self.getObjects()) do
 		faces = diceGuidFaces[v.guid]
@@ -202,60 +197,57 @@ function takeDiceOut(tab)
 			faces=3
 		end
 		r = math.random(faces)
-    seedCounter = seedCounter+math.random(1,10)
-    if seedCounter > 1000 then
-      m.func()
-      seedCounter = 0
-    end
 		diceGuids[v.guid] = r
 	end
 
 	local objs = self.getObjects()
-	local position = self.getPosition()
-	rotation = self.getRotation()
+	local position = objectToPlaceDiceOn.getPosition()
+	rotation = objectToPlaceDiceOn.getRotation()
 	sortedKeys = sortByVal(diceGuids, data.SortNoRows)
-  clearDataForGC(Rows)
+    clearDataForGC(Rows)
 	Rows = {}
 	n = 1
+
 	for _, key in pairs(sortedKeys) do
 		if diceGuids[key] == math.floor(diceGuids[key]) then
 			resultsTable[diceGuids[key]] = resultsTable[diceGuids[key]] + 1
 		end
 
-	if hasGuid(objs, key) then
-		if Rows[diceGuids[key]] == nil then
-			Rows[diceGuids[key]] = 0
-		end
-		Rows[diceGuids[key]] = Rows[diceGuids[key]] + 1
-		params = {}
-		params.guid = key
-		local d12Xoffset=globalXoffset
-		local d12Zoffset=0
-		if diceGuids[key]>6 then
-			 d12Xoffset=globalXoffset-24
-			 d12Zoffset=6
-		end
-		if data.Rows == 'no' then
-			params.position = { position.x + (-1) * math.sin((90 + rotation.y) * 0.0174532) * (n + 0.5) * data.Step,
-			position.y + 1,
-			position.z + (-1) * math.cos((90 + rotation.y) * 0.0174532) * (n + 0.5) * data.Step}
-		else
-			params.position = {
-			position.x + d12Xoffset + (Rows[diceGuids[key]] * math.cos((180 + self.getRotation().y) * 0.0174532)) * data.Step - (diceGuids[key] * math.sin((180 + self.getRotation().y) * 0.0174532)) * data.Step,
-			position.y + 2,
-			position.z  + (Rows[diceGuids[key]] * math.sin((self.getRotation().y) * 0.0174532)) * data.Step + ((diceGuids[key]-d12Zoffset)* math.cos((0 + self.getRotation().y) * 0.0174532)) * data.Step}
-		end
+    	if hasGuid(objs, key) then
+    		if Rows[diceGuids[key]] == nil then
+    			Rows[diceGuids[key]] = 0
+    		end
+    		Rows[diceGuids[key]] = Rows[diceGuids[key]] + 1
+    		params = {}
+    		params.guid = key
+    		local d12Xoffset=0
+    		if diceGuids[key]>6 then
+    			 d12Xoffset=-24
+    		end
 
---params.rotation = {rotation.x, rotation.y, rotation.z}
-		params.callback = 'setValueCallback'
-		params.params = {diceGuids[key]}
-		params.smooth = false
-		if data.SmoothDice == 'yes' then params.smooth = true end
+            local newXPos= 0 - d12Xoffset - 20.4 + (Rows[diceGuids[key]]* data.Step)
+            local newZPos=-3.17 + ((((diceGuids[key] - 1) % 6) + 1) * data.Step)
+            if data.Rows == 'no' then
+                params.position = { position.x + (-1) * math.sin((90 + rotation.y) * 0.0174532) * (n + 0.5) * data.Step,
+                position.y + 1,
+                position.z + (-1) * math.cos((90 + rotation.y) * 0.0174532) * (n + 0.5) * data.Step}
+            else
+                params.position = {
+                position.x + (newXPos * math.cos((180 + rotation.y) * 0.0174532)) - (newZPos * math.sin((180 + rotation.y) * 0.0174532)),
+                position.y + 2,
+                position.z + (newXPos * math.sin((rotation.y) * 0.0174532)) + (newZPos* math.cos((0 + rotation.y) * 0.0174532)) }
+            end
 
-		self.takeObject(params)
-		n = n + 1
-	end
-end
+            params.rotation = {rotation.x, rotation.y, rotation.z}
+    		params.callback = 'setValueCallback'
+    		params.params = {diceGuids[key]}
+    		params.smooth = false
+    		if data.SmoothDice == 'yes' then params.smooth = true end
+
+    		self.takeObject(params)
+    		n = n + 1
+    	end
+    end
 
 	printresultsTable()
 --[[Benchmarking code
@@ -288,9 +280,9 @@ function printresultsTable()
 
 	local time = '[' .. os.date("%H") .. ':' .. os.date("%M") .. ':' .. os.date("%S") .. ' UTC] '
 	if playerColor == nil then
-		msg='*******************************************************\n' .. time .. '~UNKNOWN PLAYER~ rolls:\n' .. msg .. '*******************************************************'
+		msg=time .. '~UNKNOWN PLAYER~ rolls:\n' .. msg .. '*******************************************************'
 	else
-		msg='*******************************************************\n' .. time .. Player[playerColor].steam_name .. ' rolls:\n' .. msg .. '*******************************************************'
+		msg=time .. Player[playerColor].steam_name .. ' rolls:\n' .. msg .. '*******************************************************'
 		color=stringColorToRGB(playerColor)
 	end
 	local rolltorecord={msg=msg, color=color}
@@ -332,7 +324,7 @@ function setValueCallback(obj, tab)
         RotValues_12 = {180,180,180,0,0,180,0,0,180,0,287.93,216}
         RotValues_20 = {239.65,120,0,0,120,0,120,120,120,0,180,301.86,300,300,300,180,60,180,300,180}
         waitFrames(waitFramesDelay)
-        local rot = self.getRotation()
+        local rot = objectToPlaceDiceOn.getRotation()
         local r = obj.getRotation()
         local v = obj.getValue()
 
@@ -375,14 +367,3 @@ function waitFrames(frames)
 		frames = frames - 1
 	end
 end
-
-
---Function to print table contents.
---[[
-function printTable(tempTable)
-	for k, v in pairs(tempTable) do
-		print('key = ' .. k)
-		print('value =' .. v)
-	end
-end
---]]

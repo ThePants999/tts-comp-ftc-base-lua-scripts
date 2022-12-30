@@ -8575,7 +8575,7 @@
         "scaleZ": 0.55000037
       },
       "Nickname": "Red Kustom 40k Dice Roller Mk3",
-      "Description": "{\n  \"Results\": \"no\",\n  \"Rows\": \"yes\",\n  \"SmoothDice\": \"no\",\n  \"RotateDice\": \"no\",\n  \"SortNoRows\": \"asc\",\n  \"Split_on_D12\": \"yes\",\n  \"Step\": 1.039,\n  \"Version\": \"BCB-2020-04-20 Hotfix Z\"\n}",
+      "Description": "{\n  \"Results\": \"no\",\n  \"Rows\": \"yes\",\n  \"SmoothDice\": \"no\",\n  \"RotateDice\": \"no\",\n  \"SortNoRows\": \"asc\",\n  \"Split_on_D12\": \"yes\",\n  \"Step\": 1.05,\n  \"Version\": \"BCB-2020-04-20 Hotfix Z\"\n}",
       "GMNotes": "",
       "ColorDiffuse": {
         "r": 0.9999998,
@@ -8622,7 +8622,7 @@
         "Order": 0
       },
       "LuaScript": "",
-      "LuaScriptState": "{\n  \"Results\": \"no\",\n  \"Rows\": \"yes\",\n  \"SmoothDice\": \"no\",\n  \"RotateDice\": \"no\",\n  \"SortNoRows\": \"asc\",\n  \"Split_on_D12\": \"yes\",\n  \"Step\": 1.039,\n  \"Version\": \"BCB-2020-04-20 Hotfix Z\"\n}",
+      "LuaScriptState": "{\n  \"Results\": \"no\",\n  \"Rows\": \"yes\",\n  \"SmoothDice\": \"no\",\n  \"RotateDice\": \"no\",\n  \"SortNoRows\": \"asc\",\n  \"Split_on_D12\": \"yes\",\n  \"Step\": 1.05,\n  \"Version\": \"BCB-2020-04-20 Hotfix Z\"\n}",
       "XmlUI": ""
     },
     {
@@ -8640,7 +8640,7 @@
         "scaleZ": 0.55000037
       },
       "Nickname": "Blue Kustom 40k Dice Roller Mk3",
-      "Description": "{\n  \"Results\": \"no\",\n  \"Rows\": \"yes\",\n  \"SmoothDice\": \"no\",\n  \"RotateDice\": \"no\",\n  \"SortNoRows\": \"asc\",\n  \"Split_on_D12\": \"yes\",\n  \"Step\": 1.039,\n  \"Version\": \"BCB-2020-04-20 Hotfix Z\"\n}",
+      "Description": "{\n  \"Results\": \"no\",\n  \"Rows\": \"yes\",\n  \"SmoothDice\": \"no\",\n  \"RotateDice\": \"no\",\n  \"SortNoRows\": \"asc\",\n  \"Split_on_D12\": \"yes\",\n  \"Step\": 1.05,\n  \"Version\": \"BCB-2020-04-20 Hotfix Z\"\n}",
       "GMNotes": "",
       "ColorDiffuse": {
         "r": 0.9999998,
@@ -8687,7 +8687,7 @@
         "Order": 0
       },
       "LuaScript": "",
-      "LuaScriptState": "{\n  \"Results\": \"no\",\n  \"Rows\": \"yes\",\n  \"SmoothDice\": \"no\",\n  \"RotateDice\": \"no\",\n  \"SortNoRows\": \"asc\",\n  \"Split_on_D12\": \"yes\",\n  \"Step\": 1.039,\n  \"Version\": \"BCB-2020-04-20 Hotfix Z\"\n}",
+      "LuaScriptState": "{\n  \"Results\": \"no\",\n  \"Rows\": \"yes\",\n  \"SmoothDice\": \"no\",\n  \"RotateDice\": \"no\",\n  \"SortNoRows\": \"asc\",\n  \"Split_on_D12\": \"yes\",\n  \"Step\": 1.05,\n  \"Version\": \"BCB-2020-04-20 Hotfix Z\"\n}",
       "XmlUI": ""
     },
     {
