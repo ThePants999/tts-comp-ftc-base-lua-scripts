@@ -13,8 +13,13 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 
 * Major performance enhancement: mission pack data is no longer included in save files, eliminating the regular slowdown seen when the scoresheet was in use.
 * Minor performance enhancement: mission pack data is now downloaded once and shared between the scoreboard and secondary objective managers, speeding up load time and use of those features.
+* Dice roller/mat enhancements:
+    * The buttons to select all dice, or select dice with particular values, have been replaced with buttons that immediately roll those dice. For example, you can re-roll 1s by clicking the button that used to select your 1s, or re-roll all 1s/2s/3s by right-clicking Roll 3. If you want the old behaviour back, you can restore it by adding this to the properties in the dice mat's Description field: `"SelOrRoll": "sel"`
+    * Custom dice are now supported. Clear the mat, place a single die on it, then click "Custom Dice". Spawned dice will now be copies of that original one.
+    * The text in the bottom-left of the dice mat now shows you both how many dice are on the mat and what they sum to.
+    * You can move the roller and mat separately. Dice will spawn aligned with the mat wherever it is.
+    * Printouts of recent rolls are a bit more readable.
 * Mission-specific scoring no longer capped at 15 - now you can record those ludicrous Conversion scores!
-* Dice roller enhancements: support for moving the dice mat and/or roller separately, more readable last roll reports, added custom dice support, replaced select buttons with roll buttons, added sum of dice, removed the stupid PRNG seed handling
 * More visible and stable banner models.
 
 Note that the old select buttons can be restored by adding this to the properties in the dice mat's Description field: `"SelOrRoll": "sel"`
