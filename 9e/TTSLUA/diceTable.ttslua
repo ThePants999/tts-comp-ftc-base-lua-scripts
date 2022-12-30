@@ -483,6 +483,8 @@ function checkDice ()
     local valueToCounter = {}
     local valuesToSort = {}
 	totaldice=0
+    diceSum = 0
+
     -- Iterate all objects in the zone
     for _, obj in pairs(getAllObjects()) do
         -- Fetch resting dices
@@ -498,6 +500,7 @@ function checkDice ()
                     valuesToSort[#valuesToSort + 1] = value
                 end
                 -- Increase the occurrence of this value
+                diceSum = diceSum + value
                 counter = counter + 1
                 totaldice=totaldice+1
                 valueToCounter[value] = counter
@@ -561,7 +564,7 @@ function checkDice ()
     then
         totaltext = ' '
     else
-        totaltext='\nTot: '..totaldice
+        totaltext='\n' .. totaldice .. " \u{2211} " .. diceSum
 
     end
     if lineCount>6 then
