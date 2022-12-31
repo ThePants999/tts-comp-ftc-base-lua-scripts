@@ -11125,7 +11125,7 @@
         "scaleZ": 1.0
       },
       "Nickname": "9e Score Sheet",
-      "Description": "{\n  \"P1\": \"Player 1\",\n  \"P2\": \"Player 2\",\n  \"ver_card\": \"2020-07-18\",\n  \"ver_data\": \"2020-07-18\"\n}",
+      "Description": "{\n  \"P1\": \"Player 1\",\n  \"P2\": \"Player 2\"\n}",
       "GMNotes": "",
       "ColorDiffuse": {
         "r": 1.0,
