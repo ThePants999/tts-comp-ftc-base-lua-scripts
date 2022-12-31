@@ -11,6 +11,7 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 
 ### v2.43
 
+* Secondary objective selection overhauled, offering a drop-down or typing interface in place of clicking through a long list.
 * Major performance enhancement: mission pack data is no longer included in save files, eliminating the regular slowdown seen when the scoresheet was in use.
 * Minor performance enhancement: mission pack data is now downloaded once and shared between the scoreboard and secondary objective managers, speeding up load time and use of those features.
 * Dice roller/mat enhancements:
