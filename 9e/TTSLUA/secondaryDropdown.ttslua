@@ -1,0 +1,37 @@
+-- FTC-GUID: 3ef881,aca663
+
+input = getObjectFromGUID(Global.getVar("redSecondaryInputBox_GUID"))
+if self.guid == Global.getVar("blueSecondaryDropdown_GUID") then
+    input = getObjectFromGUID(Global.getVar("blueSecondaryInputBox_GUID"))
+end
+
+-- Called when the user clicks an objective in the drop-down. Call back to the
+-- input box to lock in this choice.
+function selectionChanged(_, option, _)
+    input.call("updateSelection", {name = option})
+    input.call("inputComplete")
+end
+
+-- Rebuild the set of options in the dropdown, optionally selecting a specific
+-- one, and display the GUI.
+function display(params)
+    xml = self.UI.getXmlTable()
+    panel = xml[1]
+    panel.attributes.active = "true"
+    dropdown = panel.children[1]
+    dropdown.children = {{tag="Option", value=""}}
+
+    for index, obj in ipairs(params.objectives) do
+        option = {tag = "Option", value = obj.name}
+        if params.selected == index then
+            option.attributes = {selected = "true"}
+        end
+        table.insert(dropdown.children, option)
+    end
+
+    self.UI.setXmlTable(xml)
+end
+
+function hide()
+    self.UI.setAttribute("layout", "active", "false")
+end

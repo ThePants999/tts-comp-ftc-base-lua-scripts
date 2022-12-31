@@ -1,0 +1,89 @@
+-- FTC-GUID: 9e4193,394524
+
+-- The set of objectives in the current pack, and which one is currently selected.
+objs = {}
+currentSelectionIndex = nil
+
+-- Which objective number are we currently selecting?
+objNumber = nil
+
+-- Which player is this instance for?
+player = 1
+if self.guid == Global.getVar("blueSecondaryInputBox_GUID") then
+    player = 2
+end
+
+-- Objects we need to call functions on.
+dropdown = getObjectFromGUID(Global.getVar("redSecondaryDropdown_GUID"))
+if player == 2 then
+    dropdown = getObjectFromGUID(Global.getVar("blueSecondaryDropdown_GUID"))
+end
+scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
+
+-- Called from the scoresheet when a secondary button is clicked. Store off the
+-- information we've been given (the current pack objectives, which if any is the
+-- currently-selected objective in it, and whether this is secondary 1, 2 or 3
+-- that the player is currently selecting), and call through to the dropdown
+-- object.
+function displayMenu(params)
+    objs = params.objectives
+    currentSelectionIndex = params.selected
+    objNumber = params.secondary
+
+    self.UI.setAttribute("input", "text", "")
+    self.UI.setAttribute("layout", "active", "true")
+    self.UI.setAttribute("title", "text", "Secondary " .. objNumber)
+
+    displayDropdown()
+end
+
+-- Hide the GUI.
+function hideMenu()
+    self.UI.setAttribute("layout", "active", "false")
+    dropdown.call("hide")
+end
+
+-- Rebuild and display the dropdown GUI, optionally with a specific objective
+-- selected.
+function displayDropdown()
+    dropdown.call("display", {objectives=objs, selected=currentSelectionIndex})
+end
+
+-- Called every time the user presses a key in the input box. Find a secondary
+-- that matches the input so far and get the dropdown to display it.
+function inputModified(_, input, _)
+    length = string.len(input)
+    input = string.lower(input)
+
+    currentSelectionIndex = nil
+
+    if string.len(input) > 0 then
+        for index, obj in ipairs(objs) do
+            if string.sub(string.lower(obj.name), 1, length) == input then
+                currentSelectionIndex = index
+                break
+            end
+        end
+    end
+
+    displayDropdown()
+end
+
+-- Called from the dropdown when the user clicks on an objective in that.
+function updateSelection(params)
+    currentSelectionIndex = nil
+    for index, obj in ipairs(objs) do
+        if params.name == obj.name then
+            currentSelectionIndex = index
+            break
+        end
+    end
+end
+
+-- Called when the user presses Enter, though also called if they move focus
+-- to something else. Also called from the dropdown when the user clicks on an
+-- objective in that.
+function inputComplete()
+    hideMenu()
+    scoresheet.call("secondarySelected", {player = player, objNumber = objNumber, secondary = currentSelectionIndex})
+end
