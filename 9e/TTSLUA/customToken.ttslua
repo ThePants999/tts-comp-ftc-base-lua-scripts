@@ -1,4 +1,0 @@
--- FTC-GUID: 4ce28e,74594d,34c1e5,50cc4f,54c4ce
-function onLoad()
-self.interactable=false
-end
