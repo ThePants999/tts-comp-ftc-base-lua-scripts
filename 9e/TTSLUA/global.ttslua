@@ -58,7 +58,7 @@ redPlayerID = ""
 bluePlayerID = ""
 startMenu = nil
 
-packsRepo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e/"
+packsRepo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e-combined/"
 packs = nil
 packsStatus = "pending"
 packsToDownload = 0
