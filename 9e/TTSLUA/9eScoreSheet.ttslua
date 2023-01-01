@@ -591,7 +591,7 @@ function packDataReady()
 				faction = "",
 				category = "",
 				name = "",
-				description = "Click to cycle secondary objectives,\nright-click to cycle backwards."
+				description = "Click to select a secondary objective."
 			}
 			mis[0] = {
 				name = "",
@@ -1005,14 +1005,11 @@ function secondarySelected(params)
 	x = params.player
 	y = params.objNumber
 	ix = params.secondary
-	if ix ~= nil then
-		secondary[x][y][1] = ix
-		secondary[x][y][3] = packData[selectedPackIndex].objectives[ix].category
-		secondary[x][y][4] = packData[selectedPackIndex].objectives[ix].name
-		secondary[x][y][5] = packData[selectedPackIndex].objectives[ix].description
-	else
-		secondary[x][y] = defaultSec
-	end
+	if ix == nil then ix = 0 end
+	secondary[x][y][1] = ix
+	secondary[x][y][3] = packData[selectedPackIndex].objectives[ix].category
+	secondary[x][y][4] = packData[selectedPackIndex].objectives[ix].name
+	secondary[x][y][5] = packData[selectedPackIndex].objectives[ix].description
 
 	currentlySelecting[x] = nil
 	updateAll(true)
