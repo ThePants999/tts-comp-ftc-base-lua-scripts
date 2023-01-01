@@ -142,27 +142,21 @@ function initPackData(pack, web_data)
         packsStatus = "failed"
         print("Failed to download mission pack " .. pack)
     else
-        -- It looks like the WebRequestManager serialises requests.
-        -- Making the parsing of this data asynchronous, by delaying it by a
-        -- frame, allows the manager to kick off the next request.
-        text = web_data.text
-        Wait.frames(function()
-            -- I can barely believe this, but TTS' built-in JSON decoder
-            -- (invoked using JSON.decode()) takes literally five seconds -
-            -- blocking the UI thread the whole time - to decode a couple of
-            -- mission packs' worth of data. Incredibly fortunately, there's
-            -- another decoder available (MoonSharp), which has a number of
-            -- bug reports but is about a hundred times faster. Use that one!
-            -- Our pack JSON is pretty simple and doesn't hit any of the bugs
-            -- in this parser.
-            local data = json.parse(text)
-            packs.data[pack] = data
+        -- I can barely believe this, but TTS' built-in JSON decoder
+        -- (invoked using JSON.decode()) takes literally five seconds -
+        -- blocking the UI thread the whole time - to decode a couple of
+        -- mission packs' worth of data. Incredibly fortunately, there's
+        -- another decoder available (MoonSharp), which has a number of
+        -- bug reports but is about a hundred times faster. Use that one!
+        -- Our pack JSON is pretty simple and doesn't hit any of the bugs
+        -- in this parser.
+        local data = json.parse(web_data.text)
+        packs.data[pack] = data
 
-            packsToDownload = packsToDownload - 1
-            if packsStatus == "pending" and packsToDownload == 0 then
-                packsStatus = "success"
-            end
-        end, 1)
+        packsToDownload = packsToDownload - 1
+        if packsStatus == "pending" and packsToDownload == 0 then
+            packsStatus = "success"
+        end
     end
 end
 
