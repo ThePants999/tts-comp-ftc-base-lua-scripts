@@ -56,13 +56,25 @@ function inputModified(_, input, _)
     input = string.lower(input)
 
     currentSelectionIndex = nil
+    alternativeSelectionIndex = nil
 
     if string.len(input) > 0 then
         for index, obj in ipairs(objs) do
-            if string.sub(string.lower(obj.name), 1, length) == input then
+            objLower = string.lower(obj.name)
+            if string.sub(objLower, 1, length) == input then
                 currentSelectionIndex = index
                 break
             end
+
+            -- We prefer a "starts with" match, but if we can only find a
+            -- "contains" match we'll use that.
+            if string.find(objLower, input, 1, true) then
+                alternativeSelectionIndex = index
+            end
+        end
+
+        if currentSelectionIndex == nil and alternativeSelectionIndex ~= nil then
+            currentSelectionIndex = alternativeSelectionIndex
         end
     end
 
