@@ -111,7 +111,6 @@ selOrRoll = "roll"
 selectedColor = "White"
 diceType = "Die_6_Rounded"
 customDiceImage = nil
-customColorTint = nil
 
 rollerGUID = Global.getVar("redDiceRoller_GUID")
 if self.guid == Global.getVar("blueDiceMat_GUID") then
@@ -147,17 +146,32 @@ function getDice()
 end
 
 function customDice(obj, player, alt)
-    diceType="custom_dice"
+    found = false
+    newImage = nil
+    newTint = nil
 
     dice = getDice()
     for _, die in ipairs(dice) do
         local image = die.getCustomObject()["image"]
         if image ~= nil then
-            customDiceImage = image
-            customColorTint = die.getColorTint()
+            found = true
+            newTint = die.getColorTint()
+            newImage = image
             printToColor("You have set a custom die!", player, "Yellow")
-            return
+            break
+        else
+            -- We've found *a* die, but we should keep going looking for a truly
+            -- custom one, and use this only if we don't find any better ones.
+            found = true
+            newTint = die.getColorTint()
+            printToColor("You have set a custom colour!", player, "Yellow")
         end
+    end
+
+    if found then
+        customDiceImage = newImage
+        selectedColor = newTint
+        setDiceType()
     end
 end
 
@@ -365,22 +379,11 @@ function spawnDice(n,player)
         end
     end
 
-    if diceType ~= "custom_dice" or customDiceImage == nil then
-        if pipColorBtn.color == "Black" then
-            diceType = "Die_6"
-        elseif selectedColor == "White" then
-            diceType = "Die_6"
-        else
-            diceType = "Die_6_Rounded"
-        end
-    end
-
     if offset+n>128 then n=128-offset end
     for i=1, n do
     local die=spawnObject({
         type              = diceType,
         position          = self.positionToWorld({4-grid*1.5-col*0.25,0.5,-0.3+row*0.25}),
-        callback_fucntion = function(obj) print("col: "..selectedColor) changeColor(obj, selectedColor) end,
         })
         col=col+1
         if col>4 then
@@ -391,21 +394,18 @@ function spawnDice(n,player)
                 grid=grid+1
             end
         end
-        if diceType == "custom_dice" and customDiceImage ~= nil then
+
+        if customDiceImage ~= nil then
             die.setCustomObject({
                 image = customDiceImage,
                 type = 1
             })
-            die.setColorTint(customColorTint)
-        else
+        end
+
+        if selectedColor ~= nil then
             die.setColorTint(selectedColor)
         end
     end
-end
-
-function changeColor(obj, color)
-    print("Color "..color)
-    obj.setColorTint(color)
 end
 
 function onload()
@@ -496,13 +496,24 @@ function modifyMenu4()
     modifyMenu("Green")
 end
 function modifyMenu(color)
-    diceType="Die_6_Rounded"
-    selectedColor=color
+    customDiceImage = nil
+    selectedColor = color
+    setDiceType()
     self.editButton({index=4, color=color})
     self.editButton({index=5, color=color})
     self.editButton({index=6, color=color})
     self.editButton({index=7, color=color})
     self.editButton({index=8, color=color})
+end
+
+function setDiceType()
+    if customDiceImage ~= nil then
+        diceType = "Custom_Dice"
+    elseif pipColorBtn.color == "White" then
+        diceType = "Die_6_Rounded"
+    else
+        diceType = "Die_6"
+    end
 end
 
 function setDefaultState()
@@ -639,15 +650,18 @@ function checkDice ()
 end
 
 function swapPipColor()
-  if pipColorBtn.color == "Black" then
-    pipColorBtn.label = "White"
-    pipColorBtn.color = "White"
-    pipColorBtn.font_color = "Black"
-  else
-    pipColorBtn.label = "Black"
-    pipColorBtn.color = "Black"
-    pipColorBtn.font_color = "White"
-  end
+    customDiceImage = nil
+    if pipColorBtn.color == "Black" then
+        pipColorBtn.label = "White"
+        pipColorBtn.color = "White"
+        pipColorBtn.font_color = "Black"
+    else
+        pipColorBtn.label = "Black"
+        pipColorBtn.color = "Black"
+        pipColorBtn.font_color = "White"
+    end
+    
+    setDiceType()
 
-  self.editButton(pipColorBtn)
+    self.editButton(pipColorBtn)
 end
