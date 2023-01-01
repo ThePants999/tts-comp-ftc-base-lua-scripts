@@ -284,7 +284,7 @@ end
 function placeToColor(player, color)
     player.changeColor(color)
     player.team="None"
-    broadcastToColor("READ INSTRUCTIONS FIRST!\n(Purple buttons on table)", color, "Purple")
+    broadcastToColor("READ INSTRUCTIONS FIRST!\n(Click Notebook at the top)", color, "Purple")
     --setViewForPlayer(player, color) --bugged
 end
 
