@@ -661,6 +661,11 @@ function packFromExt(params)
 end
 
 function pack(_, _, alt)
+	if selectedPackIndex == nil then
+		broadcastToAll("Mission packs not available yet, please wait.", "Yellow")
+		return
+	end
+
 	if true or (warned or -- adde true for letting FACTIONS to be a separate pack
 		(
 			playerSum(1) == 10 and
