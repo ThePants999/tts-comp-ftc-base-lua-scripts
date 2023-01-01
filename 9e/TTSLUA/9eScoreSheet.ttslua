@@ -150,7 +150,7 @@ function addSecondaryForPlayer(params)
 	printToColor("Register yourself to scoresheet first!", params.clicker, "Red")
 end
 
-function sec_xyFromExternal(x, y, alt, secPackId, secName)
+function sec_xyFromExternal(x, y, _, secPackId, secName)
 	if selectedPackIndex ~= nil then
 		local foundPackIndex = nil
 		for packIndex, packId in ipairs(Global.getTable("packs").names) do
@@ -180,6 +180,7 @@ function sec_xyFromExternal(x, y, alt, secPackId, secName)
 		secondary[x][y][3] = foundSecData.category
 		secondary[x][y][4] = foundSecData.name
 		secondary[x][y][5] = foundSecData.description
+		checkSecondaryCategories(x)
 		updateAll(true)
 	end
 end
@@ -1000,7 +1001,6 @@ function sec_xy(x, y)
 	end
 end
 
--- Called from the input box object when a user has selected a secondary.
 function secondarySelected(params)
 	x = params.player
 	y = params.objNumber
@@ -1012,7 +1012,26 @@ function secondarySelected(params)
 	secondary[x][y][5] = packData[selectedPackIndex].objectives[ix].description
 
 	currentlySelecting[x] = nil
+
+	checkSecondaryCategories(x)
 	updateAll(true)
+end
+
+function checkSecondaryCategories(player)
+	pColor = "Red"
+	if player == 2 then
+		pColor = "Blue"
+	end
+
+	if secondary[player][1][1] > 0 and secondary[player][1][3] == secondary[player][2][3] then
+		broadcastToColor("Warning: " .. secondary[player][1][4] .. " is from the same category as " .. secondary[player][2][4], pColor, "Yellow")
+	end
+	if secondary[player][1][1] > 0 and secondary[player][1][3] == secondary[player][3][3] then
+		broadcastToColor("Warning: " .. secondary[player][1][4] .. " is from the same category as " .. secondary[player][3][4], pColor, "Yellow")
+	end
+	if secondary[player][2][1] > 0 and secondary[player][2][3] == secondary[player][3][3] then
+		broadcastToColor("Warning: " .. secondary[player][2][4] .. " is from the same category as " .. secondary[player][3][4], pColor, "Yellow")
+	end
 end
 
 -- Abandon hope all ye who enter here
