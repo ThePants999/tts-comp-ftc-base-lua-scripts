@@ -93,7 +93,7 @@ end
 function makeAnnouncement()
     local features={
     '2.42: Dice roller updated (see Steam Workshop page)',
-    "2.43: Significant update!\n   * New secondary selection interface\n   * Generic and faction secondaries now combined\n   * Major performance enhancements\n   * Dice roller and mat can be independently moved\n   * Dice mat now supports custom dice\n   * Dice mat has roll buttons in place of select buttons\n   * Dice mat displays sum of dice\n   * Mission scoring no longer capped at 15\n   * Improved banners"
+    "2.43: Significant update!\n   * New secondary selection interface\n   * Generic and faction secondaries now combined\n   * Major performance enhancements\n   * Dice roller and mat can be independently moved\n   * Dice mat now supports custom dice\n   * Dice mat has roll buttons in place of select buttons\n   * Dice mat displays sum of dice\n   * Table quarters/area denial now available during deployment\n   * Mission scoring no longer capped at 15\n   * Improved banners"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -1054,7 +1054,7 @@ areaLblOpen = "Hide\nArea Denial"
 areaLblClosed = "Show\nArea Denial"
 areaBtn = {
     label = areaLblClosed, click_function = "showHideAreaDeny", function_owner = self,
-    position = {menuX + 6, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = {menuX + 22, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 quartersPlaced = false
@@ -1062,7 +1062,7 @@ quartersLblOpen = "Hide\nTable Quarters"
 quartersLblClosed = "Show\nTable Quarters"
 quartersBtn = {
     label = quartersLblClosed, click_function = "showHideQuarters", function_owner = self,
-    position = {menuX - 4, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = {menuX + 16, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 position = {menuX, 5, menuZ}
@@ -1108,6 +1108,9 @@ function writeDeployMenu()
     self.createButton(deployOffsetUpBtn)
     self.createButton(deployOffsetDownBtn)
     self.createButton(deployTypeMenuBtn)
+
+    self.createButton(areaBtn)
+    self.createButton(quartersBtn)
 end
 
 function writeObjMenu()
@@ -1142,9 +1145,9 @@ function writeObjMenu()
 end
 
 function writeIngameMenu()
-    self.createButton(deployIngameBtn)
     self.createButton(areaBtn)
     self.createButton(quartersBtn)
+    self.createButton(deployIngameBtn)
     local DeployListSelected=DeployZonesData[deployTypeSelected].zones
 
     nextPhaseBtn.color = currentTurn

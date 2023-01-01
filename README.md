@@ -22,6 +22,7 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
     * The text in the bottom-left of the dice mat now shows you both how many dice are on the mat and what they sum to.
     * You can move the roller and mat separately. Dice will spawn aligned with the mat wherever it is.
     * Printouts of recent rolls are a bit more readable.
+* Show/hide table quarters and area denial buttons now available during deployment as well as mid-game.
 * Mission-specific scoring no longer capped at 15 - now you can record those ludicrous Conversion scores!
 * More visible and stable banner models.
 
