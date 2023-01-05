@@ -5,12 +5,17 @@ Yoffset=0.1
 
 clearAllDiceBtn={
     label="Clear mat\n(right click)", click_function="clearDiceAll", function_owner=self,
-    position={-4.4, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=400,
+    position={-4.6, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=400,
     font_size=60, color={0,0,0}, font_color={1,1,1}
 }
+
+rollAllLabel = "Roll all dice"
+rollAllTooltip = "Left-click to roll all dice. Right-click to switch to selecting dice."
+selectAllLabel = "Select all dice"
+selectAllTooltip = "Left-click to select all dice. Right-click to switch to rolling dice."
 rollOrSelectAllBtn={
-    label="Roll all dice", click_function="rollDiceAll", function_owner=self,
-    position={-3.3, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=420,
+    label=rollAllLabel, tooltip=rollAllTooltip, click_function="RollOrSelectDice", function_owner=self,
+    position={-3.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=520,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
 
@@ -107,7 +112,7 @@ warningBtn={
     font_size=50, color="White", font_color="Red"
 }
 
-selOrRoll = "roll"
+rollMode = true
 selectedColor = "White"
 diceType = "Die_6_Rounded"
 customDiceImage = nil
@@ -191,36 +196,51 @@ function modifyBtns()
         self.editButton({ index = (13+i*2), label = clearDiceBtnLabel .. i .. sign })
 
         local selOrRollLabel = "Roll\n"
-        if selOrRoll == "sel" then
+        if not rollMode then
             selOrRollLabel = "Sel\n"
         end
         self.editButton({ index = (14+i*2), label = selOrRollLabel .. i .. sign })
     end
 end
 
-function selectDice(obj, player, alt)
-    Player[player].clearSelectedObjects()
-    for i, die in ipairs(getDice()) do
-        die.addToPlayerSelection(player)
+function RollOrSelectDice(obj, player, alt)
+    if not alt then
+        Player[player].clearSelectedObjects()
+        if rollMode then
+            moveDiceToRoller( player, getDice() )
+        else
+            for i, die in ipairs(getDice()) do
+                die.addToPlayerSelection(player)
+            end
+        end
+    else
+        rollMode = not rollMode
+
+        if rollMode then
+            self.editButton({index=3, label=rollAllLabel, tooltip=rollAllTooltip})
+        else
+            self.editButton({index=3, label=selectAllLabel, tooltip=selectAllTooltip})
+        end
+        modifyBtns()
     end
 end
 
-function SelectDeleteDice1(obj, color, alt)
+function RollOrSelectDeleteDice1(obj, color, alt)
     SelectDeleteDiceX("Sel", 1, alt, lowerUpper, color) -- action, n, selectOthers, upLow, color
 end
-function SelectDeleteDice2(obj, color, alt)
+function RollOrSelectDeleteDice2(obj, color, alt)
     SelectDeleteDiceX("Sel", 2, alt, lowerUpper, color)
 end
-function SelectDeleteDice3(obj, color, alt)
+function RollOrSelectDeleteDice3(obj, color, alt)
     SelectDeleteDiceX("Sel", 3, alt, lowerUpper, color)
 end
-function SelectDeleteDice4(obj, color, alt)
+function RollOrSelectDeleteDice4(obj, color, alt)
     SelectDeleteDiceX("Sel", 4, alt, lowerUpper, color)
 end
-function SelectDeleteDice5(obj, color, alt)
+function RollOrSelectDeleteDice5(obj, color, alt)
     SelectDeleteDiceX("Sel", 5, alt, lowerUpper, color)
 end
-function SelectDeleteDice6(obj, color, alt)
+function RollOrSelectDeleteDice6(obj, color, alt)
     SelectDeleteDiceX("Sel", 6, alt, lowerUpper, color)
 end
 
@@ -253,36 +273,10 @@ function SelectDeleteDiceX(action, n, selectOthers, lowUp, color)
     end
     if somethingToPrint then printToAll(text , "Yellow") end
     if oneTimeUpper then setLowerUpper( true ) end
-end
 
-function rollDiceAll(obj, player, alt)
-    Player[player].clearSelectedObjects()
-    moveDiceToRoller( player, getDice() )
-end
-
-function RollDice1(obj, color, alt)
-    SelectDeleteDiceX("Sel", 1, alt, lowerUpper, color) -- action, n, selectOthers, upLow, color
-    moveDiceToRoller(color, Player[color].getSelectedObjects())
-end
-function RollDice2(obj, color, alt)
-    SelectDeleteDiceX("Sel", 2, alt, lowerUpper, color)
-    moveDiceToRoller(color, Player[color].getSelectedObjects())
-end
-function RollDice3(obj, color, alt)
-    SelectDeleteDiceX("Sel", 3, alt, lowerUpper, color)
-    moveDiceToRoller(color, Player[color].getSelectedObjects())
-end
-function RollDice4(obj, color, alt)
-    SelectDeleteDiceX("Sel", 4, alt, lowerUpper, color)
-    moveDiceToRoller(color, Player[color].getSelectedObjects())
-end
-function RollDice5(obj, color, alt)
-    SelectDeleteDiceX("Sel", 5, alt, lowerUpper, color)
-    moveDiceToRoller(color, Player[color].getSelectedObjects())
-end
-function RollDice6(obj, color, alt)
-    SelectDeleteDiceX("Sel", 6, alt, lowerUpper, color)
-    moveDiceToRoller(color, Player[color].getSelectedObjects())
+    if selDel and rollMode then
+        moveDiceToRoller(color, Player[color].getSelectedObjects())
+    end
 end
 
 function moveDiceToRoller(color, dice)
@@ -336,7 +330,6 @@ function clearDiceX(n, deleteLower, color)
     if somethingToPrint then printToAll(text , "Yellow") end
 end
 
-
 function spawnDice1(obj, player, alt)
     spawnDice(1,player)
 end
@@ -355,8 +348,8 @@ end
 
 function spawnDice(n,player)
     local currentTime = os.time()
-    local disableTime=0.8
-    if n>9 then disableTime=disableTime+0.3 end
+    local disableTime=0.4
+    --if n>9 then disableTime=disableTime+0.3 end
     if currentTime-lastClick<disableTime then
         printToColor("Wait a bit!", player, "Yellow")
         return
@@ -439,11 +432,6 @@ function onload()
     emptyText = ' '
 	data2 = JSON.decode(self.getDescription())
 	Wait.time(checkDice, data2.Update_Frequency*1,-1)
-    if data2.SelOrRoll == "sel" then
-        selOrRoll = "sel"
-        rollOrSelectAllBtn.label = "Select all dice"
-        rollOrSelectAllBtn.click_function = "selectDice"
-    end
 
     self.createButton(clearAllDiceBtn)
     self.createButton(rollOrSelectAllBtn)
@@ -467,15 +455,9 @@ function onload()
         self.createButton(clearDiceBtn)
 
         rollOrSelectDiceBtn.position[3] = rollOrSelectDiceBtn.position[3] + clearDiceBtnIncrement
-        if selOrRoll == "sel" then
-            rollOrSelectDiceBtn.click_function = "SelectDeleteDice" .. i
-            rollOrSelectDiceBtn.label = "Sel\n" .. i .. sign
-            rollOrSelectDiceBtn.tooltip = "LMB Selects this row\nRMB Selects this row and lowers/uppers"
-        else
-            rollOrSelectDiceBtn.click_function = "RollDice" .. i
-            rollOrSelectDiceBtn.label = "Roll\n" .. i .. sign
-            rollOrSelectDiceBtn.tooltip = "LMB Re-rolls this row\nRMB Re-rolls this row and lowers/uppers"
-        end
+        rollOrSelectDiceBtn.label = "Roll\n" .. i .. sign
+        rollOrSelectDiceBtn.tooltip = "LMB Re-rolls this row\nRMB Re-rolls this row and lowers/uppers"
+        rollOrSelectDiceBtn.click_function = "RollOrSelectDeleteDice" .. i
         self.createButton(rollOrSelectDiceBtn)
     end
     self.createButton(lowerUpperBtn)
@@ -660,7 +642,7 @@ function swapPipColor()
         pipColorBtn.color = "Black"
         pipColorBtn.font_color = "White"
     end
-    
+
     setDiceType()
 
     self.editButton(pipColorBtn)
