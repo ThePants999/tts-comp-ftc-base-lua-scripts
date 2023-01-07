@@ -269,6 +269,14 @@ function sum(t)
 	return sum
 end
 
+function setPlayerColor(params)
+    playerColor = params.color
+end
+
+function setLastHolder(params)
+    lastHolder[params.obj] = params.color
+end
+
 --Prints resultsTable.
 function printresultsTable()
 	local data = JSON.decode(self.getDescription())
