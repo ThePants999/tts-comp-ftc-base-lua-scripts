@@ -13,6 +13,7 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 * Secondary objective selection overhauled, offering a drop-down or typing interface in place of clicking through a long list.
 * Reference the 9e-combined pack repo, which brings generic and faction secondaries together into combined packs.
+* Arks of Omen support added. Once better-quality scans are available, please report any issues you find!
 * The set of status tokens has been revamped, and now reflects a much more 9th-edition-appropriate set, with options like "obsec" or "fight last" added and options like "+3 to hit" moved to a legacy bag. Huge thanks to Trashpanda for the new token graphics set.
 * Status tokens, banners and sticky objective markers are now infinite bags - just drag away to create one.
 * Major performance enhancement: switched to a better JSON library, eliminating the multi-second delay every time you load a save.
