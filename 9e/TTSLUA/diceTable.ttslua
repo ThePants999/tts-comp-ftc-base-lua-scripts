@@ -348,7 +348,7 @@ end
 
 function spawnDice(n,player)
     local currentTime = os.time()
-    local disableTime=0.4
+    local disableTime=0.6
     --if n>9 then disableTime=disableTime+0.3 end
     if currentTime-lastClick<disableTime then
         printToColor("Wait a bit!", player, "Yellow")
