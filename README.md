@@ -5,7 +5,7 @@ The following files contain all the LUA scripts contained in the Competitive FTC
 
 This repo now contains the actual TTS JSON file. To produce the JSON file, run the compile.ps1 script.
 
-Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and elements contained within it!
+Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and elements contained within it!
 
 ## Update History:
 
@@ -13,6 +13,7 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 
 * Secondary objective selection overhauled, offering a drop-down or typing interface in place of clicking through a long list.
 * Reference the 9e-combined pack repo, which brings generic and faction secondaries together into combined packs.
+* The set of status tokens has been revamped, and now reflects a much more 9th-edition-appropriate set, with options like "obsec" or "fight last" added and options like "+3 to hit" moved to a legacy bag. Huge thanks to Trashpanda for the new token graphics set.
 * Major performance enhancement: switched to a better JSON library, eliminating the multi-second delay every time you load a save.
 * Major performance enhancement: mission pack data is no longer included in save files, eliminating the regular slowdown seen when the scoresheet was in use.
 * Minor performance enhancement: mission pack data is now downloaded once and shared between the scoreboard and secondary objective managers, speeding up load time and use of those features.
