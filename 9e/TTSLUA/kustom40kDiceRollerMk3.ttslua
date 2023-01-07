@@ -44,12 +44,11 @@ sortedKeys = {}
 resultsTable = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 seedCounter = 0
 
-math.randomseed(os.time())
+thisBoxIsBlue = (self.guid == Global.getVar("blueDiceRoller_GUID")) and true or false
+seed = os.time() + (thisBoxIsBlue and 1 or 0)
+math.randomseed(seed)
 
-objectToPlaceDiceOnGUID = Global.getVar("redDiceMat_GUID")
-if self.guid == Global.getVar("blueDiceRoller_GUID") then
-    objectToPlaceDiceOnGUID = Global.getVar("blueDiceMat_GUID")
-end
+objectToPlaceDiceOnGUID = thisBoxIsBlue and Global.getVar("blueDiceMat_GUID") or Global.getVar("redDiceMat_GUID")
 objectToPlaceDiceOn = getObjectFromGUID(objectToPlaceDiceOnGUID)
 if objectToPlaceDiceOn == nil then
     objectToPlaceDiceOn = self
