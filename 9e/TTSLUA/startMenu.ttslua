@@ -93,7 +93,7 @@ end
 function makeAnnouncement()
     local features={
     '2.42: Dice roller updated (see Steam Workshop page)',
-    "2.43: Significant update!\n   * New secondary selection interface\n   * Generic and faction secondaries now combined\n   * Revamped tokens, with thanks to Trashpanda for graphics\n   * Major performance enhancements\n   * Dice roller and mat can be independently moved\n   * Dice mat now supports custom dice\n   * Dice mat has roll buttons in place of select buttons\n   * Dice mat displays sum of dice\n   * Table quarters/area denial now available during deployment\n   * Mission scoring no longer capped at 15\n   * Improved banners"
+    "2.43: Significant update!\n   * New secondary selection interface\n   * Generic and faction secondaries now combined\n   * Revamped tokens, with thanks to Trashpanda for graphics\n   * Tokens are now infinite bags, just drag one away\n   * Major performance enhancements\n   * Dice roller and mat can be independently moved\n   * Dice mat now supports custom dice\n   * Dice mat has roll buttons in place of select buttons\n   * Dice mat displays sum of dice\n   * Table quarters/area denial now available during deployment\n   * Mission scoring no longer capped at 15\n   * Improved banners"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
