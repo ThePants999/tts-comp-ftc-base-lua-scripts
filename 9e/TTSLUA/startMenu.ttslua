@@ -1588,7 +1588,7 @@ function showHideEngageRBD()
 
         engagePlaced = true
     else
-        engageBtn.label = engagleLblClosed
+        engageBtn.label = engageLblClosed
 
         for i, obj in ipairs(getAllObjects()) do
             if obj.getGMNotes() == "engageRBD" then
