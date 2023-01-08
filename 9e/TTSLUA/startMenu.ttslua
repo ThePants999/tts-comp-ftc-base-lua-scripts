@@ -92,8 +92,8 @@ end
 
 function makeAnnouncement()
     local features={
-    '2.42: Dice roller updated (see Steam Workshop page)',
-    "2.43: Significant update!\n   * New secondary selection interface\n   * Generic and faction secondaries now combined\n   * Arks of Omen support added (with thanks to Josie)\n   * Revamped tokens, with thanks to Trashpanda for graphics\n   * Tokens are now infinite bags, just drag one away\n   * Major performance enhancements\n   * Dice roller and mat can be independently moved\n   * Dice mat now supports custom dice\n   * Dice mat has roll buttons in place of select buttons\n   * Dice mat displays sum of dice\n   * Table quarters/area denial now available during deployment\n   * Mission scoring no longer capped at 15\n   * Improved banners"
+    "2.43: Significant update!\n   * New secondary selection interface\n   * Generic and faction secondaries now combined\n   * Arks of Omen support added (with thanks to Josie)\n   * Revamped tokens, with thanks to Trashpanda for graphics\n   * Tokens are now infinite bags, just drag one away\n   * Major performance enhancements\n   * Dice roller and mat can be independently moved\n   * Dice mat now supports custom dice\n   * Dice mat has roll buttons in place of select buttons\n   * Dice mat displays sum of dice\n   * Table quarters/area denial now available during deployment\n   * Mission scoring no longer capped at 15\n   * Improved banners",
+    "2.44: New button to show lines for Engage on All Fronts / Retrieve Battlefield Data",
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -1057,6 +1057,14 @@ areaBtn = {
     position = {menuX + 22, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
+engagePlaced = false
+engageLblOpen = "Hide\nEngage/RBD"
+engageLblClosed = "Show\nEngage/RBD"
+engageBtn = {
+    label = engageLblClosed, click_function = "showHideEngageRBD", function_owner = self,
+    position = {menuX + 28, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
 quartersPlaced = false
 quartersLblOpen = "Hide\nTable Quarters"
 quartersLblClosed = "Show\nTable Quarters"
@@ -1111,6 +1119,7 @@ function writeDeployMenu()
 
     self.createButton(areaBtn)
     self.createButton(quartersBtn)
+    self.createButton(engageBtn)
 end
 
 function writeObjMenu()
@@ -1537,6 +1546,61 @@ function showHideAreaDeny()
     end
     writeMenus()
 end
+
+function showHideEngageRBD()
+    if not engagePlaced then
+        engageBtn.label = engageLblOpen
+
+        local mat = getObjectFromGUID(mat_GUID)
+        local lineScale = {x = 0, y = deployLineHeight, z = 0.02}
+        local mapBase = mat.getScale().z * sizeMulti -- short edge
+        local mapHeight = mat.getScale().x * sizeMulti -- long edge
+
+        -- 4-quarter Engage lines
+        xLength = (mapHeight / 2) - 3
+        zLength = (mapBase / 2) - 3
+        lineScale.x = xLength
+        --(linePos, lineRot, lineScale, color, orientation, type)
+        spawnLine({(xLength / 2) + 3, deployLineHeight, -3}, {0, 0, 0}, lineScale, "White", "engageRBD")
+        spawnLine({(xLength / 2) + 3, deployLineHeight, 3}, {0, 0, 0}, lineScale, "White", "engageRBD")
+        spawnLine({((xLength / 2) * -1) - 3, deployLineHeight, -3}, {0, 0, 0}, lineScale, "White", "engageRBD")
+        spawnLine({((xLength / 2) * -1) - 3, deployLineHeight, 3}, {0, 0, 0}, lineScale, "White", "engageRBD")
+        lineScale.x = zLength
+        spawnLine({-3, deployLineHeight, (zLength / 2) + 3}, {0, 90, 0}, lineScale, "White", "engageRBD")
+        spawnLine({3, deployLineHeight, (zLength / 2) + 3}, {0, 90, 0}, lineScale, "White", "engageRBD")
+        spawnLine({-3, deployLineHeight, (((zLength / 2) * -1) - 3)}, {0, 90, 0}, lineScale, "White", "engageRBD")
+        spawnLine({3, deployLineHeight, (((zLength / 2) * -1) - 3)}, {0, 90, 0}, lineScale, "White", "engageRBD")
+
+        -- 3-quarter Engage / Retrieve Battlefield Data lines
+        xLength = (mapHeight / 2) - 6
+        zLength = (mapBase / 2) - 6
+        lineScale.x = xLength
+        --(linePos, lineRot, lineScale, color, orientation, type)
+        spawnLine({(xLength / 2) + 6, deployLineHeight, -6}, {0, 0, 0}, lineScale, "White", "engageRBD")
+        spawnLine({(xLength / 2) + 6, deployLineHeight, 6}, {0, 0, 0}, lineScale, "White", "engageRBD")
+        spawnLine({((xLength / 2) * -1) - 6, deployLineHeight, -6}, {0, 0, 0}, lineScale, "White", "engageRBD")
+        spawnLine({((xLength / 2) * -1) - 6, deployLineHeight, 6}, {0, 0, 0}, lineScale, "White", "engageRBD")
+        lineScale.x = zLength
+        spawnLine({-6, deployLineHeight, (zLength / 2) + 6}, {0, 90, 0}, lineScale, "White", "engageRBD")
+        spawnLine({6, deployLineHeight, (zLength / 2) + 6}, {0, 90, 0}, lineScale, "White", "engageRBD")
+        spawnLine({-6, deployLineHeight, (((zLength / 2) * -1) - 6)}, {0, 90, 0}, lineScale, "White", "engageRBD")
+        spawnLine({6, deployLineHeight, (((zLength / 2) * -1) - 6)}, {0, 90, 0}, lineScale, "White", "engageRBD")
+
+        engagePlaced = true
+    else
+        engageBtn.label = engagleLblClosed
+
+        for i, obj in ipairs(getAllObjects()) do
+            if obj.getGMNotes() == "engageRBD" then
+                obj.destroy()
+            end
+        end
+        engagePlaced = false
+    end
+
+    writeMenus()
+end
+
 function showHideQuarters()
     if quartersPlaced == false then -- place
         quartersBtn.label = quartersLblOpen
