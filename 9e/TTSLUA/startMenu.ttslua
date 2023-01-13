@@ -1155,6 +1155,7 @@ end
 
 function writeIngameMenu()
     self.createButton(areaBtn)
+    self.createButton(engageBtn)
     self.createButton(quartersBtn)
     self.createButton(deployIngameBtn)
     local DeployListSelected=DeployZonesData[deployTypeSelected].zones
