@@ -48,6 +48,9 @@ thisBoxIsBlue = (self.guid == Global.getVar("blueDiceRoller_GUID")) and true or 
 seed = os.time() + (thisBoxIsBlue and 1 or 0)
 math.randomseed(seed)
 
+orderedOnNextRoll = false
+groupSizeOnNextRoll = 1
+
 objectToPlaceDiceOnGUID = thisBoxIsBlue and Global.getVar("blueDiceMat_GUID") or Global.getVar("redDiceMat_GUID")
 objectToPlaceDiceOn = getObjectFromGUID(objectToPlaceDiceOnGUID)
 if objectToPlaceDiceOn == nil then
@@ -203,10 +206,20 @@ function takeDiceOut(tab)
 		diceGuids[v.guid] = r
 	end
 
+	local ordered = orderedOnNextRoll
+	orderedOnNextRoll = false
+	local groupSize = groupSizeOnNextRoll
+	groupSizeOnNextRoll = 1
+
 	local objs = self.getObjects()
 	local position = objectToPlaceDiceOn.getPosition()
 	rotation = objectToPlaceDiceOn.getRotation()
-	sortedKeys = sortByVal(diceGuids, data.SortNoRows)
+	local displayInRows = true
+	if data.Rows == 'no' then displayInRows = false end
+	if ordered then displayInRows = false end
+	local sortType = data.SortNoRows
+	if ordered then sortType = "none" end
+	sortedKeys = sortByVal(diceGuids, sortType)
     clearDataForGC(Rows)
 	Rows = {}
 	n = 1
@@ -228,19 +241,37 @@ function takeDiceOut(tab)
     			 d12Xoffset=-24
     		end
 
-            local newXPos= 0 - d12Xoffset - 20.4 + (Rows[diceGuids[key]]* data.Step)
-            local newZPos=-3.17 + ((((diceGuids[key] - 1) % 6) + 1) * data.Step)
-            if data.Rows == 'no' then
-                params.position = { position.x + (-1) * math.sin((90 + rotation.y) * 0.0174532) * (n + 0.5) * data.Step,
-                position.y + 1,
-                position.z + (-1) * math.cos((90 + rotation.y) * 0.0174532) * (n + 0.5) * data.Step}
+            local newXPos
+            local newZPos
+            if displayInRows then
+				-- Dice should be displayed next to the 1-6 buttons according to their values.
+				newXPos = 0 - d12Xoffset - 20.4 + (Rows[diceGuids[key]]* data.Step)
+				newZPos = -3.17 + ((((diceGuids[key] - 1) % 6) + 1) * data.Step)
             else
-                params.position = {
-                position.x + (newXPos * math.cos((180 + rotation.y) * 0.0174532)) - (newZPos * math.sin((180 + rotation.y) * 0.0174532)),
-                position.y + 2,
-                position.z + (newXPos * math.sin((rotation.y) * 0.0174532)) + (newZPos* math.cos((0 + rotation.y) * 0.0174532)) }
+				-- Dice should simply be in one big group.
+				local pos = n - 1
+				local limit = 25
+				if groupSize > 1 then
+					-- We want subgroups of size _step_, with a gap between each subgroup.
+					pos = pos + math.floor(pos / groupSize)
+					local step = groupSize + 1
+					local maxGroups = math.floor(limit / step)
+					local remainder = limit % (step * maxGroups)
+					limit = limit - remainder
+				end
+				row = math.floor(pos / limit) + 1
+				col = pos % limit
+				newXPos = 0 - 15.0 + (col * data.Step)
+				newZPos = -3.17 + (row * data.Step)
             end
 
+			-- Having calculated X and Z relative to the default rotation of the dice mat,
+			-- now recalculate them according to the actual rotation.
+			params.position = {
+				position.x + (newXPos * math.cos((180 + rotation.y) * 0.0174532)) - (newZPos * math.sin((180 + rotation.y) * 0.0174532)),
+				position.y + 2,
+				position.z + (newXPos * math.sin((rotation.y) * 0.0174532)) + (newZPos* math.cos((0 + rotation.y) * 0.0174532))
+			}
             params.rotation = {rotation.x, rotation.y, rotation.z}
     		params.callback = 'setValueCallback'
     		params.params = {diceGuids[key]}

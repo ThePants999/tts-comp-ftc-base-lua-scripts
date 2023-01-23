@@ -9,6 +9,12 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v2.45
+
+* Support for ordered dice rolling, in order to facilitate effects like extra damage on 6s to wound into multi-wound models.
+* Also supports grouping, useful for feel-no-pains from multi-damage attacks into multi-wound models.
+* New button to show lines for Strategic Reserves arriving.
+
 ### v2.44
 
 * New button to show lines for Engage on All Fronts / Retrieve Battlefield Data.

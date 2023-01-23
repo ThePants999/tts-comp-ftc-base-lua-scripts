@@ -94,6 +94,7 @@ function makeAnnouncement()
     local features={
     "2.43: Significant update!\n   * New secondary selection interface\n   * Generic and faction secondaries now combined\n   * Arks of Omen support added (with thanks to Josie)\n   * Revamped tokens, with thanks to Trashpanda for graphics\n   * Tokens are now infinite bags, just drag one away\n   * Major performance enhancements\n   * Dice roller and mat can be independently moved\n   * Dice mat now supports custom dice\n   * Dice mat has roll buttons in place of select buttons\n   * Dice mat displays sum of dice\n   * Table quarters/area denial now available during deployment\n   * Mission scoring no longer capped at 15\n   * Improved banners",
     "2.44: New button to show lines for Engage on All Fronts / Retrieve Battlefield Data",
+    "2.45: Support for ordered dice rolling, and new button to show strategic reserves arrival zones"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -881,7 +882,7 @@ deployDownBtn = {
 }
 deployIngameBtn = {
     index = 1, label = deployIngameLblClosed, click_function = "showHideIngameDeployment", function_owner = self,
-    position = { - menuX - 6, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = { - menuX - 18, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 deployOffsetMenuBtn = {
@@ -1073,6 +1074,14 @@ quartersBtn = {
     position = {menuX + 16, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
+stratreservesPlaced = false
+stratreservesLblOpen = "Hide\nStrat Reserves"
+stratreservesLblClosed = "Show\nStrat Reserves"
+stratreservesBtn = {
+    label = stratreservesLblClosed, click_function = "showHideStratreserves", function_owner = self,
+    position = {-menuX - 24, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
 position = {menuX, 5, menuZ}
 
 
@@ -1120,6 +1129,7 @@ function writeDeployMenu()
     self.createButton(areaBtn)
     self.createButton(quartersBtn)
     self.createButton(engageBtn)
+    self.createButton(stratreservesBtn)
 end
 
 function writeObjMenu()
@@ -1157,6 +1167,7 @@ function writeIngameMenu()
     self.createButton(areaBtn)
     self.createButton(engageBtn)
     self.createButton(quartersBtn)
+    self.createButton(stratreservesBtn)
     self.createButton(deployIngameBtn)
     local DeployListSelected=DeployZonesData[deployTypeSelected].zones
 
@@ -1624,6 +1635,39 @@ function showHideQuarters()
         end
         quartersPlaced = false
     end
+    writeMenus()
+end
+
+function showHideStratreserves()
+    if not stratreservesPlaced then
+        stratreservesBtn.label = stratreservesLblOpen
+
+        local mat = getObjectFromGUID(mat_GUID)
+        local lineScale = {x = 0, y = deployLineHeight, z = 0.02}
+        local mapBase = mat.getScale().z * sizeMulti -- short edge
+        local mapHeight = mat.getScale().x * sizeMulti -- long edge
+
+        -- Strategic reserves lines
+        --(linePos, lineRot, lineScale, color, orientation, type)
+        lineScale.x = mapHeight
+        spawnLine({0, deployLineHeight, (mapBase / 2) - 6}, {0, 0, 0}, lineScale, "White", "stratreserves")
+        spawnLine({0, deployLineHeight, -((mapBase / 2) - 6)}, {0, 0, 0}, lineScale, "White", "stratreserves")
+        lineScale.x = mapBase
+        spawnLine({(mapHeight / 2) - 6, deployLineHeight, 0}, {0, 90, 0}, lineScale, "White", "stratreserves")
+        spawnLine({-((mapHeight / 2) - 6), deployLineHeight, 0}, {0, 90, 0}, lineScale, "White", "stratreserves")
+
+        stratreservesPlaced = true
+    else
+        stratreservesBtn.label = stratreservesLblClosed
+
+        for i, obj in ipairs(getAllObjects()) do
+            if obj.getGMNotes() == "stratreserves" then
+                obj.destroy()
+            end
+        end
+        stratreservesPlaced = false
+    end
+
     writeMenus()
 end
 
