@@ -810,8 +810,12 @@ armyMover = ""
 first = "Red"
 currentTurn = "Red"
 cpEveryTurn = true
+
+-- track if player has gained CP so far this turn
+-- true if a CP has been gained, else false
 redCpIncrementTracker = false
 blueCpIncrementTracker = false
+
 phases = {"Command", "Movement", "Psychic", "Shooting", "Charge", "Fight", "Morale"}
 currentPhase = 1
 startBtn = {
