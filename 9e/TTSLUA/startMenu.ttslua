@@ -810,6 +810,8 @@ armyMover = ""
 first = "Red"
 currentTurn = "Red"
 cpEveryTurn = true
+redCpIncrementTracker = false
+blueCpIncrementTracker = false
 phases = {"Command", "Movement", "Psychic", "Shooting", "Charge", "Fight", "Morale"}
 currentPhase = 1
 startBtn = {
@@ -827,6 +829,16 @@ nextPhaseBtn = {
     index = 1, label = nextPhaseLbl, tooltip = "Left click - Next phase\nRight click - Skip to next turn", click_function = "nextPhase", function_owner = self,
     position = {0, 5, 0}, rotation = {0, 0, 0}, height = 1500, width = 5000,
     font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
+}
+IncrementRedCpBtn = {
+    index = 1, label = "Gain a CP", tooltip = "Increment Red CP counter\nWill only increment once per Round", click_function = "incrementRedCp", function_owner = self,
+    position = {-46.2, 5, -3.75}, rotation = {0, 0, 0}, height = 1650, width = 3000,
+    font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
+}
+IncrementBlueCpBtn = {
+    index = 1, label = "Gain a CP", tooltip = "Increment Blue CP counter\nWill only increment once per Round", click_function = "incrementBlueCp", function_owner = self,
+    position = {46.2, 5, -3.75}, rotation = {0, 0, 0}, height = 1650, width = 3000,
+    font_size = 600, color = {0, 0, 1}, font_color = {1, 1, 1}
 }
 
 notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported. Please see xxx for other mission packs.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found in the Notebook.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
@@ -1169,6 +1181,8 @@ function writeIngameMenu()
     self.createButton(quartersBtn)
     self.createButton(stratreservesBtn)
     self.createButton(deployIngameBtn)
+    self.createButton(IncrementRedCpBtn)
+    self.createButton(IncrementBlueCpBtn)
     local DeployListSelected=DeployZonesData[deployTypeSelected].zones
 
     nextPhaseBtn.color = currentTurn
@@ -1225,6 +1239,27 @@ function resetActivationTokens()
         if obj.getVar("BCBtype") == "ActivationToken" then
             obj.call("resetAlredyActed")
         end
+    end
+end
+
+function newRoundStarted()
+    redCpIncrementTracker = false
+    blueCpIncrementTracker = false
+end
+
+function incrementRedCp(params)
+    if not inGame then return end
+    if not redCpIncrementTracker then
+        redCpIncrementTracker = true
+        redCpCounter.Counter.increment()
+    end
+end
+
+function incrementBlueCp(params)
+    if not inGame then return end
+    if not blueCpIncrementTracker then
+        blueCpIncrementTracker = true
+        blueCpCounter.Counter.increment()
     end
 end
 
