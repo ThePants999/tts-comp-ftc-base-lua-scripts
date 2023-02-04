@@ -284,15 +284,15 @@ objectivesData = {
 DeployZonesData = {
     { id=1 , type = "Strike Force",
         zones={
-            {name = "#11 Recover The Relics", objectivesID= 12, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
-            {name = "#12 Tear Down Their Icons", objectivesID= 13, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "#11 Recover The Relics", objectivesID= 12, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
+            {name = "#12 Tear Down Their Icons", objectivesID= 13, draw = {--[[1]]{type = "triangle", color = "Red", position = "x"},--[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
             {name = "#13 Data Scry-Salvage", objectivesID= 14,draw = {--[[1]]{type = "diagonal", color = "Teal", position = "-z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "z" , fromCenter = 12}}},
             {name = "#21 Abandoned Sanctuaries", objectivesID= 15, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
             {name = "#22 Conversion", objectivesID= 16, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "#23 The Scouring", objectivesID= 17, draw = {--[[1]]{type = "line", color="Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color="Red", position = "-x", fromCenter = 12}}},
+            {name = "#23 The Scouring", objectivesID= 17, draw = {--[[1]]{type = "line", color="Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color="Teal", position = "-x", fromCenter = 12}}},
             {name = "#31 Tide of Conviction", objectivesID= 18, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
             {name = "#32 Death and Zeal", objectivesID= 19, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "#33 Secure Missing Artefacts", objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "#33 Secure Missing Artefacts", objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Red", position = "x"},--[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
 
             {name = "None", draw = {type = "none"}},
         }
@@ -301,13 +301,13 @@ DeployZonesData = {
         zones={
             {name = "#11 Cleanse The Land",  objectivesID= 12, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
             {name = "#12 Deliverance",  objectivesID= 13, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "#13 Desperate Raid", objectivesID= 14, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "#21 Sacred Ground",  objectivesID= 15, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
-            {name = "#22 Ascension", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "#23 Surge of Faith", objectivesID= 17, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
+            {name = "#13 Desperate Raid", objectivesID= 14, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
+            {name = "#21 Sacred Ground",  objectivesID= 15, draw = {--[[1]]{type = "triangle", color = "Red", position = "x"},--[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
+            {name = "#22 Ascension", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
+            {name = "#23 Surge of Faith", objectivesID= 17, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
             {name = "#31 Rise of the Machine Spirit",  objectivesID= 18, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "#32 Display of Spiritual Might", objectivesID= 19, draw = {--[[1]]{type = "line", color = "Teal", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Red", position = "-x", fromCenter = 12}}},
-            {name = "#33 Reconnaissance Mission",  objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Teal", position = "x"},--[[2]]{type = "triangle", color = "Red", position = "-x"}}},
+            {name = "#32 Display of Spiritual Might", objectivesID= 19, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
+            {name = "#33 Reconnaissance Mission",  objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Red", position = "x"},--[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
 
             {name = "None", draw = {type = "none"}},
         }
@@ -898,7 +898,7 @@ deployDownBtn = {
 }
 deployIngameBtn = {
     index = 1, label = deployIngameLblClosed, click_function = "showHideIngameDeployment", function_owner = self,
-    position = { - menuX - 18, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = { - menuX - 16, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 deployOffsetMenuBtn = {
@@ -1090,12 +1090,20 @@ quartersBtn = {
     position = {menuX + 16, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
+ftDarkGodsPlaced = false
+ftDarkGodsLblOpen = "Hide\nFor The Dark Gods"
+ftDarkGodsLblClosed = "Show\nFor The Dark Gods"
+ftDarkGodsBtn = {
+    label = ftDarkGodsLblClosed, click_function = "showHideftDarkGods", function_owner = self,
+    position = {-menuX - 28, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
 stratreservesPlaced = false
 stratreservesLblOpen = "Hide\nStrat Reserves"
 stratreservesLblClosed = "Show\nStrat Reserves"
 stratreservesBtn = {
     label = stratreservesLblClosed, click_function = "showHideStratreserves", function_owner = self,
-    position = {-menuX - 24, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = {-menuX - 22, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 position = {menuX, 5, menuZ}
@@ -1145,6 +1153,7 @@ function writeDeployMenu()
     self.createButton(areaBtn)
     self.createButton(quartersBtn)
     self.createButton(engageBtn)
+    self.createButton(ftDarkGodsBtn)
     self.createButton(stratreservesBtn)
 end
 
@@ -1183,6 +1192,7 @@ function writeIngameMenu()
     self.createButton(areaBtn)
     self.createButton(engageBtn)
     self.createButton(quartersBtn)
+    self.createButton(ftDarkGodsBtn)
     self.createButton(stratreservesBtn)
     self.createButton(deployIngameBtn)
     self.createButton(IncrementRedCpBtn)
@@ -1677,9 +1687,50 @@ function showHideQuarters()
     writeMenus()
 end
 
+function showHideftDarkGods()
+    if not ftDarkGodsPlaced then -- place
+        ftDarkGodsBtn.label = ftDarkGodsLblOpen
+        local mat = getObjectFromGUID(mat_GUID)
+        local lineScale = {x = 5, y = deployLineHeight, z = 0.02}
+        local mapBase = mat.getScale().z * sizeMulti   -- short edge
+        local mapHeight = mat.getScale().x * sizeMulti -- long edge
+
+        drawCircleNotCentered({color="White", fromCenter=6}, "ftDarkGods", mapHeight / 4, mapBase / 4)
+        drawCircleNotCentered({color="White", fromCenter=6}, "ftDarkGods", -mapHeight / 4, mapBase / 4)
+        drawCircleNotCentered({color="White", fromCenter=6}, "ftDarkGods", mapHeight / 4, -mapBase / 4)
+        drawCircleNotCentered({color="White", fromCenter=6}, "ftDarkGods", -mapHeight / 4, -mapBase / 4)
+        ftDarkGodsPlaced = true
+    else -- recall
+        ftDarkGodsBtn.label = ftDarkGodsLblClosed
+        for i, obj in ipairs(getAllObjects()) do
+            if obj.getGMNotes() == "ftDarkGods" then
+                obj.destroy()
+            end
+        end
+        ftDarkGodsPlaced = false
+    end
+    writeMenus()
+end
+
 function showHideStratreserves()
     if not stratreservesPlaced then
         stratreservesBtn.label = stratreservesLblOpen
+
+        local DeployListSelected=DeployZonesData[deployTypeSelected].zones
+        local playerSides = "None"
+
+        -- check that a deployment zone has been specified to determine which sides to colour
+        if DeployListSelected[deploySelected].name ~= "None" then
+            local deployZoneLayout = DeployListSelected[deploySelected].draw[1]
+            playerSides = "long"
+            
+            -- check if deployment has short sides as Player Sides
+            if deployZoneLayout["type"] == "line" and deployZoneLayout["position"] == "x" then
+                playerSides = "short"
+            elseif deployZoneLayout["type"] == "triangle" then
+                playerSides = "short"
+            end
+        end
 
         local mat = getObjectFromGUID(mat_GUID)
         local lineScale = {x = 0, y = deployLineHeight, z = 0.02}
@@ -1689,11 +1740,23 @@ function showHideStratreserves()
         -- Strategic reserves lines
         --(linePos, lineRot, lineScale, color, orientation, type)
         lineScale.x = mapHeight
-        spawnLine({0, deployLineHeight, (mapBase / 2) - 6}, {0, 0, 0}, lineScale, "White", "stratreserves")
-        spawnLine({0, deployLineHeight, -((mapBase / 2) - 6)}, {0, 0, 0}, lineScale, "White", "stratreserves")
+
+        if playerSides == "long" then
+            spawnLine({0, deployLineHeight, (mapBase / 2) - 6}, {0, 0, 0}, lineScale, "Red", "stratreserves")
+            spawnLine({0, deployLineHeight, -((mapBase / 2) - 6)}, {0, 0, 0}, lineScale, "Teal", "stratreserves")
+        else 
+            spawnLine({0, deployLineHeight, (mapBase / 2) - 6}, {0, 0, 0}, lineScale, "White", "stratreserves")
+            spawnLine({0, deployLineHeight, -((mapBase / 2) - 6)}, {0, 0, 0}, lineScale, "White", "stratreserves")
+        end
         lineScale.x = mapBase
-        spawnLine({(mapHeight / 2) - 6, deployLineHeight, 0}, {0, 90, 0}, lineScale, "White", "stratreserves")
-        spawnLine({-((mapHeight / 2) - 6), deployLineHeight, 0}, {0, 90, 0}, lineScale, "White", "stratreserves")
+
+        if playerSides == "short" then
+            spawnLine({(mapHeight / 2) - 6, deployLineHeight, 0}, {0, 90, 0}, lineScale, "Red", "stratreserves")
+            spawnLine({-((mapHeight / 2) - 6), deployLineHeight, 0}, {0, 90, 0}, lineScale, "Teal", "stratreserves")
+        else
+            spawnLine({(mapHeight / 2) - 6, deployLineHeight, 0}, {0, 90, 0}, lineScale, "White", "stratreserves")
+            spawnLine({-((mapHeight / 2) - 6), deployLineHeight, 0}, {0, 90, 0}, lineScale, "White", "stratreserves")
+        end
 
         stratreservesPlaced = true
     else
