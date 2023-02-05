@@ -94,7 +94,8 @@ function makeAnnouncement()
     local features={
     "2.43: Significant update!\n   * New secondary selection interface\n   * Generic and faction secondaries now combined\n   * Arks of Omen support added (with thanks to Josie)\n   * Revamped tokens, with thanks to Trashpanda for graphics\n   * Tokens are now infinite bags, just drag one away\n   * Major performance enhancements\n   * Dice roller and mat can be independently moved\n   * Dice mat now supports custom dice\n   * Dice mat has roll buttons in place of select buttons\n   * Dice mat displays sum of dice\n   * Table quarters/area denial now available during deployment\n   * Mission scoring no longer capped at 15\n   * Improved banners",
     "2.44: New button to show lines for Engage on All Fronts / Retrieve Battlefield Data",
-    "2.45: Support for ordered dice rolling, and new button to show strategic reserves arrival zones"
+    "2.45: Support for ordered dice rolling, and new button to show strategic reserves arrival zones",
+    "2.46: Added CP regen button; fixed mis-coloured deployment zones; recoloured strategic reserves lines to highlight player board edges; added For the Dark Gods zone button; added player-coloured objective states"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do

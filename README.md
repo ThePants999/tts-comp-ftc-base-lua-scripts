@@ -1,5 +1,5 @@
 # Competitive FTC Base: LUA scripts
-Comp FTC Map Base LUA Scripts v2.44
+Comp FTC Map Base LUA Scripts v2.46
 
 The following files contain all the LUA scripts contained in the Competitive FTC Base Map for the TTS 40k community. If a file does not exist for an object within the TTS save, then that object does not contain any scripts.
 
@@ -8,6 +8,13 @@ This repo now contains the actual TTS JSON file. To produce the JSON file, run t
 Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and elements contained within it!
 
 ## Update History:
+
+### v2.46
+
+* Added a button for each player to gain a CP. This button remembers whether you've gained a CP this battle round and won't let you gain a second.
+* When you show lines for Strategic Reserves, the lines corresponding to player battlefield edges will now show in that player's colour.
+* New button to show For the Dark Gods zones (middle of table quarters).
+* Swapped the deployment zones on some maps so that red's always on the left and blue on the right!
 
 ### v2.45
 
