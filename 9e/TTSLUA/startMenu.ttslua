@@ -1266,6 +1266,8 @@ function incrementRedCp(params)
     if not redCpIncrementTracker then
         redCpIncrementTracker = true
         redCpCounter.Counter.increment()
+    else
+        broadcastToAll("Red has already gained a CP this battle round!", "Yellow")
     end
 end
 
@@ -1274,6 +1276,8 @@ function incrementBlueCp(params)
     if not blueCpIncrementTracker then
         blueCpIncrementTracker = true
         blueCpCounter.Counter.increment()
+    else
+        broadcastToAll("Blue has already gained a CP this battle round!", "Yellow")
     end
 end
 
@@ -1723,7 +1727,7 @@ function showHideStratreserves()
         if DeployListSelected[deploySelected].name ~= "None" then
             local deployZoneLayout = DeployListSelected[deploySelected].draw[1]
             playerSides = "long"
-            
+
             -- check if deployment has short sides as Player Sides
             if deployZoneLayout["type"] == "line" and deployZoneLayout["position"] == "x" then
                 playerSides = "short"
@@ -1744,7 +1748,7 @@ function showHideStratreserves()
         if playerSides == "long" then
             spawnLine({0, deployLineHeight, (mapBase / 2) - 6}, {0, 0, 0}, lineScale, "Red", "stratreserves")
             spawnLine({0, deployLineHeight, -((mapBase / 2) - 6)}, {0, 0, 0}, lineScale, "Teal", "stratreserves")
-        else 
+        else
             spawnLine({0, deployLineHeight, (mapBase / 2) - 6}, {0, 0, 0}, lineScale, "White", "stratreserves")
             spawnLine({0, deployLineHeight, -((mapBase / 2) - 6)}, {0, 0, 0}, lineScale, "White", "stratreserves")
         end
