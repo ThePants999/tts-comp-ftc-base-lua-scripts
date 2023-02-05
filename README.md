@@ -14,6 +14,7 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 * Added a button for each player to gain a CP. This button remembers whether you've gained a CP this battle round and won't let you gain a second.
 * When you show lines for Strategic Reserves, the lines corresponding to player battlefield edges will now show in that player's colour.
 * New button to show For the Dark Gods zones (middle of table quarters).
+* Objective markers now have states 4 and 5 to colour them in player colours, if you prefer that as a mechanic for recording sticky control (or even just who has _current_ control).
 * Swapped the deployment zones on some maps so that red's always on the left and blue on the right!
 
 ### v2.45
