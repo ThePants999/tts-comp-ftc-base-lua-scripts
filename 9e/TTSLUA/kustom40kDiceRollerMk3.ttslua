@@ -269,10 +269,10 @@ function takeDiceOut(tab)
 			-- now recalculate them according to the actual rotation.
 			params.position = {
 				position.x + (newXPos * math.cos((180 + rotation.y) * 0.0174532)) - (newZPos * math.sin((180 + rotation.y) * 0.0174532)),
-				position.y + 2,
+				position.y + 1,
 				position.z + (newXPos * math.sin((rotation.y) * 0.0174532)) + (newZPos* math.cos((0 + rotation.y) * 0.0174532))
 			}
-            params.rotation = {rotation.x, rotation.y, rotation.z}
+            params.rotation = rotation
     		params.callback = 'setValueCallback'
     		params.params = {diceGuids[key]}
     		params.smooth = false
@@ -346,66 +346,6 @@ end
 
 --Sets the value of the physical dice object and reorients them if needed.
 function setValueCallback(obj, tab)
-    function insidef()
-        local data = JSON.decode(self.getDescription())
-
-        obj.setValue(tab[1])
-        if obj.tag == 'Dice' then
-            objType = tostring(obj)
-            callFaces = tonumber(string.match(objType, 'Die_(%d+).*'))
-            if callFaces == nil then callFaces = tonumber(customFace[obj.getCustomObject().type + 1]) end
-            diceGuidFaces[obj.getGUID()] = callFaces
-        end
-
-        local waitFramesDelay = 35
-
-        RotValues_4 = {180,0,180,180}
-        RotValues_6 = {180,180,180,180,180,180}
-        RotValues_8 = {180,180,0,0,0,0,180,180}
-        RotValues_10 = {180,0,180,0,180,0,180,0,180,0}
-        RotValues_12 = {180,180,180,0,0,180,0,0,180,0,287.93,216}
-        RotValues_20 = {239.65,120,0,0,120,0,120,120,120,0,180,301.86,300,300,300,180,60,180,300,180}
-        waitFrames(waitFramesDelay)
-        local rot = objectToPlaceDiceOn.getRotation()
-        local r = obj.getRotation()
-        local v = obj.getValue()
-
-        if data.RotateDice == 'yes' then
-            if callFaces == 4 then
-                obj.setRotation({r.x, rot.y + RotValues_4[v], r.z})
-            end
-
-            if callFaces == 6 then
-                obj.setRotation({r.x, rot.y + RotValues_6[v], r.z})
-            end
-
-            if callFaces == 8 then
-                obj.setRotation({r.x, rot.y + RotValues_8[v], r.z})
-            end
-
-            if callFaces == 10 then
-                obj.setRotation({r.x, rot.y + RotValues_10[v], r.z})
-            end
-
-            if callFaces == 12 then
-                obj.setRotation({r.x, rot.y + RotValues_12[v], r.z})
-            end
-
-            if callFaces == 20 then
-                obj.setRotation({r.x, rot.y + RotValues_20[v], r.z})
-            end
-        end
-
-        return 1
-    end
-
-    startLuaCoroutine(self, 'insidef')
-end
-
---Coroutine to wait to allow for custom dice positional data to be altered.
-function waitFrames(frames)
-	while frames > 0 do
-		coroutine.yield(0)
-		frames = frames - 1
-	end
+    local rotValues = obj.getRotationValues()
+	obj.setRotation(rotValues[tab[1]].rotation + Vector(0, 180.0 + objectToPlaceDiceOn.getRotation()[2], 0))
 end
