@@ -418,6 +418,7 @@ function spawnDice(n,player)
     local die=spawnObject({
         type              = diceType,
         position          = self.positionToWorld({4-grid*1.5-col*0.25,0.5,-0.3+row*0.25}),
+        rotation          = self.getRotation() + Vector(0.0, 180.0, 0.0),
         })
         col=col+1
         if col>4 then
