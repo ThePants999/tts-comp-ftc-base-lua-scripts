@@ -269,7 +269,7 @@ function takeDiceOut(tab)
 			-- now recalculate them according to the actual rotation.
 			params.position = {
 				position.x + (newXPos * math.cos((180 + rotation.y) * 0.0174532)) - (newZPos * math.sin((180 + rotation.y) * 0.0174532)),
-				position.y + 1,
+				position.y + 2,
 				position.z + (newXPos * math.sin((rotation.y) * 0.0174532)) + (newZPos* math.cos((0 + rotation.y) * 0.0174532))
 			}
             params.rotation = rotation
