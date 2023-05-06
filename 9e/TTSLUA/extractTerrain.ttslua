@@ -394,11 +394,16 @@ function mirrorTerrain()
         newPos.z = -newPos.z
         newRot.y = newRot.y + 180
 
-        local newObj = obj.clone({
-            position=newPos,
-            rotation=newRot
-        })
-        newObj.locked = false
+        -- object close to center aligned, mirror objects not at center.
+        if math.abs(newPos.x) < 1 and math.abs(newPos.z) < 1 then
+            obj.setPosition({0, newPos.y, 0})
+        else
+            local newObj = obj.clone({
+                position=newPos,
+                rotation=newRot
+            })
+            newObj.locked = false
+        end
     end
 
     YNButtonsMirror = false
