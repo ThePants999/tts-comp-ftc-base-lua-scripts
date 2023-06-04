@@ -812,7 +812,7 @@ first = "Red"
 currentTurn = "Red"
 cpEveryTurn = true
 
--- track if player has gained CP so far this turn
+-- track if player has gained CP so far this battle round
 -- true if a CP has been gained, else false
 redCpIncrementTracker = false
 blueCpIncrementTracker = false

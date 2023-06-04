@@ -1,0 +1,760 @@
+-- FTC-GUID: 06d627
+
+startGameObj = getObjectFromGUID(Global.getVar("startMenu_GUID"))
+playerCounter = {}
+playerCounter[1] = getObjectFromGUID(Global.getVar("redVPCounter_GUID"))
+playerCounter[2] = getObjectFromGUID(Global.getVar("blueVPCounter_GUID"))
+
+enableBtn = { label="ENABLE\nGT\nSCORESHEET\n\n(click here)\n\nDon't enable if you\nwant to keep track\nof VPs manually\non counters ", width = 6500,	height = 9500, click_function = 'enableSheet', font_size = 1600,
+		function_owner = self,	position = {1, -0.05, -1}, rotation = {0, 90, 180},	tooltip = "", color="Black", font_color="White"
+}
+
+scoresheetActive = false
+
+-- Button k-indexes
+BTN_K_IX_SECONDARY_1 = 1
+BTN_K_IX_SECONDARY_2 = 2
+BTN_K_IX_PRIMARY = 3
+
+-- Button l-indexes
+BTN_L_IX_SCORE = 1
+BTN_L_IX_PLUS = 2
+BTN_L_IX_MINUS = 3
+
+-- Tooltips[player, k-index]
+tooltips = {{"Secondary 2", "Secondary 1", "Primary"},{"Secondary 1", "Secondary 2", "Primary"}}
+
+-- player, round, k-index
+scores = {
+	{
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0}
+	},
+	{
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0}
+	}
+}
+
+button = {}
+
+playerOneTitle = {
+	index = 0,
+	width = 3000,
+	height = 500,
+	label = "Player 1",
+	click_function = 'p1',
+	font_size = 400,
+	function_owner = self,
+	position = {-8, -0.05, -4.25},
+	rotation = {0, 90, 180},
+	tooltip = "Click to put your name here"
+}
+playerTwoTitle = {
+	index = 1,
+	width = 3000,
+	height = 500,
+	label = "Player 2",
+	click_function = 'p2',
+	font_size = 400,
+	function_owner = self,
+	position = {-8, -0.05, 2.25},
+	rotation = {0, 90, 180},
+	tooltip = "Click to put your name here"
+}
+
+playerTotal = {
+	{
+		index = 2,
+		width = 800,
+		height = 500,
+		label = "10",
+		click_function = 'nothing',
+		font_size = 500,
+		function_owner = self,
+		position = {10, -0.05, -4},
+		rotation = {0, 90, 180},
+		tooltip = "Player 1"
+	},
+	{
+		index = 3,
+		width = 800,
+		height = 500,
+		label = "10",
+		click_function = 'nothing',
+		font_size = 500,
+		function_owner = self,
+		position = {10, -0.05, 2},
+		rotation = {0, 90, 180},
+		tooltip = "Player 2"
+	}
+}
+
+removeSecondaries = {
+	{
+		index = 4,
+		width = 250,
+		height = 250,
+		label = "x",
+		font_size = 200,
+		click_function = 'discardSecondary11',
+		function_owner = self,
+		position = {-1.5, -0.05, -5.95},
+		rotation = {0, 90, 180},
+		tooltip = "Discard secondary 1"
+	},
+	{
+		index = 5,
+		width = 250,
+		height = 250,
+		label = "<",
+		font_size = 200,
+		click_function = 'recycleSecondary11',
+		function_owner = self,
+		position = {0.0, -0.05, -5.95},
+		rotation = {0, 90, 180},
+		tooltip = "Recycle secondary 1"
+	},
+	{
+		index = 6,
+		width = 250,
+		height = 250,
+		label = "x",
+		font_size = 200,
+		click_function = 'discardSecondary12',
+		function_owner = self,
+		position = {-1.5, -0.05, -1.75},
+		rotation = {0, 90, 180},
+		tooltip = "Discard secondary 2"
+	},
+	{
+		index = 7,
+		width = 250,
+		height = 250,
+		label = "<",
+		font_size = 200,
+		click_function = 'recycleSecondary12',
+		function_owner = self,
+		position = {0.0, -0.05, -1.75},
+		rotation = {0, 90, 180},
+		tooltip = "Recycle secondary 2"
+	},
+	{
+		index = 8,
+		width = 250,
+		height = 250,
+		label = "x",
+		font_size = 200,
+		click_function = 'discardSecondary21',
+		function_owner = self,
+		position = {-1.5, -0.05, -0.3},
+		rotation = {0, 90, 180},
+		tooltip = "Discard secondary 1"
+	},
+	{
+		index = 9,
+		width = 250,
+		height = 250,
+		label = ">",
+		font_size = 200,
+		click_function = 'recycleSecondary21',
+		function_owner = self,
+		position = {0.0, -0.05, -0.3},
+		rotation = {0, 90, 180},
+		tooltip = "Recycle secondary 1"
+	},
+	{
+		index = 10,
+		width = 250,
+		height = 250,
+		label = "x",
+		font_size = 200,
+		click_function = 'discardSecondary22',
+		function_owner = self,
+		position = {-1.5, -0.05, 3.9},
+		rotation = {0, 90, 180},
+		tooltip = "Discard secondary 2"
+	},
+	{
+		index = 11,
+		width = 250,
+		height = 250,
+		label = ">",
+		font_size = 200,
+		click_function = 'recycleSecondary22',
+		function_owner = self,
+		position = {0.0, -0.05, 3.9},
+		rotation = {0, 90, 180},
+		tooltip = "Recycle secondary 2"
+	}
+}
+
+function enableSheet()
+	scoresheetActive=true
+	self.script_state = onSave()
+	onload(self.script_state)
+end
+
+function onload(save_data)
+	if save_data ~= "" then
+		local data = JSON.decode(save_data)
+		if data then
+			scoresheetActive = data.scoresheetActive
+			scores = data.scores
+		end
+	end
+
+	self.clearButtons()
+	if not scoresheetActive then
+		self.createButton(enableBtn)
+		return
+	end
+
+	Wait.frames(function() self.setPosition({74,1,-1}) end, 1)
+	self.setLock(true)
+
+	self.createButton( playerOneTitle )
+	self.createButton( playerTwoTitle )
+	self.createButton( playerTotal[1] )
+	self.createButton( playerTotal[2] )
+	for ix=1,8 do
+		self.createButton( removeSecondaries[ix] )
+	end
+
+	local b_xpos = 0
+	local b_zpos = 0
+	local b_zoffset = -1
+	local b_index = 12
+
+	-- Scoring buttons
+
+	-- i is player
+	for i=1,2 do
+		button[i] = {}
+		b_xpos = 2.14
+
+		-- j is battle round
+		for j=1,5 do
+			button[i][j] = {}
+			b_zpos = 1.7
+
+			-- k is index - primary, secondary 1, secondary 2
+			for k=1,3 do
+				button[i][j][k] = {}
+
+				local newButton = {
+					index = 0,
+					width = 500,
+					height = 500,
+					label = "0",
+					click_function = 'nothing',
+					font_size = 400,
+					function_owner = self,
+					position = {0, -0.05, 0},
+					rotation = {0, 90, 180},
+					tooltip = tooltips[i][k]
+				}
+
+				newButton.index = b_index
+				b_index = b_index + 1
+
+				local actual_zpos = b_zpos
+				if i == 1 then
+					actual_zpos = actual_zpos * -1
+				end
+				actual_zpos = actual_zpos + b_zoffset
+				b_zpos = b_zpos + 0.75
+
+				newButton.position = {b_xpos, -0.05, actual_zpos}
+
+				button[i][j][k][BTN_L_IX_SCORE] = newButton
+				self.createButton(newButton)
+
+				for l=BTN_L_IX_PLUS,BTN_L_IX_MINUS do
+					local smallButton = {
+						index = 0,
+						width = 250,
+						height = 250,
+						label = "",
+						click_function = 'nothing',
+						font_size = 200,
+						function_owner = self,
+						position = {0, -0.05, 0},
+						rotation = {0, 90, 180},
+						tooltip = ""
+					}
+
+					smallButton.index = b_index
+					b_index = b_index + 1
+
+					actual_zpos = b_zpos
+					if i == 1 then
+						actual_zpos = actual_zpos * -1
+					end
+					actual_zpos = actual_zpos + b_zoffset
+
+					if l == BTN_L_IX_PLUS then
+						smallButton.position = {b_xpos - 0.25, -0.05, actual_zpos}
+						smallButton.label = "+"
+						smallButton.click_function = 'plus_' .. i .. j .. k
+					else
+						smallButton.position = {b_xpos + 0.25, -0.05, actual_zpos}
+						smallButton.label = "-"
+						smallButton.click_function = 'minus_' .. i .. j .. k
+					end
+
+					button[i][j][k][l] = smallButton
+					self.createButton(smallButton)
+				end -- l-loop
+
+				b_zpos = b_zpos + 1.1
+			end	-- k-loop
+
+			b_xpos = b_xpos + 1.55
+		end -- j-loop
+
+	end -- i-loop
+
+	Wait.time(slowUpdate, 2)
+end
+
+function onSave()
+	local save_data = {
+		scoresheetActive = scoresheetActive,
+		scores = scores
+	}
+	local encoded_data = JSON.encode(save_data)
+	return encoded_data
+end
+
+function onScriptingButtonDown(index, color)
+	if index == 9 and color == "White" then
+		updateAll(true)
+		print("Cleared sheet.")
+	end
+end
+
+function updateAll(reset)
+	for i=1,2 do
+		for j=1,5 do
+			for k=1,3 do
+				if reset then scores[i][j][k] = 0 end
+				updateScores(i, j, k)
+			end
+		end
+	end
+end
+
+function slowUpdate()
+	local params = getParams()
+
+	if playerOneTitle.label ~= params.P1 then
+		playerOneTitle.label = params.P1
+		self.editButton(playerOneTitle)
+		playerTotal[1].tooltip = params.P1
+	end
+
+	if playerTwoTitle.label ~= params.P2 then
+		playerTwoTitle.label = params.P2
+		self.editButton(playerTwoTitle)
+		playerTotal[2].tooltip = params.P2
+	end
+end
+
+function nothing()
+end
+
+function plus(i, j, k, alt)
+	-- Increment player I's score for battle round J, scoring component K.
+	-- alt is true if right-clicked, increments by 5.
+
+	local diff = 1
+	if alt then diff = 5 end
+
+	local score = scores[i][j][k] + diff
+	scores[i][j][k] = score
+
+	updateScore(i, j, k)
+end
+
+function minus(i, j, k, alt)
+	-- Decrement player I's score for battle round J, scoring component K.
+	-- alt is true if right-clicked, decrements by 5.
+
+	local diff = 1
+	if alt then diff = 5 end
+
+	local score = scores[i][j][k] - diff
+	scores[i][j][k] = score
+
+	updateScore(i, j, k)
+end
+
+function updateScore(i, j, k)
+	-- Make UI/score changes as a result of player I's score for battle round J,
+	-- scoring component K having changed.
+
+	-- Update the button to reflect the new score.
+	button[i][j][k][BTN_L_IX_SCORE].label = tostring( scores[i][j][k] )
+	self.editButton(button[i][j][k][BTN_L_IX_SCORE])
+
+	-- Recalculate the player's score and update the corresponding button.
+	playerTotal[i].label = tostring( playerSum(i) )
+	self.editButton(playerTotal[i])
+end
+
+function playerSum(pId)
+	local pri_sum = 0
+	local sec_sum = 0
+
+	for j = 1,5 do
+		pri_sum = pri_sum + scores[pId][j][BTN_K_IX_PRIMARY]
+		sec_sum = sec_sum + scores[pId][j][BTN_K_IX_SECONDARY_1]
+		sec_sum = sec_sum + scores[pId][j][BTN_K_IX_SECONDARY_2]
+	end
+	if pri_sum > 50 then pri_sum = 50 end
+	if sec_sum > 40 then sec_sum = 40 end
+
+	local score = pri_sum + sec_sum + 10
+	-- painted army gives +10
+
+	if playerCounter[pId] then
+		playerCounter[pId].Counter.setValue(score)
+	end
+
+	return score
+end
+
+function getParams()
+	local params = JSON.decode( self.getDescription() )
+
+	if params == nil then
+		params = {
+			P1 = "Player 1",
+			P2 = "Player 2"
+		}
+
+		self.setDescription(JSON.encode_pretty(params))
+	end
+
+	return params
+end
+
+function p1(obj, clicker, alt)
+	pName(1, obj, clicker, alt)
+end
+function p2(obj, clicker, alt)
+	pName(2, obj, clicker, alt)
+end
+
+function pName(p, obj, clicker, alt)
+	local params = getParams()
+
+	if alt then
+		if p == 1 then
+			playerOneTitle.label = "Player 1"
+			params.P1 = "Player 1"
+		else
+			playerTwoTitle.label = "Player 2"
+			params.P2 = "Player 2"
+		end
+	else
+		local playerName = Player[clicker].steam_name
+
+		if string.len( playerName ) > 15 then
+			playerName = string.sub( playerName, 1, 14 )
+		end
+
+		if p == 1 then
+			playerOneTitle.label = playerName
+			params.P1 = playerName
+		else
+			playerTwoTitle.label = playerName
+			params.P2 = playerName
+		end
+	end
+
+	self.editButton(playerOneTitle)
+	self.editButton(playerTwoTitle)
+	self.setDescription(JSON.encode_pretty(params))
+end
+
+-- Abandon hope all ye who enter here
+
+function plus_111(_, _, alt)
+	plus(1, 1, 1, alt)
+end
+function plus_112(_, _, alt)
+	plus(1, 1, 2, alt)
+end
+function plus_113(_, _, alt)
+	plus(1, 1, 3, alt)
+end
+function plus_121(_, _, alt)
+	plus(1, 2, 1, alt)
+end
+function plus_122(_, _, alt)
+	plus(1, 2, 2, alt)
+end
+function plus_123(_, _, alt)
+	plus(1, 2, 3, alt)
+end
+function plus_131(_, _, alt)
+	plus(1, 3, 1, alt)
+end
+function plus_132(_, _, alt)
+	plus(1, 3, 2, alt)
+end
+function plus_133(_, _, alt)
+	plus(1, 3, 3, alt)
+end
+function plus_141(_, _, alt)
+	plus(1, 4, 1, alt)
+end
+function plus_142(_, _, alt)
+	plus(1, 4, 2, alt)
+end
+function plus_143(_, _, alt)
+	plus(1, 4, 3, alt)
+end
+function plus_151(_, _, alt)
+	plus(1, 5, 1, alt)
+end
+function plus_152(_, _, alt)
+	plus(1, 5, 2, alt)
+end
+function plus_153(_, _, alt)
+	plus(1, 5, 3, alt)
+end
+function plus_211(_, _, alt)
+	plus(2, 1, 1, alt)
+end
+function plus_212(_, _, alt)
+	plus(2, 1, 2, alt)
+end
+function plus_213(_, _, alt)
+	plus(2, 1, 3, alt)
+end
+function plus_221(_, _, alt)
+	plus(2, 2, 1, alt)
+end
+function plus_222(_, _, alt)
+	plus(2, 2, 2, alt)
+end
+function plus_223(_, _, alt)
+	plus(2, 2, 3, alt)
+end
+function plus_231(_, _, alt)
+	plus(2, 3, 1, alt)
+end
+function plus_232(_, _, alt)
+	plus(2, 3, 2, alt)
+end
+function plus_233(_, _, alt)
+	plus(2, 3, 3, alt)
+end
+function plus_241(_, _, alt)
+	plus(2, 4, 1, alt)
+end
+function plus_242(_, _, alt)
+	plus(2, 4, 2, alt)
+end
+function plus_243(_, _, alt)
+	plus(2, 4, 3, alt)
+end
+function plus_251(_, _, alt)
+	plus(2, 5, 1, alt)
+end
+function plus_252(_, _, alt)
+	plus(2, 5, 2, alt)
+end
+function plus_253(_, _, alt)
+	plus(2, 5, 3, alt)
+end
+function plus_311(_, _, alt)
+	plus(3, 1, 1, alt)
+end
+function plus_312(_, _, alt)
+	plus(3, 1, 2, alt)
+end
+function plus_313(_, _, alt)
+	plus(3, 1, 3, alt)
+end
+function plus_321(_, _, alt)
+	plus(3, 2, 1, alt)
+end
+function plus_322(_, _, alt)
+	plus(3, 2, 2, alt)
+end
+function plus_323(_, _, alt)
+	plus(3, 2, 3, alt)
+end
+function plus_331(_, _, alt)
+	plus(3, 3, 1, alt)
+end
+function plus_332(_, _, alt)
+	plus(3, 3, 2, alt)
+end
+function plus_333(_, _, alt)
+	plus(3, 3, 3, alt)
+end
+function plus_341(_, _, alt)
+	plus(3, 4, 1, alt)
+end
+function plus_342(_, _, alt)
+	plus(3, 4, 2, alt)
+end
+function plus_343(_, _, alt)
+	plus(3, 4, 3, alt)
+end
+function plus_351(_, _, alt)
+	plus(3, 5, 1, alt)
+end
+function plus_352(_, _, alt)
+	plus(3, 5, 2, alt)
+end
+function plus_353(_, _, alt)
+	plus(3, 5, 3, alt)
+end
+
+function minus_111(_, _, alt)
+	minus(1, 1, 1, alt)
+end
+function minus_112(_, _, alt)
+	minus(1, 1, 2, alt)
+end
+function minus_113(_, _, alt)
+	minus(1, 1, 3, alt)
+end
+function minus_121(_, _, alt)
+	minus(1, 2, 1, alt)
+end
+function minus_122(_, _, alt)
+	minus(1, 2, 2, alt)
+end
+function minus_123(_, _, alt)
+	minus(1, 2, 3, alt)
+end
+function minus_131(_, _, alt)
+	minus(1, 3, 1, alt)
+end
+function minus_132(_, _, alt)
+	minus(1, 3, 2, alt)
+end
+function minus_133(_, _, alt)
+	minus(1, 3, 3, alt)
+end
+function minus_141(_, _, alt)
+	minus(1, 4, 1, alt)
+end
+function minus_142(_, _, alt)
+	minus(1, 4, 2, alt)
+end
+function minus_143(_, _, alt)
+	minus(1, 4, 3, alt)
+end
+function minus_151(_, _, alt)
+	minus(1, 5, 1, alt)
+end
+function minus_152(_, _, alt)
+	minus(1, 5, 2, alt)
+end
+function minus_153(_, _, alt)
+	minus(1, 5, 3, alt)
+end
+function minus_211(_, _, alt)
+	minus(2, 1, 1, alt)
+end
+function minus_212(_, _, alt)
+	minus(2, 1, 2, alt)
+end
+function minus_213(_, _, alt)
+	minus(2, 1, 3, alt)
+end
+function minus_221(_, _, alt)
+	minus(2, 2, 1, alt)
+end
+function minus_222(_, _, alt)
+	minus(2, 2, 2, alt)
+end
+function minus_223(_, _, alt)
+	minus(2, 2, 3, alt)
+end
+function minus_231(_, _, alt)
+	minus(2, 3, 1, alt)
+end
+function minus_232(_, _, alt)
+	minus(2, 3, 2, alt)
+end
+function minus_233(_, _, alt)
+	minus(2, 3, 3, alt)
+end
+function minus_241(_, _, alt)
+	minus(2, 4, 1, alt)
+end
+function minus_242(_, _, alt)
+	minus(2, 4, 2, alt)
+end
+function minus_243(_, _, alt)
+	minus(2, 4, 3, alt)
+end
+function minus_251(_, _, alt)
+	minus(2, 5, 1, alt)
+end
+function minus_252(_, _, alt)
+	minus(2, 5, 2, alt)
+end
+function minus_253(_, _, alt)
+	minus(2, 5, 3, alt)
+end
+function minus_311(_, _, alt)
+	minus(3, 1, 1, alt)
+end
+function minus_312(_, _, alt)
+	minus(3, 1, 2, alt)
+end
+function minus_313(_, _, alt)
+	minus(3, 1, 3, alt)
+end
+function minus_321(_, _, alt)
+	minus(3, 2, 1, alt)
+end
+function minus_322(_, _, alt)
+	minus(3, 2, 2, alt)
+end
+function minus_323(_, _, alt)
+	minus(3, 2, 3, alt)
+end
+function minus_331(_, _, alt)
+	minus(3, 3, 1, alt)
+end
+function minus_332(_, _, alt)
+	minus(3, 3, 2, alt)
+end
+function minus_333(_, _, alt)
+	minus(3, 3, 3, alt)
+end
+function minus_341(_, _, alt)
+	minus(3, 4, 1, alt)
+end
+function minus_342(_, _, alt)
+	minus(3, 4, 2, alt)
+end
+function minus_343(_, _, alt)
+	minus(3, 4, 3, alt)
+end
+function minus_351(_, _, alt)
+	minus(3, 5, 1, alt)
+end
+function minus_352(_, _, alt)
+	minus(3, 5, 2, alt)
+end
+function minus_353(_, _, alt)
+	minus(3, 5, 3, alt)
+end

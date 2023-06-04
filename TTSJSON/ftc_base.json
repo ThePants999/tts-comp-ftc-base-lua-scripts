@@ -178,6 +178,37 @@
     {
       "points3": [
         {
+          "x": 68.5,
+          "y": 0.9711361,
+          "z": 9.2
+        },
+        {
+          "x": 68.5,
+          "y": 0.9711361,
+          "z": 6.9
+        },
+        {
+          "x": 72.0,
+          "y": 0.9711361,
+          "z": 6.9
+        },
+        {
+          "x": 72.0,
+          "y": 0.9711361,
+          "z": 9.2
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "thickness": 0.1,
+      "loop": true
+    },
+    {
+      "points3": [
+        {
           "x": 76.5,
           "y": 0.9711361,
           "z": 9.2
@@ -227,6 +258,37 @@
           "x": 81.0,
           "y": 0.9711361,
           "z": 9.2
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "thickness": 0.1,
+      "loop": true
+    },
+    {
+      "points3": [
+        {
+          "x": 68.5,
+          "y": 0.9711361,
+          "z": -9.2
+        },
+        {
+          "x": 68.5,
+          "y": 0.9711361,
+          "z": -6.9
+        },
+        {
+          "x": 72.0,
+          "y": 0.9711361,
+          "z": -6.9
+        },
+        {
+          "x": 72.0,
+          "y": 0.9711361,
+          "z": -9.2
         }
       ],
       "color": {
@@ -316,6 +378,30 @@
     {
       "Position": {
         "x": 79.25,
+        "y": 0.9611349,
+        "z": -8.05
+      },
+      "Rotation": {
+        "x": 0.0,
+        "y": 270.0,
+        "z": 180.0
+      }
+    },
+    {
+      "Position": {
+        "x": 70.25,
+        "y": 0.9611349,
+        "z": 8.05
+      },
+      "Rotation": {
+        "x": 0.0,
+        "y": 270.0,
+        "z": 180.0
+      }
+    },
+    {
+      "Position": {
+        "x": 70.25,
         "y": 0.9611349,
         "z": -8.05
       },
@@ -12577,186 +12663,6 @@
       "XmlUI": ""
     },
     {
-      "GUID": "394524",
-      "Name": "BlockSquare",
-      "Transform": {
-        "posX": 67.57255,
-        "posY": 0.0,
-        "posZ": -2.0,
-        "rotX": 0.0,
-        "rotY": 90.0,
-        "rotZ": 0.0,
-        "scaleX": 1.0,
-        "scaleY": 1.0,
-        "scaleZ": 1.0
-      },
-      "Nickname": "Blue Secondary Input Box",
-      "Description": "",
-      "GMNotes": "",
-      "AltLookAngle": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "ColorDiffuse": {
-        "r": 0.0,
-        "g": 0.0,
-        "b": 1.0
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": true,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": "<VerticalLayout\r\n    color=\"#FFFFFF\"\r\n    rotation='0 0 0'\r\n    position='790 0 -125'\r\n    width='700'\r\n    height='220'\r\n    padding=\"20\"\r\n    spacing='20'\r\n    childAlignment=\"UpperCenter\"\r\n    childForceExpandWidth=\"false\"\r\n    childForceExpandHeight=\"false\"\r\n    id=\"layout\"\r\n    active=\"false\">\r\n\r\n    <Text id=\"title\" fontSize=\"60\">Secondary 1</Text>\r\n\r\n    <InputField\r\n        id=\"input\"\r\n        placeholder=\"Type or select below\"\r\n        lineType=\"SingleLine\"\r\n        fontSize=\"50\"\r\n        minWidth=\"650\"\r\n        minHeight=\"75\"\r\n        onEndEdit=\"inputComplete\"\r\n        onValueChanged=\"inputModified\"\r\n        />\r\n</VerticalLayout>"
-    },
-    {
-      "GUID": "aca663",
-      "Name": "BlockSquare",
-      "Transform": {
-        "posX": 66.13042,
-        "posY": 0.0,
-        "posZ": -2.0,
-        "rotX": 0.0,
-        "rotY": 90.0,
-        "rotZ": 0.0,
-        "scaleX": 1.0,
-        "scaleY": 1.0,
-        "scaleZ": 1.0
-      },
-      "Nickname": "Blue Secondary Dropdown",
-      "Description": "",
-      "GMNotes": "",
-      "AltLookAngle": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "ColorDiffuse": {
-        "r": 0.0,
-        "g": 0.0,
-        "b": 1.0
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": true,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": "<VerticalLayout\r\n    color=\"#FFFFFF\"\r\n    rotation='0 0 0'\r\n    position='790 0 -125'\r\n    width='700'\r\n    height='120'\r\n    padding=\"20\"\r\n    spacing='20'\r\n    childAlignment=\"UpperCenter\"\r\n    childForceExpandWidth=\"false\"\r\n    childForceExpandHeight=\"false\"\r\n    id=\"layout\"\r\n    active=\"false\">\r\n\r\n    <Dropdown\r\n        id=\"selection\"\r\n        onValueChanged=\"selectionChanged\"\r\n        fontSize=\"35\"\r\n        minWidth=\"650\"\r\n        minHeight=\"75\"\r\n        dropdownHeight=\"600\"\r\n        itemHeight=\"50\">\r\n\r\n        <Option></Option>\r\n    </Dropdown>\r\n\r\n</VerticalLayout>"
-    },
-    {
-      "GUID": "9e4193",
-      "Name": "BlockSquare",
-      "Transform": {
-        "posX": 67.57255,
-        "posY": 0.0,
-        "posZ": 2.0,
-        "rotX": 0.0,
-        "rotY": 90.0,
-        "rotZ": 0.0,
-        "scaleX": 1.0,
-        "scaleY": 1.0,
-        "scaleZ": 1.0
-      },
-      "Nickname": "Red Secondary Input Box",
-      "Description": "",
-      "GMNotes": "",
-      "AltLookAngle": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 0.0,
-        "b": 0.0
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": true,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": "<VerticalLayout\r\n    color=\"#FFFFFF\"\r\n    rotation='0 0 0'\r\n    position='-790 0 -125'\r\n    width='700'\r\n    height='220'\r\n    padding=\"20\"\r\n    spacing='20'\r\n    childAlignment=\"UpperCenter\"\r\n    childForceExpandWidth=\"false\"\r\n    childForceExpandHeight=\"false\"\r\n    id=\"layout\"\r\n    active=\"false\">\r\n\r\n    <Text id=\"title\" fontSize=\"60\">Secondary 1</Text>\r\n\r\n    <InputField\r\n        id=\"input\"\r\n        placeholder=\"Type or select below\"\r\n        lineType=\"SingleLine\"\r\n        fontSize=\"50\"\r\n        minWidth=\"650\"\r\n        minHeight=\"75\"\r\n        onEndEdit=\"inputComplete\"\r\n        onValueChanged=\"inputModified\"\r\n        />\r\n</VerticalLayout>"
-    },
-    {
-      "GUID": "3ef881",
-      "Name": "BlockSquare",
-      "Transform": {
-        "posX": 66.13042,
-        "posY": 0.0,
-        "posZ": 2.0,
-        "rotX": 0.0,
-        "rotY": 90.0,
-        "rotZ": 0.0,
-        "scaleX": 1.0,
-        "scaleY": 1.0,
-        "scaleZ": 1.0
-      },
-      "Nickname": "Red Secondary Dropdown",
-      "Description": "",
-      "GMNotes": "",
-      "AltLookAngle": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 0.0,
-        "b": 0.0
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": true,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": "<VerticalLayout\r\n    color=\"#FFFFFF\"\r\n    rotation='0 0 0'\r\n    position='-790 0 -125'\r\n    width='700'\r\n    height='120'\r\n    padding=\"20\"\r\n    spacing='20'\r\n    childAlignment=\"UpperCenter\"\r\n    childForceExpandWidth=\"false\"\r\n    childForceExpandHeight=\"false\"\r\n    id=\"layout\"\r\n    active=\"false\">\r\n\r\n    <Dropdown\r\n        id=\"selection\"\r\n        onValueChanged=\"selectionChanged\"\r\n        fontSize=\"35\"\r\n        minWidth=\"650\"\r\n        minHeight=\"75\"\r\n        dropdownHeight=\"600\"\r\n        itemHeight=\"50\">\r\n\r\n        <Option></Option>\r\n    </Dropdown>\r\n\r\n</VerticalLayout>"
-    },
-    {
       "GUID": "cb09a4",
       "Name": "Custom_Model_Infinite_Bag",
       "Transform": {
@@ -12770,7 +12676,7 @@
         "scaleY": 0.10,
         "scaleZ": 1.9
       },
-      "Nickname": "[b][i]Morale Needs To Be Taken[/i][/b]",
+      "Nickname": "[b][i]Battle-shocked[/i][/b]",
       "ColorDiffuse": {
         "r": 1.0,
         "g": 1.0,
@@ -12809,7 +12715,7 @@
             "scaleY": 1.0,
             "scaleZ": 0.5
           },
-          "Nickname": "[b][i]Morale Needs To Be Taken[/i][/b]",
+          "Nickname": "[b][i]Battle-shocked[/i][/b]",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -24234,6 +24140,114 @@
       "Hands": false,
       "Text": {
         "Text": "Deck",
+        "colorstate": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0
+        },
+        "fontSize": 32
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "f2f9fa",
+      "Name": "3DText",
+      "Transform": {
+        "posX": 72.7,
+        "posY": 0.96113354,
+        "posZ": -8.05,
+        "rotX": 90.0,
+        "rotY": 90.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "Gambit",
+        "colorstate": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0
+        },
+        "fontSize": 32
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "f204d1",
+      "Name": "3DText",
+      "Transform": {
+        "posX": 72.7,
+        "posY": 0.96113354,
+        "posZ": 8.05,
+        "rotX": 90.0,
+        "rotY": 90.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "Gambit",
         "colorstate": {
           "r": 1.0,
           "g": 1.0,
