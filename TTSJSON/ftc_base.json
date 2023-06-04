@@ -179,14 +179,14 @@
       "GUID": "f7d85a",
       "Name": "HandTrigger",
       "Transform": {
-        "posX": 0.0,
-        "posY": 1.00000048,
-        "posZ": 46.0,
+        "posX": 7.0,
+        "posY": 1.0,
+        "posZ": 38.0,
         "rotX": 0.0,
         "rotY": 180.0,
         "rotZ": 0.0,
-        "scaleX": 38.135006,
-        "scaleY": 9.077269,
+        "scaleX": 30.0,
+        "scaleY": 9.0,
         "scaleZ": 7.8216
       },
       "Nickname": "",
@@ -220,14 +220,14 @@
       "GUID": "731345",
       "Name": "HandTrigger",
       "Transform": {
-        "posX": -1.07731394E-05,
-        "posY": 1.00000048,
-        "posZ": -46.0,
+        "posX": -7.0,
+        "posY": 1.0,
+        "posZ": -38.0,
         "rotX": 0.0,
-        "rotY": -4.00605277E-05,
+        "rotY": 0.0,
         "rotZ": 0.0,
-        "scaleX": 38.135006,
-        "scaleY": 9.077269,
+        "scaleX": 30.0,
+        "scaleY": 9.0,
         "scaleZ": 7.8216
       },
       "Nickname": "",
@@ -2726,7 +2726,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "",
-      "LuaScriptState": "{\"svcheckEnd\":false,\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploymentPregamePlaced\":true,\"svdeploySelected\":10,\"svdeployTypeSelected\":1,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":3,\"svobjectivesSelected\":10,\"svobjectivesTypeSelected\":1,\"svsizeConfirmed\":false}",
+      "LuaScriptState": "{\"svcheckEnd\":false,\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploymentPregamePlaced\":true,\"svdeploySelected\":10,\"svdeployTypeSelected\":1,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":2,\"svobjectivesSelected\":10,\"svobjectivesTypeSelected\":1,\"svsizeConfirmed\":false}",
       "XmlUI": ""
     },
     {
@@ -4469,7 +4469,7 @@
       "Transform": {
         "posX": -19.0,
         "posY": -5.0,
-        "posZ": 35.25,
+        "posZ": 75.25,
         "rotX": 0.0,
         "rotY": 0.0,
         "rotZ": 0.0,
@@ -10039,7 +10039,7 @@
       "Transform": {
         "posX": 19.0,
         "posY": -5.0,
-        "posZ": -35.25,
+        "posZ": -75.25,
         "rotX": 0.0,
         "rotY": 180.0,
         "rotZ": 0.0,
@@ -18932,6 +18932,1050 @@
           "XmlUI": ""
         }
       ]
+    },
+    {
+      "GUID": "a847c1",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": -14.4752874,
+        "posY": 2.97473979,
+        "posZ": -38.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Tactical Objectives",
+      "Description": "Select both of these cards to indicate that you will be using Tactical Missions instead of Fixed Missions for this game.",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 10000,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "100": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2028354869666888393/D6190B80FC2CBE43F5CD03793558BF2A717A74C5/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "7ee8c9",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": -12.6915617,
+        "posY": 3.07473969,
+        "posZ": -38.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Tactical Objectives",
+      "Description": "Select both of these cards to indicate that you will be using Tactical Missions instead of Fixed Missions for this game.",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 10000,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "100": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2028354869666888393/D6190B80FC2CBE43F5CD03793558BF2A717A74C5/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "2355d7",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": -10.8638411,
+        "posY": 3.17473984,
+        "posZ": -38.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Assassination",
+      "Description": "If you are using Fixed Missions, then while this Secondary Mission is active, each time an enemy [b]CHARACTER[/b] model is destroyed, you score 4VP. \r\n\r\nIf you are using Tactical Missions, then at the end of the turn, if either of the conditions below are satisfied, this Secondary Mission is achieved and you score 5VP:\r\n\r\n* One or more enemy [b]CHARACTER[/b] units were destroyed during this turn.\r\n* All [b]CHARACTER[/b] units from your opponent’s Army Roster have been destroyed during the battle.\r\n\r\nNote that if you are using Tactical Missions, this Secondary MIssion is achieved even if such a unit was destroyed and then subsequently resurrected for any reason.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 6400,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "64": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271374915/B6AA508BB108872C322EE47E2BA7386B0E68FC07/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "4e38c0",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": -8.990625,
+        "posY": 3.27473974,
+        "posZ": -38.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Behind Enemy Lines",
+      "Description": "At the end of your turn, if two or more units from your army (excluding [b]AIRCRAFT[/b]) are wholly within your opponent’s deployment zone, this secondary mission is achieved and you score 4VP.\r\n\r\nIf, at the end of your turn, only one unit from your army (excluding [b]AIRCRAFT[/b]) is wholly within your opponent’s deployment zone, then this Secondary Mission is still achieved, but in this instance you score 2VP instead of 4VP.\r\n\r\nIf you are using Tactical Missions, then when this Secondary Mission is achieved you score an extra 1VP (for a maximum of 5VP).\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 7200,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "72": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271381139/2C3BC3E1A3B5F98BAC2452B3ABB71C31C8D9B6F6/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "43d0c0",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": -7.11233139,
+        "posY": 3.37474,
+        "posZ": -38.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Bring It Down",
+      "Description": "While this Secondary Mission is active, each time an enemy [b]MONSTER[/b] or [b]VEHICLE[/b] model is destroyed, you score 2VP and an extra 1VP for each of the conditions below that are satisfied (all are cumulative):\r\n\r\n* The destroyed model had a Wounds characteristic of 10+\r\n* The destroyed model had a Wounds characteristic of 15+\r\n* The destroyed model had a Wounds characteristic of 20+\r\n\r\nNote that VP are scored even if such a model is destroyed and then subsequently resurrected for any reason. If you score any VP from this Secondary Mission during a turn, then at the end of that turn this Secondary Mission is achieved.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 7100,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "71": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271382203/8301DD0932C5C939B9F059E8400BAFD75CBAFCAC/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "74ccd6",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": -5.231039,
+        "posY": 3.47473979,
+        "posZ": -38.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Cleanse",
+      "Description": "In your Shooting phase, you can select one or more units from your army that are not Battle-shocked and are eligible to shoot. Until the end of your turn, the units you selected are not eligible to shoot or declare a charge. \r\n\r\nAt the end of your turn, each objective marker that is not within your deployment zone that you control that has one or more of these selected units within range is cleansed by your army.\r\n\r\nIf one or more objective markers are cleansed by your army this turn, this Secondary Mission is achieved and you score a number of VP depending on the number of objective markers cleansed by your army this turn, as follows:\r\n\r\n1 objective marker cleansed = 2VP if you are using Fixed Missions, or 3VP if you are using Tactical Missions.\r\n\r\n2 or more objective markers cleansed = 4VP if you are using Fixed Missions, or 5VP if you are using Tactical Missions.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 7000,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "70": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271383871/E85F669F4F76F8BF51C2C48B9C3326833BF85A91/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "7b3f2f",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": -3.3593235,
+        "posY": 3.57473969,
+        "posZ": -38.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Deploy Teleport Homer",
+      "Description": "In your Shooting phase, you can select one unit from your army that is not Battle-shocked and is eligible to shoot. Until the end of your turn, that unit is not eligible to shoot or declare a charge. \r\n\r\nAt the end of your turn, if that unit is within your opponent’s deployment zone, or within 6” of the centre of the battlefield, it deploys a teleport homer at that location, this Secondary Mission is achieved and you score a number of VP depending on where the teleport homer was deployed, as follows:\r\n\r\nCentre of battlefield = 2VP if you are using Fixed Missions, or 3VP if you are using Tactical Missions.\r\n\r\nOpponent’s deployment zone = 4VP if you are using Fixed Missions, or 5VP if you are using Tactical Missions.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 6600,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "66": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271385854/5F8306E76C6940CF5AAA6490BB13F06245BC151D/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "68366d",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": -1.47261047,
+        "posY": 3.67473984,
+        "posZ": -38.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Storm Hostile Objective",
+      "Description": "At the end of your turn, if either of the below conditions are satisfied, this Secondary Mission is achieved and you score 4VP if you are using Fixed Missions, or 5VP if you are using Tactical Missions:\r\n\r\nYou control one or more objective markers that were controlled by your opponent at the start of your turn.\r\n\r\nYour opponent did not control any objective markers at the start of your turn and you control one or more objective markers that you did not control at the start of your turn.\r\n\r\nThis Secondary Mission cannot be achieved during the first battle round. If you randomly drew this Secondary Mission card during the first battle round, draw a new Secondary Mission card and shuffle this Secondary Mission card back into your Secondary Mission deck.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 6900,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "69": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271391687/2972CD1F1CD69581EE6DB76B991AD21ABE642A27/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "b9abab",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 0.424947262,
+        "posY": 3.77473974,
+        "posZ": -38.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Engage On All Fronts",
+      "Description": "At the end of your turn, if you have one or more qualifying units (see below) from your army wholly within three or more different table quarters, and those units are all more than 3” away from any other table quarter, this Secondary Mission is achieved and you score 4VP if you have qualifying units in four different table quarters, or 2VP if you have qualifying units in three different table quarters.\r\n\r\nWhile a unit is Battle-shocked, it is not a qualifying unit.\r\n\r\nIf, when you draw this Secondary Mission card, you only have one or two qualifying units remaining in your army, you can discard this Secondary Mission card and draw a new Secondary mission card.\r\n\r\nIf you are using Tactical Missions, then when this Secondary Mission is achieved you score an extra 1VP (for a maximum of 5VP).\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 7400,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "74": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271386557/6BAAAF5D5B09B1C0F51AD1BF97C6AD7C489C8213/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "838a9b",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 14.4752865,
+        "posY": 2.97473979,
+        "posZ": 38.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Tactical Objectives",
+      "Description": "Select both of these cards to indicate that you will be using Tactical Missions instead of Fixed Missions for this game.",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 10000,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "100": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2028354869666888393/D6190B80FC2CBE43F5CD03793558BF2A717A74C5/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "89fa29",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 12.6915607,
+        "posY": 3.07473969,
+        "posZ": 38.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Tactical Objectives",
+      "Description": "Select both of these cards to indicate that you will be using Tactical Missions instead of Fixed Missions for this game.",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 10000,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "100": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2028354869666888393/D6190B80FC2CBE43F5CD03793558BF2A717A74C5/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "bffd29",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 10.86384,
+        "posY": 3.17473984,
+        "posZ": 38.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Assassination",
+      "Description": "If you are using Fixed Missions, then while this Secondary Mission is active, each time an enemy [b]CHARACTER[/b] model is destroyed, you score 4VP. \r\n\r\nIf you are using Tactical Missions, then at the end of the turn, if either of the conditions below are satisfied, this Secondary Mission is achieved and you score 5VP:\r\n\r\n* One or more enemy [b]CHARACTER[/b] units were destroyed during this turn.\r\n* All [b]CHARACTER[/b] units from your opponent’s Army Roster have been destroyed during the battle.\r\n\r\nNote that if you are using Tactical Missions, this Secondary MIssion is achieved even if such a unit was destroyed and then subsequently resurrected for any reason.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 6400,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "64": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271374915/B6AA508BB108872C322EE47E2BA7386B0E68FC07/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "b1703e",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 8.990625,
+        "posY": 3.27473974,
+        "posZ": 38.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Behind Enemy Lines",
+      "Description": "At the end of your turn, if two or more units from your army (excluding [b]AIRCRAFT[/b]) are wholly within your opponent’s deployment zone, this secondary mission is achieved and you score 4VP.\r\n\r\nIf, at the end of your turn, only one unit from your army (excluding [b]AIRCRAFT[/b]) is wholly within your opponent’s deployment zone, then this Secondary Mission is still achieved, but in this instance you score 2VP instead of 4VP.\r\n\r\nIf you are using Tactical Missions, then when this Secondary Mission is achieved you score an extra 1VP (for a maximum of 5VP).\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 7200,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "72": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271381139/2C3BC3E1A3B5F98BAC2452B3ABB71C31C8D9B6F6/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "eb37ca",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 7.11233234,
+        "posY": 3.37474,
+        "posZ": 38.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Bring It Down",
+      "Description": "While this Secondary Mission is active, each time an enemy [b]MONSTER[/b] or [b]VEHICLE[/b] model is destroyed, you score 2VP and an extra 1VP for each of the conditions below that are satisfied (all are cumulative):\r\n\r\n* The destroyed model had a Wounds characteristic of 10+\r\n* The destroyed model had a Wounds characteristic of 15+\r\n* The destroyed model had a Wounds characteristic of 20+\r\n\r\nNote that VP are scored even if such a model is destroyed and then subsequently resurrected for any reason. If you score any VP from this Secondary Mission during a turn, then at the end of that turn this Secondary Mission is achieved.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 7100,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "71": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271382203/8301DD0932C5C939B9F059E8400BAFD75CBAFCAC/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "91343e",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 5.23104,
+        "posY": 3.47473979,
+        "posZ": 38.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Cleanse",
+      "Description": "In your Shooting phase, you can select one or more units from your army that are not Battle-shocked and are eligible to shoot. Until the end of your turn, the units you selected are not eligible to shoot or declare a charge. \r\n\r\nAt the end of your turn, each objective marker that is not within your deployment zone that you control that has one or more of these selected units within range is cleansed by your army.\r\n\r\nIf one or more objective markers are cleansed by your army this turn, this Secondary Mission is achieved and you score a number of VP depending on the number of objective markers cleansed by your army this turn, as follows:\r\n\r\n1 objective marker cleansed = 2VP if you are using Fixed Missions, or 3VP if you are using Tactical Missions.\r\n\r\n2 or more objective markers cleansed = 4VP if you are using Fixed Missions, or 5VP if you are using Tactical Missions.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 7000,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "70": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271383871/E85F669F4F76F8BF51C2C48B9C3326833BF85A91/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "439c3b",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 3.35932422,
+        "posY": 3.57473969,
+        "posZ": 38.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Deploy Teleport Homer",
+      "Description": "In your Shooting phase, you can select one unit from your army that is not Battle-shocked and is eligible to shoot. Until the end of your turn, that unit is not eligible to shoot or declare a charge. \r\n\r\nAt the end of your turn, if that unit is within your opponent’s deployment zone, or within 6” of the centre of the battlefield, it deploys a teleport homer at that location, this Secondary Mission is achieved and you score a number of VP depending on where the teleport homer was deployed, as follows:\r\n\r\nCentre of battlefield = 2VP if you are using Fixed Missions, or 3VP if you are using Tactical Missions.\r\n\r\nOpponent’s deployment zone = 4VP if you are using Fixed Missions, or 5VP if you are using Tactical Missions.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 6600,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "66": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271385854/5F8306E76C6940CF5AAA6490BB13F06245BC151D/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "d2a572",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 1.472611,
+        "posY": 3.67473984,
+        "posZ": 38.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Storm Hostile Objective",
+      "Description": "At the end of your turn, if either of the below conditions are satisfied, this Secondary Mission is achieved and you score 4VP if you are using Fixed Missions, or 5VP if you are using Tactical Missions:\r\n\r\nYou control one or more objective markers that were controlled by your opponent at the start of your turn.\r\n\r\nYour opponent did not control any objective markers at the start of your turn and you control one or more objective markers that you did not control at the start of your turn.\r\n\r\nThis Secondary Mission cannot be achieved during the first battle round. If you randomly drew this Secondary Mission card during the first battle round, draw a new Secondary Mission card and shuffle this Secondary Mission card back into your Secondary Mission deck.\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 6900,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "69": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271391687/2972CD1F1CD69581EE6DB76B991AD21ABE642A27/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "10a8c9",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": -0.424946785,
+        "posY": 3.77473974,
+        "posZ": 38.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Engage On All Fronts",
+      "Description": "At the end of your turn, if you have one or more qualifying units (see below) from your army wholly within three or more different table quarters, and those units are all more than 3” away from any other table quarter, this Secondary Mission is achieved and you score 4VP if you have qualifying units in four different table quarters, or 2VP if you have qualifying units in three different table quarters.\r\n\r\nWhile a unit is Battle-shocked, it is not a qualifying unit.\r\n\r\nIf, when you draw this Secondary Mission card, you only have one or two qualifying units remaining in your army, you can discard this Secondary Mission card and draw a new Secondary mission card.\r\n\r\nIf you are using Tactical Missions, then when this Secondary Mission is achieved you score an extra 1VP (for a maximum of 5VP).\r\n",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 7400,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "74": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271386557/6BAAAF5D5B09B1C0F51AD1BF97C6AD7C489C8213/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     }
   ]
 }
