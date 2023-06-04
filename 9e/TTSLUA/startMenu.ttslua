@@ -95,7 +95,8 @@ function makeAnnouncement()
     "2.44: New button to show lines for Engage on All Fronts / Retrieve Battlefield Data",
     "2.45: Support for ordered dice rolling, and new button to show strategic reserves arrival zones",
     "2.46: Added CP regen button; fixed mis-coloured deployment zones; recoloured strategic reserves lines to highlight player board edges; added For the Dark Gods zone button; added player-coloured objective states",
-    "2.47: Dice roller bug fixes and performance enhancement; further token improvements (yes, +1 advance has the wrong icon, fix coming soon)"
+    "2.47: Dice roller bug fixes and performance enhancement; further token improvements (yes, +1 advance has the wrong icon, fix coming soon)",
+    "2.48: Support for mirroring terrain when building maps"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do

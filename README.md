@@ -9,6 +9,10 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v.248
+
+* New terrain mirroring option for map making. Place the terrain for one half of the board and lock it in place, then press the new Mirror Terrain button, and each piece will be duplicated, rotated 180 degrees and placed in the mirrored position on the other half of the board.
+
 ### v2.47
 
 * Dice table improvements: use the rotation values built into dice objects instead of calculating them manually, and spawn dice at the correct rotation instead of spawning them and then rotating them (fix supplied by FChippendale - many thanks!)
