@@ -107,10 +107,9 @@ end
 -- SIZE CHANGER MANAGER
 positionValue={0,-9.52,0}
 sizeData={
-    {type="9th", id=1, name='C o m b a t     P a t r o l - 44" x 30"', scale={1.22,1,0.83}, defaultObjectives=0},
-    {type="9th", id=2, name='I n c u r s i o n - 44" x 30"', scale={1.22,1,0.83}, defaultObjectives=0},
-    {type="9th", id=3, name='S t r i k e   F o r c e - 44" x 60"', scale={0.83*2,1,1.22}, defaultObjectives=0},
-    {type="9th", id=4, name='O n s l a u g h t - 44" x 90"', scale={0.83*3,1,1.22}, defaultObjectives=0},
+    {id=1, name='C o m b a t     P a t r o l - 44" x 30"', scale={1.22,1,0.83}, defaultObjectives=0},
+    {id=2, name='Incursion / Strike Force - 44" x 60"', scale={0.83*2,1,1.22}, defaultObjectives=0},
+    {id=3, name='O n s l a u g h t - 44" x 90"', scale={0.83*3,1,1.22}, defaultObjectives=0},
 }
 
 menuSizeX = 0

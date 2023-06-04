@@ -1,8 +1,8 @@
 {
-  "SaveName": "FTC 40k Competitive 9e Map Base\n",
-  "GameMode": "FTC 40k Competitive 9e Map Base\n",
+  "SaveName": "FTC 40k Competitive 10e Map Base\n",
+  "GameMode": "FTC 40k Competitive 10e Map Base\n",
   "Date": "30/12/2022 11:00:31 AM",
-  "VersionNumber": "v2.43",
+  "VersionNumber": "v3.0",
   "GameType": "Game",
   "GameComplexity": "High Complexity",
   "PlayingTime": [
@@ -85,7 +85,7 @@
     "LutContribution": 1.0
   },
   "Hands": {
-    "Enable": false,
+    "Enable": true,
     "DisableUnused": true,
     "Hiding": 0
   },
