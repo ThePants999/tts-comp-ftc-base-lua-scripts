@@ -1,3 +1,5 @@
+param ([Switch]$test)
+
 function WriteLuaScriptToJsonContent([int]$jsonLineNumber, [int]$luaScriptFileIdx)
 {
 	$fileName = ('{0}{1}' -f $pathLua, $luaScriptFiles[$luaScriptFileIdx])
@@ -8,6 +10,9 @@ function WriteLuaScriptToJsonContent([int]$jsonLineNumber, [int]$luaScriptFileId
 	Write-Host "Writing to JSON line number $jsonLineNumber. " -NoNewLine
 	$jsonContent[$jsonLineNumber] = $curJsonContentOnLine + $luaContent + ","
 }
+
+# Update this if TTS is installed elsewhere.
+$ttsSaves = "$([Environment]::GetFolderPath('MyDocuments'))\My Games\Tabletop Simulator\Saves\"
 
 $pathLua = '..\TTSLUA\'
 $luaScriptFiles = @('global.ttslua')
@@ -31,13 +36,20 @@ if(!(Test-Path $fileName))
 
 # ask user to give a version number
 # blank input gives no version
-$version = Read-Host "Version number"
-if($version -ne "")
+if ($test -eq $null)
 {
-	if($version.substring(0,1) -ne "v")
+	$version = Read-Host "Version number"
+	if($version -ne "")
 	{
-		$version = "v" + $version
+		if($version.substring(0,1) -ne "v")
+		{
+			$version = "v" + $version
+		}
 	}
+}
+else
+{
+	$version = "test"
 }
 
 $luaContent = ''
@@ -157,4 +169,9 @@ else
 
 $jsonContent | Set-Content $fileName
 Write-Host "File $fileName complete."
-Pause
+
+if ($test -ne $null)
+{
+	Copy-Item $fileName -Destination $ttsSaves
+	Write-Host "Copied to $ttsSaves."
+}
