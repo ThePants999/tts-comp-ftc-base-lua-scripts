@@ -86,6 +86,25 @@ confirmNoBtnDelete={
     font_size=300, color={0.6,0,0}, font_color={1,1,1}, scale=scaleBtn
 }
 
+mirrorLbl="MIRROR\nTERRAIN"
+mirrorBtn={
+    label=mirrorLbl, click_function="checkMirror", function_owner=self,
+    position={-36+offsetX,0,17}, rotation={0,0,0}, height=750, width=2000,
+    font_size=300, color={0.8,0.8,0.8}, font_color={0,0,0}, scale=scaleBtn
+}
+
+confirmYesBtnMirror={
+    label="Yes", click_function="mirrorTerrain", function_owner=self,
+    position={-43+offsetX,0,29}, rotation={0,0,0}, height=750, width=820,
+    font_size=300, color={0,0.6,0}, font_color={1,1,1}, scale=scaleBtn
+}
+confirmNoBtnMirror={
+    label="No", click_function="hideYNButtonsMirror", function_owner=self,
+    position={-29+offsetX,0,29}, rotation={0,0,0}, height=750, width=820,
+    font_size=300, color={0.6,0,0}, font_color={1,1,1}, scale=scaleBtn
+}
+
+
 
 function assignVariables()
     table=getObjectFromGUID(Global.getVar("table_GUID"))
@@ -129,13 +148,20 @@ function writeMenu()
         self.createButton(confirmYesBtnDelete)
         self.createButton(confirmNoBtnDelete)
     end
-    createExtractButton()
-    createDeleteButton()
+    if YNButtonsMirror==false then
+        mirrorBtn.label=mirrorLbl
+    else
+        mirrorBtn.label="Are you sure?"
+        self.createButton(confirmYesBtnMirror)
+        self.createButton(confirmNoBtnMirror)
+    end
+    createMenu()
 end
 
 function createMenu()
     createExtractButton()
     createDeleteButton()
+    createMirrorButton()
 end
 
 function createExtractButton()
@@ -176,6 +202,15 @@ end
 
 function hideYNButtonsDelete()
     YNButtonsDelete = false
+    writeMenu()
+end
+
+function createMirrorButton()
+    self.createButton(mirrorBtn)
+end
+
+function hideYNButtonsMirror()
+    YNButtonsMirror = false
     writeMenu()
 end
 
@@ -296,7 +331,92 @@ function deleteTerrain3()
     broadcastToAll("DONE", "Red")
 end
 
+
+function collectTerrainObjects()
+    local zoneObj=playZone.getObjects()
+    local lockedTerrain = {}
+    local unlockedTerrain = {}
+
+    for i, obj in ipairs(zoneObj) do
+        if obj.getGUID() ~= mat_GUID and obj.getGUID() ~= felt_GUID and obj.getGUID() ~= tableSideBottom_GUID then
+            if obj.getGMNotes() ~= "deployZone" and obj.getGMNotes() ~= "objective" then
+                if obj.locked then
+                    lockedTerrain[i] = obj
+                else
+                    unlockedTerrain[i] = obj
+                end
+            end
+        end
+    end
+
+    return lockedTerrain, unlockedTerrain
+end
+
+-- callback hell, required to give PlayZone time to spawn
+function checkMirror()
+    spawnPlayZone()
+    Wait.frames(checkMirror2, 3)
+end
+
+function checkMirror2()
+    local lockedTerrain = {}
+    local unlockedTerrain = {}
+    
+    lockedTerrain, unlockedTerrain = collectTerrainObjects()
+
+    for i, obj in pairs(unlockedTerrain) do
+        obj.highlightOn({1, 0, 0}, 10.0)
+    end
+
+    YNButtonsMirror = true
+    writeMenu()
+
+    if not (next(unlockedTerrain) == nil) then
+        broadcastToAll("WARNING: Unlocked Terrain will be deleted", "Red")
+    end
+end
+
+function mirrorTerrain()
+    local lockedTerrain = {}
+    local unlockedTerrain = {}
+
+    lockedTerrain, unlockedTerrain = collectTerrainObjects()
+
+    for i, obj in pairs(unlockedTerrain) do
+        obj.destroy()
+    end
+    
+    for i, obj in pairs(lockedTerrain) do
+        local newPos = obj.getPosition()
+        local newRot = obj.getRotation()
+
+        newPos.x = -newPos.x
+        newPos.z = -newPos.z
+        newRot.y = newRot.y + 180
+
+        -- object close to center aligned, mirror objects not at center.
+        if math.abs(newPos.x) < 1 and math.abs(newPos.z) < 1 then
+            obj.setPosition({0, newPos.y, 0})
+        else
+            local newObj = obj.clone({
+                position=newPos,
+                rotation=newRot
+            })
+            newObj.locked = false
+        end
+    end
+
+    YNButtonsMirror = false
+    writeMenu()
+    broadcastToAll("DONE", "Red")
+end
+
+
 function spawnPlayZone()
+    if playZone ~= nil then
+        return
+    end
+
     playZoneData.scale=mat.getScale()
     playZoneData.scale.x=playZoneData.scale.x*36.02+0.2
     playZoneData.scale.y=100
