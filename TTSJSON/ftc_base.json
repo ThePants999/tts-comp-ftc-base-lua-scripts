@@ -174,6 +174,158 @@
   "LuaScript": "",
   "LuaScriptState": "{\"svredPlayerID\":\"\"}",
   "XmlUI": "<!-- Xml UI. See documentation: https://api.tabletopsimulator.com/ui/introUI/ -->\r\n<Defaults>\r\n  <Button width=\"550\" height=\"300\" fontSize=\"40\" onClick=\"\" fontStyle=\"Bold\"/>\r\n  <Text fontSize=\"100\" color=\"#000000\" fontStyle=\"Bold\"/>\r\n</Defaults>\r\n\r\n<Panel id=\"redirect\" active=\"false\" position=\"0 0 0\" scale=\"0.6 0.6 0.6\" offsetXY=\"0 0\" color=\"White\" >\r\n  <Text offsetXY=\"0 350\" fontSize=\"80\" color=\"Red\">WARNING</Text>\r\n\r\n<Text id=\"coreRedirect\" offsetXY=\"0 0\" fontSize=\"36\">\r\n    WAIT FOR LOADING\r\n</Text>\r\n\r\n  <Button id=\"closeRedirectBtn\" active=\"true\" offsetXY=\"0 -475\"  color=\"#000000\" textColor=\"#aaaaaa\" width=\"500\" height=\"80\"  fontSize=\"30\" onClick=\"closeRedir\">CLOSE</Button>\r\n  <Text id=\"closeRedirectLbl\" active=\"true\" offsetXY=\"0 -475\" textColor=\"White\" fontSize=\"30\">\r\n  </Text>\r\n</Panel>\r\n\r\n<Panel id=\"main\" active=\"false\" position=\"0 0 0\" scale=\"0.5 0.5 0.5\" offsetXY=\"0 0\" color=\"#999999\" visibility=\"Diamonds\">\r\n  <Text offsetXY=\"0 400\">CHOOSE YOUR SEAT</Text>\r\n  <Button id=\"redBtn\" offsetXY=\"-300 100\" color=\"#bb0000\"  onClick=\"placeToRed\">Red Player</Button>\r\n  <Button id=\"blueBtn\" offsetXY=\"300 100\" color=\"#0033bb\" textColor=\"#aaaaaa\" onClick=\"placeToBlue\">Blue Player</Button>\r\n  <Text fontSize=\"45\" color=\"#bb0000\" offsetXY=\"0 -100\" >USE OTHER PLAYER COLORS AT YOUR OWN RISK !</Text>\r\n  <Button id=\"greyBtn\" offsetXY=\"0 -250\"  color=\"#666666\" width=\"1150\" height=\"200\"  onClick=\"placeToGray\">Spectator</Button>\r\n  <Button id=\"closeBtn\" offsetXY=\"0 -475\"  color=\"#000000\" textColor=\"#aaaaaa\" width=\"500\" height=\"80\"  fontSize=\"30\" onClick=\"closeMenu\">CLOSE MENU</Button>\r\n</Panel>\r\n\r\n\r\n\r\n<Panel id=\"rollDice\" active=\"true\" position=\"-635 515 0\" scale=\"0.5 0.5 0.5\" offsetXY=\"0 0\" color=\"#99999900\" visibility=\"None|Hearts|Spades\">\r\n<Text fontSize=\"25\" color=\"Grey\" offsetXY=\"0 -65\" >( SELECT A MODEL FIRST )</Text>\r\n  <Button id=\"toDiceRoller\" offsetXY=\"150 0\" color=\"Black\" textColor=\"Green\" onClick=\"goToDiceRoller\" width=\"270\" height=\"90\" fontSize=\"30\"  fontStyle=\"Bold\">TO DICE ROLLER</Button>\r\n  <Button id=\"toSquad\" offsetXY=\"-150 0\" color=\"Black\" textColor=\"Red\"  onClick=\"goToSquad\"             width=\"270\" height=\"90\" fontSize=\"30\"  fontStyle=\"Bold\">BACK TO SQUAD</Button>\r\n</Panel>\r\n\r\n<Panel id=\"passTurn\" active=\"true\" position=\"525 495 0\" scale=\"0.5 0.5 0.5\" offsetXY=\"0 0\" color=\"#99999900\" visibility=\"Black\">\r\n  <Button id=\"passTurnBtn\" offsetXY=\"0 0\" color=\"Red\" textColor=\"White\" onClick=\"nextPhase\" width=\"200\" height=\"180\" fontSize=\"35\"  fontStyle=\"Bold\"></Button>\r\n  <Text id=\"passTurnTxt\" offsetXY=\"0 0\" color=\"White\" textColor=\"White\" onClick=\"nextPhase\" width=\"180\" height=\"180\" fontSize=\"35\"  fontStyle=\"Bold\">NEXT PHASE</Text>\r\n</Panel>",
+  "VectorLines": [
+    {
+      "points3": [
+        {
+          "x": 76.5,
+          "y": 0.9711361,
+          "z": 9.2
+        },
+        {
+          "x": 76.5,
+          "y": 0.9711361,
+          "z": 6.9
+        },
+        {
+          "x": 73.0,
+          "y": 0.9711361,
+          "z": 6.9
+        },
+        {
+          "x": 73.0,
+          "y": 0.9711361,
+          "z": 9.2
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "thickness": 0.1,
+      "loop": true
+    },
+    {
+      "points3": [
+        {
+          "x": 77.5,
+          "y": 0.9711361,
+          "z": 9.2
+        },
+        {
+          "x": 77.5,
+          "y": 0.9711361,
+          "z": 6.9
+        },
+        {
+          "x": 81.0,
+          "y": 0.9711361,
+          "z": 6.9
+        },
+        {
+          "x": 81.0,
+          "y": 0.9711361,
+          "z": 9.2
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "thickness": 0.1,
+      "loop": true
+    },
+    {
+      "points3": [
+        {
+          "x": 76.5,
+          "y": 0.9711361,
+          "z": -9.2
+        },
+        {
+          "x": 76.5,
+          "y": 0.9711361,
+          "z": -6.9
+        },
+        {
+          "x": 73.0,
+          "y": 0.9711361,
+          "z": -6.9
+        },
+        {
+          "x": 73.0,
+          "y": 0.9711361,
+          "z": -9.2
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "thickness": 0.1,
+      "loop": true
+    },
+    {
+      "points3": [
+        {
+          "x": 77.5,
+          "y": 0.9711361,
+          "z": -9.2
+        },
+        {
+          "x": 77.5,
+          "y": 0.9711361,
+          "z": -6.9
+        },
+        {
+          "x": 81.0,
+          "y": 0.9711361,
+          "z": -6.9
+        },
+        {
+          "x": 81.0,
+          "y": 0.9711361,
+          "z": -9.2
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "thickness": 0.1,
+      "loop": true
+    }
+  ],
+  "SnapPoints": [
+    {
+      "Position": {
+        "x": 79.25,
+        "y": 0.9611349,
+        "z": 8.05
+      },
+      "Rotation": {
+        "x": 0.0,
+        "y": 270.0,
+        "z": 180.0
+      }
+    },
+    {
+      "Position": {
+        "x": 79.25,
+        "y": 0.9611349,
+        "z": -8.05
+      },
+      "Rotation": {
+        "x": 0.0,
+        "y": 270.0,
+        "z": 180.0
+      }
+    }
+  ],
   "ObjectStates": [
     {
       "GUID": "f7d85a",
@@ -2787,9 +2939,9 @@
       "GUID": "2671c8",
       "Name": "Digital_Clock",
       "Transform": {
-        "posX": 79.2518,
+        "posX": 79.0,
         "posY": 0.85,
-        "posZ": 18.0,
+        "posZ": 23.0,
         "rotX": 90.0,
         "rotY": 90.0,
         "rotZ": 0.0,
@@ -4423,9 +4575,9 @@
       "GUID": "1fcbf0",
       "Name": "Digital_Clock",
       "Transform": {
-        "posX": 79.25,
+        "posX": 79.0,
         "posY": 0.85,
-        "posZ": -18.0,
+        "posZ": -23.0,
         "rotX": 90.0,
         "rotY": 90.0,
         "rotZ": 0.0,
@@ -9949,7 +10101,7 @@
         "scaleY": 1.0,
         "scaleZ": 1.0
       },
-      "Nickname": "9e Score Sheet",
+      "Nickname": "10e Score Sheet",
       "Description": "{\n  \"P1\": \"Player 1\",\n  \"P2\": \"Player 2\"\n}",
       "GMNotes": "",
       "ColorDiffuse": {
@@ -9972,7 +10124,7 @@
       "Hands": false,
       "CustomMesh": {
         "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1461932452813595690/91831FA376A4FED1DD74269E69379812C4BB7C2C/",
-        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/1852668822286409731/61D509C3A16DD82714A573493E3A13E04D5B2DCA/",
+        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/2028354869667691342/FF8CFD900D08917AB4AB5E573C18BC8FA24A6439/",
         "NormalURL": "",
         "ColliderURL": "",
         "Convex": true,
@@ -19972,6 +20124,4122 @@
           "UniqueBack": false,
           "Type": 0
         }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "a30deb",
+      "Name": "Deck",
+      "Transform": {
+        "posX": 85.0,
+        "posY": 0.9449992,
+        "posZ": 11.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 180.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Deployment cards",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": false,
+      "SidewaysCard": false,
+      "DeckIDs": [
+        8500,
+        8300,
+        8700,
+        8600,
+        8200
+      ],
+      "CustomDeck": {
+        "85": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271337842/EF6A7427E15D3A7BA1649818D91CB01CA263609A/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "83": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271336872/BE3E7168ED456F18C4B403B7833FB8530A51DB85/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "87": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271339754/1320A28E4F4BC1713BCEEAAB384B9458F56F5C8F/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "86": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271338829/8282B0F26C3AEE706A855C83390BC61A54F97F84/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "82": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271333903/5A9F0312F3B54435F6369641D56DD220861B2F37/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "ContainedObjects": [
+        {
+          "GUID": "117c77",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 85.19666,
+            "posY": 1.003625,
+            "posZ": 5.004832,
+            "rotX": 0.00138585479,
+            "rotY": 270.0,
+            "rotZ": 180.068771,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Hammer and Anvil",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8500,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "85": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271337842/EF6A7427E15D3A7BA1649818D91CB01CA263609A/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "7e4b95",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 82.5799942,
+            "posY": 0.9136025,
+            "posZ": 41.00159,
+            "rotX": 8.353586E-07,
+            "rotY": 270.000061,
+            "rotZ": -4.828546E-06,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Dawn of War",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8300,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "83": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271336872/BE3E7168ED456F18C4B403B7833FB8530A51DB85/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "381d7c",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 82.64931,
+            "posY": 0.913602531,
+            "posZ": 38.396244,
+            "rotX": -5.69308554E-07,
+            "rotY": 270.00235,
+            "rotZ": -1.58710918E-06,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Sweeping Engagement",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8700,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "87": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271339754/1320A28E4F4BC1713BCEEAAB384B9458F56F5C8F/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "ad4220",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 82.61078,
+            "posY": 0.91360265,
+            "posZ": 35.7660561,
+            "rotX": -5.063263E-07,
+            "rotY": 269.9989,
+            "rotZ": -1.73885155E-06,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Search and Destroy",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8600,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "86": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271338829/8282B0F26C3AEE706A855C83390BC61A54F97F84/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "3c0679",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 84.40796,
+            "posY": 0.9997858,
+            "posZ": 5.92601,
+            "rotX": -3.88273151E-07,
+            "rotY": 270.018,
+            "rotZ": 180.001312,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Crucible of Battle",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8200,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "82": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271333903/5A9F0312F3B54435F6369641D56DD220861B2F37/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273959365/8DA65F1B6A8538FCAEA566F00D707A59B546B9F6/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "2c6243",
+      "Name": "Deck",
+      "Transform": {
+        "posX": 74.75,
+        "posY": 0.9642555,
+        "posZ": 8.05,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 180.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Red Secondary Mission cards",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 1,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": false,
+      "SidewaysCard": false,
+      "DeckIDs": [
+        6200,
+        6500,
+        6300,
+        7300,
+        6700,
+        7700,
+        7500,
+        7600,
+        6800
+      ],
+      "CustomDeck": {
+        "62": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271372964/AB1EAD28B2E05FC69BBF45C5E408D2BE6A3B5016/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "65": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271383165/FDD64486F551DFA649C972B261D33E47434AB97D/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "63": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271374130/9FC54DF15F6A8A793F005BFA17791905F00B9FDB/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "73": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271384668/23272288A9D5A2699D54B84B9FD0F44288988E04/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "67": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271387538/7E811CE8F4553ACE8C4D0ED448883F9B8E9E8A5B/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "77": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271388270/F3B452804DCB445C251B662A54C62E732A6B0490/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "75": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271389020/B26C23544646A03FF9B5B21C4D5EA2CFEFCDC092/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "76": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271390102/5F6B428482CCA389D7C9FAB4A0FBAB90FCC87212/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "68": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271390792/63A71165244AAFC64E370D68578A70348919C6E8/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "ContainedObjects": [
+        {
+          "GUID": "7bd3d5",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 74.84848,
+            "posY": 1.03827667,
+            "posZ": 8.131949,
+            "rotX": 0.00165660644,
+            "rotY": 270.020233,
+            "rotZ": 180.00267,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "A Tempting Target",
+          "Description": "When this Secondary Mission card is drawn, your opponent must select one objective marker in No Man’s Land.\r\n\r\nAt the end of your turn, if you control that selected objective marker, this Secondary Mission is achieved and you score 5VP.\r",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 2,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6200,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "62": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271372964/AB1EAD28B2E05FC69BBF45C5E408D2BE6A3B5016/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "ae011c",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 78.14787,
+            "posY": 1.04876018,
+            "posZ": 18.3835125,
+            "rotX": -0.000181787764,
+            "rotY": 269.968323,
+            "rotZ": 180.000259,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Capture Enemy Outpost",
+          "Description": "At the end of your turn, if you control one or more objective markers in your opponent’s deployment zone, this Secondary Mission is achieved and you score 8VP.",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6500,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "65": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271383165/FDD64486F551DFA649C972B261D33E47434AB97D/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "d4b26c",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 77.71619,
+            "posY": 1.01841617,
+            "posZ": 17.8983078,
+            "rotX": 0.0350661539,
+            "rotY": 270.137939,
+            "rotZ": 180.166519,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Area Denial",
+          "Description": "At the end of your turn, if one or more units from your army (excluding Battle-shocked units) are wholly within 6” of the centre of the battlefield, and there are no enemy units wholly within 6” of the centre of the battlefield, this Secondary Mission is achieved and you score 5VP.\r\n\r\nIf, at the end of your turn, there are one or more enemy units wholly within 6” of the centre of the battlefield, but there are no enemy units within 3” of the centre of the battlefield, then this Secondary Mission is still achieved, but in this instance you score 3VP instead of 5VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 1,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6300,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "63": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271374130/9FC54DF15F6A8A793F005BFA17791905F00B9FDB/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "9e0c36",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -2.6001687,
+            "posY": 0.91360265,
+            "posZ": 58.6763573,
+            "rotX": 1.59158981E-06,
+            "rotY": 0.005884381,
+            "rotZ": -5.88150328E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Defend Stronghold",
+          "Description": "At the end of your opponent’s turn, or at the end of the battle (whichever comes first), if you control one or more objective markers in your own deployment zone, this Secondary Mission is achieved and you score 3VP.\r\n\r\nThis Secondary Mission cannot be achieved during the first battle round. If you randomly drew this Secondary Mission card during the first battle round, draw a new Secondary Mission card and shuffle this Secondary Mission card back into your Secondary Mission deck.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7300,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "73": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271384668/23272288A9D5A2699D54B84B9FD0F44288988E04/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "b77db7",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -4.58646,
+            "posY": 0.9136027,
+            "posZ": 58.69493,
+            "rotX": 1.67911492E-06,
+            "rotY": 0.02281154,
+            "rotZ": -4.53757423E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Extend Battle Lines",
+          "Description": "At the end of your turn, if you control one or more objective markers in your own deployment zone and you also control one or more objective markers in No Man’s Land, this Secondary Mission is achieved and you score 5VP.\r\n\r\nIf you only have one unit remaining in your army, then this Secondary Mission is instead achieved at the end of your turn if that unit controls one objective marker in No Man’s Land, but in this instance you score 2VP instead of 5VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6700,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "67": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271387538/7E811CE8F4553ACE8C4D0ED448883F9B8E9E8A5B/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "4aaae8",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -6.61775064,
+            "posY": 0.913602769,
+            "posZ": 58.68269,
+            "rotX": 1.63374921E-06,
+            "rotY": 0.0220189188,
+            "rotZ": -4.82416169E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Investigate Signals",
+          "Description": "In your Shooting phase, you can select one or more units from your army that are not Battle-shocked and are eligible to shoot. Until the end of your turn, the units you selected are not eligible to shoot or declare a charge.\r\n\r\nAt the end of your turn, each corner of the battlefield that has one or more of these selected units wholly within 9” of it is scanned by your army.\r\n\r\nIf one or more corners are scanned by your army, this Secondary Mission is achieved and you score 2VP for each corner scanned by your army this turn.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7700,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "77": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271388270/F3B452804DCB445C251B662A54C62E732A6B0490/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "db9e6a",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -8.636173,
+            "posY": 0.913602769,
+            "posZ": 58.68262,
+            "rotX": 1.61665821E-06,
+            "rotY": 0.04509215,
+            "rotZ": -6.085775E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "No Prisoners",
+          "Description": "While this Secondary Mission is active, each time an enemy unit is destroyed, you score 2VP (to a maximum of 5VP).\r\n\r\nNote that VP are scored even if such a unit is destroyed and then subsequently resurrected for any reason. If you score any VP from this Secondary Mission during a turn, then at the end of that turn this Secondary Mission is achieved.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7500,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "75": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271389020/B26C23544646A03FF9B5B21C4D5EA2CFEFCDC092/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "d76c92",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -10.6207762,
+            "posY": 0.913602769,
+            "posZ": 58.7082253,
+            "rotX": 1.53944245E-06,
+            "rotY": 0.0219908524,
+            "rotZ": -5.63843344E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Overwhelming Force",
+          "Description": "While this Secondary Mission is active, each time an enemy unit that started the turn within range of an objective marker is destroyed, you score 3VP (to a maximum of 5VP).\r\n\r\nNote that VP are scored even if such a unit is destroyed and then subsequently resurrected for any reason. If you score any VP from this Secondary Mission during a turn, then at the end of that turn this Secondary Mission is achieved.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7600,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "76": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271390102/5F6B428482CCA389D7C9FAB4A0FBAB90FCC87212/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "84800d",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -12.7781086,
+            "posY": 0.9136028,
+            "posZ": 58.7087326,
+            "rotX": 1.50855089E-06,
+            "rotY": 359.990723,
+            "rotZ": -5.34337971E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Secure No Man's Land",
+          "Description": "At the end of your turn, if you control two or more objective markers in No Man’s Land, this Secondary Mission is achieved and you score 5VP.\r\n\r\nIf, at the end of your turn, you only control one objective marker in No Man’s Land, this Secondary Mission is still achieved, but in this instance you score 2VP instead of 5VP.\r",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6800,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "68": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271390792/63A71165244AAFC64E370D68578A70348919C6E8/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "d98a05",
+      "Name": "Deck",
+      "Transform": {
+        "posX": 74.75,
+        "posY": 0.9642555,
+        "posZ": -8.05,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 180.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Blue Secondary Mission cards",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": false,
+      "SidewaysCard": false,
+      "DeckIDs": [
+        6300,
+        6200,
+        6500,
+        7300,
+        6700,
+        7700,
+        7500,
+        7600,
+        6800
+      ],
+      "CustomDeck": {
+        "63": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271374130/9FC54DF15F6A8A793F005BFA17791905F00B9FDB/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "62": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271372964/AB1EAD28B2E05FC69BBF45C5E408D2BE6A3B5016/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "65": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271383165/FDD64486F551DFA649C972B261D33E47434AB97D/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "73": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271384668/23272288A9D5A2699D54B84B9FD0F44288988E04/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "67": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271387538/7E811CE8F4553ACE8C4D0ED448883F9B8E9E8A5B/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "77": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271388270/F3B452804DCB445C251B662A54C62E732A6B0490/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "75": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271389020/B26C23544646A03FF9B5B21C4D5EA2CFEFCDC092/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "76": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271390102/5F6B428482CCA389D7C9FAB4A0FBAB90FCC87212/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "68": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271390792/63A71165244AAFC64E370D68578A70348919C6E8/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "ContainedObjects": [
+        {
+          "GUID": "d4b26c",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 1.45781577,
+            "posY": 0.91360265,
+            "posZ": 58.75013,
+            "rotX": 1.668985E-06,
+            "rotY": 0.0558796041,
+            "rotZ": -5.14813848E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Area Denial",
+          "Description": "At the end of your turn, if one or more units from your army (excluding Battle-shocked units) are wholly within 6” of the centre of the battlefield, and there are no enemy units wholly within 6” of the centre of the battlefield, this Secondary Mission is achieved and you score 5VP.\r\n\r\nIf, at the end of your turn, there are one or more enemy units wholly within 6” of the centre of the battlefield, but there are no enemy units within 3” of the centre of the battlefield, then this Secondary Mission is still achieved, but in this instance you score 3VP instead of 5VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6300,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "63": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271374130/9FC54DF15F6A8A793F005BFA17791905F00B9FDB/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "7bd3d5",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 3.44247246,
+            "posY": 0.91360265,
+            "posZ": 58.739563,
+            "rotX": 1.64342259E-06,
+            "rotY": 0.03229068,
+            "rotZ": -4.663819E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "A Tempting Target",
+          "Description": "When this Secondary Mission card is drawn, your opponent must select one objective marker in No Man’s Land.\r\n\r\nAt the end of your turn, if you control that selected objective marker, this Secondary Mission is achieved and you score 5VP.\r",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6200,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "62": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271372964/AB1EAD28B2E05FC69BBF45C5E408D2BE6A3B5016/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "ae011c",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -0.595634639,
+            "posY": 0.91360265,
+            "posZ": 58.6921463,
+            "rotX": 1.613958E-06,
+            "rotY": 0.0503106341,
+            "rotZ": -4.35816048E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Capture Enemy Outpost",
+          "Description": "At the end of your turn, if you control one or more objective markers in your opponent’s deployment zone, this Secondary Mission is achieved and you score 8VP.",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6500,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "65": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271383165/FDD64486F551DFA649C972B261D33E47434AB97D/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "9e0c36",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -2.6001687,
+            "posY": 0.91360265,
+            "posZ": 58.6763573,
+            "rotX": 1.59158981E-06,
+            "rotY": 0.005884381,
+            "rotZ": -5.88150328E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Defend Stronghold",
+          "Description": "At the end of your opponent’s turn, or at the end of the battle (whichever comes first), if you control one or more objective markers in your own deployment zone, this Secondary Mission is achieved and you score 3VP.\r\n\r\nThis Secondary Mission cannot be achieved during the first battle round. If you randomly drew this Secondary Mission card during the first battle round, draw a new Secondary Mission card and shuffle this Secondary Mission card back into your Secondary Mission deck.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7300,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "73": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271384668/23272288A9D5A2699D54B84B9FD0F44288988E04/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "b77db7",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -4.58646,
+            "posY": 0.9136027,
+            "posZ": 58.69493,
+            "rotX": 1.67911492E-06,
+            "rotY": 0.02281154,
+            "rotZ": -4.53757423E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Extend Battle Lines",
+          "Description": "At the end of your turn, if you control one or more objective markers in your own deployment zone and you also control one or more objective markers in No Man’s Land, this Secondary Mission is achieved and you score 5VP.\r\n\r\nIf you only have one unit remaining in your army, then this Secondary Mission is instead achieved at the end of your turn if that unit controls one objective marker in No Man’s Land, but in this instance you score 2VP instead of 5VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6700,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "67": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271387538/7E811CE8F4553ACE8C4D0ED448883F9B8E9E8A5B/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "4aaae8",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -6.61775064,
+            "posY": 0.913602769,
+            "posZ": 58.68269,
+            "rotX": 1.63374921E-06,
+            "rotY": 0.0220189188,
+            "rotZ": -4.82416169E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Investigate Signals",
+          "Description": "In your Shooting phase, you can select one or more units from your army that are not Battle-shocked and are eligible to shoot. Until the end of your turn, the units you selected are not eligible to shoot or declare a charge.\r\n\r\nAt the end of your turn, each corner of the battlefield that has one or more of these selected units wholly within 9” of it is scanned by your army.\r\n\r\nIf one or more corners are scanned by your army, this Secondary Mission is achieved and you score 2VP for each corner scanned by your army this turn.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7700,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "77": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271388270/F3B452804DCB445C251B662A54C62E732A6B0490/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "db9e6a",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -8.636173,
+            "posY": 0.913602769,
+            "posZ": 58.68262,
+            "rotX": 1.61665821E-06,
+            "rotY": 0.04509215,
+            "rotZ": -6.085775E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "No Prisoners",
+          "Description": "While this Secondary Mission is active, each time an enemy unit is destroyed, you score 2VP (to a maximum of 5VP).\r\n\r\nNote that VP are scored even if such a unit is destroyed and then subsequently resurrected for any reason. If you score any VP from this Secondary Mission during a turn, then at the end of that turn this Secondary Mission is achieved.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7500,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "75": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271389020/B26C23544646A03FF9B5B21C4D5EA2CFEFCDC092/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "d76c92",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -10.6207762,
+            "posY": 0.913602769,
+            "posZ": 58.7082253,
+            "rotX": 1.53944245E-06,
+            "rotY": 0.0219908524,
+            "rotZ": -5.63843344E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Overwhelming Force",
+          "Description": "While this Secondary Mission is active, each time an enemy unit that started the turn within range of an objective marker is destroyed, you score 3VP (to a maximum of 5VP).\r\n\r\nNote that VP are scored even if such a unit is destroyed and then subsequently resurrected for any reason. If you score any VP from this Secondary Mission during a turn, then at the end of that turn this Secondary Mission is achieved.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7600,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "76": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271390102/5F6B428482CCA389D7C9FAB4A0FBAB90FCC87212/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "84800d",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -12.7781086,
+            "posY": 0.9136028,
+            "posZ": 58.7087326,
+            "rotX": 1.50855089E-06,
+            "rotY": 359.990723,
+            "rotZ": -5.34337971E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Secure No Man's Land",
+          "Description": "At the end of your turn, if you control two or more objective markers in No Man’s Land, this Secondary Mission is achieved and you score 5VP.\r\n\r\nIf, at the end of your turn, you only control one objective marker in No Man’s Land, this Secondary Mission is still achieved, but in this instance you score 2VP instead of 5VP.\r",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6800,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "68": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271390792/63A71165244AAFC64E370D68578A70348919C6E8/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "3ca4a6",
+      "Name": "Deck",
+      "Transform": {
+        "posX": 85.0,
+        "posY": 0.964255452,
+        "posZ": 5.6,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 180.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Primary Mission cards",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": false,
+      "SidewaysCard": false,
+      "DeckIDs": [
+        5600,
+        5500,
+        5400,
+        5300,
+        5200,
+        5800,
+        5700,
+        5900,
+        6000
+      ],
+      "CustomDeck": {
+        "56": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271349127/39A2D632F08463778A731E8AB48E9B147080AC7C/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "55": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271348283/598CDB8640F51C78BE05C9C5CAB9045CCCC8E9B4/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "54": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271347148/01C347625648964CC386E11FBB521F251BF71BB4/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "53": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271345879/8316AFDD01182DABAFEE334FA6BD75EC4CBE61A9/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "52": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271321827/79A3D86CD90E192BA4790DAAFE6C9534B3D0DCDC/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "58": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271351253/F6E1B4965BD71F5748CCA77F6211DCF79C360C5E/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "57": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271350042/1AE7F62F1C59EE6A0F190D6EDF2683BC8489AB10/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "59": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271351980/CE6E081142280F82FFC46A8BF079393B861BD047/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "60": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271352760/2768599ED1D431D4E6D2FF73A163E8D87198E481/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "ContainedObjects": [
+        {
+          "GUID": "ec78cd",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 82.5820541,
+            "posY": 1.05934012,
+            "posZ": 16.81191,
+            "rotX": -0.000165416059,
+            "rotY": 270.006073,
+            "rotZ": 180.000381,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Sites of Power",
+          "Description": "The objective markers in No Man’s Land are sites of power. At the end of each Command phase, the player whose turn it is empowers all sites of power that they control that have one or more [b]CHARACTER[/b] models from their army within range; each site of power remains empowered by that player while one or more of their [b]CHARACTER[/b] model remains within range of it.\r\n\r\n[b]In the second, third and fourth battle rounds:[/b]\r\n\r\nAt the end of each Command phase, the player whose turn it is scores VP as follows (up to 15VP per turn):\r\n\r\n* 3VP for each objective marker they control.\r\n* 3VP for each site of power that they have empowered.\r\n\r\n[b]In the fifth battle round:[/b]\r\n\r\nThe player who has the first turn scores VP as described above.\r\n\r\nThe player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 5600,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "56": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271349127/39A2D632F08463778A731E8AB48E9B147080AC7C/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "3ad5a3",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -6.012298,
+            "posY": 0.913603,
+            "posZ": 50.28639,
+            "rotX": 1.61668822E-06,
+            "rotY": 359.965546,
+            "rotZ": -4.95348559E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Scorched Earth",
+          "Description": "From the second battle round, in each player’s Shooting phase, the player whose turn it is can select one unit from their army that is not Battle-shocked and is eligible to shoot. Until the end of that turn, that unit is not eligible to shoot or declare a charge. At the start of its controlling player’s next Command phase, if that unit is within 1” of an objective marker that the player whose turn it is controls, that objective marker is burned and removed from the battlefield.\r\n\r\n[b]In the second, third and fourth battle rounds:[/b]\r\n\r\nAt the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 10VP per turn).\r\n\r\n[b]In the fifth battle round:[/b]\r\n\r\nThe player who has the first turn scores VP as described above.\r\n\r\nThe player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.\r\n\r\n[b]At the end of the battle:[/b]\r\n\r\nEach player scores 5VP if one or more objective markers in No Man’s Land were burned by a unit from their army, and 10VP if the objective marker in their opponent’s deployment zone was burned.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 5500,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "55": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271348283/598CDB8640F51C78BE05C9C5CAB9045CCCC8E9B4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "5444d4",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -3.91048074,
+            "posY": 0.913602948,
+            "posZ": 50.345623,
+            "rotX": 1.59288845E-06,
+            "rotY": 359.992828,
+            "rotZ": -5.198465E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Purge the Foe",
+          "Description": "[b]In the second, third and fourth battle rounds:[/b]\r\n\r\nAt the end of each Command phase, the player whose turn it is scores 4VP if they control one or more objective markers, and an extra 4VP if they control more objective markers than their opponent controls.\r\n\r\n[b]In the fifth battle round:[/b]\r\n\r\nThe player who has the first turn scores VP as described above.\r\n\r\nThe player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.\r\n\r\n[b]In every battle round:[/b]\r\n\r\nAt the end of the battle round, each player scores 4VP if one or more enemy units were destroyed that battle round, and an extra 4VP if more enemy units than friendly units were destroyed that battle round.\r\n\r\nNote that a unit can, if it is returned to the battlefield for any reason, potentially contribute to this Primary Mission several times (assuming it is returned and subsequently destroyed several times over).\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 5400,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "54": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271347148/01C347625648964CC386E11FBB521F251BF71BB4/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "f97708",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -1.79719,
+            "posY": 0.913602948,
+            "posZ": 50.3981361,
+            "rotX": 1.6113944E-06,
+            "rotY": 0.00599929225,
+            "rotZ": -3.92823239E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Priority Targets",
+          "Description": "[b]In the second, third, fourth and fifth battle rounds:[/b]\r\n\r\nAt the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 10VP per turn)\r\n\r\n[b]At the end of the battle:[/b]\r\n\r\nEach player scores 5VP for each objective marker they control (up to 15VP per player).\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 5300,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "53": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271345879/8316AFDD01182DABAFEE334FA6BD75EC4CBE61A9/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "44ff29",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 0.384085953,
+            "posY": 0.913602948,
+            "posZ": 50.37604,
+            "rotX": 1.60921456E-06,
+            "rotY": 0.00507348171,
+            "rotZ": -4.06647956E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Deploy Servo-Skulls",
+          "Description": "The objective markers that start the battle in No Man’s Land are servo-skulls. At the end of each turn, each of these objective markers can be moved up to 6” in any direction by the player that controls it. When moving objective markers, they cannot end that move on top of any other objective marker or model, or inside impassable parts of terrain features (such as the walls of a ruin).\r\n\r\n[b]In the second, third, fourth and fifth battle rounds:[/b]\r\n\r\nAt the end of each turn, the player whose turn it is scores VP as follows:\r\n\r\n\r\n* 2VP for each servo-skull that is wholly within 12” of their opponent’s deployment zone.\r\n* 5VP for each servo-skull that is wholly within 6” of their opponent’s deployment zone.\r\n* 8VP for each servo-skull that is wholly within their opponent’s deployment zone.\r\n\r\nNote that these are cumulative, so if a servo-skull is wholly within your opponent’s deployment zone you would score 15VP from that servo-skull at the end of your turn.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 5200,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "52": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271321827/79A3D86CD90E192BA4790DAAFE6C9534B3D0DCDC/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "884291",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -12.2626295,
+            "posY": 0.913603,
+            "posZ": 50.32472,
+            "rotX": 1.668254E-06,
+            "rotY": 0.023714181,
+            "rotZ": -5.93861557E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Take and Hold",
+          "Description": "[b]In the second, third and fourth battle rounds:[/b]\r\n\r\nAt the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 15VP per turn).\r\n\r\n[b]In the fifth battle round:[/b]\r\n\r\nThe player who has the first turn scores VP as described above.\r\n\r\nThe player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 5800,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "58": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271351253/F6E1B4965BD71F5748CCA77F6211DCF79C360C5E/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "a34ae1",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -10.2303743,
+            "posY": 0.913603,
+            "posZ": 50.31722,
+            "rotX": 1.57651311E-06,
+            "rotY": -0.00463111233,
+            "rotZ": -4.51817385E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Supply Drop",
+          "Description": "At the start of the battle, players randomly select two different objective markers in No Man’s Land: the first selected is the Alpha objective, the second selected is the Omega objective. At the start of the fourth battle round, the Alpha objective is removed from the battlefield. At the start of the fifth battle round, all objective markers in No Man’s Land apart from the Omega objective are also removed.\r\n\r\n[b]In the second and third battle rounds:[/b]\r\n\r\nAt the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control in No Man’s Land.\r\n\r\n[b]In the fourth battle round:[/b]\r\n\r\nAt the end of each Command phase, the player whose turn it is scores 8VP for each objective marker they control in No Man’s Land.\r\n\r\n[b]In the fifth battle round:[/b]\r\n\r\nThe player who has the first turn scores 15VP at the end of their Command phase if they control the objective marker in No Man’s Land.\r\n\r\nThe player who has the second turn scores 15VP at the end of their turn if they control the objective marker in No Man’s Land.\r",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 5700,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "57": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271350042/1AE7F62F1C59EE6A0F190D6EDF2683BC8489AB10/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "646b49",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -14.2559214,
+            "posY": 0.913603067,
+            "posZ": 50.29868,
+            "rotX": 1.49784307E-06,
+            "rotY": 359.787354,
+            "rotZ": -9.565257E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "The Ritual",
+          "Description": "When setting up the battlefield, remove all objective markers in No Man’s Land except the one closest to the centre of the battlefield.\r\n\r\nIn each player’s Shooting phase, the player whose turn it is can select one unit from their army that is not Battle-shocked and is eligible to shoot. Until the end of that turn, that unit is not eligible to shoot or declare a charge. At the end of that turn, the player whose turn it is can set up one objective marker wholly within No Man’s Land and within 1” of that unit provided it can be set up exactly 9” from one other objective marker and not within 6” of any other objective marker.\r\n\r\n[b]In the second, third and fourth battle rounds:[/b]\r\n\r\nAt the end of each Command phase, the player whose turn it is scores 5VP for each objective marker in No Man’s Land they control (up to 15VP per turn).\r\n\r\n[b]In the fifth battle round:[/b]\r\n\r\nThe player who has the first turn scores VP as described above.\r\n\r\nThe player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 5900,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "59": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271351980/CE6E081142280F82FFC46A8BF079393B861BD047/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "6fc1c2",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -16.151638,
+            "posY": 0.913603067,
+            "posZ": 50.4732323,
+            "rotX": 1.66742518E-06,
+            "rotY": 0.007908245,
+            "rotZ": -5.24853135E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Vital Ground",
+          "Description": "If you draw this and the Hidden Supplies Mission Rule card, discard this card and draw a new Primary Mission card.\r\n\r\nAfter setting up the battlefield, remove the objective marker in No Man’s Land that is closest to the centre of the battlefield.\r\n\r\n[b]In the second, third and fourth battle rounds:[/b]\r\n\r\nAt the end of each Command phase, the player whose turn it is scores VP as follows:\r\n\r\n* If they control the objective marker in their own deployment zone, they score 2VP\r\n* For each objective marker in No Man’s Land that they control, they score 5VP.\r\n* If they control the objective marker in their opponent’s deployment zone, they score 6VP.\r\n\r\n[b]In the fifth battle round:[/b]\r\n\r\nThe player who has the first turn score VP as described above.\r\n\r\nThe player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 6000,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "60": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271352760/2768599ED1D431D4E6D2FF73A163E8D87198E481/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273902928/1548037D1BFAA4DA4D6C64EE979BC3D04E61A690/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "1665ca",
+      "Name": "Deck",
+      "Transform": {
+        "posX": 85.0,
+        "posY": 0.9786975,
+        "posZ": 8.3,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 180.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Mission Rule cards",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": false,
+      "SidewaysCard": false,
+      "DeckIDs": [
+        9400,
+        8800,
+        9500,
+        8900,
+        9000,
+        9600,
+        9700,
+        9800,
+        9100,
+        9900,
+        9200,
+        9300
+      ],
+      "CustomDeck": {
+        "94": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271357562/1722D591D8EBAEC9B92437A22FE0006A5141ECCB/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "88": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271355793/935F2B603E3C1FAB9B8B77F0418161519E11316D/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "95": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271359457/1175931B38D4A9E397B9CDFAE1663D43ED1473D3/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "89": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271358566/26544BB77F11E43C05439A5324282BB05D3C0BAA/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "90": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271361981/F7774131126886ACDFE592CEA7FA78D2CF02004B/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "96": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271361272/EF006B7EF8AC3058CB96680D5ACED241D8497DF9/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "97": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271362662/E154AA5BAC5F9044D4355A936EFADCCE989336B6/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "98": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271363420/90F36BB158D222413ED3ACED4456B645697AFFDB/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "91": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271365185/CE80564F1CB21B95C8AD767F963BE3F4977DD721/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "99": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271364323/04C4221376C1A4D4B3A41C3CF27FD1DCD0D0170F/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "92": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271366134/4E200EE544248CA4A2C2DF414EA513BE3A629593/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "93": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271369317/58C4AC5DC0980903D0313A2C69878F3915D80DD8/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "ContainedObjects": [
+        {
+          "GUID": "876ac7",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 82.41024,
+            "posY": 1.0672282,
+            "posZ": 10.7998114,
+            "rotX": 0.000376648415,
+            "rotY": 269.979065,
+            "rotZ": 180.005173,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Chosen Battlefield",
+          "Description": "In this mission, objective markers are not placed as shown on the Deployment card drawn. Instead, players roll off at the start of the Place Objective Markers step, then alternate setting up objective markers, one at a time, starting with the winner of the roll off.\r\n\r\nOne objective marker must be placed wholly within each deployment zone, and the remaining objective markers must be placed wholly within No Man’s Land, as shown on the Deployment card drawn. Objective markers must be placed more than 6” away from any battlefield edge and more than 9” away from all other objective markers.\r\n\r\nIf for whatever reason it is not possible to set up an objective marker as described above, it is not placed on the battlefield.\r\n\r\nIf any rules require players to set up additional objective markers (e.g. Hidden Supplies) during the Place Objective Markers step, players set them up as described on the Mission Rule card.\r\n\r\nIf any rules instruct players to remove one or more objective markers, do so after setting them all up.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9400,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "94": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271357562/1722D591D8EBAEC9B92437A22FE0006A5141ECCB/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "db0022",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 4.722185,
+            "posY": 0.913603067,
+            "posZ": 43.4726639,
+            "rotX": 1.66214693E-06,
+            "rotY": 0.03624995,
+            "rotZ": -5.450211E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Chilling Rain",
+          "Description": "In this mission, no additional mission rules apply.",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8800,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "88": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271355793/935F2B603E3C1FAB9B8B77F0418161519E11316D/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "0dc3c3",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -2.68839335,
+            "posY": 0.9136031,
+            "posZ": 43.9354477,
+            "rotX": 1.5961574E-06,
+            "rotY": -0.00415686751,
+            "rotZ": -3.695433E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Hidden Supplies",
+          "Description": "In this mission, players must set up one additional objective marker in No Man’s Land.\r\n\r\nUnless the Chosen Battlefield mission rule is also in effect, before setting up this new objective marker, players must first move the objective marker in the centre of the battlefield 6” directly towards one of the corners of the battlefield (if No Man’s Land touches any of the corners of the battlefield, you must move the objective marker towards one of those corners). Players then set up the new objective marker 6” from the centre of the battlefield towards the diagonally opposite corner of the battlefield to the previously moved objective marker.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9500,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "95": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271359457/1175931B38D4A9E397B9CDFAE1663D43ED1473D3/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "ceae55",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -0.176141575,
+            "posY": 0.9136031,
+            "posZ": 43.83194,
+            "rotX": 1.599315E-06,
+            "rotY": 0.0004765255,
+            "rotZ": -5.56045563E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Delayed Reserves",
+          "Description": "In this mission, until the start of the third battle round, each time a Reserves or Strategic Reserves unit wishes to arrive on the battlefield, the controlling player must make a Reserves roll for it. To do so, that player rolls one D6: On a 3+, that unit arrives on the battlefield; otherwise, the Reserves roll fails and that unit does not arrive this turn.",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8900,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "89": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271358566/26544BB77F11E43C05439A5324282BB05D3C0BAA/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "074494",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -7.29677153,
+            "posY": 0.9136032,
+            "posZ": 43.9584579,
+            "rotX": 1.61444871E-06,
+            "rotY": 0.0130878836,
+            "rotZ": -4.867622E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Minefields",
+          "Description": "In this mission, each time an Advance roll of 6 is made for a unit, that unit suffers 1 mortal wound.",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9000,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "90": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271361981/F7774131126886ACDFE592CEA7FA78D2CF02004B/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "0f4387",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -4.928897,
+            "posY": 0.9136031,
+            "posZ": 44.0702629,
+            "rotX": 1.557326E-06,
+            "rotY": 0.013452353,
+            "rotZ": -5.265946E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Maelstrom of Battle",
+          "Description": "In this mission, shuffle the remaining Mission Rule cards together before drawing 2 new Mission Rules cards.\r\n\r\nIf either of these new Mission Rule cards is Chilling Rain, discard that Mission Rule card and draw 2 additional new Mission Rule cards (for a total of 3 new Mission Rule cards).\r\n\r\nApply all the drawn Mission Rule cards to the battle.\r",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9600,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "96": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271361272/EF006B7EF8AC3058CB96680D5ACED241D8497DF9/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "aea986",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -9.487369,
+            "posY": 0.9136032,
+            "posZ": 43.96196,
+            "rotX": 1.641201E-06,
+            "rotY": 0.0150569733,
+            "rotZ": -5.58695433E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Scrambler Fields",
+          "Description": "In this mission:\r\n\r\nPlayers’ units with the Infiltrators ability cannot be set up within range of an objective marker that is either in No Man’s Land or their opponent’s deployment zone.\r\n\r\nPlayers’ units with the Scouts ability that make a move before the first turn begins cannot end that move within range of an objective marker that is either in No Man’s Land or their opponent’s deployment zone.\r\n\r\nIf any rule is used to redeploy a unit, that rule cannot be used to set up that unit within range of an objective marker in No Man’s Land.\r\n\r\nWhen a player’s Reserves and Strategic Reserves units are set up on the battlefield, they cannot be set up within range of an objective marker that is either in No Man’s Land or their opponent’s deployment zone.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9700,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "97": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271362662/E154AA5BAC5F9044D4355A936EFADCCE989336B6/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "458358",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -11.6622458,
+            "posY": 0.9136032,
+            "posZ": 43.9606171,
+            "rotX": 1.51895006E-06,
+            "rotY": 0.0058190953,
+            "rotZ": -5.50384357E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Secret Intel",
+          "Description": "In this mission, in each player’s Command phase, the first time that player draws Secondary Mission Cards that phase, that player can draw one additional Secondary Mission card, and then discard one of their active Secondary Mission cards.",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9800,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "98": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271363420/90F36BB158D222413ED3ACED4456B645697AFFDB/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "b1ee0d",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -16.1753559,
+            "posY": 0.913603246,
+            "posZ": 43.7720757,
+            "rotX": 1.60095237E-06,
+            "rotY": 0.007517453,
+            "rotZ": -4.935656E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Sweep and Clear",
+          "Description": "In this mission, if a player controls an objective marker at the end of their Command phase, that objective marker remains under their control, even if they have no models within range of it, unless their opponent controls it at the end of any subsequent Command phase.",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9100,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "91": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271365185/CE80564F1CB21B95C8AD767F963BE3F4977DD721/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "410168",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -14.1242533,
+            "posY": 0.913603246,
+            "posZ": 43.7789154,
+            "rotX": 1.68535234E-06,
+            "rotY": 0.02092757,
+            "rotZ": -4.9678215E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Supply Lines",
+          "Description": "In this mission, if a player controls the objective marker in their own deployment zone at the start of their Command phase, they roll one D6: on a 4+, that player gains 1CP.",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9900,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "99": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271364323/04C4221376C1A4D4B3A41C3CF27FD1DCD0D0170F/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "6ff3d4",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -18.4014473,
+            "posY": 0.9136033,
+            "posZ": 43.6600571,
+            "rotX": 1.6324982E-06,
+            "rotY": -0.005075708,
+            "rotZ": -5.000287E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Targets of Opportunity",
+          "Description": "In this mission, if a player is using Tactical Missions, then each time that player determines which Secondary Mission cards are active for them, if they have fewer than 3 active Secondary Mission cards, that player draws from their Secondary Mission deck until they have 3 Secondary Mission cards.\r\n\r\nIn this mission, if a player is using Fixed Missions, then in addition to the 2 Fixed Mission cards, that player will also draw cards from their Secondary Mission deck during the battle. At the end of the Select Secondary Missions step, that player should retrieve their Secondary Mission deck, remove all the Fixed Mission cards that they did not select at the start of that step, then shuffle the remaining cards. Then, at the start of each of that player’s Command phases, if that player has fewer than 3 active Secondary Mission cards (including their Fixed Mission cards), they draw from their secondary Mission deck until they have 3 Secondary Mission cards. That player has access to the New Orders Stratagem, and can spend CP to use it after drawing their Secondary Mission cards if they wish (remember that Fixed Mission cards cannot be discarded for any reason).\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9200,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "92": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271366134/4E200EE544248CA4A2C2DF414EA513BE3A629593/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "3e6c52",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": -20.310442,
+            "posY": 0.9136033,
+            "posZ": 43.7334061,
+            "rotX": 1.5090651E-06,
+            "rotY": 359.610046,
+            "rotZ": -4.953374E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Vox Static",
+          "Description": "In this mission, the Command Re-roll Stratagem and New Orders Stratagem both cost 2CP to use.",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 9300,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "93": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271369317/58C4AC5DC0980903D0313A2C69878F3915D80DD8/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273964064/1422E9F3EAE2AF6C82221DB97BBC16A8B134BAFB/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "429875",
+      "Name": "Deck",
+      "Transform": {
+        "posX": 9.430923,
+        "posY": 0.940187156,
+        "posZ": -35.95542,
+        "rotX": -1.64489893E-06,
+        "rotY": 180.005569,
+        "rotZ": 180.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Blue Gambit cards",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": false,
+      "SidewaysCard": false,
+      "DeckIDs": [
+        7800,
+        7900,
+        8000,
+        8100
+      ],
+      "CustomDeck": {
+        "78": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271397463/1075549DCAAD0188C502873DF1978AEB8E9AE843/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "79": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271400119/E30361326CC082E0A061B9A6B5FBE9D44E6A1648/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "80": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271401218/C9BBD054D89332273CCB9219971F3ED3F47ADB68/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "81": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271402217/5C54E891ABE688187C0051FF20359F4F2A7475EF/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "ContainedObjects": [
+        {
+          "GUID": "a28861",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 11.6082392,
+            "posY": 0.913602769,
+            "posZ": 52.4343452,
+            "rotX": 1.69718385E-06,
+            "rotY": 359.987579,
+            "rotZ": -5.39130156E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Delaying Tactics",
+          "Description": "[b]DETERMINE DISTRACTION TARGET:[/b] Your Distraction target will be equal to half the number of enemy units that are within Engagement Range of one or more units from your army (rounding up) at the end of your fifth turn. If your Distraction target is less than 4, it is increased to 4.\r\n\r\n[b]DISTRACT ENEMY UNITS:[/b] At the end of your fifth turn, roll one D6 for each enemy unit that is within Engagement Range of one or more units from your army. Add 1 to the result if that enemy unit is Battle-shocked and subtract 1 if one or more of the units from your army that are within engagement Range of it are Battle-shocked. On a 4+, that enemy unit has been successfully delayed.\r\n\r\n[b]DETERMINE GAMBIT SUCCESS:[/b] If the number of enemy units that have been successfully delayed is greater than or equal to your Distraction target, this Gambit is successfully completed and you score 30VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7800,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "78": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271397463/1075549DCAAD0188C502873DF1978AEB8E9AE843/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "67bc67",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 9.407246,
+            "posY": 0.913602769,
+            "posZ": 52.6462021,
+            "rotX": 1.57167847E-06,
+            "rotY": 359.987549,
+            "rotZ": -4.858767E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Emergency Evacuation",
+          "Description": "[b]DETERMINE EVACUATION TARGET:[/b] Your Evacuation target will be equal to half the number of units from your army that are on the battlefield at the end of the battle (rounding up), including units embarked within [b]TRANSPORT[/b] models that are on the battlefield. If your Evacuation target is less than 4, it is increased to 4.\r\n\r\n[b]EVACUATE UNITS:[/b] At the end of your fifth turn, roll one D6 for each unit from your army that is wholly within 6” of the centre of the battlefield, subtracting 1 from the result if that unit is Battle-shocked. On a 4+, that unit (and any units embarked within) are marked for evacuation.\r\n\r\n[b]DETERMINE GAMBIT SUCCESS:[/b] If the number of enemy units that have been successfully delayed is greater than or equal to your Evacuation target, this Gambit is successfully completed and you score 30VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7900,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "79": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271400119/E30361326CC082E0A061B9A6B5FBE9D44E6A1648/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "1438b2",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 7.28389931,
+            "posY": 0.9136028,
+            "posZ": 52.5773354,
+            "rotX": 1.62238666E-06,
+            "rotY": 359.9811,
+            "rotZ": -6.203922E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Orbital Strike Coordinates",
+          "Description": "At the end of your fifth turn, if one or more units from your army that are not Battle-shocked are wholly within 9” of a corner of the battlefield, and those units are not within your own deployment zone, roll 2D6.\r\n\r\nAdd 1 to the result for every other corner of the battlefield that has one or more units from your army wholly within 9” of it (excluding units that are Battle-shocked or within Engagement Range of any enemy units).\r\n\r\nIf the final result is 12 or more, this Gambit is successfully completed and you score 30VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8000,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "80": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271401218/C9BBD054D89332273CCB9219971F3ED3F47ADB68/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "3a295a",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 4.36558867,
+            "posY": 0.9136028,
+            "posZ": 52.6324348,
+            "rotX": 1.5730526E-06,
+            "rotY": 359.9892,
+            "rotZ": -4.54295929E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Proceed As Planned",
+          "Description": "If you select this Gambit card, you have chosen not to attempt a gambit.\r\n\r\nUntil the end of the battle, you continue to score VP from your Primary Mission.\r",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8100,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "81": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271402217/5C54E891ABE688187C0051FF20359F4F2A7475EF/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "d0a9f9",
+      "Name": "Deck",
+      "Transform": {
+        "posX": -14.7942467,
+        "posY": 0.9401853,
+        "posZ": 36.1311646,
+        "rotX": 1.64486676E-06,
+        "rotY": 359.870026,
+        "rotZ": 180.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Red Gambit cards",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": false,
+      "SidewaysCard": false,
+      "DeckIDs": [
+        7800,
+        7900,
+        8000,
+        8100
+      ],
+      "CustomDeck": {
+        "78": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271397463/1075549DCAAD0188C502873DF1978AEB8E9AE843/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "79": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271400119/E30361326CC082E0A061B9A6B5FBE9D44E6A1648/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "80": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271401218/C9BBD054D89332273CCB9219971F3ED3F47ADB68/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        },
+        "81": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271402217/5C54E891ABE688187C0051FF20359F4F2A7475EF/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "ContainedObjects": [
+        {
+          "GUID": "a28861",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 11.6082392,
+            "posY": 0.913602769,
+            "posZ": 52.4343452,
+            "rotX": 1.69718385E-06,
+            "rotY": 359.987579,
+            "rotZ": -5.39130156E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Delaying Tactics",
+          "Description": "[b]DETERMINE DISTRACTION TARGET:[/b] Your Distraction target will be equal to half the number of enemy units that are within Engagement Range of one or more units from your army (rounding up) at the end of your fifth turn. If your Distraction target is less than 4, it is increased to 4.\r\n\r\n[b]DISTRACT ENEMY UNITS:[/b] At the end of your fifth turn, roll one D6 for each enemy unit that is within Engagement Range of one or more units from your army. Add 1 to the result if that enemy unit is Battle-shocked and subtract 1 if one or more of the units from your army that are within engagement Range of it are Battle-shocked. On a 4+, that enemy unit has been successfully delayed.\r\n\r\n[b]DETERMINE GAMBIT SUCCESS:[/b] If the number of enemy units that have been successfully delayed is greater than or equal to your Distraction target, this Gambit is successfully completed and you score 30VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7800,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "78": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271397463/1075549DCAAD0188C502873DF1978AEB8E9AE843/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "67bc67",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 9.407246,
+            "posY": 0.913602769,
+            "posZ": 52.6462021,
+            "rotX": 1.57167847E-06,
+            "rotY": 359.987549,
+            "rotZ": -4.858767E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Emergency Evacuation",
+          "Description": "[b]DETERMINE EVACUATION TARGET:[/b] Your Evacuation target will be equal to half the number of units from your army that are on the battlefield at the end of the battle (rounding up), including units embarked within [b]TRANSPORT[/b] models that are on the battlefield. If your Evacuation target is less than 4, it is increased to 4.\r\n\r\n[b]EVACUATE UNITS:[/b] At the end of your fifth turn, roll one D6 for each unit from your army that is wholly within 6” of the centre of the battlefield, subtracting 1 from the result if that unit is Battle-shocked. On a 4+, that unit (and any units embarked within) are marked for evacuation.\r\n\r\n[b]DETERMINE GAMBIT SUCCESS:[/b] If the number of enemy units that have been successfully delayed is greater than or equal to your Evacuation target, this Gambit is successfully completed and you score 30VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 7900,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "79": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271400119/E30361326CC082E0A061B9A6B5FBE9D44E6A1648/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "1438b2",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 7.28389931,
+            "posY": 0.9136028,
+            "posZ": 52.5773354,
+            "rotX": 1.62238666E-06,
+            "rotY": 359.9811,
+            "rotZ": -6.203922E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Orbital Strike Coordinates",
+          "Description": "At the end of your fifth turn, if one or more units from your army that are not Battle-shocked are wholly within 9” of a corner of the battlefield, and those units are not within your own deployment zone, roll 2D6.\r\n\r\nAdd 1 to the result for every other corner of the battlefield that has one or more units from your army wholly within 9” of it (excluding units that are Battle-shocked or within Engagement Range of any enemy units).\r\n\r\nIf the final result is 12 or more, this Gambit is successfully completed and you score 30VP.\r\n",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8000,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "80": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271401218/C9BBD054D89332273CCB9219971F3ED3F47ADB68/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        },
+        {
+          "GUID": "3a295a",
+          "Name": "CardCustom",
+          "Transform": {
+            "posX": 4.36558867,
+            "posY": 0.9136028,
+            "posZ": 52.6324348,
+            "rotX": 1.5730526E-06,
+            "rotY": 359.9892,
+            "rotZ": -4.54295929E-07,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "scaleZ": 1.0
+          },
+          "Nickname": "Proceed As Planned",
+          "Description": "If you select this Gambit card, you have chosen not to attempt a gambit.\r\n\r\nUntil the end of the battle, you continue to score VP from your Primary Mission.\r",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 0.713235259,
+            "g": 0.713235259,
+            "b": 0.713235259
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": true,
+          "Hands": true,
+          "CardID": 8100,
+          "SidewaysCard": false,
+          "CustomDeck": {
+            "81": {
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2023851528271402217/5C54E891ABE688187C0051FF20359F4F2A7475EF/",
+              "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273910208/CDC8D768BBA1F690346E0FE2C2C75CAF46EE80D0/",
+              "NumWidth": 1,
+              "NumHeight": 1,
+              "BackIsHidden": true,
+              "UniqueBack": false,
+              "Type": 0
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "d17b70",
+      "Name": "3DText",
+      "Transform": {
+        "posX": 81.7,
+        "posY": 0.961133063,
+        "posZ": 8.05,
+        "rotX": 90.0,
+        "rotY": 90.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "Discards",
+        "colorstate": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0
+        },
+        "fontSize": 32
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "a245ad",
+      "Name": "3DText",
+      "Transform": {
+        "posX": 77.2,
+        "posY": 0.96113354,
+        "posZ": 8.05,
+        "rotX": 90.0,
+        "rotY": 90.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "Deck",
+        "colorstate": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0
+        },
+        "fontSize": 32
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "d17b71",
+      "Name": "3DText",
+      "Transform": {
+        "posX": 81.7,
+        "posY": 0.961133063,
+        "posZ": -8.05,
+        "rotX": 90.0,
+        "rotY": 90.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "Discards",
+        "colorstate": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0
+        },
+        "fontSize": 32
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "a245ae",
+      "Name": "3DText",
+      "Transform": {
+        "posX": 77.2,
+        "posY": 0.96113354,
+        "posZ": -8.05,
+        "rotX": 90.0,
+        "rotY": 90.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "Deck",
+        "colorstate": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0
+        },
+        "fontSize": 32
       },
       "LuaScript": "",
       "LuaScriptState": "",
