@@ -817,7 +817,7 @@ cpEveryTurn = true
 redCpIncrementTracker = false
 blueCpIncrementTracker = false
 
-phases = {"Command", "Movement", "Psychic", "Shooting", "Charge", "Fight", "Morale"}
+phases = {"Command", "Movement", "Shooting", "Charge", "Fight"}
 currentPhase = 1
 startBtn = {
     index = 1, label = "S T A R T  G A M E", click_function = "startGame", function_owner = self,
@@ -846,7 +846,7 @@ IncrementBlueCpBtn = {
     font_size = 600, color = {0, 0, 1}, font_color = {1, 1, 1}
 }
 
-notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported. Please see xxx for other mission packs.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found in the Notebook.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
+notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found in the Notebook.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
 --
 menuX = 15
 menuZ = 1.05-1.05
