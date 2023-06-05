@@ -1,0 +1,142 @@
+-- FTC-GUID: 471de1,cff35b
+
+lockInSecondariesBtn = {
+    label = "L O C K   I N\nS E C O N D A R I E S", click_function = "lockInSecondaries", function_owner = self,
+    position = {-3.3, 6.07, 0}, rotation = {0, 0, 0}, height = 450, width = 2800,
+    font_size = 200, color = {0, 0, 0}, font_color = {1, 1, 1},
+    tooltip = "With the initial set of secondary missions in your hand, select two of them by flipping them face down with the F key, then press this button. To use Tactical Missions, flip the two Tactical cards. To use Fixed Missions, flip your choice of two other cards."
+}
+prepGambitsBtn = {
+    label = "P R E P A R E\nG A M B I T S", click_function = "prepareGambits", function_owner = self,
+    position = {3.3, 6.07, 0}, rotation = {0, 0, 0}, height = 450, width = 2800,
+    font_size = 200, color = {0, 0, 0}, font_color = {1, 1, 1},
+    tooltip = "At the end of battle round 3, press this button to begin choosing a Gambit. One random Gambit will be discarded and the others will be placed in your hand. Select one by flipping it face down with the F key, then press Lock In Gambit."
+}
+lockInGambitBtn = {
+    label = "L O C K   I N\nG A M B I T", click_function = "lockInGambit", function_owner = self,
+    position = {9.9, 6.07, 0}, rotation = {0, 0, 0}, height = 450, width = 2800,
+    font_size = 200, color = {0, 0, 0}, font_color = {1, 1, 1},
+    tooltip = "After pressing Prepare Gambits and then selecting one by flipping it face down with the F key, press this button to lock in your choice."
+}
+
+playerColor = nil
+handZone = nil
+secondaryDeck = nil
+secondary1Zone = nil
+secondary2Zone = nil
+gambitDeck = nil
+gambitPosition = nil
+discardPosition = nil
+targetRotation = {x = 0, y = 270, z = 180}
+
+function onLoad(save_state)
+    if self.getGUID() == Global.getVar("redMissionManager_GUID") then
+        self.setName("Mission Manager Red")
+        self.setPosition({-19,-5,35.25})
+        self.setRotation({0,0,0})
+        playerColor = "Red"
+        handZone = getObjectFromGUID(Global.getVar("redHandZone_GUID"))
+        secondaryDeck = getObjectFromGUID(Global.getVar("redSecondaryDeck_GUID"))
+        secondary1Zone = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
+        secondary2Zone = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
+        gambitDeck = getObjectFromGUID(Global.getVar("redGambitDeck_GUID"))
+        gambitPosition = { x = 70.25, y = 1.5, z = 8.05 }
+        discardPosition = { x = 79.25, y = 1.5, z = 8.05 }
+    else
+        self.setName("Mission Manager Blue")
+        self.setPosition({19,-5,-35.25})
+        self.setRotation({0,180,0})
+        playerColor = "Blue"
+        handZone = getObjectFromGUID(Global.getVar("blueHandZone_GUID"))
+        secondaryDeck = getObjectFromGUID(Global.getVar("blueSecondaryDeck_GUID"))
+        secondary1Zone = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
+        secondary2Zone = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
+        gambitDeck = getObjectFromGUID(Global.getVar("blueGambitDeck_GUID"))
+        gambitPosition = { x = 70.25, y = 1.5, z = -8.05 }
+        discardPosition = { x = 79.25, y = 1.5, z = -8.05 }
+    end
+    self.setScale({0.6,1,0.6})
+    self.clearButtons()
+    self.createButton(lockInSecondariesBtn)
+    self.createButton(prepGambitsBtn)
+    self.createButton(lockInGambitBtn)
+end
+
+function lockInSecondaries()
+    local cardsInHand = handZone.getObjects()
+    local faceDownCards = 0
+    for _,card in ipairs(cardsInHand) do
+        if card.is_face_down then
+            faceDownCards = faceDownCards + 1
+        end
+    end
+
+    if faceDownCards != 2 then
+        broadcastToColor("Select exactly two secondary missions by flipping them face down (hover over them and press F) before pressing Lock In Secondaries.", playerColor, "Yellow")
+        return
+    end
+
+    local cardsMoved = 0
+    for _,card in ipairs(cardsInHand) do
+        local cardMoved = false
+        if card.is_face_down then
+            if cardsMoved == 0 then
+                card.setPosition(secondary1Zone.getPosition())
+                card.setRotation(targetRotation)
+                cardMoved = true
+                cardsMoved = 1
+            elseif cardsMoved == 1 then
+                card.setPosition(secondary2Zone.getPosition())
+                card.setRotation(targetRotation)
+                cardMoved = true
+                cardsMoved = 2
+            end
+        end
+
+        if not cardMoved then
+            if card.getGMNotes() == "TacticalObjectives" then
+                card.destruct()
+            else
+                secondaryDeck.putObject(card)
+            end
+        end
+    end
+
+    secondaryDeck.shuffle()
+end
+
+function lockInGambit()
+    local cardsInHand = handZone.getObjects()
+    local faceDownCards = 0
+    for _,card in ipairs(cardsInHand) do
+        if card.is_face_down then
+            faceDownCards = faceDownCards + 1
+        end
+    end
+
+    if faceDownCards != 1 then
+        broadcastToColor("Select exactly one gambit card by flipping it face down (hover over it and press F) before pressing Lock In Gambit.", playerColor, "Yellow")
+        return
+    end
+
+    for _,card in ipairs(cardsInHand) do
+        if card.is_face_down then
+            card.setPosition(gambitPosition)
+        else
+            card.setPosition(discardPosition)
+        end
+        card.setRotation(targetRotation)
+    end
+end
+
+function prepareGambits()
+    gambitDeck.shuffle()
+    local topCard = gambitDeck.getObjects()[1]
+    if topCard.gm_notes == "Proceed" then
+        -- Top card is Proceed, deal it
+        gambitDeck.deal(1, playerColor)
+    end
+
+    gambitDeck.takeObject({position = discardPosition, rotation = targetRotation, smooth = false})
+    gambitDeck.deal(3, playerColor)
+end

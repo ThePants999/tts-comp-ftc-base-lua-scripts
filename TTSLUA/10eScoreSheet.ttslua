@@ -539,7 +539,8 @@ end
 
 function recycleSecondary12()
 	Global.call("moveAllFromZoneToDeck", {zone = "secondary12", deck = "redSecondary"})
-	Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary12"})end
+	Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary12"})
+end
 
 function recycleSecondary21()
 	Global.call("moveAllFromZoneToDeck", {zone = "secondary21", deck = "blueSecondary"})

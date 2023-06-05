@@ -23908,7 +23908,7 @@
           },
           "Nickname": "Proceed As Planned",
           "Description": "If you select this Gambit card, you have chosen not to attempt a gambit.\r\n\r\nUntil the end of the battle, you continue to score VP from your Primary Mission.\r",
-          "GMNotes": "",
+          "GMNotes": "Proceed",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -24244,7 +24244,7 @@
           },
           "Nickname": "Proceed As Planned",
           "Description": "If you select this Gambit card, you have chosen not to attempt a gambit.\r\n\r\nUntil the end of the battle, you continue to score VP from your Primary Mission.\r",
-          "GMNotes": "",
+          "GMNotes": "Proceed",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,

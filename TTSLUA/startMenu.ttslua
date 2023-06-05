@@ -1245,12 +1245,6 @@ function startGame(obj, player, alt)
     end
     Global.call("recordPlayers")
     inGame = true
-    secondaryObj_GUID = {Global.getVar("redSecondaryManager_GUID"),Global.getVar("blueSecondaryManager_GUID")}
-    for i, guid in ipairs(secondaryObj_GUID) do
-        if getObjectFromGUID(guid) then
-            getObjectFromGUID(guid).call("writeMenu")
-        end
-    end
 
     startCustomTurns()
     destroyDeployZones()
@@ -1295,13 +1289,6 @@ function incrementBlueCp(params)
     else
         broadcastToAll("Blue has already gained a CP this battle round!", "Yellow")
     end
-end
-
-function nextPhaseFromGlobal(params)
-    if not inGame then return end
-    local alt_click = params.alt
-    local player_color_click = params.color
-    nextPhase(self, player_color_click, alt_click)
 end
 
 function nextPhase(obj, player_color_click, alt_click)
