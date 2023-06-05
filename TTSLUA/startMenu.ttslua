@@ -239,6 +239,7 @@ function switchToTerrainEditor()
             obj.destroy()
         end
     end
+    Global.setVectorLines({})
     printToAll("DONE!", "Yellow")
 end
 -- END size changer
@@ -1109,8 +1110,18 @@ stratreservesBtn = {
 }
 position = {menuX, 5, menuZ}
 
-
-
+randomiseMissionBtn = {
+    label = "Randomise\nMission",
+    click_function = "randomiseMission",
+    function_owner = self,
+    position = {8, 5, -16.5},
+    rotation = {0, 0, 0},
+    height = 800,
+    width = 3000,
+    font_size = 300,
+    color = {1, 1, 1},
+    font_color = {0, 0, 0}
+}
 
 function writeMenus()
     self.clearButtons()
@@ -1156,6 +1167,10 @@ function writeDeployMenu()
     self.createButton(engageBtn)
     self.createButton(ftDarkGodsBtn)
     self.createButton(stratreservesBtn)
+
+    if gameMode == "game" then
+        self.createButton(randomiseMissionBtn)
+    end
 end
 
 function writeObjMenu()
@@ -1776,6 +1791,16 @@ function showHideStratreserves()
     end
 
     writeMenus()
+end
+
+function randomiseMission()
+    Global.call("moveAllFromZoneToDeck", {zone = "deployment", deck = "deployment"})
+    Global.call("moveAllFromZoneToDeck", {zone = "mission", deck = "mission"})
+    Global.call("moveAllFromZoneToDeck", {zone = "primary", deck = "primary"})
+
+    Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment"})
+    Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission"})
+    Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary"})
 end
 
 function recallAll()

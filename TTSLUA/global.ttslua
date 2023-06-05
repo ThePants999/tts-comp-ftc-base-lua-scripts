@@ -50,6 +50,19 @@ tableSideLeft_GUID = "9f95fd"
 tableSideRight_GUID = "5af8f2"
 extractTerrain_GUID = "70b9f6"
 
+deploymentCardZone_GUID = "dcf95b"
+missionCardZone_GUID = "cdecf2"
+primaryCardZone_GUID = "740abc"
+secondary11CardZone_GUID = "0ec215"
+secondary12CardZone_GUID = "d865d4"
+secondary21CardZone_GUID = "3c8d71"
+secondary22CardZone_GUID = "88cac4"
+deploymentDeck_GUID = "a30deb"
+missionDeck_GUID = "1665ca"
+primaryDeck_GUID = "3ca4a6"
+redSecondaryDeck_GUID = "2c6243"
+blueSecondaryDeck_GUID = "d98a05"
+
 turnOrder = {}
 nonPlaying = {"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink" }
 allowMenu = true
@@ -199,8 +212,8 @@ function autoSeatAll()
 end
 
 function recordPlayers()
-    redPlayerID= Player.Red.steam_id
-    bluePlayerID= Player.Blue.steam_id
+    redPlayerID = Player.Red.steam_id
+    bluePlayerID = Player.Blue.steam_id
 end
 
 function onPlayerChangeColor(player_color)
@@ -373,4 +386,26 @@ function moveCameraTo(pos, dist, color)
     end
     if pos[2]==0 then dist=dist+30 end
     Player[color].lookAt({position=pos, pitch=90, yaw=rot[2], distance=dist})
+end
+
+function moveAllFromZoneToDeck(params)
+    local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
+    local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
+
+    local objects = zoneObj.getObjects()
+    for _,object in ipairs(objects) do
+        deckObj.putObject(object)
+    end
+
+    deckObj.shuffle()
+end
+
+function moveOneFromDeckToZone(params)
+    local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
+    local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
+    local takeParams = {}
+    takeParams.position = zoneObj.getPosition()
+    takeParams.flip = true
+    takeParams.smooth = true
+    deckObj.takeObject(takeParams)
 end

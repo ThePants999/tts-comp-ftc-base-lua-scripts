@@ -5,6 +5,13 @@ playerCounter = {}
 playerCounter[1] = getObjectFromGUID(Global.getVar("redVPCounter_GUID"))
 playerCounter[2] = getObjectFromGUID(Global.getVar("blueVPCounter_GUID"))
 
+secondary11ZoneObj = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
+secondary12ZoneObj = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
+secondary21ZoneObj = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
+secondary22ZoneObj = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
+redDiscardPosition = { x = 79.25, y = 1.5, z = 8.05 }
+blueDiscardPosition = { x = 79.25, y = 1.5, z = -8.05 }
+
 enableBtn = { label="ENABLE\nGT\nSCORESHEET\n\n(click here)\n\nDon't enable if you\nwant to keep track\nof VPs manually\non counters ", width = 6500,	height = 9500, click_function = 'enableSheet', font_size = 1600,
 		function_owner = self,	position = {1, -0.05, -1}, rotation = {0, 90, 180},	tooltip = "", color="Black", font_color="White"
 }
@@ -192,6 +199,30 @@ removeSecondaries = {
 		position = {0.0, -0.05, 3.9},
 		rotation = {0, 90, 180},
 		tooltip = "Recycle secondary 2"
+	},
+	{
+		index = 12,
+		width = 250,
+		height = 250,
+		label = ">",
+		font_size = 200,
+		click_function = 'drawSecondary1',
+		function_owner = self,
+		position = {-0.75, -0.05, -7.0},
+		rotation = {0, 90, 180},
+		tooltip = "Draw"
+	},
+	{
+		index = 13,
+		width = 250,
+		height = 250,
+		label = "<",
+		font_size = 200,
+		click_function = 'drawSecondary2',
+		function_owner = self,
+		position = {-0.75, -0.05, 4.95},
+		rotation = {0, 90, 180},
+		tooltip = "Draw"
 	}
 }
 
@@ -223,14 +254,14 @@ function onload(save_data)
 	self.createButton( playerTwoTitle )
 	self.createButton( playerTotal[1] )
 	self.createButton( playerTotal[2] )
-	for ix=1,8 do
+	for ix=1,10 do
 		self.createButton( removeSecondaries[ix] )
 	end
 
 	local b_xpos = 0
 	local b_zpos = 0
 	local b_zoffset = -1
-	local b_index = 12
+	local b_index = 14
 
 	-- Scoring buttons
 
@@ -483,6 +514,69 @@ function pName(p, obj, clicker, alt)
 	self.editButton(playerOneTitle)
 	self.editButton(playerTwoTitle)
 	self.setDescription(JSON.encode_pretty(params))
+end
+
+function drawSecondary1()
+	if #secondary11ZoneObj.getObjects() < 1 then
+		Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary11"})
+	elseif #secondary12ZoneObj.getObjects() < 1 then
+		Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary12"})
+	end
+end
+
+function drawSecondary2()
+	if #secondary21ZoneObj.getObjects() < 1 then
+		Global.call("moveOneFromDeckToZone", {deck = "blueSecondary", zone = "secondary21"})
+	elseif #secondary22ZoneObj.getObjects() < 1 then
+		Global.call("moveOneFromDeckToZone", {deck = "blueSecondary", zone = "secondary22"})
+	end
+end
+
+function recycleSecondary11()
+	Global.call("moveAllFromZoneToDeck", {zone = "secondary11", deck = "redSecondary"})
+	Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary11"})
+end
+
+function recycleSecondary12()
+	Global.call("moveAllFromZoneToDeck", {zone = "secondary12", deck = "redSecondary"})
+	Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary12"})end
+
+function recycleSecondary21()
+	Global.call("moveAllFromZoneToDeck", {zone = "secondary21", deck = "blueSecondary"})
+	Global.call("moveOneFromDeckToZone", {deck = "blueSecondary", zone = "secondary21"})
+end
+
+function recycleSecondary22()
+	Global.call("moveAllFromZoneToDeck", {zone = "secondary22", deck = "blueSecondary"})
+	Global.call("moveOneFromDeckToZone", {deck = "blueSecondary", zone = "secondary22"})
+end
+
+function discardSecondary11()
+	local cards = secondary11ZoneObj.getObjects()
+	for _,card in ipairs(cards) do
+		card.setPositionSmooth(redDiscardPosition)
+	end
+end
+
+function discardSecondary12()
+	local cards = secondary12ZoneObj.getObjects()
+	for _,card in ipairs(cards) do
+		card.setPositionSmooth(redDiscardPosition)
+	end
+end
+
+function discardSecondary21()
+	local cards = secondary21ZoneObj.getObjects()
+	for _,card in ipairs(cards) do
+		card.setPositionSmooth(blueDiscardPosition)
+	end
+end
+
+function discardSecondary22()
+	local cards = secondary22ZoneObj.getObjects()
+	for _,card in ipairs(cards) do
+		card.setPositionSmooth(blueDiscardPosition)
+	end
 end
 
 -- Abandon hope all ye who enter here

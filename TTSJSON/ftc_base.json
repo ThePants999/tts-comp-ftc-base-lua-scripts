@@ -90,7 +90,32 @@
     "Hiding": 0
   },
   "ComponentTags": {
-    "labels": []
+    "labels": [
+      {
+        "displayed": "primaryCard",
+        "normalized": "primaryCard"
+      },
+      {
+        "displayed": "secondaryCard",
+        "normalized": "secondaryCard"
+      },
+      {
+        "displayed": "secondaryCard",
+        "normalized": "secondaryCard"
+      },
+      {
+        "displayed": "deploymentCard",
+        "normalized": "deploymentCard"
+      },
+      {
+        "displayed": "missionCard",
+        "normalized": "missionCard"
+      },
+      {
+        "displayed": "gambitCard",
+        "normalized": "gambitCard"
+      }
+    ]
   },
   "Turns": {
     "Enable": false,
@@ -373,7 +398,11 @@
         "x": 0.0,
         "y": 270.0,
         "z": 180.0
-      }
+      },
+      "Tags": [
+        "secondaryCard",
+        "gambitCard"
+      ]
     },
     {
       "Position": {
@@ -385,7 +414,11 @@
         "x": 0.0,
         "y": 270.0,
         "z": 180.0
-      }
+      },
+      "Tags": [
+        "secondaryCard",
+        "gambitCard"
+      ]
     },
     {
       "Position": {
@@ -397,7 +430,10 @@
         "x": 0.0,
         "y": 270.0,
         "z": 180.0
-      }
+      },
+      "Tags": [
+        "gambitCard"
+      ]
     },
     {
       "Position": {
@@ -409,7 +445,10 @@
         "x": 0.0,
         "y": 270.0,
         "z": 180.0
-      }
+      },
+      "Tags": [
+        "gambitCard"
+      ]
     }
   ],
   "ObjectStates": [
@@ -10230,7 +10269,114 @@
       },
       "LuaScript": "",
       "LuaScriptState": "",
-      "XmlUI": ""
+      "XmlUI": "",
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 5.0,
+            "y": 0.0,
+            "z": -5.75
+          },
+          "Rotation": {
+            "x": 0.0,
+            "y": 270.0,
+            "z": 180.0
+          },
+          "Tags": [
+            "deploymentCard"
+          ]
+        },
+        {
+          "Position": {
+            "x": 5.0,
+            "y": 0.0,
+            "z": 3.75
+          },
+          "Rotation": {
+            "x": 0.0,
+            "y": 270.0,
+            "z": 180.0
+          },
+          "Tags": [
+            "primaryCard"
+          ]
+        },
+        {
+          "Position": {
+            "x": 5.0,
+            "y": 0.0,
+            "z": -1.0
+          },
+          "Rotation": {
+            "x": 0.0,
+            "y": 270.0122,
+            "z": 180.0
+          },
+          "Tags": [
+            "missionCard"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.755,
+            "y": -1.0,
+            "z": -4.7709856
+          },
+          "Rotation": {
+            "x": 0.0,
+            "y": 270.0,
+            "z": 0.0
+          },
+          "Tags": [
+            "secondaryCard"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.755,
+            "y": -1.0,
+            "z": -2.90118027
+          },
+          "Rotation": {
+            "x": 0.0,
+            "y": 270.0,
+            "z": 0.0
+          },
+          "Tags": [
+            "secondaryCard"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.755,
+            "y": -1.0,
+            "z": 0.859510839
+          },
+          "Rotation": {
+            "x": 0.0,
+            "y": 270.0,
+            "z": 0.0
+          },
+          "Tags": [
+            "secondaryCard"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.755,
+            "y": -1.0,
+            "z": 2.72940254
+          },
+          "Rotation": {
+            "x": 0.0,
+            "y": 270.0,
+            "z": 0.0
+          },
+          "Tags": [
+            "secondaryCard"
+          ]
+        }
+      ]
     },
     {
       "GUID": "d618cb",
@@ -19007,7 +19153,7 @@
       },
       "Nickname": "Tactical Objectives",
       "Description": "Select both of these cards to indicate that you will be using Tactical Missions instead of Fixed Missions for this game.",
-      "GMNotes": "",
+      "GMNotes": "TacticalObjectives",
       "AltLookAngle": {
         "x": 0.0,
         "y": 0.0,
@@ -19018,6 +19164,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19065,7 +19214,7 @@
       },
       "Nickname": "Tactical Objectives",
       "Description": "Select both of these cards to indicate that you will be using Tactical Missions instead of Fixed Missions for this game.",
-      "GMNotes": "",
+      "GMNotes": "TacticalObjectives",
       "AltLookAngle": {
         "x": 0.0,
         "y": 0.0,
@@ -19076,6 +19225,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19134,6 +19286,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19192,6 +19347,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19250,6 +19408,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19308,6 +19469,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19366,6 +19530,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19424,6 +19591,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19482,6 +19652,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19529,7 +19702,7 @@
       },
       "Nickname": "Tactical Objectives",
       "Description": "Select both of these cards to indicate that you will be using Tactical Missions instead of Fixed Missions for this game.",
-      "GMNotes": "",
+      "GMNotes": "TacticalObjectives",
       "AltLookAngle": {
         "x": 0.0,
         "y": 0.0,
@@ -19540,6 +19713,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19587,7 +19763,7 @@
       },
       "Nickname": "Tactical Objectives",
       "Description": "Select both of these cards to indicate that you will be using Tactical Missions instead of Fixed Missions for this game.",
-      "GMNotes": "",
+      "GMNotes": "TacticalObjectives",
       "AltLookAngle": {
         "x": 0.0,
         "y": 0.0,
@@ -19598,6 +19774,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19656,6 +19835,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19714,6 +19896,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19772,6 +19957,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19830,6 +20018,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19888,6 +20079,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -19946,6 +20140,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -20004,6 +20201,9 @@
         "g": 0.713235259,
         "b": 0.713235259
       },
+      "Tags": [
+        "secondaryCard"
+      ],
       "LayoutGroupSortIndex": 0,
       "Value": 0,
       "Locked": false,
@@ -20162,6 +20362,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "deploymentCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -20220,6 +20423,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "deploymentCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -20278,6 +20484,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "deploymentCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -20336,6 +20545,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "deploymentCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -20394,6 +20606,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "deploymentCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -20594,6 +20809,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 2,
           "Value": 0,
           "Locked": false,
@@ -20652,6 +20870,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -20710,6 +20931,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 1,
           "Value": 0,
           "Locked": false,
@@ -20768,6 +20992,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -20826,6 +21053,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -20884,6 +21114,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -20942,6 +21175,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21000,6 +21236,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21058,6 +21297,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21258,6 +21500,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21316,6 +21561,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21374,6 +21622,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21432,6 +21683,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21490,6 +21744,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21548,6 +21805,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21606,6 +21866,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21664,6 +21927,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21722,6 +21988,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "secondaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21922,6 +22191,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "primaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -21980,6 +22252,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "primaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22038,6 +22313,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "primaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22096,6 +22374,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "primaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22154,6 +22435,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "primaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22212,6 +22496,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "primaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22270,6 +22557,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "primaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22328,6 +22618,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "primaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22386,6 +22679,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "primaryCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22616,6 +22912,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22674,6 +22973,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22732,6 +23034,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22790,6 +23095,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22848,6 +23156,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22906,6 +23217,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -22964,6 +23278,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23022,6 +23339,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23080,6 +23400,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23138,6 +23461,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23196,6 +23522,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23254,6 +23583,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "missionCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23404,6 +23736,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "gambitCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23462,6 +23797,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "gambitCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23520,6 +23858,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "gambitCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23578,6 +23919,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "gambitCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23728,6 +24072,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "gambitCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23786,6 +24133,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "gambitCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23844,6 +24194,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "gambitCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -23902,6 +24255,9 @@
             "g": 0.713235259,
             "b": 0.713235259
           },
+          "Tags": [
+            "gambitCard"
+          ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
           "Locked": false,
@@ -24255,6 +24611,349 @@
         },
         "fontSize": 32
       },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "dcf95b",
+      "Name": "ScriptingTrigger",
+      "Transform": {
+        "posX": 79.0,
+        "posY": 1.0,
+        "posZ": 4.757527,
+        "rotX": 0.0,
+        "rotY": 89.79741,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "Deployment card zone",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.509803951
+      },
+      "Tags": [
+        "deploymentCard"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "cdecf2",
+      "Name": "ScriptingTrigger",
+      "Transform": {
+        "posX": 79.0,
+        "posY": 1.0,
+        "posZ": 0.0,
+        "rotX": 0.0,
+        "rotY": 90.13061,
+        "rotZ": 0.0,
+        "scaleX": 5.53,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "Mission card zone",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.509803951
+      },
+      "Tags": [
+        "missionCard"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "740abc",
+      "Name": "ScriptingTrigger",
+      "Transform": {
+        "posX": 79.0,
+        "posY": 1.0,
+        "posZ": -4.76,
+        "rotX": 0.0,
+        "rotY": 90.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "Primary card zone",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.509803951
+      },
+      "Tags": [
+        "primaryCard"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "0ec215",
+      "Name": "ScriptingTrigger",
+      "Transform": {
+        "posX": 74.7,
+        "posY": 1.0,
+        "posZ": 3.82045436,
+        "rotX": 0.0,
+        "rotY": 90.13061,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "Secondary card 1-1 zone",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.509803951
+      },
+      "Tags": [
+        "secondaryCard"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "d865d4",
+      "Name": "ScriptingTrigger",
+      "Transform": {
+        "posX": 74.7,
+        "posY": 1.0,
+        "posZ": 1.85399938,
+        "rotX": 0.0,
+        "rotY": 90.13061,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "Secondary card 1-2 zone",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.509803951
+      },
+      "Tags": [
+        "secondaryCard"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "3c8d71",
+      "Name": "ScriptingTrigger",
+      "Transform": {
+        "posX": 74.7,
+        "posY": 1.0,
+        "posZ": -1.72649407,
+        "rotX": 0.0,
+        "rotY": 90.13061,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "Secondary card 2-1 zone",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.509803951
+      },
+      "Tags": [
+        "secondaryCard"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "88cac4",
+      "Name": "ScriptingTrigger",
+      "Transform": {
+        "posX": 74.7,
+        "posY": 1.0,
+        "posZ": -3.75490713,
+        "rotX": 0.0,
+        "rotY": 90.13061,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "Secondary card 2-2 zone",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.509803951
+      },
+      "Tags": [
+        "secondaryCard"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
       "LuaScript": "",
       "LuaScriptState": "",
       "XmlUI": ""
