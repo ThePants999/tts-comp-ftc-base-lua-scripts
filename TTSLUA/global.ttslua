@@ -335,6 +335,7 @@ function moveAllFromZoneToDeck(params)
 
     local objects = zoneObj.getObjects()
     for _,object in ipairs(objects) do
+        object.locked = false
         deckObj.putObject(object)
     end
 
@@ -348,5 +349,10 @@ function moveOneFromDeckToZone(params)
     takeParams.position = zoneObj.getPosition()
     takeParams.flip = true
     takeParams.smooth = true
+    takeParams.callback_function = function(card)
+        Wait.frames(function()
+            card.locked = true
+        end)
+    end
     deckObj.takeObject(takeParams)
 end

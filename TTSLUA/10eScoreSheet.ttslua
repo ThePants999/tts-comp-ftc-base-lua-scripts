@@ -11,12 +11,26 @@ secondary21ZoneObj = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID")
 secondary22ZoneObj = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
 redDiscardPosition = { x = 79.25, y = 1.5, z = 8.05 }
 blueDiscardPosition = { x = 79.25, y = 1.5, z = -8.05 }
+redUsingFixed = false
+blueUsingFixed = false
 
 enableBtn = { label="ENABLE\nGT\nSCORESHEET\n\n(click here)\n\nDon't enable if you\nwant to keep track\nof VPs manually\non counters ", width = 6500,	height = 9500, click_function = 'enableSheet', font_size = 1600,
 		function_owner = self,	position = {1, -0.05, -1}, rotation = {0, 90, 180},	tooltip = "", color="Black", font_color="White"
 }
 
 scoresheetActive = false
+
+-- Button indexes
+BTN_IX_DRAW_1 = 4
+BTN_IX_DRAW_2 = 5
+BTN_IX_DISCARD_1_1 = nil
+BTN_IX_RECYCLE_1_1 = nil
+BTN_IX_DISCARD_1_2 = nil
+BTN_IX_RECYCLE_1_2 = nil
+BTN_IX_DISCARD_2_1 = nil
+BTN_IX_RECYCLE_2_1 = nil
+BTN_IX_DISCARD_2_2 = nil
+BTN_IX_RECYCLE_2_2 = nil
 
 -- Button k-indexes
 BTN_K_IX_SECONDARY_1 = 1
@@ -103,127 +117,125 @@ playerTotal = {
 	}
 }
 
-removeSecondaries = {
-	{
-		index = 4,
-		width = 250,
-		height = 250,
-		label = "x",
-		font_size = 200,
-		click_function = 'discardSecondary11',
-		function_owner = self,
-		position = {-1.5, -0.05, -5.95},
-		rotation = {0, 90, 180},
-		tooltip = "Discard secondary 1"
-	},
-	{
-		index = 5,
-		width = 250,
-		height = 250,
-		label = "<",
-		font_size = 200,
-		click_function = 'recycleSecondary11',
-		function_owner = self,
-		position = {0.0, -0.05, -5.95},
-		rotation = {0, 90, 180},
-		tooltip = "Recycle secondary 1"
-	},
-	{
-		index = 6,
-		width = 250,
-		height = 250,
-		label = "x",
-		font_size = 200,
-		click_function = 'discardSecondary12',
-		function_owner = self,
-		position = {-1.5, -0.05, -1.75},
-		rotation = {0, 90, 180},
-		tooltip = "Discard secondary 2"
-	},
-	{
-		index = 7,
-		width = 250,
-		height = 250,
-		label = "<",
-		font_size = 200,
-		click_function = 'recycleSecondary12',
-		function_owner = self,
-		position = {0.0, -0.05, -1.75},
-		rotation = {0, 90, 180},
-		tooltip = "Recycle secondary 2"
-	},
-	{
-		index = 8,
-		width = 250,
-		height = 250,
-		label = "x",
-		font_size = 200,
-		click_function = 'discardSecondary21',
-		function_owner = self,
-		position = {-1.5, -0.05, -0.3},
-		rotation = {0, 90, 180},
-		tooltip = "Discard secondary 1"
-	},
-	{
-		index = 9,
-		width = 250,
-		height = 250,
-		label = ">",
-		font_size = 200,
-		click_function = 'recycleSecondary21',
-		function_owner = self,
-		position = {0.0, -0.05, -0.3},
-		rotation = {0, 90, 180},
-		tooltip = "Recycle secondary 1"
-	},
-	{
-		index = 10,
-		width = 250,
-		height = 250,
-		label = "x",
-		font_size = 200,
-		click_function = 'discardSecondary22',
-		function_owner = self,
-		position = {-1.5, -0.05, 3.9},
-		rotation = {0, 90, 180},
-		tooltip = "Discard secondary 2"
-	},
-	{
-		index = 11,
-		width = 250,
-		height = 250,
-		label = ">",
-		font_size = 200,
-		click_function = 'recycleSecondary22',
-		function_owner = self,
-		position = {0.0, -0.05, 3.9},
-		rotation = {0, 90, 180},
-		tooltip = "Recycle secondary 2"
-	},
-	{
-		index = 12,
-		width = 250,
-		height = 250,
-		label = ">",
-		font_size = 200,
-		click_function = 'drawSecondary1',
-		function_owner = self,
-		position = {-0.75, -0.05, -7.0},
-		rotation = {0, 90, 180},
-		tooltip = "Draw"
-	},
-	{
-		index = 13,
-		width = 250,
-		height = 250,
-		label = "<",
-		font_size = 200,
-		click_function = 'drawSecondary2',
-		function_owner = self,
-		position = {-0.75, -0.05, 4.95},
-		rotation = {0, 90, 180},
-		tooltip = "Draw"
-	}
+discard11Btn = {
+	index = BTN_IX_DISCARD_1_1,
+	width = 250,
+	height = 250,
+	label = "x",
+	font_size = 200,
+	click_function = 'discardSecondary11',
+	function_owner = self,
+	position = {-1.5, -0.05, -5.95},
+	rotation = {0, 90, 180},
+	tooltip = "Discard secondary 1"
+}
+recycle11Btn = {
+	index = BTN_IX_RECYCLE_1_1,
+	width = 250,
+	height = 250,
+	label = "<",
+	font_size = 200,
+	click_function = 'recycleSecondary11',
+	function_owner = self,
+	position = {0.0, -0.05, -5.95},
+	rotation = {0, 90, 180},
+	tooltip = "Recycle secondary 1"
+}
+discard12Btn = {
+	index = BTN_IX_DISCARD_1_2,
+	width = 250,
+	height = 250,
+	label = "x",
+	font_size = 200,
+	click_function = 'discardSecondary12',
+	function_owner = self,
+	position = {-1.5, -0.05, -1.75},
+	rotation = {0, 90, 180},
+	tooltip = "Discard secondary 2"
+}
+recycle12Btn = {
+	index = BTN_IX_RECYCLE_1_2,
+	width = 250,
+	height = 250,
+	label = "<",
+	font_size = 200,
+	click_function = 'recycleSecondary12',
+	function_owner = self,
+	position = {0.0, -0.05, -1.75},
+	rotation = {0, 90, 180},
+	tooltip = "Recycle secondary 2"
+}
+discard21Btn = {
+	index = BTN_IX_DISCARD_2_1,
+	width = 250,
+	height = 250,
+	label = "x",
+	font_size = 200,
+	click_function = 'discardSecondary21',
+	function_owner = self,
+	position = {-1.5, -0.05, -0.3},
+	rotation = {0, 90, 180},
+	tooltip = "Discard secondary 1"
+}
+recycle21Btn = {
+	index = BTN_IX_RECYCLE_2_1,
+	width = 250,
+	height = 250,
+	label = ">",
+	font_size = 200,
+	click_function = 'recycleSecondary21',
+	function_owner = self,
+	position = {0.0, -0.05, -0.3},
+	rotation = {0, 90, 180},
+	tooltip = "Recycle secondary 1"
+}
+discard22Btn = {
+	index = BTN_IX_DISCARD_2_2,
+	width = 250,
+	height = 250,
+	label = "x",
+	font_size = 200,
+	click_function = 'discardSecondary22',
+	function_owner = self,
+	position = {-1.5, -0.05, 3.9},
+	rotation = {0, 90, 180},
+	tooltip = "Discard secondary 2"
+}
+recycle22Btn = {
+	index = BTN_IX_RECYCLE_2_2,
+	width = 250,
+	height = 250,
+	label = ">",
+	font_size = 200,
+	click_function = 'recycleSecondary22',
+	function_owner = self,
+	position = {0.0, -0.05, 3.9},
+	rotation = {0, 90, 180},
+	tooltip = "Recycle secondary 2"
+}
+draw1Btn = {
+	index = BTN_IX_DRAW_1,
+	width = 250,
+	height = 250,
+	label = ">",
+	font_size = 200,
+	click_function = 'drawSecondary1',
+	function_owner = self,
+	position = {-0.75, -0.05, -7.0},
+	rotation = {0, 90, 180},
+	tooltip = "Draw"
+}
+draw2Btn = {
+	index = BTN_IX_DRAW_2,
+	width = 250,
+	height = 250,
+	label = "<",
+	font_size = 200,
+	click_function = 'drawSecondary2',
+	function_owner = self,
+	position = {-0.75, -0.05, 4.95},
+	rotation = {0, 90, 180},
+	tooltip = "Draw"
 }
 
 function enableSheet()
@@ -237,6 +249,8 @@ function onload(save_data)
 		local data = JSON.decode(save_data)
 		if data then
 			scoresheetActive = data.scoresheetActive
+			redUsingFixed = data.redUsingFixed
+			blueUsingFixed = data.blueUsingFixed
 			scores = data.scores
 		end
 	end
@@ -254,14 +268,13 @@ function onload(save_data)
 	self.createButton( playerTwoTitle )
 	self.createButton( playerTotal[1] )
 	self.createButton( playerTotal[2] )
-	for ix=1,10 do
-		self.createButton( removeSecondaries[ix] )
-	end
+	self.createButton( draw1Btn )
+	self.createButton( draw2Btn )
 
 	local b_xpos = 0
 	local b_zpos = 0
 	local b_zoffset = -1
-	local b_index = 14
+	local b_index = BTN_IX_DRAW_2 + 1
 
 	-- Scoring buttons
 
@@ -352,12 +365,58 @@ function onload(save_data)
 
 	end -- i-loop
 
+	if not redUsingFixed then
+		BTN_IX_DISCARD_1_1 = b_index
+		discard11Btn.index = b_index
+		b_index = b_index + 1
+		self.createButton( discard11Btn )
+
+		BTN_IX_RECYCLE_1_1 = b_index
+		recycle11Btn.index = b_index
+		b_index = b_index + 1
+		self.createButton( recycle11Btn )
+
+		BTN_IX_DISCARD_1_2 = b_index
+		discard12Btn.index = b_index
+		b_index = b_index + 1
+		self.createButton( discard12Btn )
+
+		BTN_IX_RECYCLE_1_2 = b_index
+		recycle12Btn.index = b_index
+		b_index = b_index + 1
+		self.createButton( recycle12Btn )
+	end
+	if not blueUsingFixed then
+		BTN_IX_DISCARD_2_1 = b_index
+		discard21Btn.index = b_index
+		b_index = b_index + 1
+		self.createButton( discard21Btn )
+
+		BTN_IX_RECYCLE_2_1 = b_index
+		recycle21Btn.index = b_index
+		b_index = b_index + 1
+		self.createButton( recycle21Btn )
+
+		BTN_IX_DISCARD_2_2 = b_index
+		discard22Btn.index = b_index
+		b_index = b_index + 1
+		self.createButton( discard22Btn )
+
+		BTN_IX_RECYCLE_2_2 = b_index
+		recycle22Btn.index = b_index
+		b_index = b_index + 1
+		self.createButton( recycle22Btn )
+	end
+
+	updateAll(false)
 	Wait.time(slowUpdate, 2)
 end
 
 function onSave()
 	local save_data = {
 		scoresheetActive = scoresheetActive,
+		redUsingFixed = redUsingFixed,
+		blueUsingFixed = blueUsingFixed,
 		scores = scores
 	}
 	local encoded_data = JSON.encode(save_data)
@@ -376,7 +435,7 @@ function updateAll(reset)
 		for j=1,5 do
 			for k=1,3 do
 				if reset then scores[i][j][k] = 0 end
-				updateScores(i, j, k)
+				updateScore(i, j, k)
 			end
 		end
 	end
@@ -516,6 +575,8 @@ function pName(p, obj, clicker, alt)
 	self.setDescription(JSON.encode_pretty(params))
 end
 
+-- TODO: lock and unlock secondary cards
+
 function drawSecondary1()
 	if #secondary11ZoneObj.getObjects() < 1 then
 		Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary11"})
@@ -555,6 +616,7 @@ end
 function discardSecondary11()
 	local cards = secondary11ZoneObj.getObjects()
 	for _,card in ipairs(cards) do
+		card.locked = false
 		card.setPositionSmooth(redDiscardPosition)
 	end
 end
@@ -562,6 +624,7 @@ end
 function discardSecondary12()
 	local cards = secondary12ZoneObj.getObjects()
 	for _,card in ipairs(cards) do
+		card.locked = false
 		card.setPositionSmooth(redDiscardPosition)
 	end
 end
@@ -569,6 +632,7 @@ end
 function discardSecondary21()
 	local cards = secondary21ZoneObj.getObjects()
 	for _,card in ipairs(cards) do
+		card.locked = false
 		card.setPositionSmooth(blueDiscardPosition)
 	end
 end
@@ -576,7 +640,47 @@ end
 function discardSecondary22()
 	local cards = secondary22ZoneObj.getObjects()
 	for _,card in ipairs(cards) do
+		card.locked = false
 		card.setPositionSmooth(blueDiscardPosition)
+	end
+end
+
+function handleInitialSecondary(zone, discardPosition)
+	local fixedObjective = false
+	local cards = zone.getObjects()
+	for _,card in ipairs(cards) do
+		if card.getGMNotes() == "TacticalObjectives" then
+			card.setPositionSmooth(discardPosition)
+		else
+			card.locked = true
+			fixedObjective = true
+		end
+	end
+	return fixedObjective
+end
+
+function startGame()
+	local redFixedObjective1 = handleInitialSecondary(secondary11ZoneObj, redDiscardPosition)
+	local redFixedObjective2 = handleInitialSecondary(secondary12ZoneObj, redDiscardPosition)
+	local blueFixedObjective1 = handleInitialSecondary(secondary21ZoneObj, blueDiscardPosition)
+	local blueFixedObjective2 = handleInitialSecondary(secondary22ZoneObj, blueDiscardPosition)
+
+	-- If fixed objectives are in use by either player, remember that, and remove their buttons
+	-- to discard objectives.  Note that removing a button changes the indexes of subsequent
+	-- buttons so we need to remove them in reverse index order.
+	if blueFixedObjective1 or blueFixedObjective2 then
+		blueUsingFixed = true
+		self.removeButton(BTN_IX_RECYCLE_2_2)
+		self.removeButton(BTN_IX_DISCARD_2_2)
+		self.removeButton(BTN_IX_RECYCLE_2_1)
+		self.removeButton(BTN_IX_DISCARD_2_1)
+	end
+	if redFixedObjective1 or redFixedObjective2 then
+		redUsingFixed = true
+		self.removeButton(BTN_IX_RECYCLE_1_2)
+		self.removeButton(BTN_IX_DISCARD_1_2)
+		self.removeButton(BTN_IX_RECYCLE_1_1)
+		self.removeButton(BTN_IX_DISCARD_1_1)
 	end
 end
 

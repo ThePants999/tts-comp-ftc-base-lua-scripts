@@ -1246,6 +1246,9 @@ function startGame(obj, player, alt)
     Global.call("recordPlayers")
     inGame = true
 
+    local scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
+    scoresheet.call("startGame")
+
     startCustomTurns()
     destroyDeployZones()
     deploymentIngamePlaced = false
