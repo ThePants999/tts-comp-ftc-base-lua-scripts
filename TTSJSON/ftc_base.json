@@ -12359,268 +12359,6 @@
       "XmlUI": ""
     },
     {
-      "GUID": "d713b6",
-      "Name": "Custom_Dice",
-      "Transform": {
-        "posX": 26.7989712,
-        "posY": 1.29964972,
-        "posZ": 32.21395,
-        "rotX": 321.17334,
-        "rotY": 180.0,
-        "rotZ": 235.42067,
-        "scaleX": 1.0,
-        "scaleY": 1.0,
-        "scaleZ": 1.0
-      },
-      "Nickname": "Mission selection die",
-      "Description": "",
-      "GMNotes": "",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": false,
-      "Grid": false,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "CustomImage": {
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1734440976653253976/4CE026C43E4A2675464124745CAC35A0B1DFC229/",
-        "ImageSecondaryURL": "",
-        "ImageScalar": 1.0,
-        "WidthScale": 0.0,
-        "CustomDice": {
-          "Type": 3
-        }
-      },
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": "",
-      "RotationValues": [
-        {
-          "Value": "1",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 234.0
-          }
-        },
-        {
-          "Value": "2",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -233.0
-          }
-        },
-        {
-          "Value": "3",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 20.0
-          }
-        },
-        {
-          "Value": "4",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -17.0
-          }
-        },
-        {
-          "Value": "5",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 90.0
-          }
-        },
-        {
-          "Value": "6",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -161.0
-          }
-        },
-        {
-          "Value": "7",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 307.0
-          }
-        },
-        {
-          "Value": "8",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -304.0
-          }
-        },
-        {
-          "Value": "9",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 163.0
-          }
-        },
-        {
-          "Value": "10",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -90.0
-          }
-        }
-      ]
-    },
-    {
-      "GUID": "4f042d",
-      "Name": "Custom_Dice",
-      "Transform": {
-        "posX": -26.78458,
-        "posY": 1.2996484,
-        "posZ": -32.28503,
-        "rotX": 321.173248,
-        "rotY": 0.0,
-        "rotZ": 235.418549,
-        "scaleX": 1.0,
-        "scaleY": 1.0,
-        "scaleZ": 1.0
-      },
-      "Nickname": "Mission selection die",
-      "Description": "",
-      "GMNotes": "",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": false,
-      "Grid": false,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "CustomImage": {
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1734440976653253976/4CE026C43E4A2675464124745CAC35A0B1DFC229/",
-        "ImageSecondaryURL": "",
-        "ImageScalar": 1.0,
-        "WidthScale": 0.0,
-        "CustomDice": {
-          "Type": 3
-        }
-      },
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": "",
-      "RotationValues": [
-        {
-          "Value": "1",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 234.0
-          }
-        },
-        {
-          "Value": "2",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -233.0
-          }
-        },
-        {
-          "Value": "3",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 20.0
-          }
-        },
-        {
-          "Value": "4",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -17.0
-          }
-        },
-        {
-          "Value": "5",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 90.0
-          }
-        },
-        {
-          "Value": "6",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -161.0
-          }
-        },
-        {
-          "Value": "7",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 307.0
-          }
-        },
-        {
-          "Value": "8",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -304.0
-          }
-        },
-        {
-          "Value": "9",
-          "Rotation": {
-            "x": -38.0,
-            "y": 0.0,
-            "z": 163.0
-          }
-        },
-        {
-          "Value": "10",
-          "Rotation": {
-            "x": 38.0,
-            "y": 180.0,
-            "z": -90.0
-          }
-        }
-      ]
-    },
-    {
       "GUID": "c09349",
       "Name": "Custom_Assetbundle",
       "Transform": {
@@ -23623,11 +23361,11 @@
       "GUID": "429875",
       "Name": "Deck",
       "Transform": {
-        "posX": 9.430923,
+        "posX": 13.0,
         "posY": 0.940187156,
-        "posZ": -35.95542,
-        "rotX": -1.64489893E-06,
-        "rotY": 180.005569,
+        "posZ": -35.3,
+        "rotX": 0.0,
+        "rotY": 180.0,
         "rotZ": 180.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -23959,11 +23697,11 @@
       "GUID": "d0a9f9",
       "Name": "Deck",
       "Transform": {
-        "posX": -14.7942467,
+        "posX": -13.0,
         "posY": 0.9401853,
-        "posZ": 36.1311646,
-        "rotX": 1.64486676E-06,
-        "rotY": 359.870026,
+        "posZ": 35.3,
+        "rotX": 0.0,
+        "rotY": 0.0,
         "rotZ": 180.0,
         "scaleX": 1.0,
         "scaleY": 1.0,
@@ -24954,6 +24692,108 @@
       "GridProjection": false,
       "HideWhenFaceDown": false,
       "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "88785f",
+      "Name": "Custom_PDF",
+      "Transform": {
+        "posX": 76.65537,
+        "posY": 0.90000093,
+        "posZ": -64.00861,
+        "rotX": -5.05016E-07,
+        "rotY": 270.007233,
+        "rotZ": -1.61490368E-06,
+        "scaleX": 4.0,
+        "scaleY": 1.0,
+        "scaleZ": 4.0
+      },
+      "Nickname": "",
+      "Description": "Keyword reference",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomPDF": {
+        "PDFUrl": "http://cloud-3.steamusercontent.com/ugc/2028354869672329656/90BFBB3EDF57B2727E1572B08330E27B3D704F26/",
+        "PDFPassword": "",
+        "PDFPage": 0,
+        "PDFPageOffset": 0
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "97f8c3",
+      "Name": "Custom_PDF",
+      "Transform": {
+        "posX": 72.2862,
+        "posY": 0.8999974,
+        "posZ": 64.30792,
+        "rotX": -5.254592E-07,
+        "rotY": 270.017334,
+        "rotZ": -1.68403824E-06,
+        "scaleX": 6.0,
+        "scaleY": 1.0,
+        "scaleZ": 6.0
+      },
+      "Nickname": "",
+      "Description": "Core stratagem reference",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomPDF": {
+        "PDFUrl": "https://www.warhammer-community.com/wp-content/uploads/2023/06/76CPCqo7msJIHqzx.pdf",
+        "PDFPassword": "",
+        "PDFPage": 3,
+        "PDFPageOffset": 3
+      },
       "LuaScript": "",
       "LuaScriptState": "",
       "XmlUI": ""
