@@ -71,22 +71,6 @@ redPlayerID = ""
 bluePlayerID = ""
 startMenu = nil
 
-packsRepo = "https://raw.githubusercontent.com/ThePants999/tts-score-card-ca22/main/9e-combined/"
-packs = nil
-packsStatus = "pending"
-packsToDownload = 0
-
-function nextPhase(playerObj, button, elementId)
-    local altClick= false
-    local playerColor=playerObj.color
-
-    if button ~= "-1" then
-        altClick =  true
-    end
-    startMenu.call("nextPhaseFromGlobal", {alt=altClick, color=playerColor})
-end
-
-
 function onSave()
     saved_data = JSON.encode({
                                 svredPlayerID=redPlayerID,
@@ -97,8 +81,6 @@ function onSave()
 end
 
 function onLoad(saved_data)
-    WebRequest.get(packsRepo.."index.json", initRepoList)
-
     Turns.enable=false
     --- load vars from saved
     if saved_data ~= "" then
@@ -129,47 +111,6 @@ function onLoad(saved_data)
         end
     else
         Global.UI.setAttribute("main", "active", "false")
-    end
-end
-
-function initRepoList(web_data)
-    if not web_data then
-        packsStatus = "failed"
-        print("Failed to download mission pack list!")
-    else
-        local data = JSON.decode(web_data.text)
-        packs = {}
-        packs.names = data.packs
-        packs.data = {}
-
-        for index, pack in ipairs(data.packs) do
-            packsToDownload = packsToDownload + 1
-            local url = packsRepo..pack..".json"
-            WebRequest.get(url, function(web) initPackData(pack, web) end)
-        end
-    end
-end
-
-function initPackData(pack, web_data)
-    if not web_data then
-        packsStatus = "failed"
-        print("Failed to download mission pack " .. pack)
-    else
-        -- I can barely believe this, but TTS' built-in JSON decoder
-        -- (invoked using JSON.decode()) takes literally five seconds -
-        -- blocking the UI thread the whole time - to decode a couple of
-        -- mission packs' worth of data. Incredibly fortunately, there's
-        -- another decoder available (MoonSharp), which has a number of
-        -- bug reports but is about a hundred times faster. Use that one!
-        -- Our pack JSON is pretty simple and doesn't hit any of the bugs
-        -- in this parser.
-        local data = json.parse(web_data.text)
-        packs.data[pack] = data
-
-        packsToDownload = packsToDownload - 1
-        if packsStatus == "pending" and packsToDownload == 0 then
-            packsStatus = "success"
-        end
     end
 end
 
