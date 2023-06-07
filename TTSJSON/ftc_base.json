@@ -3003,7 +3003,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "",
-      "LuaScriptState": "{\"svcheckEnd\":false,\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploymentPregamePlaced\":true,\"svdeploySelected\":10,\"svdeployTypeSelected\":1,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":2,\"svobjectivesSelected\":10,\"svobjectivesTypeSelected\":1,\"svsizeConfirmed\":false}",
+      "LuaScriptState": "{\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploySelected\":6,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":2,\"svsizeConfirmed\":false}",
       "XmlUI": ""
     },
     {
@@ -12560,7 +12560,7 @@
         "scaleY": 0.10,
         "scaleZ": 1.9
       },
-      "Nickname": "[b][i]Battle-shocked[/i][/b]",
+      "Nickname": "[b][i]Battle-shock test needed[/i][/b]",
       "ColorDiffuse": {
         "r": 1.0,
         "g": 1.0,
@@ -12599,7 +12599,7 @@
             "scaleY": 1.0,
             "scaleZ": 0.5
           },
-          "Nickname": "[b][i]Battle-shocked[/i][/b]",
+          "Nickname": "[b][i]Battle-shock test needed[/i][/b]",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {

@@ -20,24 +20,10 @@ function onLoad(saved_data)
         currentTurn = loaded_data.svcurrentTurn
         currentPhase = loaded_data.svcurrentPhase
         mapSizeSelected = loaded_data.svmapSizeSelected
-        sizeConfirmed=loaded_data.svsizeConfirmed
-        deployTypeSelected = loaded_data.svdeployTypeSelected
+        sizeConfirmed = loaded_data.svsizeConfirmed
         deploySelected = loaded_data.svdeploySelected
-        areaPlaced = loaded_data.svareaPlaced
-        deploymentIngamePlaced = loaded_data.svdeploymentIngamePlaced
-        objectivesTypeSelected = loaded_data.svobjectivesTypeSelected
-        objectivesSelected = loaded_data.svobjectivesSelected
     end
 
-    --mapSizeSelected=2
---    objectivesTypeSelected = 4
---    objectivesSelected = #objectivesData[objectivesTypeSelected].objectivesList
-
---    deployTypeSelected = 8
---    deploySelected = #DeployZonesData[deployTypeSelected].zones
-
-    --objectivesSelected=#objectivesData[sizeSelected]
-    --print("objSel: "..objectivesSelected)
     mat = getObjectFromGUID(mat_GUID)
     if simulation then print("THIS IS "..currentTurn.." TURN") end
     -- DEPLOY MENU VARIABLES
@@ -77,14 +63,9 @@ function onSave()
         svgameMode = gameMode,
         svcurrentTurn = currentTurn,
         svcurrentPhase = currentPhase,
-        svmapSizeSelected=mapSizeSelected,
-        svsizeConfirmed=sizeConfirmed,
-        svdeployTypeSelected = deployTypeSelected,
-        svdeploySelected = deploySelected,
-        svareaPlaced = areaPlaced,
-        svdeploymentIngamePlaced = deploymentIngamePlaced,
-        svobjectivesTypeSelected = objectivesTypeSelected,
-        svobjectivesSelected = objectivesSelected,
+        svmapSizeSelected = mapSizeSelected,
+        svsizeConfirmed = sizeConfirmed,
+        svdeploySelected = deploySelected
     })
     --saved_data = ""
     return saved_data
@@ -92,11 +73,8 @@ end
 
 function makeAnnouncement()
     local features={
-    "2.44: New button to show lines for Engage on All Fronts / Retrieve Battlefield Data",
-    "2.45: Support for ordered dice rolling, and new button to show strategic reserves arrival zones",
-    "2.46: Added CP regen button; fixed mis-coloured deployment zones; recoloured strategic reserves lines to highlight player board edges; added For the Dark Gods zone button; added player-coloured objective states",
-    "2.47: Dice roller bug fixes and performance enhancement; further token improvements (yes, +1 advance has the wrong icon, fix coming soon)",
-    "2.48: Support for mirroring terrain when building maps"
+    "2.48: Support for mirroring terrain when building maps",
+    "3.0: TENTH EDITION YOOOOOOOO"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -190,7 +168,6 @@ function sizeUpDown(increment)
         mapSizeSelected=#sizeData
     end
     updateDeployObjectivesSelection()
-    deployTypeUpDown(nil)
     writeMenus()
 end
 
@@ -216,18 +193,7 @@ function confirmSizeMat(type)
 end
 
 function updateDeployObjectivesSelection()
-    for i, deploy in ipairs(DeployZonesData) do
-        if deploy.id == sizeData[mapSizeSelected].id then
-            deployTypeSelected = i
-        end
-    end
-    for i, objectives in ipairs(objectivesData) do
-        if objectives.id == sizeData[mapSizeSelected].id then
-            objectivesTypeSelected = i
-        end
-    end
-    deploySelected = #DeployZonesData[deployTypeSelected].zones
-    objectivesSelected = #objectivesData[objectivesTypeSelected].objectivesList
+    deploySelected = #DeployZonesData
 end
 
 function switchToTerrainEditor()
@@ -245,75 +211,24 @@ end
 -- END size changer
 
 objectivesData = {
-    {   id=1 , type = "Strike Force",
-        objectivesList={
-            {id = 12, name = "#11 Recover The Relics", objectives = {{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={8, objectivesOffset, 12}},{type = "fixed", pos={8, objectivesOffset, -12}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={-8, objectivesOffset, 12}},{type = "fixed", pos={-8, objectivesOffset, -12}}}},
-            {id = 13, name = "#12 Tear Down Their Icons", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-            {id = 14, name = "#13 Data Scry-Salvage", objectives = {{type = "diagonal", orientation="xz", pos={18}},{type = "diagonal", orientation="x-z", pos={12}},{type = "diagonal", orientation="x-z", pos={24}},{type = "diagonal", orientation="-x-z", pos={18}},{type = "diagonal", orientation="-xz", pos={12}},{type = "diagonal", orientation="-xz", pos={24}}}},
-            {id = 15, name = "#21 Abandoned Sanctuaries", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 14}},{type = "fixed", pos={-18, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, -14}}}},
-            {id = 16, name = "#22 Conversion", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-            {id = 17, name = "#23 The Scouring", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={9, objectivesOffset, 12}},{type = "fixed", pos={9, objectivesOffset, -12}},{type = "fixed", pos={-9, objectivesOffset, 12}},{type = "fixed", pos={-9, objectivesOffset, -12}}}},
-            {id = 18, name = "#31 Tide of Conviction", objectives = {{type = "fixed", pos={6, objectivesOffset, 6}},{type = "fixed", pos={-18, objectivesOffset, 6}},{type = "fixed", pos={0, objectivesOffset, 15}}, {type = "fixed", pos={18, objectivesOffset, -6}},{type = "fixed", pos={-6, objectivesOffset, -6}},{type = "fixed", pos={0, objectivesOffset, -15}}}},
-            {id = 19, name = "#32 Death and Zeal", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
-            {id = 20, name = "#33 Secure Missing Artefacts", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={15, objectivesOffset, 12}},{type = "fixed", pos={15, objectivesOffset, -12}},{type = "fixed", pos={-15, objectivesOffset, 12}},{type = "fixed", pos={-15, objectivesOffset, -12}}}},
+    {id = 12, name = "Hammer and Anvil", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 16}},{type = "fixed", pos={0, objectivesOffset, -16}}}},
+    {id = 13, name = "Dawn of War", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={20, objectivesOffset, 0}},{type = "fixed", pos={-20, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 16}},{type = "fixed", pos={0, objectivesOffset, -16}}}},
+    {id = 14, name = "Sweeping Engagement", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={12, objectivesOffset, 16}},{type = "fixed", pos={20, objectivesOffset, -8}},{type = "fixed", pos={-12, objectivesOffset, -16}},{type = "fixed", pos={-20, objectivesOffset, 8}}}},
+    {id = 15, name = "Search and Destroy", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={16, objectivesOffset, 12}},{type = "fixed", pos={16, objectivesOffset, -12}},{type = "fixed", pos={-16, objectivesOffset, 12}},{type = "fixed", pos={-16, objectivesOffset, -12}}}},
+    {id = 16, name = "Crucible of Battle", objectives = {{type = "fixed", pos={0, objectivesOffset, 0}},{type = "fixed", pos={10, objectivesOffset, -14}},{type = "fixed", pos={16, objectivesOffset, 12}},{type = "fixed", pos={-10, objectivesOffset, 14}},{type = "fixed", pos={-16, objectivesOffset, -12}}}},
 
-            {id = 0, name = "None", objectives = {} },
-        }
-    },
-    {   id=2 , type = "Incursion",
-        objectivesList={
-            {id = 12, name = "#11 Cleanse The Land", objectives = {{type = "fixed", pos={12, objectivesOffset, 9}},{type = "fixed", pos={-12, objectivesOffset, -9}},{type = "fixed", pos={12, objectivesOffset, -9}},{type = "fixed", pos={-12, objectivesOffset, 9}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 13, name = "#12 Deliverance", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 14, name = "#13 Desperate Raid", objectives = {{type = "fixed", pos={16, objectivesOffset, -6}},{type = "fixed", pos={16, objectivesOffset, 10}},{type = "fixed", pos={-16, objectivesOffset, -10}},{type = "fixed", pos={-16, objectivesOffset, 6}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
-            {id = 15, name = "#21 Sacred Ground", objectives = {{type = "fixed", pos={16.83, objectivesOffset, -8}},{type = "fixed", pos={-16.83, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
-            {id = 16, name = "#22 Ascension", objectives = {{type = "fixed", pos={8, objectivesOffset, -8}},{type = "fixed", pos={-16, objectivesOffset, -8}},{type = "fixed", pos={16, objectivesOffset, 8}},{type = "fixed", pos={-8, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 17, name = "#23 Surge of Faith", objectives = {{type = "fixed", pos={16, objectivesOffset, 6}},{type = "fixed", pos={3, objectivesOffset, -9}},{type = "fixed", pos={-3, objectivesOffset, 9}},{type = "fixed", pos={-16, objectivesOffset, -6}}}},
-            {id = 18, name = "#31 Rise of the Machine Spirit", objectives = {{type = "diagonal", pos={14, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={14, objectivesOffset}, orientation = "x-z"},{type = "fixed", pos={0, objectivesOffset, 0}}}},
-            {id = 19, name = "#32 Display of Spiritual Might", objectives = {{type = "fixed", pos={14, objectivesOffset, 0}},{type = "fixed", pos={-14, objectivesOffset, 0}},{type = "fixed", pos={0, objectivesOffset, 8}},{type = "fixed", pos={0, objectivesOffset, -8}}}},
-            {id = 20, name = "#33 Reconnaissance Mission", objectives = {{type = "diagonal", pos={16, objectivesOffset}, orientation = "xz"}, {type = "diagonal", pos={16, objectivesOffset}, orientation = "-x-z"}, {type = "diagonal", pos={10, objectivesOffset}, orientation = "-xz"}, {type = "diagonal", pos={10, objectivesOffset}, orientation = "x-z"}}},
-
-            {id = 0, name = "None", objectives = {} },
-        }
-    },
-    {   id=-1 , type = "None",
-        objectivesList={
-            {id = 0, name = "None", objectives = {} },
-        }
-    },
+    {id = 0, name = "None", objectives = {}},
 }
 
 -- DEPLOY ZONES MANAGER
 DeployZonesData = {
-    { id=1 , type = "Strike Force",
-        zones={
-            {name = "#11 Recover The Relics", objectivesID= 12, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0},--[[3{type = "circle", color = "White", fromCenter = 12}]]}},
-            {name = "#12 Tear Down Their Icons", objectivesID= 13, draw = {--[[1]]{type = "triangle", color = "Red", position = "x"},--[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
-            {name = "#13 Data Scry-Salvage", objectivesID= 14,draw = {--[[1]]{type = "diagonal", color = "Teal", position = "-z" , fromCenter = 12},--[[1]]{type = "diagonal", color = "Red", position = "z" , fromCenter = 12}}},
-            {name = "#21 Abandoned Sanctuaries", objectivesID= 15, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-            {name = "#22 Conversion", objectivesID= 16, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "#23 The Scouring", objectivesID= 17, draw = {--[[1]]{type = "line", color="Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color="Teal", position = "-x", fromCenter = 12}}},
-            {name = "#31 Tide of Conviction", objectivesID= 18, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-            {name = "#32 Death and Zeal", objectivesID= 19, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "#33 Secure Missing Artefacts", objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Red", position = "x"},--[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
+    {name = "Hammer and Anvil", objectivesID = 12, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0}}},
+    {name = "Dawn of War", objectivesID = 13, draw = {--[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },--[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
+    {name = "Sweeping Engagement", objectivesID = 14, draw = {--[[1]]{type = "triangle", color = "Red", position = "z"},--[[2]]{type = "triangle", color = "Teal", position = "-z"}}},
+    {name = "Search and Destroy", objectivesID = 15, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+    {name = "Crucible of Battle", objectivesID = 16, draw = {--[[1]]{type = "triangle", color = "Red", position = "x"},--[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
 
-            {name = "None", draw = {type = "none"}},
-        }
-    },
-    { id=2 , type = "Incursion",
-        zones={
-            {name = "#11 Cleanse The Land",  objectivesID= 12, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "#12 Deliverance",  objectivesID= 13, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "#13 Desperate Raid", objectivesID= 14, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
-            {name = "#21 Sacred Ground",  objectivesID= 15, draw = {--[[1]]{type = "triangle", color = "Red", position = "x"},--[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
-            {name = "#22 Ascension", objectivesID= 16, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
-            {name = "#23 Surge of Faith", objectivesID= 17, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
-            {name = "#31 Rise of the Machine Spirit",  objectivesID= 18, draw = {--[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},--[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},--[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-            {name = "#32 Display of Spiritual Might", objectivesID= 19, draw = {--[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},--[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
-            {name = "#33 Reconnaissance Mission",  objectivesID= 20, draw = {--[[1]]{type = "triangle", color = "Red", position = "x"},--[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
-
-            {name = "None", draw = {type = "none"}},
-        }
-    },
+    {name = "None", draw = {type = "none"}},
 }
 
 deployLineHeight = 2.1
@@ -560,6 +475,9 @@ function drawTriangle(drawData)
     triBase = mapBase
     triHeight = mapHeight/2
     edgeAngleRad = math.atan(triBase/triHeight )
+    if drawData.position == "z" or drawData.position == "-z" then
+        edgeAngleRad = -edgeAngleRad
+    end
     edgeAngle = math.deg(edgeAngleRad)
     lineScale.x = math.sqrt(triBase^2+triHeight^2)
     lineRot.y = edgeAngle
@@ -573,12 +491,12 @@ function drawTriangle(drawData)
         linePos.z=0
     end
     if drawData.position == "z" then
-            lineRot.y= lineRot.y-90
+        lineRot.y= lineRot.y-90
         linePos.x=0
         linePos.z=mapHeight/4
     end
     if drawData.position == "-z" then
-            lineRot.y= lineRot.y+90
+        lineRot.y= lineRot.y+90
         linePos.x=0
         linePos.z=-mapHeight/4
     end
@@ -849,64 +767,40 @@ IncrementBlueCpBtn = {
 
 notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found in the Notebook.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
 --
-menuX = 15
+menuX = 18
 menuZ = 1.05-1.05
 arrowOffset = 7.5
 
 -- DEPLOY ZONES VARIABLES
 
-
-deploymentIngamePlaced = false
-deployIngameLblOpen = "H i d e\nd e p l o y m e n t\nz o n e s"
-deployIngameLblClosed = "S h o w\nd e p l o y m e n t\nz o n e s"
 defaultDeployHeight=2
 deployOffset = 0
-deployTypeMenuBtn = {
-    index = 1, label = "S e l e c t    d e p l o y m e n t    z o n e s", click_function = "none", function_owner = self,
-    position = { - menuX, 5, menuZ - 1.2}, rotation = {0, 0, 0}, height = 450, width = 8000,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-deployTypeBtn = {
-    index = i, label = "", click_function = "none", function_owner = self,
-    position = { - menuX, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 6000,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-deployTypeUpBtn = {
-    index = 1, label = "->", click_function = "deployTypeUp", function_owner = self,
-    position = { - menuX + arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-deployTypeDownBtn = {
-    index = 1, label = "<-", click_function = "deployTypeDown", function_owner = self,
-    position = { - menuX - arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+deployMenuBtn = {
+    index = 1, label = "Select deployment zones", click_function = "none", function_owner = self,
+    position = { - menuX, 5, -1}, rotation = {0, 0, 0}, height = 750, width = 8000,
+    font_size = 500, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
 
 secondRowOffset= 1.2
 deployBtn = {
     index = i, label = "", click_function = "none", function_owner = self,
-    position = { - menuX, 5, menuZ+secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 6000,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+    position = { - menuX, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 6000,
+    font_size = 400, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 deployUpBtn = {
     index = 1, label = "->", click_function = "deployUp", function_owner = self,
-    position = { - menuX + arrowOffset, 5, menuZ+secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
+    position = { - menuX + arrowOffset, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 800,
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
 deployDownBtn = {
     index = 1, label = "<-", click_function = "deployDown", function_owner = self,
-    position = { - menuX - arrowOffset, 5, menuZ+secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
+    position = { - menuX - arrowOffset, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 800,
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-deployIngameBtn = {
-    index = 1, label = deployIngameLblClosed, click_function = "showHideIngameDeployment", function_owner = self,
-    position = { - menuX - 16, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 deployOffsetMenuBtn = {
-    index = 1, label = "Height", click_function = "none", function_owner = self,
+    index = 1, label = "Deploy\nHeight", click_function = "none", function_owner = self,
     position = {-menuX - 1.4*arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 1000,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+    font_size = 150, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
 deployOffsetUpBtn = {
     index = 1, label = "+", click_function = "deployOffsetUp", function_owner = self,
@@ -918,34 +812,52 @@ deployOffsetDownBtn = {
     position = {-menuX - 1.4*arrowOffset, 5, menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
+objectivesOffsetMenuBtn = {
+    index = 1, label = "Obj.\nHeight", click_function = "none", function_owner = self,
+    position = {-menuX + 1.4*arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 1000,
+    font_size = 150, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+objectivesOffsetUpBtn = {
+    index = 1, label = "+", click_function = "objectivesOffsetUp", function_owner = self,
+    position = {-menuX + 1.4*arrowOffset, 5, menuZ - secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
+    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+objectivesOffsetDownBtn = {
+    index = 1, label = "-", click_function = "objectivesOffsetDown", function_owner = self,
+    position = {-menuX + 1.4*arrowOffset, 5, menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
+    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+
 
 -- OBJECTIVES MANAGER
 defaultObjectivesHeight=1.0
 
 function spawnObjectives()
     destroyAllObjectives()
-    local selectedObjectivesBySize= objectivesData[objectivesTypeSelected].objectivesList
-    local spawned = nil
-    local pos={}
-    local template = getObjectFromGUID(Global.getVar("templateObjective_GUID"))
-    for i, objective in ipairs(selectedObjectivesBySize[objectivesSelected].objectives) do
-        pos=objective.pos
-        if objectivesOffset == nil then pos[2] = 1 else pos[2] = defaultObjectivesHeight+ objectivesOffset end
-            if objective.type=="fixed" then
-                -- no change to pos
+    if deploySelected < #DeployZonesData and DeployZonesData[deploySelected].objectivesID then
+        for id, objectiveSet in ipairs(objectivesData) do
+            if objectiveSet.id == DeployZonesData[deploySelected].objectivesID then
+                local spawned = nil
+                local pos={}
+                local template = getObjectFromGUID(Global.getVar("templateObjective_GUID"))
+                for i, objective in ipairs(objectiveSet.objectives) do
+                    pos=objective.pos
+                    if objectivesOffset == nil then pos[2] = 1 else pos[2] = defaultObjectivesHeight + objectivesOffset end
+                    if objective.type=="fixed" then
+                        -- no change to pos
+                    end
+                    if objective.type=="diagonal" then
+                        pos=calcDiagonalPos(objective.orientation, pos[1], pos[2])
+                    end
+                    spawned = template.clone({ position = pos })
+                    spawned.setGMNotes("objective")
+                    spawned.setPosition(pos)
+                    spawned.setRotation({0,270,180})
+                    spawned.setLock(true)
+                end
+                break
             end
-            if objective.type=="diagonal" then
-                pos=calcDiagonalPos(objective.orientation, pos[1], pos[2])
-            end
-        spawned = template.clone({ position = pos })
-        spawned.setGMNotes("objective")
-        spawned.setPosition(pos)
-        local rotZ = 180
-        if objectivesData[objectivesTypeSelected].rotateUp then
-            rotZ = 0
         end
-        spawned.setRotation({0,270,rotZ})
-        spawned.setLock(true)
     end
 end
 
@@ -1009,95 +921,28 @@ function setObjectivesHeight()
 end
 --END objectives manager
 
-objectivesOffset = 0
-objectivesTypeBtn = {
-    index = i, label = "", click_function = "none", function_owner = self,
-    position = {menuX, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 6000,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-objectivesTypeUpBtn = {
-    index = 1, label = "->", click_function = "objectivesTypeUp", function_owner = self,
-    position = {menuX + arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-objectivesTypeDownBtn = {
-    index = 1, label = "<-", click_function = "objectivesTypeDown", function_owner = self,
-    position = {menuX - arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-
-objectivesMenuBtn = {
-    index = 1, label = "S e l e c t    o b j e c t i v e s", click_function = "none", function_owner = self,
-    position = {menuX, 5, menuZ-secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 8000,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-objectivesBtn = {
-    index = i, label = "", click_function = "none", function_owner = self,
-    position = {menuX, 5,  menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 6000,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-objectivesUpBtn = {
-    index = 1, label = "->", click_function = "objectivesUp", function_owner = self,
-    position = {menuX + arrowOffset, 5,  menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-objectivesDownBtn = {
-    index = 1, label = "<-", click_function = "objectivesDown", function_owner = self,
-    position = {menuX - arrowOffset, 5,  menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-objectivesOffsetMenuBtn = {
-    index = 1, label = "Height", click_function = "none", function_owner = self,
-    position = {menuX + 1.4*arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 1000,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-objectivesOffsetBtn = {
-    label = tostring(objectivesOffset), click_function = "none", function_owner = self,
-    position = {menuX + 5, 5, menuZ + 1.2}, rotation = {0, 0, 0}, height = 450, width = 1200,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-objectivesOffsetUpBtn = {
-    index = 1, label = "+", click_function = "objectivesOffsetUp", function_owner = self,
-    position = {menuX + 1.4*arrowOffset, 5, menuZ - secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-objectivesOffsetDownBtn = {
-    index = 1, label = "-", click_function = "objectivesOffsetDown", function_owner = self,
-    position = {menuX + 1.4*arrowOffset, 5, menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-
--- AREA DENIAL
-areaPlaced = false
-areaLblOpen = "Hide\nArea Denial"
-areaLblClosed = "Show\nArea Denial"
-areaBtn = {
-    label = areaLblClosed, click_function = "showHideAreaDeny", function_owner = self,
-    position = {menuX + 22, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-engagePlaced = false
-engageLblOpen = "Hide\nEngage/RBD"
-engageLblClosed = "Show\nEngage/RBD"
-engageBtn = {
-    label = engageLblClosed, click_function = "showHideEngageRBD", function_owner = self,
-    position = {menuX + 28, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
 quartersPlaced = false
 quartersLblOpen = "Hide\nTable Quarters"
 quartersLblClosed = "Show\nTable Quarters"
 quartersBtn = {
     label = quartersLblClosed, click_function = "showHideQuarters", function_owner = self,
-    position = {menuX + 16, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = {menuX - 9, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
-ftDarkGodsPlaced = false
-ftDarkGodsLblOpen = "Hide\nFor The Dark Gods"
-ftDarkGodsLblClosed = "Show\nFor The Dark Gods"
-ftDarkGodsBtn = {
-    label = ftDarkGodsLblClosed, click_function = "showHideftDarkGods", function_owner = self,
-    position = {-menuX - 28, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
+areaPlaced = false
+areaLblOpen = "Hide\nArea Denial"
+areaLblClosed = "Show\nArea Denial"
+areaBtn = {
+    label = areaLblClosed, click_function = "showHideAreaDeny", function_owner = self,
+    position = {menuX - 3, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+engagePlaced = false
+engageLblOpen = "Hide\nEngage"
+engageLblClosed = "Show\nEngage"
+engageBtn = {
+    label = engageLblClosed, click_function = "showHideEngage", function_owner = self,
+    position = {menuX + 3, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 stratreservesPlaced = false
@@ -1105,7 +950,15 @@ stratreservesLblOpen = "Hide\nStrat Reserves"
 stratreservesLblClosed = "Show\nStrat Reserves"
 stratreservesBtn = {
     label = stratreservesLblClosed, click_function = "showHideStratreserves", function_owner = self,
-    position = {-menuX - 22, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = {menuX + 9, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+deploymentIngamePlaced = false
+deployIngameLblOpen = "Hide\ndeployment\nzones"
+deployIngameLblClosed = "Show\ndeployment\nzones"
+deployIngameBtn = {
+    index = 1, label = deployIngameLblClosed, click_function = "showHideIngameDeployment", function_owner = self,
+    position = {menuX + 15, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 position = {menuX, 5, menuZ}
@@ -1128,12 +981,10 @@ function writeMenus()
     if not sizeConfirmed then
         writeSizeMenu()
         writeDeployMenu()
-        writeObjMenu()
     else
         if inGame == false then
             writeStartMenu()
             writeDeployMenu()
-            writeObjMenu()
         else
             writeIngameMenu()
         end
@@ -1148,24 +999,21 @@ function writeStartMenu()
 end
 
 function writeDeployMenu()
-    local DeployListSelected=DeployZonesData[deployTypeSelected].zones
-    deployBtn.label = DeployListSelected[deploySelected].name
-    deployTypeBtn.label = DeployZonesData[deployTypeSelected].type
-    self.createButton(deployTypeBtn)
-    self.createButton(deployTypeUpBtn)
-    self.createButton(deployTypeDownBtn)
+    deployBtn.label = DeployZonesData[deploySelected].name
     self.createButton(deployBtn)
     self.createButton(deployUpBtn)
     self.createButton(deployDownBtn)
     self.createButton(deployOffsetMenuBtn)
     self.createButton(deployOffsetUpBtn)
     self.createButton(deployOffsetDownBtn)
-    self.createButton(deployTypeMenuBtn)
+    self.createButton(deployMenuBtn)
+    self.createButton(objectivesOffsetDownBtn)
+    self.createButton(objectivesOffsetUpBtn)
+    self.createButton(objectivesOffsetMenuBtn)
 
     self.createButton(areaBtn)
     self.createButton(quartersBtn)
     self.createButton(engageBtn)
-    self.createButton(ftDarkGodsBtn)
     self.createButton(stratreservesBtn)
 
     if gameMode == "game" then
@@ -1173,47 +1021,14 @@ function writeDeployMenu()
     end
 end
 
-function writeObjMenu()
-    if not objectivesData[objectivesTypeSelected].objectivesList then
-        return
-    end
-    if #objectivesData[objectivesTypeSelected].objectivesList == 0 then
-        return
-    end
-
-    local selectedObjectivesBySize = objectivesData[objectivesTypeSelected].objectivesList
-    if not selectedObjectivesBySize[objectivesSelected] then
-        objectivesSelected=#selectedObjectivesBySize
-    end
-    objectivesBtn.label = selectedObjectivesBySize[objectivesSelected].name
-    objectivesTypeBtn.label = objectivesData[objectivesTypeSelected].type
-    objectivesOffsetBtn.label = tostring(objectivesOffset)
-
-    self.createButton(objectivesMenuBtn)
-
-    self.createButton(objectivesTypeBtn)
-    self.createButton(objectivesTypeUpBtn)
-    self.createButton(objectivesTypeDownBtn)
-
-    self.createButton(objectivesBtn)
-    self.createButton(objectivesUpBtn)
-    self.createButton(objectivesDownBtn)
-
-    self.createButton(objectivesOffsetDownBtn)
-    self.createButton(objectivesOffsetUpBtn)
-    self.createButton(objectivesOffsetMenuBtn)
-end
-
 function writeIngameMenu()
     self.createButton(areaBtn)
     self.createButton(engageBtn)
     self.createButton(quartersBtn)
-    self.createButton(ftDarkGodsBtn)
     self.createButton(stratreservesBtn)
     self.createButton(deployIngameBtn)
     self.createButton(IncrementRedCpBtn)
     self.createButton(IncrementBlueCpBtn)
-    local DeployListSelected=DeployZonesData[deployTypeSelected].zones
 
     nextPhaseBtn.color = currentTurn
     local visibleTo=nextPhaseBtn.color
@@ -1253,7 +1068,6 @@ function startGame(obj, player, alt)
     destroyDeployZones()
     deploymentIngamePlaced = false
     areaPlaced = false
-    local DeployListSelected=DeployZonesData[deployTypeSelected].zones
     broadcastToAll(phases[currentPhase].." phase", "Yellow")
     resetActivationTokens()
     Notes.setNotes("")
@@ -1389,73 +1203,12 @@ end
 
 function placeDeploy()
     destroyDeployZones()
-    local data= DeployZonesData[deployTypeSelected].zones[deploySelected]
+    local data = DeployZonesData[deploySelected]
     drawDeployZone(data)
     if data.objectivesID then
-        for i, setup in ipairs(objectivesData[objectivesTypeSelected].objectivesList) do
-            if setup.id == data.objectivesID then
-                objectivesSelected = i
-                for j, type in ipairs(objectivesData) do
-                    if type.id ==  DeployZonesData[deployTypeSelected].id then
-                        objectivesTypeSelected = j
-                    end
-                end
-                spawnObjectives()
-            end
-        end
+        spawnObjectives()
     end
     writeMenus()
-end
-
-function deployTypeUp()
-    deployTypeUpDown(true)
-end
-
-function deployTypeDown()
-    deployTypeUpDown(false)
-end
-
-function deployTypeUpDown(upDown)
-    deploymentPregamePlaced = true
-
-    --if DeployZonesData[deployTypeSelected][deploySelected].objectivesID then
-    --    destroyAllObjectives()
-    --end
-    local add=1
-    if not upDown then
-        add=-1
-    end
-    if upDown == nil then
-        add = 0
-    end
-    deployTypeSelected = deployTypeSelected + add
-    if deployTypeSelected > #DeployZonesData then
-        deployTypeSelected = 1
-    end
-    if deployTypeSelected < 1 then
-        deployTypeSelected = #DeployZonesData
-    end
-
-    for i, obj in ipairs(objectivesData) do
-        if DeployZonesData[deployTypeSelected].objectivesID then
-            if obj.id == DeployZonesData[deployTypeSelected].objectivesID then
-                objectivesTypeSelected = i
-                break
-            end
-        else
-            if obj.id == DeployZonesData[deployTypeSelected].id then
-                objectivesTypeSelected = i
-                break
-            end
-        end
-
-    end
-    objectivesSelected = #objectivesData[objectivesTypeSelected].objectivesList
-    deploySelected = #DeployZonesData[deployTypeSelected].zones
-
-    writeMenus()
-    placeDeploy()
-    destroyAllObjectives()
 end
 
 function deployUp()
@@ -1469,7 +1222,7 @@ end
 function deployUpDown(upDown)
     deployOffset=0
     deploymentPregamePlaced = true
-    if DeployZonesData[deployTypeSelected].zones[deploySelected].objectivesID then
+    if DeployZonesData[deploySelected].objectivesID then
         destroyAllObjectives()
     end
     local add=1
@@ -1477,11 +1230,11 @@ function deployUpDown(upDown)
         add=-1
     end
     deploySelected = deploySelected + add
-    if deploySelected > #DeployZonesData[deployTypeSelected].zones then
+    if deploySelected > #DeployZonesData then
         deploySelected = 1
     end
     if deploySelected < 1 then
-        deploySelected = #DeployZonesData[deployTypeSelected].zones
+        deploySelected = #DeployZonesData
     end
     writeMenus()
     placeDeploy()
@@ -1507,57 +1260,6 @@ function deployOffsetUpDown(upDown) -- true up, false down
     end
     writeMenus()
     setDeployHeight()
-end
-
-
-function objectivesUp()
-    objectivesUpDown(true)
-end
-
-function objectivesDown()
-    objectivesUpDown(false)
-end
-
-function objectivesUpDown(upDown)
-    objectivesOffset=0
-    local add = 1
-    if not upDown then
-        add = -1
-    end
-    objectivesSelected = objectivesSelected + add
-    if objectivesSelected > #objectivesData[objectivesTypeSelected].objectivesList then
-        objectivesSelected = 1
-    end
-    if objectivesSelected < 1 then
-        objectivesSelected = #objectivesData[objectivesTypeSelected].objectivesList
-    end
-    writeMenus()
-    spawnObjectives()
-end
-
-function objectivesTypeUp()
-    objectivesTypeUpDown(true)
-end
-
-function objectivesTypeDown()
-    objectivesTypeUpDown(false)
-end
-
-function objectivesTypeUpDown(upDown)
-    local add = 1
-    if not upDown then
-        add = -1
-    end
-    objectivesTypeSelected = objectivesTypeSelected + add
-    if objectivesTypeSelected > #objectivesData then
-        objectivesTypeSelected = 1
-    end
-    if objectivesTypeSelected < 1 then
-        objectivesTypeSelected = #objectivesData
-    end
-    objectivesSelected = #objectivesData[objectivesTypeSelected].objectivesList
-    writeMenus()
-    spawnObjectives()
 end
 
 function objectivesOffsetUp()
@@ -1586,13 +1288,13 @@ end
 function showHideIngameDeployment()
     if deploymentIngamePlaced == false then -- place
         deployIngameBtn.label = deployIngameLblOpen
-        if deploySelected < #DeployZonesData[deployTypeSelected].zones then
-            drawDeployZone(DeployZonesData[deployTypeSelected].zones[deploySelected])
+        if deploySelected < #DeployZonesData then
+            drawDeployZone(DeployZonesData[deploySelected])
         end
         deploymentIngamePlaced = true
     else -- recall
         deployIngameBtn.label = deployIngameLblClosed
-        if deploySelected < #DeployZonesData[deployTypeSelected].zones then
+        if deploySelected < #DeployZonesData then
             destroyDeployZones()
         end
         deploymentIngamePlaced = false
@@ -1618,7 +1320,7 @@ function showHideAreaDeny()
     writeMenus()
 end
 
-function showHideEngageRBD()
+function showHideEngage()
     if not engagePlaced then
         engageBtn.label = engageLblOpen
 
@@ -1627,42 +1329,27 @@ function showHideEngageRBD()
         local mapBase = mat.getScale().z * sizeMulti -- short edge
         local mapHeight = mat.getScale().x * sizeMulti -- long edge
 
-        -- 4-quarter Engage lines
+        -- Engage lines
         xLength = (mapHeight / 2) - 3
         zLength = (mapBase / 2) - 3
         lineScale.x = xLength
         --(linePos, lineRot, lineScale, color, orientation, type)
-        spawnLine({(xLength / 2) + 3, deployLineHeight, -3}, {0, 0, 0}, lineScale, "White", "engageRBD")
-        spawnLine({(xLength / 2) + 3, deployLineHeight, 3}, {0, 0, 0}, lineScale, "White", "engageRBD")
-        spawnLine({((xLength / 2) * -1) - 3, deployLineHeight, -3}, {0, 0, 0}, lineScale, "White", "engageRBD")
-        spawnLine({((xLength / 2) * -1) - 3, deployLineHeight, 3}, {0, 0, 0}, lineScale, "White", "engageRBD")
+        spawnLine({(xLength / 2) + 3, deployLineHeight, -3}, {0, 0, 0}, lineScale, "White", "engage")
+        spawnLine({(xLength / 2) + 3, deployLineHeight, 3}, {0, 0, 0}, lineScale, "White", "engage")
+        spawnLine({((xLength / 2) * -1) - 3, deployLineHeight, -3}, {0, 0, 0}, lineScale, "White", "engage")
+        spawnLine({((xLength / 2) * -1) - 3, deployLineHeight, 3}, {0, 0, 0}, lineScale, "White", "engage")
         lineScale.x = zLength
-        spawnLine({-3, deployLineHeight, (zLength / 2) + 3}, {0, 90, 0}, lineScale, "White", "engageRBD")
-        spawnLine({3, deployLineHeight, (zLength / 2) + 3}, {0, 90, 0}, lineScale, "White", "engageRBD")
-        spawnLine({-3, deployLineHeight, (((zLength / 2) * -1) - 3)}, {0, 90, 0}, lineScale, "White", "engageRBD")
-        spawnLine({3, deployLineHeight, (((zLength / 2) * -1) - 3)}, {0, 90, 0}, lineScale, "White", "engageRBD")
-
-        -- 3-quarter Engage / Retrieve Battlefield Data lines
-        xLength = (mapHeight / 2) - 6
-        zLength = (mapBase / 2) - 6
-        lineScale.x = xLength
-        --(linePos, lineRot, lineScale, color, orientation, type)
-        spawnLine({(xLength / 2) + 6, deployLineHeight, -6}, {0, 0, 0}, lineScale, "White", "engageRBD")
-        spawnLine({(xLength / 2) + 6, deployLineHeight, 6}, {0, 0, 0}, lineScale, "White", "engageRBD")
-        spawnLine({((xLength / 2) * -1) - 6, deployLineHeight, -6}, {0, 0, 0}, lineScale, "White", "engageRBD")
-        spawnLine({((xLength / 2) * -1) - 6, deployLineHeight, 6}, {0, 0, 0}, lineScale, "White", "engageRBD")
-        lineScale.x = zLength
-        spawnLine({-6, deployLineHeight, (zLength / 2) + 6}, {0, 90, 0}, lineScale, "White", "engageRBD")
-        spawnLine({6, deployLineHeight, (zLength / 2) + 6}, {0, 90, 0}, lineScale, "White", "engageRBD")
-        spawnLine({-6, deployLineHeight, (((zLength / 2) * -1) - 6)}, {0, 90, 0}, lineScale, "White", "engageRBD")
-        spawnLine({6, deployLineHeight, (((zLength / 2) * -1) - 6)}, {0, 90, 0}, lineScale, "White", "engageRBD")
+        spawnLine({-3, deployLineHeight, (zLength / 2) + 3}, {0, 90, 0}, lineScale, "White", "engage")
+        spawnLine({3, deployLineHeight, (zLength / 2) + 3}, {0, 90, 0}, lineScale, "White", "engage")
+        spawnLine({-3, deployLineHeight, (((zLength / 2) * -1) - 3)}, {0, 90, 0}, lineScale, "White", "engage")
+        spawnLine({3, deployLineHeight, (((zLength / 2) * -1) - 3)}, {0, 90, 0}, lineScale, "White", "engage")
 
         engagePlaced = true
     else
         engageBtn.label = engageLblClosed
 
         for i, obj in ipairs(getAllObjects()) do
-            if obj.getGMNotes() == "engageRBD" then
+            if obj.getGMNotes() == "engage" then
                 obj.destroy()
             end
         end
@@ -1697,41 +1384,15 @@ function showHideQuarters()
     writeMenus()
 end
 
-function showHideftDarkGods()
-    if not ftDarkGodsPlaced then -- place
-        ftDarkGodsBtn.label = ftDarkGodsLblOpen
-        local mat = getObjectFromGUID(mat_GUID)
-        local lineScale = {x = 5, y = deployLineHeight, z = 0.02}
-        local mapBase = mat.getScale().z * sizeMulti   -- short edge
-        local mapHeight = mat.getScale().x * sizeMulti -- long edge
-
-        drawCircleNotCentered({color="White", fromCenter=6}, "ftDarkGods", mapHeight / 4, mapBase / 4)
-        drawCircleNotCentered({color="White", fromCenter=6}, "ftDarkGods", -mapHeight / 4, mapBase / 4)
-        drawCircleNotCentered({color="White", fromCenter=6}, "ftDarkGods", mapHeight / 4, -mapBase / 4)
-        drawCircleNotCentered({color="White", fromCenter=6}, "ftDarkGods", -mapHeight / 4, -mapBase / 4)
-        ftDarkGodsPlaced = true
-    else -- recall
-        ftDarkGodsBtn.label = ftDarkGodsLblClosed
-        for i, obj in ipairs(getAllObjects()) do
-            if obj.getGMNotes() == "ftDarkGods" then
-                obj.destroy()
-            end
-        end
-        ftDarkGodsPlaced = false
-    end
-    writeMenus()
-end
-
 function showHideStratreserves()
     if not stratreservesPlaced then
         stratreservesBtn.label = stratreservesLblOpen
 
-        local DeployListSelected=DeployZonesData[deployTypeSelected].zones
         local playerSides = "None"
 
         -- check that a deployment zone has been specified to determine which sides to colour
-        if DeployListSelected[deploySelected].name ~= "None" then
-            local deployZoneLayout = DeployListSelected[deploySelected].draw[1]
+        if DeployZonesData[deploySelected].name ~= "None" then
+            local deployZoneLayout = DeployZonesData[deploySelected].draw[1]
             playerSides = "long"
 
             -- check if deployment has short sides as Player Sides
