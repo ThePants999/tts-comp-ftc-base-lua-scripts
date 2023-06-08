@@ -1306,7 +1306,7 @@ function showHideAreaDeny()
     if areaPlaced == false then -- place
         areaBtn.label = areaLblOpen
         drawCircle({color="White", fromCenter=6}, "areaDeny")
-        drawCircle({color="White", fromCenter=12}, "areaDeny")
+        drawCircle({color="White", fromCenter=3}, "areaDeny")
         areaPlaced = true
     else -- recall
         areaBtn.label = areaLblClosed
