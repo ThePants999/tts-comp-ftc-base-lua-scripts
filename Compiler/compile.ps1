@@ -36,7 +36,7 @@ if(!(Test-Path $fileName))
 
 # ask user to give a version number
 # blank input gives no version
-if ($test -eq $null)
+if ($test -eq $false)
 {
 	$version = Read-Host "Version number"
 	if($version -ne "")
