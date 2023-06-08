@@ -9,7 +9,20 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
-### v.248
+### v2.50
+
+Yes, I skipped a version to start 10th edition on a nice round number. Sue me.
+
+**Tenth edition support!**
+* Scoresheet reworked to suit 10e missions.
+* Decks of 10e mission cards added.
+* Hands reinstated to support playing with cards.
+* Secondary objective manager replaced with buttons to lock in secondaries and work with gambits.
+* Deployment zones/objectives merged together and replaced with Leviathan ones.
+* Tokens slightly updated for 10e. (More changes to come later on this front.)
+* Core stratagem and keyword reminder sheets added.
+
+### v2.48
 
 * New terrain mirroring option for map making. Place the terrain for one half of the board and lock it in place, then press the new Mirror Terrain button, and each piece will be duplicated, rotated 180 degrees and placed in the mirrored position on the other half of the board.
 
