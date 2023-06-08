@@ -24567,6 +24567,60 @@
       "LuaScript": "",
       "LuaScriptState": "",
       "XmlUI": ""
+    },
+    {
+      "GUID": "e4203a",
+      "Name": "3DText",
+      "Transform": {
+        "posX": 47.0,
+        "posY": 0.9611332,
+        "posZ": 0.0,
+        "rotX": 90.0,
+        "rotY": 90.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "This is a preview of the 10th edition FTC map base. It may receive minor fixes\nin the run-up to 10th edition launch, but then it will be retired and the changes\nmerged into the main FTC map base.",
+        "colorstate": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0
+        },
+        "fontSize": 80
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     }
   ]
 }
