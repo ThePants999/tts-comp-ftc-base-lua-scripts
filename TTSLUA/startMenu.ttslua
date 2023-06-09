@@ -1220,7 +1220,8 @@ function deployDown()
 end
 
 function deployUpDown(upDown)
-    deployOffset=0
+    deployOffset = 0
+    objectivesOffset = 0
     deploymentPregamePlaced = true
     if DeployZonesData[deploySelected].objectivesID then
         destroyAllObjectives()
