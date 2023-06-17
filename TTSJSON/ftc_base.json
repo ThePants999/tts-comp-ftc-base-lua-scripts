@@ -13444,109 +13444,11 @@
       "XmlUI": ""
     },
     {
-      "GUID": "cb09a4",
+      "GUID": "cb09a9",
       "Name": "Custom_Model_Infinite_Bag",
       "Transform": {
-          "posX": 71.0,
-          "posY": 0.95,
-          "posZ": 13.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]Battle-shock test needed[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd58",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068921484752506/E0AE1739071849B8C6C514DA9DF2DC9DCA5656E0/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "b6fbbd",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]Battle-shock test needed[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": true,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068921484752506/E0AE1739071849B8C6C514DA9DF2DC9DCA5656E0/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": false
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb09a6",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 75.0,
-        "posY": 0.95,
+        "posX": 73.0,
+        "posY": 0.949997842,
         "posZ": 33.0,
         "rotX": 0.0,
         "rotY": 270.0,
@@ -13555,7 +13457,7 @@
         "scaleY": 0.10,
         "scaleZ": 1.9
       },
-      "Nickname": "[b][i]Hover[/i][/b]",
+      "Nickname": "[b][i]Fell Back[/i][/b]",
       "ColorDiffuse": {
         "r": 1.0,
         "g": 1.0,
@@ -13569,7 +13471,7 @@
       },
       "ChildObjects": [
         {
-          "GUID": "9cdd5a",
+          "GUID": "9cdd5d",
           "Name": "Custom_Token",
           "Transform": {
             "scaleX": 0.267505437,
@@ -13577,16 +13479,19 @@
             "scaleZ": 0.267947078
           },
           "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068753799043462/31284A820EAACBDC4FF2CB97958D31BDCF0BF3F7/",
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068753798926835/328D9FD93B72CDAA71E33D26E5F72658CF02C2F2/",
             "ImageScalar": 1.0
           }
         }
       ],
       "ContainedObjects": [
         {
-          "GUID": "1aac5d",
+          "GUID": "3e4f69",
           "Name": "Custom_Token",
           "Transform": {
+            "posX": 73.0,
+            "posY": 0.949997842,
+            "posZ": 35.0,
             "rotX": 0.0,
             "rotY": 0.0,
             "rotZ": 0.0,
@@ -13594,7 +13499,7 @@
             "scaleY": 1.0,
             "scaleZ": 0.5
           },
-          "Nickname": "[b][i]Hover[/i][/b]",
+          "Nickname": "[b][i]Fell Back[/i][/b]",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -13622,7 +13527,7 @@
           "HideWhenFaceDown": false,
           "Hands": true,
           "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068753799043462/31284A820EAACBDC4FF2CB97958D31BDCF0BF3F7/",
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068753798926835/328D9FD93B72CDAA71E33D26E5F72658CF02C2F2/",
             "ImageSecondaryURL": "",
             "ImageScalar": 1.0,
             "WidthScale": 0.0,
@@ -13842,12 +13747,12 @@
       ]
     },
     {
-      "GUID": "cb09a9",
+      "GUID": "cb09a6",
       "Name": "Custom_Model_Infinite_Bag",
       "Transform": {
         "posX": 73.0,
-        "posY": 0.949997842,
-        "posZ": 33.0,
+        "posY": 0.95,
+        "posZ": 31.0,
         "rotX": 0.0,
         "rotY": 270.0,
         "rotZ": 0.0,
@@ -13855,7 +13760,7 @@
         "scaleY": 0.10,
         "scaleZ": 1.9
       },
-      "Nickname": "[b][i]Fell Back[/i][/b]",
+      "Nickname": "[b][i]Hover[/i][/b]",
       "ColorDiffuse": {
         "r": 1.0,
         "g": 1.0,
@@ -13869,7 +13774,7 @@
       },
       "ChildObjects": [
         {
-          "GUID": "9cdd5d",
+          "GUID": "9cdd5a",
           "Name": "Custom_Token",
           "Transform": {
             "scaleX": 0.267505437,
@@ -13877,19 +13782,16 @@
             "scaleZ": 0.267947078
           },
           "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068753798926835/328D9FD93B72CDAA71E33D26E5F72658CF02C2F2/",
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068753799043462/31284A820EAACBDC4FF2CB97958D31BDCF0BF3F7/",
             "ImageScalar": 1.0
           }
         }
       ],
       "ContainedObjects": [
         {
-          "GUID": "3e4f69",
+          "GUID": "1aac5d",
           "Name": "Custom_Token",
           "Transform": {
-            "posX": 73.0,
-            "posY": 0.949997842,
-            "posZ": 35.0,
             "rotX": 0.0,
             "rotY": 0.0,
             "rotZ": 0.0,
@@ -13897,7 +13799,7 @@
             "scaleY": 1.0,
             "scaleZ": 0.5
           },
-          "Nickname": "[b][i]Fell Back[/i][/b]",
+          "Nickname": "[b][i]Hover[/i][/b]",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -13925,7 +13827,105 @@
           "HideWhenFaceDown": false,
           "Hands": true,
           "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068753798926835/328D9FD93B72CDAA71E33D26E5F72658CF02C2F2/",
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068753799043462/31284A820EAACBDC4FF2CB97958D31BDCF0BF3F7/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": false
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09c7",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 71.0,
+        "posY": 0.9499986,
+        "posZ": 31.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Fights first[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd77",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2050859734655424098/DC4191383D8DC236F7684D0062619C68DECDE47E/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "345d26",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Fights first[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": true,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2050859734655424098/DC4191383D8DC236F7684D0062619C68DECDE47E/",
             "ImageSecondaryURL": "",
             "ImageScalar": 1.0,
             "WidthScale": 0.0,
@@ -13948,7 +13948,7 @@
       "Transform": {
         "posX": 69.0,
         "posY": 0.9499981,
-        "posZ": 29.0,
+        "posZ": 31.0,
         "rotX": 0.0,
         "rotY": 270.0,
         "rotZ": 0.0,
@@ -14046,12 +14046,1497 @@
       ]
     },
     {
-      "GUID": "cb09b1",
+      "GUID": "cb0ab0",
       "Name": "Custom_Model_Infinite_Bag",
       "Transform": {
         "posX": 73.0,
         "posY": 0.9499981,
         "posZ": 29.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Devastating Wounds[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd60",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028980142/CC7FC98416C5BBA90591F9A26128B7C2E95BAF44/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "de62af",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Devastating Wounds[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": true,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028980142/CC7FC98416C5BBA90591F9A26128B7C2E95BAF44/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": false
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb0bb0",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 71.0,
+        "posY": 0.9499981,
+        "posZ": 29.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Lethal Hits[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd60",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028981243/327E0BCD6630A22226A5C917E94D76B5D9081627/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "de62af",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Lethal Hits[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": true,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028981243/327E0BCD6630A22226A5C917E94D76B5D9081627/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": false
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb0cb0",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 69.0,
+        "posY": 0.9499981,
+        "posZ": 29.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Sustained Hits[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd60",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028982671/D6E73CAD0C9BB789A5169AD66B9BFB60CCE8A6C2/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "de62af",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Sustained Hits[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": true,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028982671/D6E73CAD0C9BB789A5169AD66B9BFB60CCE8A6C2/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": false
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09ba",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 73.0,
+        "posY": 0.94999826,
+        "posZ": 25.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Leadership buffed[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd6a",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650254015/6308BD51F123E04A634516411C421FF442395172/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "84b44e",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Leadership buffed[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650254015/6308BD51F123E04A634516411C421FF442395172/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb19ba",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 71.0,
+        "posY": 0.94999826,
+        "posZ": 25.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Objective control buffed[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd6a",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028984064/E00558D539E84F29B752A146844FAFB410A9F413/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "84b44e",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Objective control buffed[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028984064/E00558D539E84F29B752A146844FAFB410A9F413/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09a4",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+          "posX": 69.0,
+          "posY": 0.95,
+          "posZ": 25.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Battle-shock test needed[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd58",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068921484752506/E0AE1739071849B8C6C514DA9DF2DC9DCA5656E0/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "b6fbbd",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Battle-shock test needed[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": true,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1016068921484752506/E0AE1739071849B8C6C514DA9DF2DC9DCA5656E0/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": false
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09bb",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 73.0,
+        "posY": 0.9499983,
+        "posZ": 23.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Leadership debuffed[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd6b",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650243946/26AE7DD38007FA434D754663FFE20BD054282F71/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "a968aa",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Leadership debuffed[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650243946/26AE7DD38007FA434D754663FFE20BD054282F71/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb29ba",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 71.0,
+        "posY": 0.94999826,
+        "posZ": 23.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Objective control debuffed[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd6a",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028985487/F54DE098427707D2A1AAD17AEE2F311FD5EF3C0D/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "84b44e",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Objective control debuffed[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028985487/F54DE098427707D2A1AAD17AEE2F311FD5EF3C0D/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09c5",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 69.0,
+        "posY": 0.949998558,
+        "posZ": 23.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Battle-shocked[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd75",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028978974/145793176D2BE7F72E4697E5F0F2C4B33850AB89/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "b20417",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Battle-shocked[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": true,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028978974/145793176D2BE7F72E4697E5F0F2C4B33850AB89/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": false
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb19b3",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 73.0,
+        "posY": 0.94999826,
+        "posZ": 19.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]+1 attack[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd63",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650252125/7C750F237A45E45D30FD149DC75BC8FE9F977F7A/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "2dc321",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]+1 attack[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": true,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650252125/7C750F237A45E45D30FD149DC75BC8FE9F977F7A/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb19b8",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 71.0,
+        "posY": 0.94999826,
+        "posZ": 19.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]+1 strength[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd68",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650254931/B907B13B97EC40B148F177B515CF50695E34C2B7/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "60b24f",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]+1 strength[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650254931/B907B13B97EC40B148F177B515CF50695E34C2B7/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb19b9",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 69.0,
+        "posY": 0.94999814,
+        "posZ": 19.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]+1 toughness[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd69",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650255866/4F520BBA410C99C39240EDF0A5D344D62931E2CD/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "5a61ce",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]+1 toughness[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650255866/4F520BBA410C99C39240EDF0A5D344D62931E2CD/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09b3",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 73.0,
+        "posY": 0.94999826,
+        "posZ": 17.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]-1 attack[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd63",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650241487/80FEC7E6D929EBDEF35CB8CE9BB81C45534C2F47/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "2dc221",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]-1 attack[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": true,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650241487/80FEC7E6D929EBDEF35CB8CE9BB81C45534C2F47/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09b8",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 71.0,
+        "posY": 0.94999826,
+        "posZ": 17.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]-1 strength[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd68",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650245242/9588CD37FED74D5D22D0D4ED90C68F96E004935B/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "60b24f",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]-1 strength[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650245242/9588CD37FED74D5D22D0D4ED90C68F96E004935B/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09b9",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 69.0,
+        "posY": 0.94999814,
+        "posZ": 17.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]-1 toughness[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd69",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650246793/34328049F5F1D627B59B86FE84EF3EAAEF3BE6A8/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "5a61ce",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]-1 toughness[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650246793/34328049F5F1D627B59B86FE84EF3EAAEF3BE6A8/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09b1",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 73.0,
+        "posY": 0.9499981,
+        "posZ": 15.0,
         "rotX": 0.0,
         "rotY": 270.0,
         "rotZ": 0.0,
@@ -14149,12 +15634,208 @@
       ]
     },
     {
-      "GUID": "cb09b2",
+      "GUID": "cb09b4",
       "Name": "Custom_Model_Infinite_Bag",
       "Transform": {
         "posX": 71.0,
+        "posY": 0.94999826,
+        "posZ": 15.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Advance buffed[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd64",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650257432/B218099A3E7533ACA5A022BDBF18F963D3FC8399/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "4b68bf",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Advance buffed[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": true,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650257432/B218099A3E7533ACA5A022BDBF18F963D3FC8399/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09b7",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 69.0,
+        "posY": 0.9499982,
+        "posZ": 15.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Charge buffed[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd67",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650252968/69EE5BF953CBAC1BA7938E3DD189F6520969A0AA/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "a90e97",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Charge buffed[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650252968/69EE5BF953CBAC1BA7938E3DD189F6520969A0AA/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cb09b2",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 73.0,
         "posY": 0.9499981,
-        "posZ": 29.0,
+        "posZ": 13.0,
         "rotX": 0.0,
         "rotY": 270.0,
         "rotZ": 0.0,
@@ -14252,698 +15933,12 @@
       ]
     },
     {
-      "GUID": "cb19b3",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 73.0,
-        "posY": 0.94999826,
-        "posZ": 27.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]+1 attack[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd63",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650252125/7C750F237A45E45D30FD149DC75BC8FE9F977F7A/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "2dc321",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]+1 attack[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": true,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650252125/7C750F237A45E45D30FD149DC75BC8FE9F977F7A/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb09b3",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 73.0,
-        "posY": 0.94999826,
-        "posZ": 25.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]-1 attack[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd63",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650241487/80FEC7E6D929EBDEF35CB8CE9BB81C45534C2F47/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "2dc221",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]-1 attack[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": true,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650241487/80FEC7E6D929EBDEF35CB8CE9BB81C45534C2F47/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb19b8",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 71.0,
-        "posY": 0.94999826,
-        "posZ": 27.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]+1 strength[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd68",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650254931/B907B13B97EC40B148F177B515CF50695E34C2B7/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "60b24f",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]+1 strength[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": false,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650254931/B907B13B97EC40B148F177B515CF50695E34C2B7/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb09b8",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 71.0,
-        "posY": 0.94999826,
-        "posZ": 25.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]-1 strength[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd68",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650245242/9588CD37FED74D5D22D0D4ED90C68F96E004935B/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "60b24f",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]-1 strength[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": false,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650245242/9588CD37FED74D5D22D0D4ED90C68F96E004935B/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb19b9",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 69.0,
-        "posY": 0.94999814,
-        "posZ": 27.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]+1 toughness[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd69",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650255866/4F520BBA410C99C39240EDF0A5D344D62931E2CD/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "5a61ce",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]+1 toughness[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": false,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650255866/4F520BBA410C99C39240EDF0A5D344D62931E2CD/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb09b9",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 69.0,
-        "posY": 0.94999814,
-        "posZ": 25.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]-1 toughness[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd69",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650246793/34328049F5F1D627B59B86FE84EF3EAAEF3BE6A8/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "5a61ce",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]-1 toughness[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": false,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650246793/34328049F5F1D627B59B86FE84EF3EAAEF3BE6A8/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb09b4",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 73.0,
-        "posY": 0.94999826,
-        "posZ": 23.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]+1 advance[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd64",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650257432/B218099A3E7533ACA5A022BDBF18F963D3FC8399/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "4b68bf",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]+1 advance[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": true,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650257432/B218099A3E7533ACA5A022BDBF18F963D3FC8399/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
       "GUID": "cb09b5",
       "Name": "Custom_Model_Infinite_Bag",
       "Transform": {
-        "posX": 73.0,
+        "posX": 71.0,
         "posY": 0.9499982,
-        "posZ": 21.0,
+        "posZ": 13.0,
         "rotX": 0.0,
         "rotY": 270.0,
         "rotZ": 0.0,
@@ -14951,7 +15946,7 @@
         "scaleY": 0.10,
         "scaleZ": 1.9
       },
-      "Nickname": "[b][i]-1 advance[/i][/b]",
+      "Nickname": "[b][i]Advance debuffed[/i][/b]",
       "ColorDiffuse": {
         "r": 1.0,
         "g": 1.0,
@@ -14990,7 +15985,7 @@
             "scaleY": 1.0,
             "scaleZ": 0.5
           },
-          "Nickname": "[b][i]-1 advance[/i][/b]",
+          "Nickname": "[b][i]Advance debuffed[/i][/b]",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -15036,110 +16031,12 @@
       ]
     },
     {
-      "GUID": "cb09b7",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 71.0,
-        "posY": 0.9499982,
-        "posZ": 23.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]+1 charge[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd67",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650252968/69EE5BF953CBAC1BA7938E3DD189F6520969A0AA/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "a90e97",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]+1 charge[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": false,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650252968/69EE5BF953CBAC1BA7938E3DD189F6520969A0AA/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
       "GUID": "cb09b6",
       "Name": "Custom_Model_Infinite_Bag",
       "Transform": {
-        "posX": 71.0,
+        "posX": 69.0,
         "posY": 0.9499983,
-        "posZ": 21.0,
+        "posZ": 13.0,
         "rotX": 0.0,
         "rotY": 270.0,
         "rotZ": 0.0,
@@ -15147,7 +16044,7 @@
         "scaleY": 0.10,
         "scaleZ": 1.9
       },
-      "Nickname": "[b][i]-1 charge[/i][/b]",
+      "Nickname": "[b][i]Charge debuffed[/i][/b]",
       "ColorDiffuse": {
         "r": 1.0,
         "g": 1.0,
@@ -15186,7 +16083,7 @@
             "scaleY": 1.0,
             "scaleZ": 0.5
           },
-          "Nickname": "[b][i]-1 charge[/i][/b]",
+          "Nickname": "[b][i]Charge debuffed[/i][/b]",
           "Description": "",
           "GMNotes": "",
           "AltLookAngle": {
@@ -15223,398 +16120,6 @@
               "MergeDistancePixels": 25.0,
               "StandUp": false,
               "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb09ba",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 69.0,
-        "posY": 0.94999826,
-        "posZ": 23.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]+1 leadership[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd6a",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650254015/6308BD51F123E04A634516411C421FF442395172/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "84b44e",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]+1 leadership[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": false,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650254015/6308BD51F123E04A634516411C421FF442395172/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb09bb",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 69.0,
-        "posY": 0.9499983,
-        "posZ": 21.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]-1 leadership[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd6b",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650243946/26AE7DD38007FA434D754663FFE20BD054282F71/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "a968aa",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]-1 leadership[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": false,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2035105196650243946/26AE7DD38007FA434D754663FFE20BD054282F71/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": true
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb09c5",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 69.0,
-        "posY": 0.949998558,
-        "posZ": 13.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]Battle-shocked[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd75",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2050859734655416706/7F59D5C046364C5339CDAF414C9EBC36CEE16032/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "b20417",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]Battle-shocked[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": true,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2050859734655416706/7F59D5C046364C5339CDAF414C9EBC36CEE16032/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": false
-            }
-          },
-          "LuaScript": "",
-          "LuaScriptState": "",
-          "XmlUI": ""
-        }
-      ]
-    },
-    {
-      "GUID": "cb09c7",
-      "Name": "Custom_Model_Infinite_Bag",
-      "Transform": {
-        "posX": 73.0,
-        "posY": 0.9499986,
-        "posZ": 13.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.9,
-        "scaleY": 0.10,
-        "scaleZ": 1.9
-      },
-      "Nickname": "[b][i]Fights first[/i][/b]",
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.0
-      },
-      "Locked": true,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
-        "TypeIndex": 7
-      },
-      "ChildObjects": [
-        {
-          "GUID": "9cdd77",
-          "Name": "Custom_Token",
-          "Transform": {
-            "scaleX": 0.267505437,
-            "scaleY": 5.0,
-            "scaleZ": 0.267947078
-          },
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2050859734655424098/DC4191383D8DC236F7684D0062619C68DECDE47E/",
-            "ImageScalar": 1.0
-          }
-        }
-      ],
-      "ContainedObjects": [
-        {
-          "GUID": "345d26",
-          "Name": "Custom_Token",
-          "Transform": {
-            "rotX": 0.0,
-            "rotY": 0.0,
-            "rotZ": 0.0,
-            "scaleX": 0.5,
-            "scaleY": 1.0,
-            "scaleZ": 0.5
-          },
-          "Nickname": "[b][i]Fights first[/i][/b]",
-          "Description": "",
-          "GMNotes": "",
-          "AltLookAngle": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
-          },
-          "ColorDiffuse": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0
-          },
-          "LayoutGroupSortIndex": 0,
-          "Value": 0,
-          "Locked": false,
-          "Grid": true,
-          "Snap": true,
-          "IgnoreFoW": false,
-          "MeasureMovement": false,
-          "DragSelectable": true,
-          "Autoraise": true,
-          "Sticky": true,
-          "Tooltip": true,
-          "GridProjection": false,
-          "HideWhenFaceDown": false,
-          "Hands": true,
-          "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2050859734655424098/DC4191383D8DC236F7684D0062619C68DECDE47E/",
-            "ImageSecondaryURL": "",
-            "ImageScalar": 1.0,
-            "WidthScale": 0.0,
-            "CustomToken": {
-              "Thickness": 0.1,
-              "MergeDistancePixels": 25.0,
-              "StandUp": false,
-              "Stackable": false
             }
           },
           "LuaScript": "",
@@ -15757,7 +16262,7 @@
             "scaleZ": 0.267947078
           },
           "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2050859734655433467/BD0AF1590F592484681A62491E13122FA8F96752/",
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028986581/B898667066E94C59D6FEEBAC07D96551EF8B802F/",
             "ImageScalar": 1.0
           }
         }
@@ -15802,7 +16307,7 @@
           "HideWhenFaceDown": false,
           "Hands": true,
           "CustomImage": {
-            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2050859734655433467/BD0AF1590F592484681A62491E13122FA8F96752/",
+            "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2023852627028986581/B898667066E94C59D6FEEBAC07D96551EF8B802F/",
             "ImageSecondaryURL": "",
             "ImageScalar": 1.0,
             "WidthScale": 0.0,
@@ -24470,12 +24975,12 @@
       "GUID": "88785f",
       "Name": "Custom_PDF",
       "Transform": {
-        "posX": 76.65537,
-        "posY": 0.90000093,
-        "posZ": -64.00861,
-        "rotX": -5.05016E-07,
-        "rotY": 270.007233,
-        "rotZ": -1.61490368E-06,
+        "posX": 78.0,
+        "posY": 0.9,
+        "posZ": -64,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
         "scaleX": 4.0,
         "scaleY": 1.0,
         "scaleZ": 4.0
@@ -24521,12 +25026,12 @@
       "GUID": "97f8c3",
       "Name": "Custom_PDF",
       "Transform": {
-        "posX": 72.2862,
-        "posY": 0.8999974,
-        "posZ": 64.30792,
-        "rotX": -5.254592E-07,
-        "rotY": 270.017334,
-        "rotZ": -1.68403824E-06,
+        "posX": 73.74253,
+        "posY": 0.9,
+        "posZ": 84.24611,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
         "scaleX": 6.0,
         "scaleY": 1.0,
         "scaleZ": 6.0
@@ -24610,13 +25115,71 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "Text": {
-        "Text": "This is a preview of the 10th edition FTC map base. It may receive minor fixes\nin the run-up to 10th edition launch, but then it will be retired and the changes\nmerged into the main FTC map base.",
+        "Text": "Welcome to 10th edition! This map base is now designed for 10th edition play.\nIf you want to continue playing 9th edition, the old map base has been forked to https://steamcommunity.com/sharedfiles/filedetails/?id=2986578599",
         "colorstate": {
           "r": 1.0,
           "g": 1.0,
           "b": 1.0
         },
         "fontSize": 80
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "252e13",
+      "Name": "CardCustom",
+      "Transform": {
+        "posX": 76.8790359,
+        "posY": 0.913602054,
+        "posZ": 56.6881447,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 5.87509537,
+        "scaleY": 1.0,
+        "scaleZ": 5.87509537
+      },
+      "Nickname": "Leviathan Rules",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.713235259,
+        "g": 0.713235259,
+        "b": 0.713235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": true,
+      "Hands": true,
+      "CardID": 7200,
+      "SidewaysCard": false,
+      "CustomDeck": {
+        "72": {
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496527305049778/365321EA7DF4BCBFC45E4E9277A27630FED6E823/",
+          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496527305049778/365321EA7DF4BCBFC45E4E9277A27630FED6E823/",
+          "NumWidth": 1,
+          "NumHeight": 1,
+          "BackIsHidden": true,
+          "UniqueBack": false,
+          "Type": 0
+        }
       },
       "LuaScript": "",
       "LuaScriptState": "",
