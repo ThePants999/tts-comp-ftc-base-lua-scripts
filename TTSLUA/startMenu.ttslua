@@ -74,7 +74,8 @@ end
 function makeAnnouncement()
     local features={
     "2.48: Support for mirroring terrain when building maps",
-    "2.50: TENTH EDITION YOOOOOOOO"
+    "2.50: TENTH EDITION YOOOOOOOO",
+    "2.51: Improved card graphics, mission reference card, instructions for using cards"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
