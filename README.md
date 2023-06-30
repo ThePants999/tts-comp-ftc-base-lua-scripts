@@ -9,6 +9,15 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v2.51
+
+* Improved the card graphics, with thanks to Tyrone.
+* Updated primary/secondary cards with GW's changes to servo skulls / homers / BEL.
+* Further token improvements: some replacement graphics, added AP mods.
+* Added Leviathan mission reference card.
+* Added instructions for using cards - written and video.
+* Added bag of datasheets.
+
 ### v2.50
 
 Yes, I skipped a version to start 10th edition on a nice round number. Sue me.
