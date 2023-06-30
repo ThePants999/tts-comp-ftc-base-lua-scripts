@@ -14,6 +14,7 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 * Improved the card graphics, with thanks to Tyrone.
 * Updated primary/secondary cards with GW's changes to servo skulls / homers / BEL.
 * Further token improvements: some replacement graphics, added AP mods.
+* Added a second random mission button that only uses GW's recommended tournament combos.
 * Added Leviathan mission reference card.
 * Added instructions for using cards - written and video.
 * Added bag of datasheets.

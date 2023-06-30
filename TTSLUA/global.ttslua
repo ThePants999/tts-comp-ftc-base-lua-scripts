@@ -354,5 +354,8 @@ function moveOneFromDeckToZone(params)
             card.locked = true
         end)
     end
+    if params["card"] then
+        takeParams.guid = params.card
+    end
     deckObj.takeObject(takeParams)
 end

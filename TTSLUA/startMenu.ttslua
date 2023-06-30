@@ -77,6 +77,7 @@ function makeAnnouncement()
     "2.51:",
     "improved card graphics",
     "incorporated GW's card errata",
+    "added button for random tournament mission",
     "further token improvements",
     "added Leviathan mission reference card",
     "added instructions for using cards",
@@ -970,14 +971,26 @@ deployIngameBtn = {
 position = {menuX, 5, menuZ}
 
 randomiseMissionBtn = {
-    label = "Randomise\nMission",
+    label = "Random\nMission",
     click_function = "randomiseMission",
     function_owner = self,
-    position = {8, 5, -16.5},
+    position = {7, 5, -16.5},
     rotation = {0, 0, 0},
     height = 800,
-    width = 3000,
-    font_size = 300,
+    width = 2000,
+    font_size = 200,
+    color = {1, 1, 1},
+    font_color = {0, 0, 0}
+}
+randomTournamentMissionBtn = {
+    label = "Random\nTournament\nMission",
+    click_function = "randomTournamentMission",
+    function_owner = self,
+    position = {11.5, 5, -16.5},
+    rotation = {0, 0, 0},
+    height = 800,
+    width = 2000,
+    font_size = 200,
     color = {1, 1, 1},
     font_color = {0, 0, 0}
 }
@@ -1024,6 +1037,7 @@ function writeDeployMenu()
 
     if gameMode == "game" then
         self.createButton(randomiseMissionBtn)
+        self.createButton(randomTournamentMissionBtn)
     end
 end
 
@@ -1451,6 +1465,65 @@ function showHideStratreserves()
     writeMenus()
 end
 
+--[[
+GUID reference for primary / mission / deployment cards
+Yeah, I could use variables but I didn't, oh well
+
+Sites of Power ec78cd
+Scorched Earth 3ad5a3
+Purge the Foe 5444d4
+Priority Targets f97708
+Deploy Servo-Skulls 44ff29
+Take and Hold 884291
+Supply Drop a34ae1
+The Ritual 646b49
+Vital Ground 6fc1c2
+
+Chilling Rain db0022
+Hidden Supplies 0dc3c3
+Scrambler Fields aea986
+Chosen Battlefield 876ac7
+
+Hammer and Anvil 117c77
+Dawn of War 7e4b95
+Sweeping Engagement 381d7c
+Search and Destroy ad4220
+Crucible of Battle 3c0679
+]]--
+
+tournamentMissions = {
+    -- Take and Hold / Chilling Rain / Search and Destroy
+    {primary = "884291", mission = "db0022", deployment = "ad4220"},
+    -- Priority Targets / Hidden Supplies / Search and Destroy
+    {primary = "f97708", mission = "0dc3c3", deployment = "ad4220"},
+    -- The Ritual / Scrambler Fields / Sweeping Engagement
+    {primary = "646b49", mission = "aea986", deployment = "381d7c"},
+    -- Deploy Servo-skulls / Chilling Rain / Search and Destroy
+    {primary = "44ff29", mission = "db0022", deployment = "ad4220"},
+    -- Take and Hold / Chosen Battlefield / Sweeping Engagement
+    {primary = "884291", mission = "876ac7", deployment = "381d7c"},
+    -- Supply Drop / Chilling Rain / Search and Destroy
+    {primary = "a34ae1", mission = "db0022", deployment = "ad4220"},
+    -- Sites of Power / Chilling Rain / Hammer and Anvil
+    {primary = "ec78cd", mission = "db0022", deployment = "117c77"},
+    -- The Ritual / Chilling Rain / Hammer and Anvil
+    {primary = "646b49", mission = "db0022", deployment = "117c77"},
+    -- Take and Hold / Hidden Supplies / Hammer and Anvil
+    {primary = "884291", mission = "0dc3c3", deployment = "117c77"},
+    -- Priority Targets / Chilling Rain / Crucible of Battle
+    {primary = "f97708", mission = "db0022", deployment = "3c0679"},
+    -- Deploy Servo-skulls / Hidden Supplies / Crucible of Battle
+    {primary = "44ff29", mission = "0dc3c3", deployment = "3c0679"},
+    -- Scorched Earth / Chilling Rain / Dawn of War
+    {primary = "3ad5a3", mission = "db0022", deployment = "7e4b95"},
+    -- Purge the Foe / Chilling Rain / Crucible of Battle
+    {primary = "5444d4", mission = "db0022", deployment = "3c0679"},
+    -- Priority Targets / Chosen Battlefield / Dawn of War
+    {primary = "f97708", mission = "876ac7", deployment = "7e4b95"},
+    -- Vital Ground / Chilling Rain / Crucible of Battle
+    {primary = "6fc1c2", mission = "db0022", deployment = "3c0679"}
+}
+
 function randomiseMission()
     Global.call("moveAllFromZoneToDeck", {zone = "deployment", deck = "deployment"})
     Global.call("moveAllFromZoneToDeck", {zone = "mission", deck = "mission"})
@@ -1459,6 +1532,17 @@ function randomiseMission()
     Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment"})
     Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission"})
     Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary"})
+end
+
+function randomTournamentMission()
+    Global.call("moveAllFromZoneToDeck", {zone = "deployment", deck = "deployment"})
+    Global.call("moveAllFromZoneToDeck", {zone = "mission", deck = "mission"})
+    Global.call("moveAllFromZoneToDeck", {zone = "primary", deck = "primary"})
+
+    mission = tournamentMissions[math.random(#tournamentMissions)]
+    Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment", card = mission.deployment})
+    Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission", card = mission.mission})
+    Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary", card = mission.primary})
 end
 
 function recallAll()
