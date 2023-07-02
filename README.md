@@ -9,6 +9,11 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v2.52
+
+* Fixed the broken chess clock.
+* Fixed the duplicated primary card.
+
 ### v2.51
 
 * Improved the card graphics, with thanks to Tyrone.

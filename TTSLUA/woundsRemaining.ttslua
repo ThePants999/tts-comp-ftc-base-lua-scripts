@@ -58,7 +58,8 @@ function modifyWounds(obj, player, alt)
 end
 
 function onScriptingButtonDown(index, player_color)
-    if Player[player_color].getHoverObject() == self or Player[player_color].getSelectedObjects()[1] == self then
+    selectedObjects = Player[player_color].getSelectedObjects()
+    if Player[player_color].getHoverObject() == self or (selectedObjects and selectedObjects[1] == self) then
         if index==2 then
             btnY=btnY+btnYstep
             if btnY>btnYstep*7 then btnY=3 end

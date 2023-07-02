@@ -81,7 +81,8 @@ function makeAnnouncement()
     "further token improvements",
     "added Leviathan mission reference card",
     "added instructions for using cards",
-    "added bag of datasheets"
+    "added bag of datasheets",
+    "2.52: fixed chess clock and duplicated primary card"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do

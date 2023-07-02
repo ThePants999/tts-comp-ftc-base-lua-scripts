@@ -2,7 +2,7 @@
   "SaveName": "FTC 40k Competitive 10e Map Base\n",
   "GameMode": "FTC 40k Competitive 10e Map Base\n",
   "Date": "30/12/2022 11:00:31 AM",
-  "VersionNumber": "v2.51",
+  "VersionNumber": "v2.52",
   "GameType": "Game",
   "GameComplexity": "High Complexity",
   "PlayingTime": [
@@ -3114,6 +3114,120 @@
       "LuaScript": "",
       "LuaScriptState": "",
       "XmlUI": ""
+    },
+    {
+      "GUID": "f4ee71",
+      "Name": "Custom_Model",
+      "Transform": {
+        "posX": 85.0,
+        "posY": 0.9,
+        "posZ": 0.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Stopwatch",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 0.411760151,
+        "g": 0.396073878,
+        "b": 0.384309173
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": false,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/937194385976803995/735CE8D675A462D3674D9488B6500CBF255EF60E/",
+        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/937194506253244821/1D89A4E1CE4B2A381BF18A269C9C6D5CD675671C/",
+        "NormalURL": "",
+        "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/937194506248553405/A3204CC0B60259F71CA38DBC0AAD1434BFAB6952/",
+        "Convex": true,
+        "MaterialIndex": 1,
+        "TypeIndex": 4,
+        "CustomShader": {
+          "SpecularColor": {
+            "r": 0.5861771,
+            "g": 0.5861771,
+            "b": 0.5861771
+          },
+          "SpecularIntensity": 0.5,
+          "SpecularSharpness": 7.41060543,
+          "FresnelStrength": 1.0
+        },
+        "CastShadows": true
+      },
+      "LuaScript": "",
+      "LuaScriptState": "{\"colors\":{\"pColor1\":\"Blue\",\"pColor2\":\"Red\"},\"data\":{\"bonus_1\":0,\"bonus_2\":0,\"color_1\":\"\",\"color_2\":\"\",\"delay_1\":0,\"delay_2\":0,\"delayed\":0,\"DoTurns\":false,\"ended_1\":false,\"ended_2\":false,\"seconds_1\":7200,\"seconds_2\":7200,\"selDigit\":6,\"start_1\":7200,\"start_2\":7200,\"state\":11,\"storedState\":11}}",
+      "XmlUI": "<Panel rotation=\"45.0,0.0,180.0\" position=\"-65.0,110.0,-190.0\" width=\"75\" height=\"90\">\n    <Image id=\"Sc1_01\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"264,0\" raycastTarget=\"false\"/>\n    <Image id=\"Sc1_10\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"198,0\" raycastTarget=\"false\"/>\n    <Image id=\"Cn1\"    image=\":\" preserveAspect=\"true\" height=\"90\" offsetXY=\"165,0\" showAnimation=\"FadeIn\" hideAnimation=\"FadeOut\" animationDuration=\"0.125\" raycastTarget=\"false\"/>\n    <Image id=\"Mn1_01\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"132,0\" raycastTarget=\"false\"/>\n    <Image id=\"Mn1_10\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY= \"66,0\" raycastTarget=\"false\"/>\n    <Image id=\"Cn2\"    image=\":\" preserveAspect=\"true\" height=\"90\" offsetXY= \"33,0\" showAnimation=\"FadeIn\" hideAnimation=\"FadeOut\" animationDuration=\"0.125\" raycastTarget=\"false\"/>\n    <Image id=\"Hr1_1\"  image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"000,0\" raycastTarget=\"false\"/>\n</Panel>\n<Panel rotation=\"45.0,0.0,180.0\" position=\"330.0,110.0,-190.0\" width=\"75\" height=\"90\">\n    <Image id=\"Sc2_01\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"264,0\" raycastTarget=\"false\"/>\n    <Image id=\"Sc2_10\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"198,0\" raycastTarget=\"false\"/>\n    <Image id=\"Cn3\"    image=\":\" preserveAspect=\"true\" height=\"90\" offsetXY=\"165,0\" showAnimation=\"FadeIn\" hideAnimation=\"FadeOut\" animationDuration=\"0.125\" raycastTarget=\"false\"/>\n    <Image id=\"Mn2_01\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"132,0\" raycastTarget=\"false\"/>\n    <Image id=\"Mn2_10\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY= \"66,0\" raycastTarget=\"false\"/>\n    <Image id=\"Cn4\"    image=\":\" preserveAspect=\"true\" height=\"90\" offsetXY= \"33,0\" showAnimation=\"FadeIn\" hideAnimation=\"FadeOut\" animationDuration=\"0.125\" raycastTarget=\"false\"/>\n    <Image id=\"Hr2_1\"  image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"000,0\" raycastTarget=\"false\"/>\n</Panel>\n<!--Player 1-->\n<Button                    position=\"-295,-95,-315\" width=\"75\"  height=\"75\"  color=\"#FF000000\" onClick=\"Click_1\" onMouseDown=\"Hold_1\"/>\n<Button                    position=\"-295,-95,-278\" width=\"200\" height=\"200\" color=\"#FF000000\" onClick=\"Click_1\" onMouseDown=\"Hold_1\"/>\n<Button rotation=\" 90,0,0\" position=\"-295,-95,-300\" width=\"40\"  height=\"95\"  color=\"#FF000000\" onClick=\"Click_1\" onMouseDown=\"Hold_1\"/>\n<Button rotation=\"90,90,0\" position=\"-295,-95,-300\" width=\"40\"  height=\"95\"  color=\"#FF000000\" onClick=\"Click_1\" onMouseDown=\"Hold_1\"/>\n<!--Center-->\n<Button                    position=   \"0,-95,-278\" width=\"75\"  height=\"75\"  color=\"#00FF0000\" onClick=\"Click_C\" onMouseDown=\"Hold_C\"/>\n<!--Player 2-->\n<Button                    position= \"295,-95,-320\" width=\"75\"  height=\"75\"  color=\"#0000FF00\" onClick=\"Click_2\" onMouseDown=\"Hold_2\"/>\n<Button                    position= \"295,-95,-278\" width=\"200\" height=\"200\" color=\"#0000FF00\" onClick=\"Click_2\" onMouseDown=\"Hold_2\"/>\n<Button rotation=\" 90,0,0\" position= \"295,-95,-300\" width=\"40\"  height=\"95\"  color=\"#0000FF00\" onClick=\"Click_2\" onMouseDown=\"Hold_2\"/>\n<Button rotation=\"90,90,0\" position= \"295,-95,-300\" width=\"40\"  height=\"95\"  color=\"#0000FF00\" onClick=\"Click_2\" onMouseDown=\"Hold_2\"/>\n\n\n<!-- Color Select -->\n\n<!-- Player 1 -->\n<Panel\n    height=\"500\"\n    width=\"500\"\n    scale=\"0.2 0.2 0.2\"\n    rotation=\"180 0 0\"\n    position=\"250 -30 0.25\"\n    >\n    <Text\n        text=\"Right\"\n        fontSize=\"200\"\n        offsetXY=\"0 200 0\"\n    />\n    <Button\n        id=\"pColor1\"\n        onClick=\"changeColors\"\n        offsetXY=\"0 -200 0\"\n    />\n</Panel>\n\n<!-- Player 2 -->\n<Panel\n    height=\"500\"\n    width=\"500\"\n    scale=\"0.2 0.2 0.2\"\n    rotation=\"180 0 0\"\n    position=\"-250 -30 0.25\"\n    >\n    <Text\n        text=\"Left\"\n        fontSize=\"200\"\n        offsetXY=\"0 200 0\"\n    />\n    <Button\n        id=\"pColor2\"\n        onClick=\"changeColors\"\n        offsetXY=\"0 -200 0\"\n    />\n</Panel>",
+      "CustomUIAssets": [
+        {
+          "Name": "0",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253278077/50800CE8C69EB05F0600B6492D726BD17539BDAF/"
+        },
+        {
+          "Name": "1",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253279065/5ED9493F645FBC29BCBD9007239B272719ED7B77/"
+        },
+        {
+          "Name": "2",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253280027/DAE29C80CD751FE4AE1BE42C9C6C35FECA679E59/"
+        },
+        {
+          "Name": "3",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253280978/DD1B980B05B82A947F741079774948AD3986838F/"
+        },
+        {
+          "Name": "4",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253281878/4B12FBB741A75A38B0580DDF7793B37A02B4DE1C/"
+        },
+        {
+          "Name": "5",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253282714/FBBF439C918EAC7336FE2C855F28B066190EEC60/"
+        },
+        {
+          "Name": "6",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253283634/91DF0F6C6127D73A08C057495C5F94CD7EB186FF/"
+        },
+        {
+          "Name": "7",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253284399/CBBBE278D6C98ACDF624E3F59C6D2537CB8FB477/"
+        },
+        {
+          "Name": "8",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253285312/9C398FFF5520837A1F6185664D317DAE4DF98C66/"
+        },
+        {
+          "Name": "9",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253286215/20B2849AAAE1A782F4A264B26FBF1F183FC42995/"
+        },
+        {
+          "Name": ":",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253276956/B905EB9A43FB52298B5C37C937931702F7D8B61C/"
+        },
+        {
+          "Name": "b",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506251087079/670BB25FFBF1A36D218088D9C3636A4B311BF01D/"
+        },
+        {
+          "Name": "d",
+          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506251088191/E9A8531D93DE8B4C8A794ED1C4F1AE261F7D4848/"
+        }
+      ]
     },
     {
       "GUID": "8b7aa6",
@@ -13061,120 +13175,6 @@
       "XmlUI": ""
     },
     {
-      "GUID": "f4ee71",
-      "Name": "Custom_Model",
-      "Transform": {
-        "posX": 85.0,
-        "posY": 0.9,
-        "posZ": 0.0,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 1.0,
-        "scaleY": 1.0,
-        "scaleZ": 1.0
-      },
-      "Nickname": "Stopwatch",
-      "Description": "",
-      "GMNotes": "",
-      "ColorDiffuse": {
-        "r": 0.411760151,
-        "g": 0.396073878,
-        "b": 0.384309173
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": true,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": false,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "CustomMesh": {
-        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/937194385976803995/735CE8D675A462D3674D9488B6500CBF255EF60E/",
-        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/937194506253244821/1D89A4E1CE4B2A381BF18A269C9C6D5CD675671C/",
-        "NormalURL": "",
-        "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/937194506248553405/A3204CC0B60259F71CA38DBC0AAD1434BFAB6952/",
-        "Convex": true,
-        "MaterialIndex": 1,
-        "TypeIndex": 4,
-        "CustomShader": {
-          "SpecularColor": {
-            "r": 0.5861771,
-            "g": 0.5861771,
-            "b": 0.5861771
-          },
-          "SpecularIntensity": 0.5,
-          "SpecularSharpness": 7.41060543,
-          "FresnelStrength": 1.0
-        },
-        "CastShadows": true
-      },
-      "LuaScript": "",
-      "LuaScriptState": "{\"colors\":{\"pColor1\":\"Blue\",\"pColor2\":\"Red\"},\"data\":{\"bonus_1\":0,\"bonus_2\":0,\"color_1\":\"\",\"color_2\":\"\",\"delay_1\":0,\"delay_2\":0,\"delayed\":0,\"DoTurns\":false,\"ended_1\":false,\"ended_2\":false,\"seconds_1\":7200,\"seconds_2\":7200,\"selDigit\":6,\"start_1\":7200,\"start_2\":7200,\"state\":11,\"storedState\":11}}",
-      "XmlUI": "<Panel rotation=\"45.0,0.0,180.0\" position=\"-65.0,110.0,-190.0\" width=\"75\" height=\"90\">\n    <Image id=\"Sc1_01\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"264,0\" raycastTarget=\"false\"/>\n    <Image id=\"Sc1_10\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"198,0\" raycastTarget=\"false\"/>\n    <Image id=\"Cn1\"    image=\":\" preserveAspect=\"true\" height=\"90\" offsetXY=\"165,0\" showAnimation=\"FadeIn\" hideAnimation=\"FadeOut\" animationDuration=\"0.125\" raycastTarget=\"false\"/>\n    <Image id=\"Mn1_01\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"132,0\" raycastTarget=\"false\"/>\n    <Image id=\"Mn1_10\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY= \"66,0\" raycastTarget=\"false\"/>\n    <Image id=\"Cn2\"    image=\":\" preserveAspect=\"true\" height=\"90\" offsetXY= \"33,0\" showAnimation=\"FadeIn\" hideAnimation=\"FadeOut\" animationDuration=\"0.125\" raycastTarget=\"false\"/>\n    <Image id=\"Hr1_1\"  image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"000,0\" raycastTarget=\"false\"/>\n</Panel>\n<Panel rotation=\"45.0,0.0,180.0\" position=\"330.0,110.0,-190.0\" width=\"75\" height=\"90\">\n    <Image id=\"Sc2_01\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"264,0\" raycastTarget=\"false\"/>\n    <Image id=\"Sc2_10\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"198,0\" raycastTarget=\"false\"/>\n    <Image id=\"Cn3\"    image=\":\" preserveAspect=\"true\" height=\"90\" offsetXY=\"165,0\" showAnimation=\"FadeIn\" hideAnimation=\"FadeOut\" animationDuration=\"0.125\" raycastTarget=\"false\"/>\n    <Image id=\"Mn2_01\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"132,0\" raycastTarget=\"false\"/>\n    <Image id=\"Mn2_10\" image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY= \"66,0\" raycastTarget=\"false\"/>\n    <Image id=\"Cn4\"    image=\":\" preserveAspect=\"true\" height=\"90\" offsetXY= \"33,0\" showAnimation=\"FadeIn\" hideAnimation=\"FadeOut\" animationDuration=\"0.125\" raycastTarget=\"false\"/>\n    <Image id=\"Hr2_1\"  image=\"0\" preserveAspect=\"true\" height=\"90\" offsetXY=\"000,0\" raycastTarget=\"false\"/>\n</Panel>\n<!--Player 1-->\n<Button                    position=\"-295,-95,-315\" width=\"75\"  height=\"75\"  color=\"#FF000000\" onClick=\"Click_1\" onMouseDown=\"Hold_1\"/>\n<Button                    position=\"-295,-95,-278\" width=\"200\" height=\"200\" color=\"#FF000000\" onClick=\"Click_1\" onMouseDown=\"Hold_1\"/>\n<Button rotation=\" 90,0,0\" position=\"-295,-95,-300\" width=\"40\"  height=\"95\"  color=\"#FF000000\" onClick=\"Click_1\" onMouseDown=\"Hold_1\"/>\n<Button rotation=\"90,90,0\" position=\"-295,-95,-300\" width=\"40\"  height=\"95\"  color=\"#FF000000\" onClick=\"Click_1\" onMouseDown=\"Hold_1\"/>\n<!--Center-->\n<Button                    position=   \"0,-95,-278\" width=\"75\"  height=\"75\"  color=\"#00FF0000\" onClick=\"Click_C\" onMouseDown=\"Hold_C\"/>\n<!--Player 2-->\n<Button                    position= \"295,-95,-320\" width=\"75\"  height=\"75\"  color=\"#0000FF00\" onClick=\"Click_2\" onMouseDown=\"Hold_2\"/>\n<Button                    position= \"295,-95,-278\" width=\"200\" height=\"200\" color=\"#0000FF00\" onClick=\"Click_2\" onMouseDown=\"Hold_2\"/>\n<Button rotation=\" 90,0,0\" position= \"295,-95,-300\" width=\"40\"  height=\"95\"  color=\"#0000FF00\" onClick=\"Click_2\" onMouseDown=\"Hold_2\"/>\n<Button rotation=\"90,90,0\" position= \"295,-95,-300\" width=\"40\"  height=\"95\"  color=\"#0000FF00\" onClick=\"Click_2\" onMouseDown=\"Hold_2\"/>\n\n\n<!-- Color Select -->\n\n<!-- Player 1 -->\n<Panel\n    height=\"500\"\n    width=\"500\"\n    scale=\"0.2 0.2 0.2\"\n    rotation=\"180 0 0\"\n    position=\"250 -30 0.25\"\n    >\n    <Text\n        text=\"Right\"\n        fontSize=\"200\"\n        offsetXY=\"0 200 0\"\n    />\n    <Button\n        id=\"pColor1\"\n        onClick=\"changeColors\"\n        offsetXY=\"0 -200 0\"\n    />\n</Panel>\n\n<!-- Player 2 -->\n<Panel\n    height=\"500\"\n    width=\"500\"\n    scale=\"0.2 0.2 0.2\"\n    rotation=\"180 0 0\"\n    position=\"-250 -30 0.25\"\n    >\n    <Text\n        text=\"Left\"\n        fontSize=\"200\"\n        offsetXY=\"0 200 0\"\n    />\n    <Button\n        id=\"pColor2\"\n        onClick=\"changeColors\"\n        offsetXY=\"0 -200 0\"\n    />\n</Panel>",
-      "CustomUIAssets": [
-        {
-          "Name": "0",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253278077/50800CE8C69EB05F0600B6492D726BD17539BDAF/"
-        },
-        {
-          "Name": "1",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253279065/5ED9493F645FBC29BCBD9007239B272719ED7B77/"
-        },
-        {
-          "Name": "2",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253280027/DAE29C80CD751FE4AE1BE42C9C6C35FECA679E59/"
-        },
-        {
-          "Name": "3",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253280978/DD1B980B05B82A947F741079774948AD3986838F/"
-        },
-        {
-          "Name": "4",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253281878/4B12FBB741A75A38B0580DDF7793B37A02B4DE1C/"
-        },
-        {
-          "Name": "5",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253282714/FBBF439C918EAC7336FE2C855F28B066190EEC60/"
-        },
-        {
-          "Name": "6",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253283634/91DF0F6C6127D73A08C057495C5F94CD7EB186FF/"
-        },
-        {
-          "Name": "7",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253284399/CBBBE278D6C98ACDF624E3F59C6D2537CB8FB477/"
-        },
-        {
-          "Name": "8",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253285312/9C398FFF5520837A1F6185664D317DAE4DF98C66/"
-        },
-        {
-          "Name": "9",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253286215/20B2849AAAE1A782F4A264B26FBF1F183FC42995/"
-        },
-        {
-          "Name": ":",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506253276956/B905EB9A43FB52298B5C37C937931702F7D8B61C/"
-        },
-        {
-          "Name": "b",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506251087079/670BB25FFBF1A36D218088D9C3636A4B311BF01D/"
-        },
-        {
-          "Name": "d",
-          "URL": "http://cloud-3.steamusercontent.com/ugc/937194506251088191/E9A8531D93DE8B4C8A794ED1C4F1AE261F7D4848/"
-        }
-      ]
-    },
-    {
       "GUID": "25d021",
       "Name": "Custom_Board",
       "Transform": {
@@ -22362,7 +22362,7 @@
           "Type": 0
         },
         "59": {
-          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699596167/C0AC704FBCB592D230B2847834B03570A96CDC94/",
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699595204/2684911A1031AD4C4ADABF9B0C23E4527D63B35A/",
           "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699590202/6E8F08A2EEB29D55344278DAFE346411739E973E/",
           "NumWidth": 1,
           "NumHeight": 1,
@@ -22859,7 +22859,7 @@
           "SidewaysCard": false,
           "CustomDeck": {
             "59": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699596167/C0AC704FBCB592D230B2847834B03570A96CDC94/",
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699595204/2684911A1031AD4C4ADABF9B0C23E4527D63B35A/",
               "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699590202/6E8F08A2EEB29D55344278DAFE346411739E973E/",
               "NumWidth": 1,
               "NumHeight": 1,
