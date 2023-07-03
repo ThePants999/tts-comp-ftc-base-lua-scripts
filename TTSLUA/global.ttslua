@@ -63,6 +63,8 @@ blueGambitDeck_GUID = "429875"
 redSecondaryDeck_GUID = "2c6243"
 blueSecondaryDeck_GUID = "d98a05"
 
+CPMissionBook_GUID = "731ec4"
+
 turnOrder = {}
 nonPlaying = {"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink" }
 allowMenu = true
