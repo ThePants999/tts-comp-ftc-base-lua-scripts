@@ -9,6 +9,10 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v2.53
+
+* Combat Patrol support added, courtesy of Keslor.
+
 ### v2.52
 
 * Fixed the broken chess clock.

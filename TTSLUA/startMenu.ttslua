@@ -82,7 +82,8 @@ function makeAnnouncement()
     "added Leviathan mission reference card",
     "added instructions for using cards",
     "added bag of datasheets",
-    "2.52: fixed chess clock and duplicated primary card"
+    "2.52: fixed chess clock and duplicated primary card",
+    "2.53: add Combat Patrol support courtesy of Keslor"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do

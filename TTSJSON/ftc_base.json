@@ -2,7 +2,7 @@
   "SaveName": "FTC 40k Competitive 10e Map Base\n",
   "GameMode": "FTC 40k Competitive 10e Map Base\n",
   "Date": "30/12/2022 11:00:31 AM",
-  "VersionNumber": "v2.52",
+  "VersionNumber": "v2.53",
   "GameType": "Game",
   "GameComplexity": "High Complexity",
   "PlayingTime": [
@@ -3014,7 +3014,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "",
-      "LuaScriptState": "{\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploySelected\":6,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":2,\"svsizeConfirmed\":false}",
+      "LuaScriptState": "{\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploySelected\":12,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":2,\"svsizeConfirmed\":false}",
       "XmlUI": ""
     },
     {
@@ -80057,6 +80057,57 @@
           ]
         }
       ]
+    },
+    {
+      "GUID": "731ec4",
+      "Name": "Custom_PDF",
+      "Transform": {
+        "posX": 51.52537,
+        "posY": 0.9,
+        "posZ": 88.1827,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 4.0,
+        "scaleY": 1.0,
+        "scaleZ": 4.0
+      },
+      "Nickname": "Combat Patrol Missions",
+      "Description": "Only for use on 44\"x30\" boards. Setups tagged with (CP) in the deployment manager.",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomPDF": {
+        "PDFUrl": "https://www.warhammer-community.com/wp-content/uploads/2023/06/htkssr6vgkoqDAJn.pdf",
+        "PDFPassword": "",
+        "PDFPage": 0,
+        "PDFPageOffset": 0
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     }
   ]
 }
