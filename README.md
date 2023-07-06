@@ -9,6 +9,10 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v2.54
+
+* Replace Priority Targets primary card with a corrected version.
+
 ### v2.53
 
 * Combat Patrol support added, courtesy of Keslor.

@@ -2,7 +2,7 @@
   "SaveName": "FTC 40k Competitive 10e Map Base\n",
   "GameMode": "FTC 40k Competitive 10e Map Base\n",
   "Date": "30/12/2022 11:00:31 AM",
-  "VersionNumber": "v2.53",
+  "VersionNumber": "v2.54",
   "GameType": "Game",
   "GameComplexity": "High Complexity",
   "PlayingTime": [
@@ -22326,7 +22326,7 @@
           "Type": 0
         },
         "53": {
-          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699596167/C0AC704FBCB592D230B2847834B03570A96CDC94/",
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2042994105139177126/DEE9EDD8D737D9A3060BDB4E463A6C7493552C27/",
           "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699590202/6E8F08A2EEB29D55344278DAFE346411739E973E/",
           "NumWidth": 1,
           "NumHeight": 1,
@@ -22615,7 +22615,7 @@
           "SidewaysCard": false,
           "CustomDeck": {
             "53": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699596167/C0AC704FBCB592D230B2847834B03570A96CDC94/",
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2042994105139177126/DEE9EDD8D737D9A3060BDB4E463A6C7493552C27/",
               "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699590202/6E8F08A2EEB29D55344278DAFE346411739E973E/",
               "NumWidth": 1,
               "NumHeight": 1,
