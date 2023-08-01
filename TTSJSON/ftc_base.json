@@ -1,8 +1,8 @@
 {
   "SaveName": "FTC 40k Competitive 10e Map Base\n",
   "GameMode": "FTC 40k Competitive 10e Map Base\n",
-  "Date": "30/12/2022 11:00:31 AM",
-  "VersionNumber": "v2.54",
+  "Date": "16/07/2023 11:00:00 AM",
+  "VersionNumber": "v2.55",
   "GameType": "Game",
   "GameComplexity": "High Complexity",
   "PlayingTime": [
@@ -22317,7 +22317,7 @@
           "Type": 0
         },
         "54": {
-          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699593500/3611E4728EFD2F36D0F232724A8F4C5D01F12259/",
+          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2042995637126779748/F11F562A1DB80A2CEF8368421130B1634D259CEB/",
           "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699590202/6E8F08A2EEB29D55344278DAFE346411739E973E/",
           "NumWidth": 1,
           "NumHeight": 1,
@@ -22554,7 +22554,7 @@
           "SidewaysCard": false,
           "CustomDeck": {
             "54": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699593500/3611E4728EFD2F36D0F232724A8F4C5D01F12259/",
+              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2042995637126779748/F11F562A1DB80A2CEF8368421130B1634D259CEB/",
               "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699590202/6E8F08A2EEB29D55344278DAFE346411739E973E/",
               "NumWidth": 1,
               "NumHeight": 1,
@@ -24005,7 +24005,7 @@
             "scaleZ": 1.0
           },
           "Nickname": "Emergency Evacuation",
-          "Description": "[b]DETERMINE EVACUATION TARGET:[/b] Your Evacuation target will be equal to half the number of units from your army that are on the battlefield at the end of the battle (rounding up), including units embarked within [b]TRANSPORT[/b] models that are on the battlefield. If your Evacuation target is less than 4, it is increased to 4.\r\n\r\n[b]EVACUATE UNITS:[/b] At the end of your fifth turn, roll one D6 for each unit from your army that is wholly within 6” of the centre of the battlefield, subtracting 1 from the result if that unit is Battle-shocked. On a 4+, that unit (and any units embarked within) are marked for evacuation.\r\n\r\n[b]DETERMINE GAMBIT SUCCESS:[/b] If the number of enemy units that have been successfully delayed is greater than or equal to your Evacuation target, this Gambit is successfully completed and you score 30VP.\r\n",
+          "Description": "[b]DETERMINE EVACUATION TARGET:[/b] Your Evacuation target will be equal to half the number of units from your army that are on the battlefield at the end of the battle (rounding up), including units embarked within [b]TRANSPORT[/b] models that are on the battlefield. If your Evacuation target is less than 4, it is increased to 4.\r\n\r\n[b]EVACUATE UNITS:[/b] At the end of your fifth turn, roll one D6 for each unit from your army that is wholly within 6” of the centre of the battlefield, subtracting 1 from the result if that unit is Battle-shocked. On a 4+, that unit (and any units embarked within) are marked for evacuation.\r\n\r\n[b]DETERMINE GAMBIT SUCCESS:[/b] If the number of your units that are marked for evacuation is greater than or equal to your Evacuation target, this Gambit is successfully completed and you score 30VP.\r\n",
           "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
@@ -24341,7 +24341,7 @@
             "scaleZ": 1.0
           },
           "Nickname": "Emergency Evacuation",
-          "Description": "[b]DETERMINE EVACUATION TARGET:[/b] Your Evacuation target will be equal to half the number of units from your army that are on the battlefield at the end of the battle (rounding up), including units embarked within [b]TRANSPORT[/b] models that are on the battlefield. If your Evacuation target is less than 4, it is increased to 4.\r\n\r\n[b]EVACUATE UNITS:[/b] At the end of your fifth turn, roll one D6 for each unit from your army that is wholly within 6” of the centre of the battlefield, subtracting 1 from the result if that unit is Battle-shocked. On a 4+, that unit (and any units embarked within) are marked for evacuation.\r\n\r\n[b]DETERMINE GAMBIT SUCCESS:[/b] If the number of enemy units that have been successfully delayed is greater than or equal to your Evacuation target, this Gambit is successfully completed and you score 30VP.\r\n",
+          "Description": "[b]DETERMINE EVACUATION TARGET:[/b] Your Evacuation target will be equal to half the number of units from your army that are on the battlefield at the end of the battle (rounding up), including units embarked within [b]TRANSPORT[/b] models that are on the battlefield. If your Evacuation target is less than 4, it is increased to 4.\r\n\r\n[b]EVACUATE UNITS:[/b] At the end of your fifth turn, roll one D6 for each unit from your army that is wholly within 6” of the centre of the battlefield, subtracting 1 from the result if that unit is Battle-shocked. On a 4+, that unit (and any units embarked within) are marked for evacuation.\r\n\r\n[b]DETERMINE GAMBIT SUCCESS:[/b] If the number of your units that are marked for evacuation is greater than or equal to your Evacuation target, this Gambit is successfully completed and you score 30VP.\r\n",
           "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,

@@ -9,9 +9,15 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v2.55
+
+* Added a manual selector for GW-approved tournament mission combos.
+* Replaced Purge the Foe primary card with a corrected version.
+* Fixed the tooltip on Emergency Evacuation gambit card.
+
 ### v2.54
 
-* Replace Priority Targets primary card with a corrected version.
+* Replaced Priority Targets primary card with a corrected version.
 
 ### v2.53
 

@@ -18,7 +18,7 @@ enableBtn = { label="ENABLE\nGT\nSCORESHEET\n\n(click here)\n\nDon't enable if y
 		function_owner = self,	position = {1, -0.05, -1}, rotation = {0, 90, 180},	tooltip = "", color="Black", font_color="White"
 }
 
-scoresheetActive = false
+scoresheetActive = true
 
 -- Button indexes
 BTN_IX_DRAW_1 = 4

@@ -84,7 +84,8 @@ function makeAnnouncement()
     "added bag of datasheets",
     "2.52: fixed chess clock and duplicated primary card",
     "2.53: add Combat Patrol support courtesy of Keslor",
-    "2.54: corrected error in Priority Targets mission card"
+    "2.54: corrected error in Priority Targets mission card",
+    "2.55: added manual mission selector, couple of card fixes"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -1065,27 +1066,77 @@ deployIngameBtn = {
 }
 position = {menuX, 5, menuZ}
 
+selectedMission = 0
+canChangeMission = true
+missionHeaderBtn = {
+    label = "M I S S I O N   S E L E C T I O N",
+    click_function = "none",
+    function_owner = self,
+    position = {9.25, 5, -17.1},
+    rotation = {0, 0, 0},
+    height = 250,
+    width = 4000,
+    font_size = 200,
+    color = {1, 1, 1},
+    font_color = {0, 0, 0},
+}
 randomiseMissionBtn = {
-    label = "Random\nMission",
+    label = "Fully\nRandom",
     click_function = "randomiseMission",
     function_owner = self,
-    position = {7, 5, -16.5},
+    position = {5.85, 5, -16.2},
     rotation = {0, 0, 0},
-    height = 800,
-    width = 2000,
-    font_size = 200,
+    height = 550,
+    width = 750,
+    font_size = 160,
     color = {1, 1, 1},
     font_color = {0, 0, 0}
 }
 randomTournamentMissionBtn = {
-    label = "Random\nTournament\nMission",
+    label = "Random\nGW",
     click_function = "randomTournamentMission",
     function_owner = self,
-    position = {11.5, 5, -16.5},
+    position = {12.65, 5, -16.2},
     rotation = {0, 0, 0},
-    height = 800,
-    width = 2000,
-    font_size = 200,
+    height = 550,
+    width = 750,
+    font_size = 160,
+    color = {1, 1, 1},
+    font_color = {0, 0, 0}
+}
+missionSelectionDownBtn = {
+    label = "<-",
+    click_function = "missionSelectionDown",
+    function_owner = self,
+    position = {7.55, 5, -16.2},
+    rotation = {0, 0, 0},
+    height = 550,
+    width = 750,
+    font_size = 320,
+    color = {1, 1, 1},
+    font_color = {0, 0, 0}
+}
+missionSelectionUpBtn = {
+    label = "->",
+    click_function = "missionSelectionUp",
+    function_owner = self,
+    position = {10.95, 5, -16.2},
+    rotation = {0, 0, 0},
+    height = 550,
+    width = 750,
+    font_size = 320,
+    color = {1, 1, 1},
+    font_color = {0, 0, 0}
+}
+missionSelectionDispBtn = {
+    label = "?",
+    click_function = "none",
+    function_owner = self,
+    position = {9.25, 5, -16.2},
+    rotation = {0, 0, 0},
+    height = 550,
+    width = 750,
+    font_size = 320,
     color = {1, 1, 1},
     font_color = {0, 0, 0}
 }
@@ -1131,8 +1182,12 @@ function writeDeployMenu()
     self.createButton(stratreservesBtn)
 
     if gameMode == "game" then
+        self.createButton(missionHeaderBtn)
         self.createButton(randomiseMissionBtn)
         self.createButton(randomTournamentMissionBtn)
+        self.createButton(missionSelectionDownBtn)
+        self.createButton(missionSelectionUpBtn)
+        self.createButton(missionSelectionDispBtn)
     end
 end
 
@@ -1588,56 +1643,88 @@ Crucible of Battle 3c0679
 
 tournamentMissions = {
     -- Take and Hold / Chilling Rain / Search and Destroy
-    {primary = "884291", mission = "db0022", deployment = "ad4220"},
+    {name = "A", primary = "884291", mission = "db0022", deployment = "ad4220"},
     -- Priority Targets / Hidden Supplies / Search and Destroy
-    {primary = "f97708", mission = "0dc3c3", deployment = "ad4220"},
+    {name = "B", primary = "f97708", mission = "0dc3c3", deployment = "ad4220"},
     -- The Ritual / Scrambler Fields / Sweeping Engagement
-    {primary = "646b49", mission = "aea986", deployment = "381d7c"},
+    {name = "C", primary = "646b49", mission = "aea986", deployment = "381d7c"},
     -- Deploy Servo-skulls / Chilling Rain / Search and Destroy
-    {primary = "44ff29", mission = "db0022", deployment = "ad4220"},
+    {name = "D", primary = "44ff29", mission = "db0022", deployment = "ad4220"},
     -- Take and Hold / Chosen Battlefield / Sweeping Engagement
-    {primary = "884291", mission = "876ac7", deployment = "381d7c"},
+    {name = "E", primary = "884291", mission = "876ac7", deployment = "381d7c"},
     -- Supply Drop / Chilling Rain / Search and Destroy
-    {primary = "a34ae1", mission = "db0022", deployment = "ad4220"},
+    {name = "F", primary = "a34ae1", mission = "db0022", deployment = "ad4220"},
     -- Sites of Power / Chilling Rain / Hammer and Anvil
-    {primary = "ec78cd", mission = "db0022", deployment = "117c77"},
+    {name = "G", primary = "ec78cd", mission = "db0022", deployment = "117c77"},
     -- The Ritual / Chilling Rain / Hammer and Anvil
-    {primary = "646b49", mission = "db0022", deployment = "117c77"},
+    {name = "H", primary = "646b49", mission = "db0022", deployment = "117c77"},
     -- Take and Hold / Hidden Supplies / Hammer and Anvil
-    {primary = "884291", mission = "0dc3c3", deployment = "117c77"},
+    {name = "I", primary = "884291", mission = "0dc3c3", deployment = "117c77"},
     -- Priority Targets / Chilling Rain / Crucible of Battle
-    {primary = "f97708", mission = "db0022", deployment = "3c0679"},
+    {name = "J", primary = "f97708", mission = "db0022", deployment = "3c0679"},
     -- Deploy Servo-skulls / Hidden Supplies / Crucible of Battle
-    {primary = "44ff29", mission = "0dc3c3", deployment = "3c0679"},
+    {name = "K", primary = "44ff29", mission = "0dc3c3", deployment = "3c0679"},
     -- Scorched Earth / Chilling Rain / Dawn of War
-    {primary = "3ad5a3", mission = "db0022", deployment = "7e4b95"},
+    {name = "L", primary = "3ad5a3", mission = "db0022", deployment = "7e4b95"},
     -- Purge the Foe / Chilling Rain / Crucible of Battle
-    {primary = "5444d4", mission = "db0022", deployment = "3c0679"},
+    {name = "M", primary = "5444d4", mission = "db0022", deployment = "3c0679"},
     -- Priority Targets / Chosen Battlefield / Dawn of War
-    {primary = "f97708", mission = "876ac7", deployment = "7e4b95"},
+    {name = "N", primary = "f97708", mission = "876ac7", deployment = "7e4b95"},
     -- Vital Ground / Chilling Rain / Crucible of Battle
-    {primary = "6fc1c2", mission = "db0022", deployment = "3c0679"}
+    {name = "O", primary = "6fc1c2", mission = "db0022", deployment = "3c0679"}
 }
 
-function randomiseMission()
-    Global.call("moveAllFromZoneToDeck", {zone = "deployment", deck = "deployment"})
-    Global.call("moveAllFromZoneToDeck", {zone = "mission", deck = "mission"})
-    Global.call("moveAllFromZoneToDeck", {zone = "primary", deck = "primary"})
+function missionSelectionDown()
+    if canChangeMission then
+        selectedMission = selectedMission - 1
+        if selectedMission <= 0 then selectedMission = #tournamentMissions end
+        updateMission()
+    end
+end
 
-    Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment"})
-    Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission"})
-    Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary"})
+function missionSelectionUp()
+    if canChangeMission then
+        selectedMission = selectedMission + 1
+        if selectedMission > #tournamentMissions then selectedMission = 1 end
+        updateMission()
+    end
+end
+
+function randomiseMission()
+    if canChangeMission then
+        selectedMission = 0
+        updateMission()
+    end
 end
 
 function randomTournamentMission()
+    if canChangeMission then
+        selectedMission = math.random(#tournamentMissions)
+        updateMission()
+    end
+end
+
+function updateMission()
+    canChangeMission = false
     Global.call("moveAllFromZoneToDeck", {zone = "deployment", deck = "deployment"})
     Global.call("moveAllFromZoneToDeck", {zone = "mission", deck = "mission"})
     Global.call("moveAllFromZoneToDeck", {zone = "primary", deck = "primary"})
 
-    mission = tournamentMissions[math.random(#tournamentMissions)]
-    Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment", card = mission.deployment})
-    Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission", card = mission.mission})
-    Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary", card = mission.primary})
+    if selectedMission == 0 then
+        missionSelectionDispBtn.label = "?"
+        Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment"})
+        Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission"})
+        Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary"})
+    else
+        mission = tournamentMissions[selectedMission]
+        missionSelectionDispBtn.label = mission.name
+        Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment", card = mission.deployment})
+        Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission", card = mission.mission})
+        Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary", card = mission.primary})
+    end
+    writeMenus()
+
+    Wait.time(function() canChangeMission = true end, 0.3)
 end
 
 function recallAll()
