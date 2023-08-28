@@ -9,6 +9,14 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v2.57
+
+* Moved the show/hide DZs button to avoid clash with Signals.
+
+### v2.56
+
+* Added a button to show/hide Investigate Signals zones.
+
 ### v2.55
 
 * Added a manual selector for GW-approved tournament mission combos.

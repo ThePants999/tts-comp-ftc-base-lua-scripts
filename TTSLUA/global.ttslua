@@ -9,6 +9,7 @@
 -- "Cannot return a table", and missed that Object.getTable existed, and now I'm
 -- too lazy to change it all again.
 centerCircle_GUID = "51ee2f"
+quarterCircle_GUID = "51ee3f"
 templateObjective_GUID = "573333"
 startMenu_GUID = "738804"
 redDiceMat_GUID = "c57d70"

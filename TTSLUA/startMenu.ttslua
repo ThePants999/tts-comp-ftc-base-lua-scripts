@@ -73,19 +73,9 @@ end
 
 function makeAnnouncement()
     local features={
-    "2.50: TENTH EDITION YOOOOOOOO",
-    "2.51:",
-    "improved card graphics",
-    "incorporated GW's card errata",
-    "added button for random tournament mission",
-    "further token improvements",
-    "added Leviathan mission reference card",
-    "added instructions for using cards",
-    "added bag of datasheets",
-    "2.52: fixed chess clock and duplicated primary card",
-    "2.53: add Combat Patrol support courtesy of Keslor",
-    "2.54: corrected error in Priority Targets mission card",
-    "2.55: added manual mission selector, couple of card fixes"
+    "2.55: added manual mission selector, couple of card fixes",
+    "2.56: added Investigate Signals button",
+    "2.57: aaaand fixed Investigate Signals button ;-)"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -691,6 +681,35 @@ function drawCircleNotCentered(drawData, type, centerX, centerZ)
     end
 end
 
+function drawCornerQuarterCircles(radius, type)
+    local originalCircle=getObjectFromGUID(Global.getVar("quarterCircle_GUID"))
+    local mat = getObjectFromGUID(mat_GUID)
+    local lineScale = {x = 0, y = deployLineHeight, z = 0.02}
+    local x = mat.getScale().x * sizeMulti * 0.5 -- long edge
+    local z = mat.getScale().z * sizeMulti * 0.5 -- short edge
+    local cornerLocations = {
+        {position = {x, deployLineYPos, z}, rotation = {0, 270, 0}},
+        {position = {x, deployLineYPos, -z}, rotation = {0, 0, 0}},
+        {position = {-x, deployLineYPos, z}, rotation = {0, 180, 0}},
+        {position = {-x, deployLineYPos, -z}, rotation = {0, 90, 0}},
+    }
+
+    for i, location in ipairs(cornerLocations) do
+        local circleObj = originalCircle.clone()
+        if circleObj then
+            circleObj.setLock(true)
+            circleObj.setScale({radius, deployLineHeight, radius})
+            circleObj.setPosition(location.position)
+            circleObj.setRotation(location.rotation)
+            circleObj.setColorTint("White")
+            circleObj.setGMNotes(type)
+            circleObj.setName("")
+            local blockComp = circleObj.getComponent("BoxCollider")
+            blockComp.set("enabled", false)
+        end
+    end
+end
+
 function drawLine(drawData)
     local mat = getObjectFromGUID(mat_GUID)
     local linePos = {x = 0, y = deployLineYPos, z = 0}
@@ -1061,6 +1080,14 @@ deployIngameLblOpen = "Hide\ndeployment\nzones"
 deployIngameLblClosed = "Show\ndeployment\nzones"
 deployIngameBtn = {
     index = 1, label = deployIngameLblClosed, click_function = "showHideIngameDeployment", function_owner = self,
+    position = {menuX + 21, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+investigatePlaced = false
+investigateLblOpen = "Hide\nInvestigate Signals"
+investigateLblClosed = "Show\nInvestigate Signals"
+investigateBtn = {
+    label = investigateLblClosed, click_function = "showHideInvestigateSignals", function_owner = self,
     position = {menuX + 15, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
@@ -1180,6 +1207,7 @@ function writeDeployMenu()
     self.createButton(quartersBtn)
     self.createButton(engageBtn)
     self.createButton(stratreservesBtn)
+    self.createButton(investigateBtn)
 
     if gameMode == "game" then
         self.createButton(missionHeaderBtn)
@@ -1196,6 +1224,7 @@ function writeIngameMenu()
     self.createButton(engageBtn)
     self.createButton(quartersBtn)
     self.createButton(stratreservesBtn)
+    self.createButton(investigateBtn)
     self.createButton(deployIngameBtn)
     self.createButton(IncrementRedCpBtn)
     self.createButton(IncrementBlueCpBtn)
@@ -1610,6 +1639,25 @@ function showHideStratreserves()
             end
         end
         stratreservesPlaced = false
+    end
+
+    writeMenus()
+end
+
+function showHideInvestigateSignals()
+    if not investigatePlaced then
+        investigateBtn.label = investigateLblOpen
+        drawCornerQuarterCircles(9, "investigate")
+        investigatePlaced = true
+    else
+        investigateBtn.label = investigateLblClosed
+
+        for i, obj in ipairs(getAllObjects()) do
+            if obj.getGMNotes() == "investigate" then
+                obj.destroy()
+            end
+        end
+        investigatePlaced = false
     end
 
     writeMenus()
