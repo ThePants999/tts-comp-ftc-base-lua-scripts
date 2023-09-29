@@ -179,8 +179,8 @@ end
 function promotePlayers()
     local colors={"Red", "Blue", "Orange", "Yellow", "Purple", "Teal"}
     for i, color in ipairs(colors) do
-        if Player[color].seated and  Player[color].host == false then
-             Player[color].promote(true)
+        if Player[color].seated and  Player[color].host == false and not Player[color].promoted then
+            Player[color].promote()
         end
     end
 end
