@@ -1,5 +1,5 @@
 # Competitive FTC Base: LUA scripts
-Comp FTC Map Base LUA Scripts v2.47
+Comp FTC Map Base LUA Scripts v2.58
 
 The following files contain all the LUA scripts contained in the Competitive FTC Base Map for the TTS 40k community. If a file does not exist for an object within the TTS save, then that object does not contain any scripts.
 
