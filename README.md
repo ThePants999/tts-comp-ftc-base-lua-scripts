@@ -9,6 +9,14 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v2.58
+
+* Added alternative deployment zone/objective layouts for when Hidden Supplies is in use.
+* Automatically reveal secondaries once both players have locked them in.
+* Added a tablet showing how to use the mission cards.
+* Fixed a bug with player promotion (thanks to snowTH for the PR).
+* Updated keyword reference sheet with new Dev Wounds rule.
+
 ### v2.57
 
 * Moved the show/hide DZs button to avoid clash with Signals.

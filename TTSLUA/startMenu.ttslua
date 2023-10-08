@@ -75,7 +75,8 @@ function makeAnnouncement()
     local features={
     "2.55: added manual mission selector, couple of card fixes",
     "2.56: added Investigate Signals button",
-    "2.57: aaaand fixed Investigate Signals button ;-)"
+    "2.57: aaaand fixed Investigate Signals button ;-)",
+    "2.58: added alternative objective layouts for Hidden Supplies, auto un-hide locked-in secondaries, plus minor fixes"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -218,7 +219,7 @@ end
 
 objectivesData = {
 --Leviathan Missions
-    {id = 12, name = "(Hammer and Anvil", objectives = {
+    {id = 12, name = "Hammer and Anvil", objectives = {
         {type = "fixed", pos={0, objectivesOffset, 0}},
         {type = "fixed", pos={20, objectivesOffset, 0}},
         {type = "fixed", pos={-20, objectivesOffset, 0}},
@@ -248,34 +249,70 @@ objectivesData = {
         {type = "fixed", pos={16, objectivesOffset, 12}},
         {type = "fixed", pos={-10, objectivesOffset, 14}},
         {type = "fixed", pos={-16, objectivesOffset, -12}}}},
+--Leviathan Missions with Hidden Supplies
+    {id = 17, name = "Hammer and Anvil (HS)", objectives = {
+        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+        {type = "fixed", pos={20, objectivesOffset, 0}},
+        {type = "fixed", pos={-20, objectivesOffset, 0}},
+        {type = "fixed", pos={0, objectivesOffset, 16}},
+        {type = "fixed", pos={0, objectivesOffset, -16}}}},
+    {id = 18, name = "Dawn of War (HS)", objectives = {
+        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+        {type = "fixed", pos={20, objectivesOffset, 0}},
+        {type = "fixed", pos={-20, objectivesOffset, 0}},
+        {type = "fixed", pos={0, objectivesOffset, 16}},
+        {type = "fixed", pos={0, objectivesOffset, -16}}}},
+    {id = 19, name = "Sweeping Engagement (HS)", objectives = {
+        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+        {type = "fixed", pos={12, objectivesOffset, 16}},
+        {type = "fixed", pos={20, objectivesOffset, -8}},
+        {type = "fixed", pos={-12, objectivesOffset, -16}},
+        {type = "fixed", pos={-20, objectivesOffset, 8}}}},
+    {id = 20, name = "Search and Destroy (HS)", objectives = {
+        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+        {type = "fixed", pos={16, objectivesOffset, 12}},
+        {type = "fixed", pos={16, objectivesOffset, -12}},
+        {type = "fixed", pos={-16, objectivesOffset, 12}},
+        {type = "fixed", pos={-16, objectivesOffset, -12}}}},
+    {id = 21, name = "Crucible of Battle (HS)", objectives = {
+        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+        {type = "fixed", pos={10, objectivesOffset, -14}},
+        {type = "fixed", pos={16, objectivesOffset, 12}},
+        {type = "fixed", pos={-10, objectivesOffset, 14}},
+        {type = "fixed", pos={-16, objectivesOffset, -12}}}},
 --Combat Patrol Missions
-    {id = 17, name = "(CP) Clash of Patrols", objectives = {
+    {id = 22, name = "(CP) Clash of Patrols", objectives = {
         {type = "fixed", pos={10, objectivesOffset, 0}},
         {type = "fixed", pos={-10, objectivesOffset, 0}},
         {type = "fixed", pos={0, objectivesOffset, 6}},
         {type = "fixed", pos={0, objectivesOffset, -6}}}},
-    {id = 18, name = "(CP) Archeotech Recovery", objectives = {
+    {id = 23, name = "(CP) Archeotech Recovery", objectives = {
         {type = "fixed", pos={0, objectivesOffset, 0}},
         {type = "fixed", pos={16, objectivesOffset, 8}},
         {type = "fixed", pos={-16, objectivesOffset, -8}},
         {type = "fixed", pos={8, objectivesOffset, -8}},
         {type = "fixed", pos={-8, objectivesOffset, 8}}}},
-    {id = 19, name = "(CP) Forward Outpost", objectives = {
+    {id = 24, name = "(CP) Forward Outpost", objectives = {
         {type = "fixed", pos={16, objectivesOffset, 0}},
         {type = "fixed", pos={-16, objectivesOffset, 0}},
         {type = "fixed", pos={0, objectivesOffset, 8}},
         {type = "fixed", pos={0, objectivesOffset, -8}}}},
-    {id = 20, name = "(CP) Scorched Earth", objectives = {
+    {id = 25, name = "(CP) Scorched Earth", objectives = {
         {type = "fixed", pos={10, objectivesOffset, -4}},
         {type = "fixed", pos={-10, objectivesOffset, 4}},
         {type = "fixed", pos={0, objectivesOffset, 6}},
         {type = "fixed", pos={0, objectivesOffset, -6}}}},
-    {id = 21, name = "(CP) Sweeping Raid", objectives = {
+    {id = 26, name = "(CP) Sweeping Raid", objectives = {
         {type = "fixed", pos={16, objectivesOffset, 6}},
         {type = "fixed", pos={-16, objectivesOffset, -6}},
         {type = "fixed", pos={3, objectivesOffset, -9}},
         {type = "fixed", pos={-3, objectivesOffset, 9}}}},
-    {id = 22, name = "(CP) Display of Might", objectives = {
+    {id = 27, name = "(CP) Display of Might", objectives = {
         {type = "fixed", pos={14, objectivesOffset, 0}},
         {type = "fixed", pos={-14, objectivesOffset, 0}},
         {type = "fixed", pos={0, objectivesOffset, 8}},
@@ -302,23 +339,40 @@ DeployZonesData = {
     {name = "Crucible of Battle", objectivesID = 16, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "x"},
         --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
---Combat Patrol Missions
-    {name = "(CP) Clash of Patrols", objectivesID = 17, draw = {
-        --[[1]]{type = "line", color = "Red", position = "-z", fromCenter = 10 },
-        --[[2]]{type = "line", color = "Teal", position = "z", fromCenter = 10, fromEdge = 0}}},
-    {name = "(CP) Archeotech Recovery", objectivesID = 18, draw = {
+    --Leviathan Missions with Hidden Supplies
+    {name = "Hammer and Anvil (HS)", objectivesID = 17, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
         --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0}}},
-    {name = "(CP) Forward Outpost", objectivesID = 19, draw = {
-        --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
-        --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0}}},
-    {name = "(CP) Scorched Earth", objectivesID = 20, draw = {
+    {name = "Dawn of War (HS)", objectivesID = 18, draw = {
+        --[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },
+        --[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
+    {name = "Sweeping Engagement (HS)", objectivesID = 19, draw = {
+        --[[1]]{type = "triangle", color = "Red", position = "z"},
+        --[[2]]{type = "triangle", color = "Teal", position = "-z"}}},
+    {name = "Search and Destroy (HS)", objectivesID = 20, draw = {
+        --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
+        --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
+        --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+    {name = "Crucible of Battle (HS)", objectivesID = 21, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "x"},
         --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
-    {name = "(CP) Sweeping Raid", objectivesID = 21, draw = {
+    --Combat Patrol Missions
+    {name = "(CP) Clash of Patrols", objectivesID = 22, draw = {
+        --[[1]]{type = "line", color = "Red", position = "-z", fromCenter = 10 },
+        --[[2]]{type = "line", color = "Teal", position = "z", fromCenter = 10, fromEdge = 0}}},
+    {name = "(CP) Archeotech Recovery", objectivesID = 23, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
         --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0}}},
-    {name = "(CP) Display of Might", objectivesID = 22, draw = {
+    {name = "(CP) Forward Outpost", objectivesID = 24, draw = {
+        --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
+        --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0}}},
+    {name = "(CP) Scorched Earth", objectivesID = 25, draw = {
+        --[[1]]{type = "triangle", color = "Red", position = "x"},
+        --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
+    {name = "(CP) Sweeping Raid", objectivesID = 26, draw = {
+        --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
+        --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0}}},
+    {name = "(CP) Display of Might", objectivesID = 27, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
         --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0}}},
     {name = "None", draw = {type = "none"}},

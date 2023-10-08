@@ -1,8 +1,8 @@
 {
   "SaveName": "FTC 40k Competitive 10e Map Base\n",
   "GameMode": "FTC 40k Competitive 10e Map Base\n",
-  "Date": "28/08/2023 11:00:00 AM",
-  "VersionNumber": "v2.57",
+  "Date": "08/10/2023 11:00:00 AM",
+  "VersionNumber": "v2.58",
   "GameType": "Game",
   "GameComplexity": "High Complexity",
   "PlayingTime": [
@@ -3014,7 +3014,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "",
-      "LuaScriptState": "{\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploySelected\":12,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":2,\"svsizeConfirmed\":false}",
+      "LuaScriptState": "{\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploySelected\":17,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":2,\"svsizeConfirmed\":false}",
       "XmlUI": ""
     },
     {
@@ -25269,7 +25269,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomPDF": {
-        "PDFUrl": "http://cloud-3.steamusercontent.com/ugc/2028354869672329656/90BFBB3EDF57B2727E1572B08330E27B3D704F26/",
+        "PDFUrl": "http://cloud-3.steamusercontent.com/ugc/2085787500446644939/880E061D67C4F8F410BD2470795836BC0F12C1C9/",
         "PDFPassword": "",
         "PDFPage": 0,
         "PDFPageOffset": 0
@@ -25371,7 +25371,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "Text": {
-        "Text": "Welcome to 10th edition! This map base is now designed for 10th edition play.\nIf you want to continue playing 9th edition, the old map base has been forked to https://steamcommunity.com/sharedfiles/filedetails/?id=2986578599\nI strongly recommend watching https://www.youtube.com/watch?v=v1Ph9U1xAcU for a tutorial on using the mission card management tools.",
+        "Text": "Welcome to 10th edition! This map base is now designed for 10th edition play.\nIf you want to continue playing 9th edition, the old map base has been forked to https://steamcommunity.com/sharedfiles/filedetails/?id=2986578599\nI strongly recommend watching the video below for a tutorial on using the mission card management tools.",
         "colorstate": {
           "r": 1.0,
           "g": 1.0,
@@ -80153,6 +80153,54 @@
         "PDFPassword": "",
         "PDFPage": 0,
         "PDFPageOffset": 0
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "0d3c1d",
+      "Name": "Tablet",
+      "Transform": {
+        "posX": 39.0,
+        "posY": 1.18699908,
+        "posZ": 0.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Tablet": {
+        "PageURL": "https://www.youtube.com/watch?v=v1Ph9U1xAcU"
       },
       "LuaScript": "",
       "LuaScriptState": "",

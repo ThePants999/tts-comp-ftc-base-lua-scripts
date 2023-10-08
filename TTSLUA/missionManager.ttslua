@@ -24,6 +24,8 @@ handZone = nil
 secondaryDeck = nil
 secondary1Zone = nil
 secondary2Zone = nil
+otherSecondary1Zone = nil
+otherSecondary2Zone = nil
 gambitDeck = nil
 gambitPosition = nil
 discardPosition = nil
@@ -39,6 +41,8 @@ function onLoad(save_state)
         secondaryDeck = getObjectFromGUID(Global.getVar("redSecondaryDeck_GUID"))
         secondary1Zone = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
         secondary2Zone = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
+        otherSecondary1Zone = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
+        otherSecondary2Zone = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
         gambitDeck = getObjectFromGUID(Global.getVar("redGambitDeck_GUID"))
         gambitPosition = { x = 70.25, y = 1.5, z = 8.05 }
         discardPosition = { x = 79.25, y = 1.5, z = 8.05 }
@@ -51,6 +55,8 @@ function onLoad(save_state)
         secondaryDeck = getObjectFromGUID(Global.getVar("blueSecondaryDeck_GUID"))
         secondary1Zone = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
         secondary2Zone = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
+        otherSecondary1Zone = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
+        otherSecondary2Zone = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
         gambitDeck = getObjectFromGUID(Global.getVar("blueGambitDeck_GUID"))
         gambitPosition = { x = 70.25, y = 1.5, z = -8.05 }
         discardPosition = { x = 79.25, y = 1.5, z = -8.05 }
@@ -102,7 +108,27 @@ function lockInSecondaries()
         end
     end
 
+    Wait.time(shuffleAndMaybeFlipSecondaries, 0.5)
+end
+
+function shuffleAndMaybeFlipSecondaries()
     secondaryDeck.shuffle()
+
+    if #secondary1Zone.getObjects() > 0 and #secondary2Zone.getObjects() > 0 and #otherSecondary1Zone.getObjects() > 0 and #otherSecondary2Zone.getObjects() > 0 then
+        flipCardsInZone(secondary1Zone)
+        flipCardsInZone(secondary2Zone)
+        flipCardsInZone(otherSecondary1Zone)
+        flipCardsInZone(otherSecondary2Zone)
+    end
+end
+
+function flipCardsInZone(zone)
+    local objects = zone.getObjects()
+    for _,object in ipairs(objects) do
+        if object.type == "Card" then
+            object.flip()
+        end
+    end
 end
 
 function lockInGambit()
