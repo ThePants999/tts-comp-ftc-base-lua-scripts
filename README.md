@@ -1,5 +1,5 @@
 # Competitive FTC Base: LUA scripts
-Comp FTC Map Base LUA Scripts v2.58
+Comp FTC Map Base LUA Scripts v2.59
 
 The following files contain all the LUA scripts contained in the Competitive FTC Base Map for the TTS 40k community. If a file does not exist for an object within the TTS save, then that object does not contain any scripts.
 
@@ -8,6 +8,12 @@ This repo now contains the actual TTS JSON file. To produce the JSON file, run t
 Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and elements contained within it!
 
 ## Update History:
+
+### v2.59
+
+* The secondaries deck is now shuffled when you draw from it.
+* Tablet has been removed. Hopefully y'all have figured out the card system by now.
+* Faction datasheets bag has been removed, since it was only ever intended as a stopgap prior to Yellowscribe 10e support and was getting outdated.
 
 ### v2.58
 

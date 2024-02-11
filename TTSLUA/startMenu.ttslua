@@ -73,10 +73,8 @@ end
 
 function makeAnnouncement()
     local features={
-    "2.55: added manual mission selector, couple of card fixes",
-    "2.56: added Investigate Signals button",
-    "2.57: aaaand fixed Investigate Signals button ;-)",
-    "2.58: added alternative objective layouts for Hidden Supplies, auto un-hide locked-in secondaries, plus minor fixes"
+    "2.58: added alternative objective layouts for Hidden Supplies, auto un-hide locked-in secondaries, plus minor fixes",
+    "2.59: shuffle secondaries before drawing; remove tablet and datasheet bags"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do

@@ -359,6 +359,8 @@ function moveOneFromDeckToZone(params)
     end
     if params["card"] then
         takeParams.guid = params.card
+    else
+        deckObj.shuffle()
     end
     deckObj.takeObject(takeParams)
 end
