@@ -1,8 +1,8 @@
 {
   "SaveName": "FTC 40k Competitive 10e Map Base\n",
   "GameMode": "FTC 40k Competitive 10e Map Base\n",
-  "Date": "11/02/2024 11:00:00 AM",
-  "VersionNumber": "v2.59",
+  "Date": "11/06/2024 11:00:00 AM",
+  "VersionNumber": "v2.60",
   "GameType": "Game",
   "GameComplexity": "High Complexity",
   "PlayingTime": [
@@ -143,8 +143,8 @@
       "id": 0
     },
     "1": {
-      "title": "Leviathan missions",
-      "body": "The 10th edition mission pack, Leviathan, is fully supported.\r\n\r\nAbove the scoreboard, you'll find decks for deployment, mission rules and primary missions. If you already know which ones you want, you can just search the decks for the right cards, or you can press Randomise Mission.\r\n\r\nWhen you've picked a colour, you'll find a set of cards in your hand - the seven Fixed Secondary Missions, and two Tactical Missions cards. When you get to the Select Secondary Missions mission step, choose the two cards you want and flip those cards in your hand face down with the F key, then press Lock In Secondaries. Once both players have done that, you can reveal the selected cards by pressing F on them.\r\n\r\nOnce you start the game, fixed missions will be locked in, while tactical missions will be cleared ready to draw some real ones. Whenever you need to draw a card, press the arrow button next to the deck. You can use the arrow button next to a drawn card to recycle it (e.g. because the card tells you to), or the X button to discard it (e.g. because you've completed it, or used the New Orders stratagem).\r\n\r\nAt the end of the third battle round, press Prepare Gambits, and a random selection of Gambit cards will be placed into your hand. Choose one and flip it to select it, then press Lock In Gambit. Once both players have done so, you can reveal the choices by flipping them.",
+      "title": "10th edition missions",
+      "body": "The 10th edition mission packs, Leviathan and Pariah Nexus, are fully supported.\r\n\r\nAbove the scoreboard, you'll find a pack selector and decks for deployment, mission rules and primary missions. If you already know which ones you want, you can just search the decks for the right cards, or you can use the Mission Selection options on the right to either randomise or choose from one of GW's recommended presets.\r\n\r\nWhen you've picked a colour, you'll find a set of cards in your hand - the Fixed Secondary Missions, and two Tactical Missions cards. When you get to the Select Secondary Missions mission step, choose the two cards you want and flip those cards in your hand face down with the F key, then press Lock In Secondaries. Once both players have done that, the selected cards will be revealed.\r\n\r\nOnce you start the game, fixed missions will be locked in, while tactical missions will be cleared ready to draw some real ones. Whenever you need to draw a card, press the arrow button next to the deck. You can use the arrow button next to a drawn card to recycle it (e.g. because the card tells you to), or the X button to discard it (e.g. because you've completed it, or used the New Orders stratagem).\r\n\r\nAt the end of the third battle round, press Prepare Secrets, and the Secret Mission cards (if playing Pariah Nexus) or a random selection of Gambit cards (if playing Leviathan) will be placed into your hand. Choose one and flip it to select it, then press Lock In Secret. Once both players have done so, you can reveal the choices by flipping them.",
       "color": "Grey",
       "visibleColor": {
         "r": 0.5,
