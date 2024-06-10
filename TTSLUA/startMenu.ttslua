@@ -74,7 +74,8 @@ end
 function makeAnnouncement()
     local features={
     "2.58: added alternative objective layouts for Hidden Supplies, auto un-hide locked-in secondaries, plus minor fixes",
-    "2.59: shuffle secondaries before drawing; remove tablet and datasheet bags"
+    "2.59: shuffle secondaries before drawing; remove tablet and datasheet bags",
+    "2.60: Pariah Nexus support"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
