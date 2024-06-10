@@ -3,7 +3,11 @@
 -- size changer manager
 -- deploy zones manager
 -- objectives manager
+-- mission manager
 -- game manager
+
+menuX = 18
+menuZ = 1.05-1.05
 
 keepForTerrainEditor = true
 
@@ -26,16 +30,13 @@ function onLoad(saved_data)
 
     mat = getObjectFromGUID(mat_GUID)
     if simulation then print("THIS IS "..currentTurn.." TURN") end
-    -- DEPLOY MENU VARIABLES
 
-    -- REST OF CODE
     redTurnCounter = getObjectFromGUID(Global.getVar("redTurnCounter_GUID"))
     blueTurnCounter = getObjectFromGUID(Global.getVar("blueTurnCounter_GUID"))
     gameTurnCounter = getObjectFromGUID(Global.getVar("gameTurnCounter_GUID"))
     redCpCounter = getObjectFromGUID(Global.getVar("redCPCounter_GUID"))
     blueCpCounter = getObjectFromGUID(Global.getVar("blueCPCounter_GUID"))
     if inGame == false then
-        --broadcastToAll("The mod will keep track of how many times a game is started or a map is exported.\nNo other data will be sent!", "Orange")
         Notes.setNotes(notePadTxt)
     else
         Notes.setNotes("")
@@ -67,7 +68,7 @@ function onSave()
         svsizeConfirmed = sizeConfirmed,
         svdeploySelected = deploySelected
     })
-    --saved_data = ""
+
     return saved_data
 end
 
@@ -83,7 +84,10 @@ function makeAnnouncement()
     end
 end
 
+-- ********************
 -- SIZE CHANGER MANAGER
+-- ********************
+
 positionValue={0,-9.52,0}
 sizeData={
     {id=1, name='C o m b a t     P a t r o l - 44" x 30"', scale={1.22,1,0.83}, defaultObjectives=0},
@@ -214,112 +218,13 @@ function switchToTerrainEditor()
     Global.setVectorLines({})
     printToAll("DONE!", "Yellow")
 end
+
 -- END size changer
 
-objectivesData = {
---Leviathan Missions
-    {id = 12, name = "Hammer and Anvil", objectives = {
-        {type = "fixed", pos={0, objectivesOffset, 0}},
-        {type = "fixed", pos={20, objectivesOffset, 0}},
-        {type = "fixed", pos={-20, objectivesOffset, 0}},
-        {type = "fixed", pos={0, objectivesOffset, 16}},
-        {type = "fixed", pos={0, objectivesOffset, -16}}}},
-    {id = 13, name = "Dawn of War", objectives = {
-        {type = "fixed", pos={0, objectivesOffset, 0}},
-        {type = "fixed", pos={20, objectivesOffset, 0}},
-        {type = "fixed", pos={-20, objectivesOffset, 0}},
-        {type = "fixed", pos={0, objectivesOffset, 16}},
-        {type = "fixed", pos={0, objectivesOffset, -16}}}},
-    {id = 14, name = "Sweeping Engagement", objectives = {
-        {type = "fixed", pos={0, objectivesOffset, 0}},
-        {type = "fixed", pos={12, objectivesOffset, 16}},
-        {type = "fixed", pos={20, objectivesOffset, -8}},
-        {type = "fixed", pos={-12, objectivesOffset, -16}},
-        {type = "fixed", pos={-20, objectivesOffset, 8}}}},
-    {id = 15, name = "Search and Destroy", objectives = {
-        {type = "fixed", pos={0, objectivesOffset, 0}},
-        {type = "fixed", pos={16, objectivesOffset, 12}},
-        {type = "fixed", pos={16, objectivesOffset, -12}},
-        {type = "fixed", pos={-16, objectivesOffset, 12}},
-        {type = "fixed", pos={-16, objectivesOffset, -12}}}},
-    {id = 16, name = "Crucible of Battle", objectives = {
-        {type = "fixed", pos={0, objectivesOffset, 0}},
-        {type = "fixed", pos={10, objectivesOffset, -14}},
-        {type = "fixed", pos={16, objectivesOffset, 12}},
-        {type = "fixed", pos={-10, objectivesOffset, 14}},
-        {type = "fixed", pos={-16, objectivesOffset, -12}}}},
---Leviathan Missions with Hidden Supplies
-    {id = 17, name = "Hammer and Anvil (HS)", objectives = {
-        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-        {type = "fixed", pos={20, objectivesOffset, 0}},
-        {type = "fixed", pos={-20, objectivesOffset, 0}},
-        {type = "fixed", pos={0, objectivesOffset, 16}},
-        {type = "fixed", pos={0, objectivesOffset, -16}}}},
-    {id = 18, name = "Dawn of War (HS)", objectives = {
-        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-        {type = "fixed", pos={20, objectivesOffset, 0}},
-        {type = "fixed", pos={-20, objectivesOffset, 0}},
-        {type = "fixed", pos={0, objectivesOffset, 16}},
-        {type = "fixed", pos={0, objectivesOffset, -16}}}},
-    {id = 19, name = "Sweeping Engagement (HS)", objectives = {
-        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-        {type = "fixed", pos={12, objectivesOffset, 16}},
-        {type = "fixed", pos={20, objectivesOffset, -8}},
-        {type = "fixed", pos={-12, objectivesOffset, -16}},
-        {type = "fixed", pos={-20, objectivesOffset, 8}}}},
-    {id = 20, name = "Search and Destroy (HS)", objectives = {
-        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-        {type = "fixed", pos={16, objectivesOffset, 12}},
-        {type = "fixed", pos={16, objectivesOffset, -12}},
-        {type = "fixed", pos={-16, objectivesOffset, 12}},
-        {type = "fixed", pos={-16, objectivesOffset, -12}}}},
-    {id = 21, name = "Crucible of Battle (HS)", objectives = {
-        {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-        {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-        {type = "fixed", pos={10, objectivesOffset, -14}},
-        {type = "fixed", pos={16, objectivesOffset, 12}},
-        {type = "fixed", pos={-10, objectivesOffset, 14}},
-        {type = "fixed", pos={-16, objectivesOffset, -12}}}},
---Combat Patrol Missions
-    {id = 22, name = "(CP) Clash of Patrols", objectives = {
-        {type = "fixed", pos={10, objectivesOffset, 0}},
-        {type = "fixed", pos={-10, objectivesOffset, 0}},
-        {type = "fixed", pos={0, objectivesOffset, 6}},
-        {type = "fixed", pos={0, objectivesOffset, -6}}}},
-    {id = 23, name = "(CP) Archeotech Recovery", objectives = {
-        {type = "fixed", pos={0, objectivesOffset, 0}},
-        {type = "fixed", pos={16, objectivesOffset, 8}},
-        {type = "fixed", pos={-16, objectivesOffset, -8}},
-        {type = "fixed", pos={8, objectivesOffset, -8}},
-        {type = "fixed", pos={-8, objectivesOffset, 8}}}},
-    {id = 24, name = "(CP) Forward Outpost", objectives = {
-        {type = "fixed", pos={16, objectivesOffset, 0}},
-        {type = "fixed", pos={-16, objectivesOffset, 0}},
-        {type = "fixed", pos={0, objectivesOffset, 8}},
-        {type = "fixed", pos={0, objectivesOffset, -8}}}},
-    {id = 25, name = "(CP) Scorched Earth", objectives = {
-        {type = "fixed", pos={10, objectivesOffset, -4}},
-        {type = "fixed", pos={-10, objectivesOffset, 4}},
-        {type = "fixed", pos={0, objectivesOffset, 6}},
-        {type = "fixed", pos={0, objectivesOffset, -6}}}},
-    {id = 26, name = "(CP) Sweeping Raid", objectives = {
-        {type = "fixed", pos={16, objectivesOffset, 6}},
-        {type = "fixed", pos={-16, objectivesOffset, -6}},
-        {type = "fixed", pos={3, objectivesOffset, -9}},
-        {type = "fixed", pos={-3, objectivesOffset, 9}}}},
-    {id = 27, name = "(CP) Display of Might", objectives = {
-        {type = "fixed", pos={14, objectivesOffset, 0}},
-        {type = "fixed", pos={-14, objectivesOffset, 0}},
-        {type = "fixed", pos={0, objectivesOffset, 8}},
-        {type = "fixed", pos={0, objectivesOffset, -8}}}},
-    {id = 0, name = "None", objectives = {}},
-}
-
+-- ********************
 -- DEPLOY ZONES MANAGER
+-- ********************
+
 DeployZonesData = {
     --Leviathan Missions
     {name = "Hammer and Anvil", objectivesID = 12, draw = {
@@ -380,6 +285,47 @@ DeployZonesData = {
 deployLineHeight = 2.1
 deployLineYPos = deployLineHeight-0.1
 sizeMulti = 36
+arrowOffset = 7.5
+
+defaultDeployHeight=2
+deployOffset = 0
+deployMenuBtn = {
+    index = 1, label = "Select deployment zones", click_function = "none", function_owner = self,
+    position = { - menuX, 5, -1}, rotation = {0, 0, 0}, height = 750, width = 8000,
+    font_size = 500, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+
+secondRowOffset= 1.2
+deployBtn = {
+    index = i, label = "", click_function = "none", function_owner = self,
+    position = { - menuX, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 6000,
+    font_size = 400, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+deployUpBtn = {
+    index = 1, label = "->", click_function = "deployUp", function_owner = self,
+    position = { - menuX + arrowOffset, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 800,
+    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+deployDownBtn = {
+    index = 1, label = "<-", click_function = "deployDown", function_owner = self,
+    position = { - menuX - arrowOffset, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 800,
+    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+deployOffsetMenuBtn = {
+    index = 1, label = "Deploy\nHeight", click_function = "none", function_owner = self,
+    position = {-menuX - 1.4*arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 1000,
+    font_size = 150, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+deployOffsetUpBtn = {
+    index = 1, label = "+", click_function = "deployOffsetUp", function_owner = self,
+    position = {-menuX - 1.4*arrowOffset, 5, menuZ - secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
+    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
+deployOffsetDownBtn = {
+    index = 1, label = "-", click_function = "deployOffsetDown", function_owner = self,
+    position = {-menuX - 1.4*arrowOffset, 5, menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
+    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
+}
 
 function drawDeployZone(zone)
     local drawDataZone = zone.draw
@@ -430,7 +376,6 @@ function setDeployHeight()
         found.setPosition({pos[1], defaultDeployHeight+ deployOffset, pos[3]})
     end
 end
-
 
 function drawRectangle(drawData)
     local mat = getObjectFromGUID(mat_GUID)
@@ -893,101 +838,179 @@ function disableCollidersDeployZones()
     end
 
 end
--- END deploy zones MANAGER
 
+function placeDeploy()
+    destroyDeployZones()
+    local data = DeployZonesData[deploySelected]
+    drawDeployZone(data)
+    if data.objectivesID then
+        spawnObjectives()
+    end
+    writeMenus()
+end
 
-simulation = false -- is used to test in single player
-redFirstLbl = "R  e  d    p l a y e r    f i r s t\n(click to toggle)"
-blueFirstLbl = "B l u e    p l a y e r    f i r s t\n(click to toggle)"
-inGame = false
-gameTurnCounter = nil
-armyMover = ""
-first = "Red"
-currentTurn = "Red"
-cpEveryTurn = true
+function deployUp()
+    deployUpDown(true)
+end
 
--- track if player has gained CP so far this battle round
--- true if a CP has been gained, else false
-redCpIncrementTracker = false
-blueCpIncrementTracker = false
+function deployDown()
+    deployUpDown(false)
+end
 
-phases = {"Command", "Movement", "Shooting", "Charge", "Fight"}
-currentPhase = 1
-startBtn = {
-    index = 1, label = "S T A R T  G A M E", click_function = "startGame", function_owner = self,
-    position = {0, 5, - 1}, rotation = {0, 0, 0}, height = 750, width = 5000,
-    font_size = 500, color = {0, 0.6, 0}, font_color = {1, 1, 1}
-}
-firstPlayerBtn = {
-    index = 1, label = redFirstLbl, click_function = "togglePlyr", function_owner = self,
-    position = {0, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 5000,
-    font_size = 300, color = {1, 0, 0}, font_color = {1, 1, 1}
-}
-nextPhaseLbl = "P A S S\nT U R N"
-nextPhaseBtn = {
-    index = 1, label = nextPhaseLbl, tooltip = "Left click - Next phase\nRight click - Skip to next turn", click_function = "nextPhase", function_owner = self,
-    position = {0, 5, 0}, rotation = {0, 0, 0}, height = 1500, width = 5000,
-    font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
-}
-IncrementRedCpBtn = {
-    index = 1, label = "Gain a CP", tooltip = "Increment Red CP counter\nWill only increment once per Round", click_function = "incrementRedCp", function_owner = self,
-    position = {-46.2, 5, -3.75}, rotation = {0, 0, 0}, height = 1650, width = 3000,
-    font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
-}
-IncrementBlueCpBtn = {
-    index = 1, label = "Gain a CP", tooltip = "Increment Blue CP counter\nWill only increment once per Round", click_function = "incrementBlueCp", function_owner = self,
-    position = {46.2, 5, -3.75}, rotation = {0, 0, 0}, height = 1650, width = 3000,
-    font_size = 600, color = {0, 0, 1}, font_color = {1, 1, 1}
-}
+function deployUpDown(upDown)
+    deployOffset = 0
+    objectivesOffset = 0
+    deploymentPregamePlaced = true
+    if DeployZonesData[deploySelected].objectivesID then
+        destroyAllObjectives()
+    end
+    local add=1
+    if not upDown then
+        add=-1
+    end
+    deploySelected = deploySelected + add
+    if deploySelected > #DeployZonesData then
+        deploySelected = 1
+    end
+    if deploySelected < 1 then
+        deploySelected = #DeployZonesData
+    end
+    writeMenus()
+    placeDeploy()
+end
 
-notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found in the Notebook.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
---
-menuX = 18
-menuZ = 1.05-1.05
-arrowOffset = 7.5
+function deployOffsetUp()
+    deployOffsetUpDown(true)
+end
 
--- DEPLOY ZONES VARIABLES
+function deployOffsetDown()
+    deployOffsetUpDown(false)
+end
 
-defaultDeployHeight=2
-deployOffset = 0
-deployMenuBtn = {
-    index = 1, label = "Select deployment zones", click_function = "none", function_owner = self,
-    position = { - menuX, 5, -1}, rotation = {0, 0, 0}, height = 750, width = 8000,
-    font_size = 500, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
+function deployOffsetUpDown(upDown) -- true up, false down
+    local amt = 1
+    if not upDown then amt = -1 end
+    deployOffset = deployOffset + amt
+    if deployOffset > 25 then
+        deployOffset = 25
+    end
+    if deployOffset < 0 then
+        deployOffset = 0
+    end
+    writeMenus()
+    setDeployHeight()
+end
 
-secondRowOffset= 1.2
-deployBtn = {
-    index = i, label = "", click_function = "none", function_owner = self,
-    position = { - menuX, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 6000,
-    font_size = 400, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-deployUpBtn = {
-    index = 1, label = "->", click_function = "deployUp", function_owner = self,
-    position = { - menuX + arrowOffset, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-deployDownBtn = {
-    index = 1, label = "<-", click_function = "deployDown", function_owner = self,
-    position = { - menuX - arrowOffset, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-deployOffsetMenuBtn = {
-    index = 1, label = "Deploy\nHeight", click_function = "none", function_owner = self,
-    position = {-menuX - 1.4*arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 1000,
-    font_size = 150, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-deployOffsetUpBtn = {
-    index = 1, label = "+", click_function = "deployOffsetUp", function_owner = self,
-    position = {-menuX - 1.4*arrowOffset, 5, menuZ - secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-deployOffsetDownBtn = {
-    index = 1, label = "-", click_function = "deployOffsetDown", function_owner = self,
-    position = {-menuX - 1.4*arrowOffset, 5, menuZ + secondRowOffset}, rotation = {0, 0, 0}, height = 450, width = 800,
-    font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
-}
-objectivesOffsetMenuBtn = {
+-- END deploy zones manager
+
+-- ******************
+-- OBJECTIVES MANAGER
+-- ******************
+
+objectivesData = {
+    --Leviathan Missions
+        {id = 12, name = "Hammer and Anvil", objectives = {
+            {type = "fixed", pos={0, objectivesOffset, 0}},
+            {type = "fixed", pos={20, objectivesOffset, 0}},
+            {type = "fixed", pos={-20, objectivesOffset, 0}},
+            {type = "fixed", pos={0, objectivesOffset, 16}},
+            {type = "fixed", pos={0, objectivesOffset, -16}}}},
+        {id = 13, name = "Dawn of War", objectives = {
+            {type = "fixed", pos={0, objectivesOffset, 0}},
+            {type = "fixed", pos={20, objectivesOffset, 0}},
+            {type = "fixed", pos={-20, objectivesOffset, 0}},
+            {type = "fixed", pos={0, objectivesOffset, 16}},
+            {type = "fixed", pos={0, objectivesOffset, -16}}}},
+        {id = 14, name = "Sweeping Engagement", objectives = {
+            {type = "fixed", pos={0, objectivesOffset, 0}},
+            {type = "fixed", pos={12, objectivesOffset, 16}},
+            {type = "fixed", pos={20, objectivesOffset, -8}},
+            {type = "fixed", pos={-12, objectivesOffset, -16}},
+            {type = "fixed", pos={-20, objectivesOffset, 8}}}},
+        {id = 15, name = "Search and Destroy", objectives = {
+            {type = "fixed", pos={0, objectivesOffset, 0}},
+            {type = "fixed", pos={16, objectivesOffset, 12}},
+            {type = "fixed", pos={16, objectivesOffset, -12}},
+            {type = "fixed", pos={-16, objectivesOffset, 12}},
+            {type = "fixed", pos={-16, objectivesOffset, -12}}}},
+        {id = 16, name = "Crucible of Battle", objectives = {
+            {type = "fixed", pos={0, objectivesOffset, 0}},
+            {type = "fixed", pos={10, objectivesOffset, -14}},
+            {type = "fixed", pos={16, objectivesOffset, 12}},
+            {type = "fixed", pos={-10, objectivesOffset, 14}},
+            {type = "fixed", pos={-16, objectivesOffset, -12}}}},
+    --Leviathan Missions with Hidden Supplies
+        {id = 17, name = "Hammer and Anvil (HS)", objectives = {
+            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+            {type = "fixed", pos={20, objectivesOffset, 0}},
+            {type = "fixed", pos={-20, objectivesOffset, 0}},
+            {type = "fixed", pos={0, objectivesOffset, 16}},
+            {type = "fixed", pos={0, objectivesOffset, -16}}}},
+        {id = 18, name = "Dawn of War (HS)", objectives = {
+            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+            {type = "fixed", pos={20, objectivesOffset, 0}},
+            {type = "fixed", pos={-20, objectivesOffset, 0}},
+            {type = "fixed", pos={0, objectivesOffset, 16}},
+            {type = "fixed", pos={0, objectivesOffset, -16}}}},
+        {id = 19, name = "Sweeping Engagement (HS)", objectives = {
+            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+            {type = "fixed", pos={12, objectivesOffset, 16}},
+            {type = "fixed", pos={20, objectivesOffset, -8}},
+            {type = "fixed", pos={-12, objectivesOffset, -16}},
+            {type = "fixed", pos={-20, objectivesOffset, 8}}}},
+        {id = 20, name = "Search and Destroy (HS)", objectives = {
+            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+            {type = "fixed", pos={16, objectivesOffset, 12}},
+            {type = "fixed", pos={16, objectivesOffset, -12}},
+            {type = "fixed", pos={-16, objectivesOffset, 12}},
+            {type = "fixed", pos={-16, objectivesOffset, -12}}}},
+        {id = 21, name = "Crucible of Battle (HS)", objectives = {
+            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
+            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+            {type = "fixed", pos={10, objectivesOffset, -14}},
+            {type = "fixed", pos={16, objectivesOffset, 12}},
+            {type = "fixed", pos={-10, objectivesOffset, 14}},
+            {type = "fixed", pos={-16, objectivesOffset, -12}}}},
+    --Combat Patrol Missions
+        {id = 22, name = "(CP) Clash of Patrols", objectives = {
+            {type = "fixed", pos={10, objectivesOffset, 0}},
+            {type = "fixed", pos={-10, objectivesOffset, 0}},
+            {type = "fixed", pos={0, objectivesOffset, 6}},
+            {type = "fixed", pos={0, objectivesOffset, -6}}}},
+        {id = 23, name = "(CP) Archeotech Recovery", objectives = {
+            {type = "fixed", pos={0, objectivesOffset, 0}},
+            {type = "fixed", pos={16, objectivesOffset, 8}},
+            {type = "fixed", pos={-16, objectivesOffset, -8}},
+            {type = "fixed", pos={8, objectivesOffset, -8}},
+            {type = "fixed", pos={-8, objectivesOffset, 8}}}},
+        {id = 24, name = "(CP) Forward Outpost", objectives = {
+            {type = "fixed", pos={16, objectivesOffset, 0}},
+            {type = "fixed", pos={-16, objectivesOffset, 0}},
+            {type = "fixed", pos={0, objectivesOffset, 8}},
+            {type = "fixed", pos={0, objectivesOffset, -8}}}},
+        {id = 25, name = "(CP) Scorched Earth", objectives = {
+            {type = "fixed", pos={10, objectivesOffset, -4}},
+            {type = "fixed", pos={-10, objectivesOffset, 4}},
+            {type = "fixed", pos={0, objectivesOffset, 6}},
+            {type = "fixed", pos={0, objectivesOffset, -6}}}},
+        {id = 26, name = "(CP) Sweeping Raid", objectives = {
+            {type = "fixed", pos={16, objectivesOffset, 6}},
+            {type = "fixed", pos={-16, objectivesOffset, -6}},
+            {type = "fixed", pos={3, objectivesOffset, -9}},
+            {type = "fixed", pos={-3, objectivesOffset, 9}}}},
+        {id = 27, name = "(CP) Display of Might", objectives = {
+            {type = "fixed", pos={14, objectivesOffset, 0}},
+            {type = "fixed", pos={-14, objectivesOffset, 0}},
+            {type = "fixed", pos={0, objectivesOffset, 8}},
+            {type = "fixed", pos={0, objectivesOffset, -8}}}},
+        {id = 0, name = "None", objectives = {}},
+    }
+
+    objectivesOffsetMenuBtn = {
     index = 1, label = "Obj.\nHeight", click_function = "none", function_owner = self,
     position = {-menuX + 1.4*arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 1000,
     font_size = 150, color = {0, 0, 0}, font_color = {1, 1, 1}
@@ -1003,8 +1026,6 @@ objectivesOffsetDownBtn = {
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
 
-
--- OBJECTIVES MANAGER
 defaultObjectivesHeight=1.0
 
 function spawnObjectives()
@@ -1094,57 +1115,34 @@ function setObjectivesHeight()
         found.setPosition({pos[1], defaultObjectivesHeight+ objectivesOffset, pos[3]})
     end
 end
---END objectives manager
 
-quartersPlaced = false
-quartersLblOpen = "Hide\nTable Quarters"
-quartersLblClosed = "Show\nTable Quarters"
-quartersBtn = {
-    label = quartersLblClosed, click_function = "showHideQuarters", function_owner = self,
-    position = {menuX - 9, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-areaPlaced = false
-areaLblOpen = "Hide\nArea Denial"
-areaLblClosed = "Show\nArea Denial"
-areaBtn = {
-    label = areaLblClosed, click_function = "showHideAreaDeny", function_owner = self,
-    position = {menuX - 3, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-engagePlaced = false
-engageLblOpen = "Hide\nEngage"
-engageLblClosed = "Show\nEngage"
-engageBtn = {
-    label = engageLblClosed, click_function = "showHideEngage", function_owner = self,
-    position = {menuX + 3, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-stratreservesPlaced = false
-stratreservesLblOpen = "Hide\nStrat Reserves"
-stratreservesLblClosed = "Show\nStrat Reserves"
-stratreservesBtn = {
-    label = stratreservesLblClosed, click_function = "showHideStratreserves", function_owner = self,
-    position = {menuX + 9, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-deploymentIngamePlaced = false
-deployIngameLblOpen = "Hide\ndeployment\nzones"
-deployIngameLblClosed = "Show\ndeployment\nzones"
-deployIngameBtn = {
-    index = 1, label = deployIngameLblClosed, click_function = "showHideIngameDeployment", function_owner = self,
-    position = {menuX + 21, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-investigatePlaced = false
-investigateLblOpen = "Hide\nInvestigate Signals"
-investigateLblClosed = "Show\nInvestigate Signals"
-investigateBtn = {
-    label = investigateLblClosed, click_function = "showHideInvestigateSignals", function_owner = self,
-    position = {menuX + 15, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-position = {menuX, 5, menuZ}
+function objectivesOffsetUp()
+    objectivesOffsetUpDown(true)
+end
+
+function objectivesOffsetDown()
+    objectivesOffsetUpDown(false)
+end
+
+function objectivesOffsetUpDown(upDown) -- true up, false down
+    local amt = 0.2
+    if not upDown then amt = -0.2 end
+    objectivesOffset = objectivesOffset + amt
+    if objectivesOffset > 25 then
+        objectivesOffset = 25
+    end
+    if objectivesOffset < 0 then
+        objectivesOffset = 0
+    end
+    writeMenus()
+    setObjectivesHeight()
+end
+
+-- END objectives manager
+
+-- ***************
+-- MISSION MANAGER
+-- ***************
 
 selectedMission = 0
 canChangeMission = true
@@ -1220,6 +1218,220 @@ missionSelectionDispBtn = {
     color = {1, 1, 1},
     font_color = {0, 0, 0}
 }
+
+--[[
+GUID reference for primary / mission / deployment cards
+Yeah, I could use variables but I didn't, oh well
+
+Sites of Power ec78cd
+Scorched Earth 3ad5a3
+Purge the Foe 5444d4
+Priority Targets f97708
+Deploy Servo-Skulls 44ff29
+Take and Hold 884291
+Supply Drop a34ae1
+The Ritual 646b49
+Vital Ground 6fc1c2
+
+Chilling Rain db0022
+Hidden Supplies 0dc3c3
+Scrambler Fields aea986
+Chosen Battlefield 876ac7
+
+Hammer and Anvil 117c77
+Dawn of War 7e4b95
+Sweeping Engagement 381d7c
+Search and Destroy ad4220
+Crucible of Battle 3c0679
+]]--
+
+tournamentMissions = {
+    -- Take and Hold / Chilling Rain / Search and Destroy
+    {name = "A", primary = "884291", mission = "db0022", deployment = "ad4220"},
+    -- Priority Targets / Hidden Supplies / Search and Destroy
+    {name = "B", primary = "f97708", mission = "0dc3c3", deployment = "ad4220"},
+    -- The Ritual / Scrambler Fields / Sweeping Engagement
+    {name = "C", primary = "646b49", mission = "aea986", deployment = "381d7c"},
+    -- Deploy Servo-skulls / Chilling Rain / Search and Destroy
+    {name = "D", primary = "44ff29", mission = "db0022", deployment = "ad4220"},
+    -- Take and Hold / Chosen Battlefield / Sweeping Engagement
+    {name = "E", primary = "884291", mission = "876ac7", deployment = "381d7c"},
+    -- Supply Drop / Chilling Rain / Search and Destroy
+    {name = "F", primary = "a34ae1", mission = "db0022", deployment = "ad4220"},
+    -- Sites of Power / Chilling Rain / Hammer and Anvil
+    {name = "G", primary = "ec78cd", mission = "db0022", deployment = "117c77"},
+    -- The Ritual / Chilling Rain / Hammer and Anvil
+    {name = "H", primary = "646b49", mission = "db0022", deployment = "117c77"},
+    -- Take and Hold / Hidden Supplies / Hammer and Anvil
+    {name = "I", primary = "884291", mission = "0dc3c3", deployment = "117c77"},
+    -- Priority Targets / Chilling Rain / Crucible of Battle
+    {name = "J", primary = "f97708", mission = "db0022", deployment = "3c0679"},
+    -- Deploy Servo-skulls / Hidden Supplies / Crucible of Battle
+    {name = "K", primary = "44ff29", mission = "0dc3c3", deployment = "3c0679"},
+    -- Scorched Earth / Chilling Rain / Dawn of War
+    {name = "L", primary = "3ad5a3", mission = "db0022", deployment = "7e4b95"},
+    -- Purge the Foe / Chilling Rain / Crucible of Battle
+    {name = "M", primary = "5444d4", mission = "db0022", deployment = "3c0679"},
+    -- Priority Targets / Chosen Battlefield / Dawn of War
+    {name = "N", primary = "f97708", mission = "876ac7", deployment = "7e4b95"},
+    -- Vital Ground / Chilling Rain / Crucible of Battle
+    {name = "O", primary = "6fc1c2", mission = "db0022", deployment = "3c0679"}
+}
+
+function missionSelectionDown()
+    if canChangeMission then
+        selectedMission = selectedMission - 1
+        if selectedMission <= 0 then selectedMission = #tournamentMissions end
+        updateMission()
+    end
+end
+
+function missionSelectionUp()
+    if canChangeMission then
+        selectedMission = selectedMission + 1
+        if selectedMission > #tournamentMissions then selectedMission = 1 end
+        updateMission()
+    end
+end
+
+function randomiseMission()
+    if canChangeMission then
+        selectedMission = 0
+        updateMission()
+    end
+end
+
+function randomTournamentMission()
+    if canChangeMission then
+        selectedMission = math.random(#tournamentMissions)
+        updateMission()
+    end
+end
+
+function updateMission()
+    canChangeMission = false
+    Global.call("moveAllFromZoneToDeck", {zone = "deployment", deck = "deployment"})
+    Global.call("moveAllFromZoneToDeck", {zone = "mission", deck = "mission"})
+    Global.call("moveAllFromZoneToDeck", {zone = "primary", deck = "primary"})
+
+    if selectedMission == 0 then
+        missionSelectionDispBtn.label = "?"
+        Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment"})
+        Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission"})
+        Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary"})
+    else
+        mission = tournamentMissions[selectedMission]
+        missionSelectionDispBtn.label = mission.name
+        Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment", card = mission.deployment})
+        Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission", card = mission.mission})
+        Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary", card = mission.primary})
+    end
+    writeMenus()
+
+    Wait.time(function() canChangeMission = true end, 0.3)
+end
+
+-- END MISSION MANAGER
+
+-- ************
+-- GAME MANAGER
+-- ************
+
+simulation = false -- is used to test in single player
+redFirstLbl = "R  e  d    p l a y e r    f i r s t\n(click to toggle)"
+blueFirstLbl = "B l u e    p l a y e r    f i r s t\n(click to toggle)"
+inGame = false
+gameTurnCounter = nil
+armyMover = ""
+first = "Red"
+currentTurn = "Red"
+cpEveryTurn = true
+
+-- track if player has gained CP so far this battle round
+-- true if a CP has been gained, else false
+redCpIncrementTracker = false
+blueCpIncrementTracker = false
+
+phases = {"Command", "Movement", "Shooting", "Charge", "Fight"}
+currentPhase = 1
+startBtn = {
+    index = 1, label = "S T A R T  G A M E", click_function = "startGame", function_owner = self,
+    position = {0, 5, - 1}, rotation = {0, 0, 0}, height = 750, width = 5000,
+    font_size = 500, color = {0, 0.6, 0}, font_color = {1, 1, 1}
+}
+firstPlayerBtn = {
+    index = 1, label = redFirstLbl, click_function = "togglePlyr", function_owner = self,
+    position = {0, 5, 1}, rotation = {0, 0, 0}, height = 750, width = 5000,
+    font_size = 300, color = {1, 0, 0}, font_color = {1, 1, 1}
+}
+nextPhaseLbl = "P A S S\nT U R N"
+nextPhaseBtn = {
+    index = 1, label = nextPhaseLbl, tooltip = "Left click - Next phase\nRight click - Skip to next turn", click_function = "nextPhase", function_owner = self,
+    position = {0, 5, 0}, rotation = {0, 0, 0}, height = 1500, width = 5000,
+    font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
+}
+IncrementRedCpBtn = {
+    index = 1, label = "Gain a CP", tooltip = "Increment Red CP counter\nWill only increment once per Round", click_function = "incrementRedCp", function_owner = self,
+    position = {-46.2, 5, -3.75}, rotation = {0, 0, 0}, height = 1650, width = 3000,
+    font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
+}
+IncrementBlueCpBtn = {
+    index = 1, label = "Gain a CP", tooltip = "Increment Blue CP counter\nWill only increment once per Round", click_function = "incrementBlueCp", function_owner = self,
+    position = {46.2, 5, -3.75}, rotation = {0, 0, 0}, height = 1650, width = 3000,
+    font_size = 600, color = {0, 0, 1}, font_color = {1, 1, 1}
+}
+
+notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found in the Notebook.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
+
+quartersPlaced = false
+quartersLblOpen = "Hide\nTable Quarters"
+quartersLblClosed = "Show\nTable Quarters"
+quartersBtn = {
+    label = quartersLblClosed, click_function = "showHideQuarters", function_owner = self,
+    position = {menuX - 9, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+areaPlaced = false
+areaLblOpen = "Hide\nArea Denial"
+areaLblClosed = "Show\nArea Denial"
+areaBtn = {
+    label = areaLblClosed, click_function = "showHideAreaDeny", function_owner = self,
+    position = {menuX - 3, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+engagePlaced = false
+engageLblOpen = "Hide\nEngage"
+engageLblClosed = "Show\nEngage"
+engageBtn = {
+    label = engageLblClosed, click_function = "showHideEngage", function_owner = self,
+    position = {menuX + 3, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+stratreservesPlaced = false
+stratreservesLblOpen = "Hide\nStrat Reserves"
+stratreservesLblClosed = "Show\nStrat Reserves"
+stratreservesBtn = {
+    label = stratreservesLblClosed, click_function = "showHideStratreserves", function_owner = self,
+    position = {menuX + 9, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+deploymentIngamePlaced = false
+deployIngameLblOpen = "Hide\ndeployment\nzones"
+deployIngameLblClosed = "Show\ndeployment\nzones"
+deployIngameBtn = {
+    index = 1, label = deployIngameLblClosed, click_function = "showHideIngameDeployment", function_owner = self,
+    position = {menuX + 21, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+investigatePlaced = false
+investigateLblOpen = "Hide\nInvestigate Signals"
+investigateLblClosed = "Show\nInvestigate Signals"
+investigateBtn = {
+    label = investigateLblClosed, click_function = "showHideInvestigateSignals", function_owner = self,
+    position = {menuX + 15, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+position = {menuX, 5, menuZ}
 
 function writeMenus()
     self.clearButtons()
@@ -1453,91 +1665,6 @@ function togglePlyr()
     writeMenus()
 end
 
-function placeDeploy()
-    destroyDeployZones()
-    local data = DeployZonesData[deploySelected]
-    drawDeployZone(data)
-    if data.objectivesID then
-        spawnObjectives()
-    end
-    writeMenus()
-end
-
-function deployUp()
-    deployUpDown(true)
-end
-
-function deployDown()
-    deployUpDown(false)
-end
-
-function deployUpDown(upDown)
-    deployOffset = 0
-    objectivesOffset = 0
-    deploymentPregamePlaced = true
-    if DeployZonesData[deploySelected].objectivesID then
-        destroyAllObjectives()
-    end
-    local add=1
-    if not upDown then
-        add=-1
-    end
-    deploySelected = deploySelected + add
-    if deploySelected > #DeployZonesData then
-        deploySelected = 1
-    end
-    if deploySelected < 1 then
-        deploySelected = #DeployZonesData
-    end
-    writeMenus()
-    placeDeploy()
-end
-
-function deployOffsetUp()
-    deployOffsetUpDown(true)
-end
-
-function deployOffsetDown()
-    deployOffsetUpDown(false)
-end
-
-function deployOffsetUpDown(upDown) -- true up, false down
-    local amt = 1
-    if not upDown then amt = -1 end
-    deployOffset = deployOffset + amt
-    if deployOffset > 25 then
-        deployOffset = 25
-    end
-    if deployOffset < 0 then
-        deployOffset = 0
-    end
-    writeMenus()
-    setDeployHeight()
-end
-
-function objectivesOffsetUp()
-    objectivesOffsetUpDown(true)
-end
-
-function objectivesOffsetDown()
-    objectivesOffsetUpDown(false)
-end
-
-function objectivesOffsetUpDown(upDown) -- true up, false down
-    local amt = 0.2
-    if not upDown then amt = -0.2 end
-    objectivesOffset = objectivesOffset + amt
-    if objectivesOffset > 25 then
-        objectivesOffset = 25
-    end
-    if objectivesOffset < 0 then
-        objectivesOffset = 0
-    end
-    writeMenus()
-    setObjectivesHeight()
-end
-
-
 function showHideIngameDeployment()
     if deploymentIngamePlaced == false then -- place
         deployIngameBtn.label = deployIngameLblOpen
@@ -1714,118 +1841,6 @@ function showHideInvestigateSignals()
     end
 
     writeMenus()
-end
-
---[[
-GUID reference for primary / mission / deployment cards
-Yeah, I could use variables but I didn't, oh well
-
-Sites of Power ec78cd
-Scorched Earth 3ad5a3
-Purge the Foe 5444d4
-Priority Targets f97708
-Deploy Servo-Skulls 44ff29
-Take and Hold 884291
-Supply Drop a34ae1
-The Ritual 646b49
-Vital Ground 6fc1c2
-
-Chilling Rain db0022
-Hidden Supplies 0dc3c3
-Scrambler Fields aea986
-Chosen Battlefield 876ac7
-
-Hammer and Anvil 117c77
-Dawn of War 7e4b95
-Sweeping Engagement 381d7c
-Search and Destroy ad4220
-Crucible of Battle 3c0679
-]]--
-
-tournamentMissions = {
-    -- Take and Hold / Chilling Rain / Search and Destroy
-    {name = "A", primary = "884291", mission = "db0022", deployment = "ad4220"},
-    -- Priority Targets / Hidden Supplies / Search and Destroy
-    {name = "B", primary = "f97708", mission = "0dc3c3", deployment = "ad4220"},
-    -- The Ritual / Scrambler Fields / Sweeping Engagement
-    {name = "C", primary = "646b49", mission = "aea986", deployment = "381d7c"},
-    -- Deploy Servo-skulls / Chilling Rain / Search and Destroy
-    {name = "D", primary = "44ff29", mission = "db0022", deployment = "ad4220"},
-    -- Take and Hold / Chosen Battlefield / Sweeping Engagement
-    {name = "E", primary = "884291", mission = "876ac7", deployment = "381d7c"},
-    -- Supply Drop / Chilling Rain / Search and Destroy
-    {name = "F", primary = "a34ae1", mission = "db0022", deployment = "ad4220"},
-    -- Sites of Power / Chilling Rain / Hammer and Anvil
-    {name = "G", primary = "ec78cd", mission = "db0022", deployment = "117c77"},
-    -- The Ritual / Chilling Rain / Hammer and Anvil
-    {name = "H", primary = "646b49", mission = "db0022", deployment = "117c77"},
-    -- Take and Hold / Hidden Supplies / Hammer and Anvil
-    {name = "I", primary = "884291", mission = "0dc3c3", deployment = "117c77"},
-    -- Priority Targets / Chilling Rain / Crucible of Battle
-    {name = "J", primary = "f97708", mission = "db0022", deployment = "3c0679"},
-    -- Deploy Servo-skulls / Hidden Supplies / Crucible of Battle
-    {name = "K", primary = "44ff29", mission = "0dc3c3", deployment = "3c0679"},
-    -- Scorched Earth / Chilling Rain / Dawn of War
-    {name = "L", primary = "3ad5a3", mission = "db0022", deployment = "7e4b95"},
-    -- Purge the Foe / Chilling Rain / Crucible of Battle
-    {name = "M", primary = "5444d4", mission = "db0022", deployment = "3c0679"},
-    -- Priority Targets / Chosen Battlefield / Dawn of War
-    {name = "N", primary = "f97708", mission = "876ac7", deployment = "7e4b95"},
-    -- Vital Ground / Chilling Rain / Crucible of Battle
-    {name = "O", primary = "6fc1c2", mission = "db0022", deployment = "3c0679"}
-}
-
-function missionSelectionDown()
-    if canChangeMission then
-        selectedMission = selectedMission - 1
-        if selectedMission <= 0 then selectedMission = #tournamentMissions end
-        updateMission()
-    end
-end
-
-function missionSelectionUp()
-    if canChangeMission then
-        selectedMission = selectedMission + 1
-        if selectedMission > #tournamentMissions then selectedMission = 1 end
-        updateMission()
-    end
-end
-
-function randomiseMission()
-    if canChangeMission then
-        selectedMission = 0
-        updateMission()
-    end
-end
-
-function randomTournamentMission()
-    if canChangeMission then
-        selectedMission = math.random(#tournamentMissions)
-        updateMission()
-    end
-end
-
-function updateMission()
-    canChangeMission = false
-    Global.call("moveAllFromZoneToDeck", {zone = "deployment", deck = "deployment"})
-    Global.call("moveAllFromZoneToDeck", {zone = "mission", deck = "mission"})
-    Global.call("moveAllFromZoneToDeck", {zone = "primary", deck = "primary"})
-
-    if selectedMission == 0 then
-        missionSelectionDispBtn.label = "?"
-        Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment"})
-        Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission"})
-        Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary"})
-    else
-        mission = tournamentMissions[selectedMission]
-        missionSelectionDispBtn.label = mission.name
-        Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment", card = mission.deployment})
-        Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission", card = mission.mission})
-        Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary", card = mission.primary})
-    end
-    writeMenus()
-
-    Wait.time(function() canChangeMission = true end, 0.3)
 end
 
 function recallAll()

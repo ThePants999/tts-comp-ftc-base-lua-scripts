@@ -67,12 +67,11 @@ blueSecondaryDeck_GUID = "d98a05"
 CPMissionBook_GUID = "731ec4"
 
 turnOrder = {}
-nonPlaying = {"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink" }
+nonPlaying = {"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink"}
 allowMenu = true
 allowAutoSeat = true
 redPlayerID = ""
 bluePlayerID = ""
-startMenu = nil
 
 function onSave()
     saved_data = JSON.encode({
@@ -95,12 +94,10 @@ function onLoad(saved_data)
         bluePlayerID=""
     end
     ---- end loading
-    startMenu=getObjectFromGUID(startMenu_GUID)
     if allowMenu then
         if allowAutoSeat and redPlayerID ~= "" and bluePlayerID ~= "" then --  if the game is not started dont autoseat
                 autoSeatAll()
         else
-
             Global.UI.setAttribute("main", "active", "true")
             local presentPersons= Player.getPlayers()
             for i, person in ipairs(presentPersons) do
@@ -143,7 +140,6 @@ function autoSeatGroup(persons)
         autoSeatPerson(person)
     end
 end
-
 
 function autoSeatAll()
     if redPlayerID=="" or bluePlayerID=="" then --  if the game is not started dont autoseat
