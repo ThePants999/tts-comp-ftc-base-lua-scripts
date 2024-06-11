@@ -77,12 +77,12 @@ missionPackData = {
     {
         id = MISSION_PACK_PARIAH_NEXUS,
         name = "Pariah Nexus",
-        deploymentDeck_GUID = "",
-        missionDeck_GUID = "",
-        primaryDeck_GUID = "",
-        gambitDeck_GUID = "",
-        fixedSecondaryDeck_GUID = "",
-        redSecondaryDeck_GUID = "",
+        deploymentDeck_GUID = "2dc2e8",
+        missionDeck_GUID = "ffdf05",
+        primaryDeck_GUID = "d26e9c",
+        gambitDeck_GUID = "79d2ae",
+        fixedSecondaryDeck_GUID = "b55459",
+        redSecondaryDeck_GUID = "c0fb49",
         blueSecondaryDeck_GUID = nil,
     },
 }
