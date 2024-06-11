@@ -9,6 +9,9 @@
 menuX = 18
 menuZ = 1.05-1.05
 
+MISSION_PACK_LEVIATHAN = Global.getVar("MISSION_PACK_LEVIATHAN")
+MISSION_PACK_PARIAH_NEXUS = Global.getVar("MISSION_PACK_PARIAH_NEXUS")
+
 keepForTerrainEditor = true
 
 mat_GUID = Global.getVar("mat_GUID")
@@ -26,6 +29,7 @@ function onLoad(saved_data)
         mapSizeSelected = loaded_data.svmapSizeSelected
         sizeConfirmed = loaded_data.svsizeConfirmed
         deploySelected = loaded_data.svdeploySelected
+        packSelected = loaded_data.svPackSelected
     end
 
     mat = getObjectFromGUID(mat_GUID)
@@ -66,7 +70,8 @@ function onSave()
         svcurrentPhase = currentPhase,
         svmapSizeSelected = mapSizeSelected,
         svsizeConfirmed = sizeConfirmed,
-        svdeploySelected = deploySelected
+        svdeploySelected = deploySelected,
+        svPackSelected = packSelected,
     })
 
     return saved_data
@@ -227,37 +232,37 @@ end
 
 DeployZonesData = {
     --Leviathan Missions
-    {name = "Hammer and Anvil", objectivesID = 12, draw = {
+    {name = "[L] Hammer and Anvil", objectivesID = 12, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
         --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0}}},
-    {name = "Dawn of War", objectivesID = 13, draw = {
+    {name = "[L] Dawn of War", objectivesID = 13, draw = {
         --[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },
         --[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-    {name = "Sweeping Engagement", objectivesID = 14, draw = {
+    {name = "[L] Sweeping Engagement", objectivesID = 14, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "z"},
         --[[2]]{type = "triangle", color = "Teal", position = "-z"}}},
-    {name = "Search and Destroy", objectivesID = 15, draw = {
+    {name = "[L] Search and Destroy", objectivesID = 15, draw = {
         --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
         --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
         --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-    {name = "Crucible of Battle", objectivesID = 16, draw = {
+    {name = "[L] Crucible of Battle", objectivesID = 16, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "x"},
         --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
     --Leviathan Missions with Hidden Supplies
-    {name = "Hammer and Anvil (HS)", objectivesID = 17, draw = {
+    {name = "[L] Hammer and Anvil (HS)", objectivesID = 17, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
         --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12, fromEdge = 0}}},
-    {name = "Dawn of War (HS)", objectivesID = 18, draw = {
+    {name = "[L] Dawn of War (HS)", objectivesID = 18, draw = {
         --[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },
         --[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12, fromEdge = 0}}},
-    {name = "Sweeping Engagement (HS)", objectivesID = 19, draw = {
+    {name = "[L] Sweeping Engagement (HS)", objectivesID = 19, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "z"},
         --[[2]]{type = "triangle", color = "Teal", position = "-z"}}},
-    {name = "Search and Destroy (HS)", objectivesID = 20, draw = {
+    {name = "[L] Search and Destroy (HS)", objectivesID = 20, draw = {
         --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
         --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
         --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-    {name = "Crucible of Battle (HS)", objectivesID = 21, draw = {
+    {name = "[L] Crucible of Battle (HS)", objectivesID = 21, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "x"},
         --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
     --Combat Patrol Missions
@@ -461,7 +466,6 @@ function drawCorner(drawData)
         mapBase = mat.getScale().x * sizeMulti
         mapHeight = mat.getScale().z * sizeMulti
     end
-    --print("MAP BxH: "..mapBase.." x "..mapHeight)
     lineScaleL.x = (mapHeight/2) + drawData.wide
     linePosL.x = (mapHeight/4)-(drawData.wide/2)
     linePosL.z = drawData.fromCenter
@@ -1144,6 +1148,39 @@ end
 -- MISSION MANAGER
 -- ***************
 
+-- Why is there a mission manager here, but there's also a file "missionManager.ttslua"? They do indeed
+-- have similar roles; the code here handles the parts that are single-instance, while the other file
+-- handles the parts that are per-player. So, for example, when "Play Leviathan" is clicked, the code
+-- here fetches the deployment/primary/mission cards, while the per-player mission managers fetch the
+-- secondary cards.
+
+packSelected = nil
+
+selectLeviathanBtn = {
+    label = "Play\nLeviathan",
+    click_function = "selectLeviathan",
+    function_owner = self,
+    position = {-2, 5, -16.5},
+    rotation = {0, 0, 0},
+    height = 700,
+    width = 1500,
+    font_size = 200,
+    color = {1, 1, 1},
+    font_color = {0, 0, 0},
+}
+selectPariahNexusBtn = {
+    label = "Play\nPariah Nexus",
+    click_function = "selectPariahNexus",
+    function_owner = self,
+    position = {2, 5, -16.5},
+    rotation = {0, 0, 0},
+    height = 700,
+    width = 1500,
+    font_size = 200,
+    color = {1, 1, 1},
+    font_color = {0, 0, 0},
+}
+
 selectedMission = 0
 canChangeMission = true
 missionHeaderBtn = {
@@ -1277,6 +1314,49 @@ tournamentMissions = {
     -- Vital Ground / Chilling Rain / Crucible of Battle
     {name = "O", primary = "6fc1c2", mission = "db0022", deployment = "3c0679"}
 }
+
+function selectLeviathan()
+    selectMissionPack(MISSION_PACK_LEVIATHAN)
+end
+
+function selectPariahNexus()
+    selectMissionPack(MISSION_PACK_PARIAH_NEXUS)
+end
+
+function selectMissionPack(packIndex)
+    packSelected = packIndex
+    Global.call("setMissionPack", {pack = packSelected})
+
+    redMissionManager = getObjectFromGUID(Global.getVar("redMissionManager_GUID"))
+    redMissionManager.call("packSelected", {pack = packSelected})
+    blueMissionManager = getObjectFromGUID(Global.getVar("blueMissionManager_GUID"))
+    blueMissionManager.call("packSelected", {pack = packSelected})
+
+    missionPackData = Global.getTable("missionPackData")[packSelected]
+    deploymentDeck = getObjectFromGUID(missionPackData.deploymentDeck_GUID)
+    missionDeck = getObjectFromGUID(missionPackData.missionDeck_GUID)
+    primaryDeck = getObjectFromGUID(missionPackData.primaryDeck_GUID)
+    gambitDeck = getObjectFromGUID(missionPackData.gambitDeck_GUID)
+
+    deploymentDeck.setPosition({85, 0.94, 11})
+    deploymentDeck.locked = false
+    deploymentDeck.tooltip = true
+    deploymentDeck.interactable = true
+    missionDeck.setPosition({85, 0.94, 8.3})
+    missionDeck.locked = false
+    missionDeck.tooltip = true
+    missionDeck.interactable = true
+    primaryDeck.setPosition({85, 0.94, 5.6})
+    primaryDeck.locked = false
+    primaryDeck.tooltip = true
+    primaryDeck.interactable = true
+    gambitDeck.setPosition({85, 0.94, 2.9})
+    gambitDeck.locked = false
+    gambitDeck.tooltip = true
+    gambitDeck.interactable = true
+
+    writeMenus()
+end
 
 function missionSelectionDown()
     if canChangeMission then
@@ -1475,12 +1555,17 @@ function writeDeployMenu()
     self.createButton(investigateBtn)
 
     if gameMode == "game" then
-        self.createButton(missionHeaderBtn)
-        self.createButton(randomiseMissionBtn)
-        self.createButton(randomTournamentMissionBtn)
-        self.createButton(missionSelectionDownBtn)
-        self.createButton(missionSelectionUpBtn)
-        self.createButton(missionSelectionDispBtn)
+        if not packSelected then
+            self.createButton(selectLeviathanBtn)
+            self.createButton(selectPariahNexusBtn)
+        elseif packSelected == MISSION_PACK_LEVIATHAN then
+            self.createButton(missionHeaderBtn)
+            self.createButton(randomiseMissionBtn)
+            self.createButton(randomTournamentMissionBtn)
+            self.createButton(missionSelectionDownBtn)
+            self.createButton(missionSelectionUpBtn)
+            self.createButton(missionSelectionDispBtn)
+        end
     end
 end
 

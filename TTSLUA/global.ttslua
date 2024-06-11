@@ -56,15 +56,36 @@ secondary11CardZone_GUID = "0ec215"
 secondary12CardZone_GUID = "d865d4"
 secondary21CardZone_GUID = "3c8d71"
 secondary22CardZone_GUID = "88cac4"
-deploymentDeck_GUID = "a30deb"
-missionDeck_GUID = "1665ca"
-primaryDeck_GUID = "3ca4a6"
-redGambitDeck_GUID = "d0a9f9"
-blueGambitDeck_GUID = "429875"
-redSecondaryDeck_GUID = "2c6243"
-blueSecondaryDeck_GUID = "d98a05"
 
 CPMissionBook_GUID = "731ec4"
+
+MISSION_PACK_LEVIATHAN = 1
+MISSION_PACK_PARIAH_NEXUS = 2
+packSelected = nil
+missionPackData = {
+    {
+        id = MISSION_PACK_LEVIATHAN,
+        name = "Leviathan",
+        deploymentDeck_GUID = "a30deb",
+        missionDeck_GUID = "1665ca",
+        primaryDeck_GUID = "3ca4a6",
+        gambitDeck_GUID = "d0a9f9",
+        fixedSecondaryDeck_GUID = "30c8fe",
+        redSecondaryDeck_GUID = "2c6243",
+        blueSecondaryDeck_GUID = nil,
+    },
+    {
+        id = MISSION_PACK_PARIAH_NEXUS,
+        name = "Pariah Nexus",
+        deploymentDeck_GUID = "",
+        missionDeck_GUID = "",
+        primaryDeck_GUID = "",
+        gambitDeck_GUID = "",
+        fixedSecondaryDeck_GUID = "",
+        redSecondaryDeck_GUID = "",
+        blueSecondaryDeck_GUID = nil,
+    },
+}
 
 turnOrder = {}
 nonPlaying = {"White", "Brown","Orange","Yellow","Green","Teal","Purple","Pink"}
@@ -74,9 +95,15 @@ redPlayerID = ""
 bluePlayerID = ""
 
 function onSave()
+    blueSecondaryDeckGUID = nil
+    if packSelected then
+        blueSecondaryDeckGUID = missionPackData[packSelected].blueSecondaryDeck_GUID
+    end
     saved_data = JSON.encode({
-                                svredPlayerID=redPlayerID,
-                                svbluePlayerID=bluePlayerID
+                                svredPlayerID = redPlayerID,
+                                svbluePlayerID = bluePlayerID,
+                                svPackSelected = packSelected,
+                                svBlueSecondaryDeckGUID = blueSecondaryDeckGUID
                             })
     --saved_data = ""
     return saved_data
@@ -88,10 +115,15 @@ function onLoad(saved_data)
     if saved_data ~= "" then
          local loaded_data = JSON.decode(saved_data)
          redPlayerID = loaded_data.svredPlayerID
-         bluePlayerID = loaded_data.svbluePlayerIDs
+         bluePlayerID = loaded_data.svbluePlayerID
+         packSelected = loaded_data.svPackSelected
+         if packSelected then
+            missionPackData[packSelected].blueSecondaryDeck_GUID = loaded_data.svBlueSecondaryDeckGUID
+         end
     else
-        redPlayerID=""
-        bluePlayerID=""
+        redPlayerID = ""
+        bluePlayerID = ""
+        packSelected = nil
     end
     ---- end loading
     if allowMenu then
@@ -112,6 +144,13 @@ function onLoad(saved_data)
     else
         Global.UI.setAttribute("main", "active", "false")
     end
+end
+
+function setMissionPack(params)
+    packSelected = params.pack
+    redSecondaryDeck = getObjectFromGUID(missionPackData[packSelected].redSecondaryDeck_GUID)
+    blueSecondaryDeck = redSecondaryDeck.clone({position = redSecondaryDeck.getPosition()})
+    missionPackData[packSelected].blueSecondaryDeck_GUID = blueSecondaryDeck.getGUID()
 end
 
 function autoSeatPerson(_person)
@@ -330,7 +369,7 @@ end
 
 function moveAllFromZoneToDeck(params)
     local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
-    local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
+    local deckObj = getObjectFromGUID(missionPackData[packSelected][params.deck .. "Deck_GUID"])
 
     local objects = zoneObj.getObjects()
     for _,object in ipairs(objects) do
@@ -342,8 +381,8 @@ function moveAllFromZoneToDeck(params)
 end
 
 function moveOneFromDeckToZone(params)
-    local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
     local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
+    local deckObj = getObjectFromGUID(missionPackData[packSelected][params.deck .. "Deck_GUID"])
     local takeParams = {}
     takeParams.position = zoneObj.getPosition()
     takeParams.flip = true
