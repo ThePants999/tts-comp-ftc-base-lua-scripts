@@ -12,6 +12,7 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 ### v2.60
 
 * Support for Pariah Nexus!
+* The controls to raise/lower deployment zones and objectives now persist after the game has started.
 
 ### v2.59
 

@@ -3014,7 +3014,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "LuaScript": "",
-      "LuaScriptState": "{\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploySelected\":17,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":2,\"svsizeConfirmed\":false}",
+      "LuaScriptState": "{\"svcurrentPhase\":1,\"svcurrentTurn\":\"Red\",\"svdeploySelected\":29,\"svgameMode\":\"none\",\"svinGame\":false,\"svmapSizeSelected\":2,\"svsizeConfirmed\":false}",
       "XmlUI": ""
     },
     {
