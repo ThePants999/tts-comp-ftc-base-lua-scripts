@@ -25085,7 +25085,7 @@
           },
           "Nickname": "Secure No Man's Land",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25146,7 +25146,7 @@
           },
           "Nickname": "Sabotage",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25207,7 +25207,7 @@
           },
           "Nickname": "Marked For Death",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25268,7 +25268,7 @@
           },
           "Nickname": "Extend Battle Lines",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25329,7 +25329,7 @@
           },
           "Nickname": "Defend Stronghold",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25390,7 +25390,7 @@
           },
           "Nickname": "Overwhelming Force",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25451,7 +25451,7 @@
           },
           "Nickname": "No Prisoners",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25512,7 +25512,7 @@
           },
           "Nickname": "Containment",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25719,7 +25719,7 @@
           },
           "Nickname": "Storm Hostile Objective",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25841,7 +25841,7 @@
           },
           "Nickname": "Cleanse",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -25963,7 +25963,7 @@
           },
           "Nickname": "Engage On All Fronts",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -26024,7 +26024,7 @@
           },
           "Nickname": "Assassination",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -26085,7 +26085,7 @@
           },
           "Nickname": "Behind Enemy Lines",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -26146,7 +26146,7 @@
           },
           "Nickname": "Cull The Horde",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -26207,7 +26207,7 @@
           },
           "Nickname": "Recover Assets",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -26846,7 +26846,7 @@
           },
           "Nickname": "Command Insertion",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -26858,7 +26858,7 @@
             "b": 0.713235259
           },
           "Tags": [
-            "secondaryCard"
+            "gambitCard"
           ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
@@ -26907,7 +26907,7 @@
           },
           "Nickname": "War Of Attrition",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -26919,7 +26919,7 @@
             "b": 0.713235259
           },
           "Tags": [
-            "secondaryCard"
+            "gambitCard"
           ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
@@ -26968,7 +26968,7 @@
           },
           "Nickname": "Shatter Cohesion",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -26980,7 +26980,7 @@
             "b": 0.713235259
           },
           "Tags": [
-            "secondaryCard"
+            "gambitCard"
           ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
@@ -27029,7 +27029,7 @@
           },
           "Nickname": "Unbroken Wall",
           "Description": "",
-          "GMNotes": "TacticalObjectives",
+          "GMNotes": "",
           "AltLookAngle": {
             "x": 0.0,
             "y": 0.0,
@@ -27041,7 +27041,7 @@
             "b": 0.713235259
           },
           "Tags": [
-            "secondaryCard"
+            "gambitCard"
           ],
           "LayoutGroupSortIndex": 0,
           "Value": 0,
