@@ -55,6 +55,9 @@ function onLoad(saved_data)
     else
         areaBtn.label = areaLblClosed
     end
+    if packSelected then
+        missionPackData = Global.getTable("missionPackData")[packSelected]
+    end
     gameTurnCounter.call("checkGameEnd")
     writeMenus()
     if not inGame then
@@ -81,7 +84,8 @@ function makeAnnouncement()
     local features={
     "2.58: added alternative objective layouts for Hidden Supplies, auto un-hide locked-in secondaries, plus minor fixes",
     "2.59: shuffle secondaries before drawing; remove tablet and datasheet bags",
-    "2.60: Pariah Nexus support; allow DZ/objective height control during game"
+    "2.60: Pariah Nexus support; allow DZ/objective height control during game",
+    "2.61: Pariah Nexus day 1 card errata and tournament missions; fix pack selection before both players seated"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -1344,6 +1348,7 @@ end
 -- secondary cards.
 
 packSelected = nil
+missionPackData = nil
 
 selectLeviathanBtn = {
     label = "Play\nLeviathan",
@@ -1445,65 +1450,6 @@ missionSelectionDispBtn = {
     font_color = {0, 0, 0}
 }
 
---[[
-GUID reference for primary / mission / deployment cards
-Yeah, I could use variables but I didn't, oh well
-
-Sites of Power ec78cd
-Scorched Earth 3ad5a3
-Purge the Foe 5444d4
-Priority Targets f97708
-Deploy Servo-Skulls 44ff29
-Take and Hold 884291
-Supply Drop a34ae1
-The Ritual 646b49
-Vital Ground 6fc1c2
-
-Chilling Rain db0022
-Hidden Supplies 0dc3c3
-Scrambler Fields aea986
-Chosen Battlefield 876ac7
-
-Hammer and Anvil 117c77
-Dawn of War 7e4b95
-Sweeping Engagement 381d7c
-Search and Destroy ad4220
-Crucible of Battle 3c0679
-]]--
-
-tournamentMissions = {
-    -- Take and Hold / Chilling Rain / Search and Destroy
-    {name = "A", primary = "884291", mission = "db0022", deployment = "ad4220"},
-    -- Priority Targets / Hidden Supplies / Search and Destroy
-    {name = "B", primary = "f97708", mission = "0dc3c3", deployment = "ad4220"},
-    -- The Ritual / Scrambler Fields / Sweeping Engagement
-    {name = "C", primary = "646b49", mission = "aea986", deployment = "381d7c"},
-    -- Deploy Servo-skulls / Chilling Rain / Search and Destroy
-    {name = "D", primary = "44ff29", mission = "db0022", deployment = "ad4220"},
-    -- Take and Hold / Chosen Battlefield / Sweeping Engagement
-    {name = "E", primary = "884291", mission = "876ac7", deployment = "381d7c"},
-    -- Supply Drop / Chilling Rain / Search and Destroy
-    {name = "F", primary = "a34ae1", mission = "db0022", deployment = "ad4220"},
-    -- Sites of Power / Chilling Rain / Hammer and Anvil
-    {name = "G", primary = "ec78cd", mission = "db0022", deployment = "117c77"},
-    -- The Ritual / Chilling Rain / Hammer and Anvil
-    {name = "H", primary = "646b49", mission = "db0022", deployment = "117c77"},
-    -- Take and Hold / Hidden Supplies / Hammer and Anvil
-    {name = "I", primary = "884291", mission = "0dc3c3", deployment = "117c77"},
-    -- Priority Targets / Chilling Rain / Crucible of Battle
-    {name = "J", primary = "f97708", mission = "db0022", deployment = "3c0679"},
-    -- Deploy Servo-skulls / Hidden Supplies / Crucible of Battle
-    {name = "K", primary = "44ff29", mission = "0dc3c3", deployment = "3c0679"},
-    -- Scorched Earth / Chilling Rain / Dawn of War
-    {name = "L", primary = "3ad5a3", mission = "db0022", deployment = "7e4b95"},
-    -- Purge the Foe / Chilling Rain / Crucible of Battle
-    {name = "M", primary = "5444d4", mission = "db0022", deployment = "3c0679"},
-    -- Priority Targets / Chosen Battlefield / Dawn of War
-    {name = "N", primary = "f97708", mission = "876ac7", deployment = "7e4b95"},
-    -- Vital Ground / Chilling Rain / Crucible of Battle
-    {name = "O", primary = "6fc1c2", mission = "db0022", deployment = "3c0679"}
-}
-
 function selectLeviathan()
     selectMissionPack(MISSION_PACK_LEVIATHAN)
 end
@@ -1550,7 +1496,7 @@ end
 function missionSelectionDown()
     if canChangeMission then
         selectedMission = selectedMission - 1
-        if selectedMission <= 0 then selectedMission = #tournamentMissions end
+        if selectedMission <= 0 then selectedMission = #missionPackData.tournamentMissions end
         updateMission()
     end
 end
@@ -1558,7 +1504,7 @@ end
 function missionSelectionUp()
     if canChangeMission then
         selectedMission = selectedMission + 1
-        if selectedMission > #tournamentMissions then selectedMission = 1 end
+        if selectedMission > #missionPackData.tournamentMissions then selectedMission = 1 end
         updateMission()
     end
 end
@@ -1572,7 +1518,7 @@ end
 
 function randomTournamentMission()
     if canChangeMission then
-        selectedMission = math.random(#tournamentMissions)
+        selectedMission = math.random(#missionPackData.tournamentMissions)
         updateMission()
     end
 end
@@ -1589,7 +1535,7 @@ function updateMission()
         Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission"})
         Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary"})
     else
-        mission = tournamentMissions[selectedMission]
+        mission = missionPackData.tournamentMissions[selectedMission]
         missionSelectionDispBtn.label = mission.name
         Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment", card = mission.deployment})
         Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission", card = mission.mission})
@@ -1747,7 +1693,7 @@ function writeDeployMenu()
         if not packSelected then
             self.createButton(selectLeviathanBtn)
             self.createButton(selectPariahNexusBtn)
-        elseif packSelected == MISSION_PACK_LEVIATHAN then
+        else
             self.createButton(missionHeaderBtn)
             self.createButton(randomiseMissionBtn)
             self.createButton(randomTournamentMissionBtn)
