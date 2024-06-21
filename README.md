@@ -1,5 +1,5 @@
 # Competitive FTC Base: LUA scripts
-Comp FTC Map Base LUA Scripts v2.60
+Comp FTC Map Base LUA Scripts v2.61
 
 The following files contain all the LUA scripts contained in the Competitive FTC Base Map for the TTS 40k community. If a file does not exist for an object within the TTS save, then that object does not contain any scripts.
 
@@ -8,6 +8,13 @@ This repo now contains the actual TTS JSON file. To produce the JSON file, run t
 Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and elements contained within it!
 
 ## Update History:
+
+### v2.61
+
+* Updated the Pariah Nexus cards with the day 1 errata.
+* Added GW's recommended Pariah Nexus mission combos.
+* Replaced Leviathan reference sheet with Pariah Nexus. (I figure there shouldn't be anyone left playing Leviathan for the first time!)
+* Fixed the bug whereby a player who joined/chose colour after the mission pack was selected wouldn't get fixed secondary cards.
 
 ### v2.60
 
