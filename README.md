@@ -15,6 +15,7 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 * Added GW's recommended Pariah Nexus mission combos.
 * Replaced Leviathan reference sheet with Pariah Nexus. (I figure there shouldn't be anyone left playing Leviathan for the first time!)
 * Renamed "Show Engage" button to "Show Leviathan Engage" - use Show Table Quarters for Pariah Nexus Engage!
+* Added a "Show Containment" button giving you 9" from board edges.
 * Fixed the bug whereby a player who joined/chose colour after the mission pack was selected wouldn't get fixed secondary cards.
 
 ### v2.60

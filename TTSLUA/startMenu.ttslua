@@ -85,7 +85,7 @@ function makeAnnouncement()
     "2.58: added alternative objective layouts for Hidden Supplies, auto un-hide locked-in secondaries, plus minor fixes",
     "2.59: shuffle secondaries before drawing; remove tablet and datasheet bags",
     "2.60: Pariah Nexus support; allow DZ/objective height control during game",
-    "2.61: Pariah Nexus day 1 card errata and tournament missions; fix pack selection before both players seated; Pariah Nexus reference sheet"
+    "2.61: Pariah Nexus day 1 card errata and tournament missions; fix pack selection before both players seated; Pariah Nexus reference sheet; Containment area lines"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -1635,7 +1635,7 @@ deployIngameLblOpen = "Hide\ndeployment\nzones"
 deployIngameLblClosed = "Show\ndeployment\nzones"
 deployIngameBtn = {
     index = 1, label = deployIngameLblClosed, click_function = "showHideIngameDeployment", function_owner = self,
-    position = {menuX + 21, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = {menuX + 27, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 investigatePlaced = false
@@ -1644,6 +1644,14 @@ investigateLblClosed = "Show\nInvestigate Signals"
 investigateBtn = {
     label = investigateLblClosed, click_function = "showHideInvestigateSignals", function_owner = self,
     position = {menuX + 15, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
+}
+containmentPlaced = false
+containmentLblOpen = "Hide\nContainment"
+containmentLblClosed = "Show\nContainment"
+containmentBtn = {
+    label = containmentLblClosed, click_function = "showHideContainment", function_owner = self,
+    position = {menuX + 21, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 position = {menuX, 5, menuZ}
@@ -1688,6 +1696,7 @@ function writeDeployMenu()
     self.createButton(engageBtn)
     self.createButton(stratreservesBtn)
     self.createButton(investigateBtn)
+    self.createButton(containmentBtn)
 
     if gameMode == "game" then
         if not packSelected then
@@ -1710,6 +1719,7 @@ function writeIngameMenu()
     self.createButton(quartersBtn)
     self.createButton(stratreservesBtn)
     self.createButton(investigateBtn)
+    self.createButton(containmentBtn)
     self.createButton(deployIngameBtn)
     self.createButton(IncrementRedCpBtn)
     self.createButton(IncrementBlueCpBtn)
@@ -2064,6 +2074,36 @@ function showHideInvestigateSignals()
             end
         end
         investigatePlaced = false
+    end
+
+    writeMenus()
+end
+
+function showHideContainment()
+    if not containmentPlaced then
+        containmentBtn.label = containmentLblOpen
+
+        local mat = getObjectFromGUID(mat_GUID)
+        local mapBase = mat.getScale().z * sizeMulti -- short edge
+        local mapHeight = mat.getScale().x * sizeMulti -- long edge
+        local lineScale = {x = mapHeight, y = deployLineHeight, z = 0.02}
+
+        spawnLine({0, deployLineHeight, (mapBase / 2) - 9}, {0, 0, 0}, lineScale, "White", "containment")
+        spawnLine({0, deployLineHeight, -((mapBase / 2) - 9)}, {0, 0, 0}, lineScale, "White", "containment")
+        lineScale.x = mapBase
+        spawnLine({(mapHeight / 2) - 9, deployLineHeight, 0}, {0, 90, 0}, lineScale, "White", "containment")
+        spawnLine({-((mapHeight / 2) - 9), deployLineHeight, 0}, {0, 90, 0}, lineScale, "White", "containment")
+
+        containmentPlaced = true
+    else
+        containmentBtn.label = containmentLblClosed
+
+        for i, obj in ipairs(getAllObjects()) do
+            if obj.getGMNotes() == "containment" then
+                obj.destroy()
+            end
+        end
+        containmentPlaced = false
     end
 
     writeMenus()
