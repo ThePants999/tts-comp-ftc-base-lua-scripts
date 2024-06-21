@@ -24007,6 +24007,57 @@
       "XmlUI": ""
     },
     {
+      "GUID": "fc461d",
+      "Name": "Custom_PDF",
+      "Transform": {
+        "posX": 73.74253,
+        "posY": 0.9,
+        "posZ": 59.6446,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 6.0,
+        "scaleY": 1.0,
+        "scaleZ": 6.0
+      },
+      "Nickname": "",
+      "Description": "Pariah Nexus reference",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomPDF": {
+        "PDFUrl": "https://www.warhammer-community.com/wp-content/uploads/2024/06/1U4CJSV1NJDmXnv2.pdf",
+        "PDFPassword": "",
+        "PDFPage": 0,
+        "PDFPageOffset": 1
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
       "GUID": "e4203a",
       "Name": "3DText",
       "Transform": {
@@ -24055,64 +24106,6 @@
           "b": 1.0
         },
         "fontSize": 80
-      },
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": ""
-    },
-    {
-      "GUID": "252e13",
-      "Name": "CardCustom",
-      "Transform": {
-        "posX": 76.8790359,
-        "posY": 0.913602054,
-        "posZ": 56.6881447,
-        "rotX": 0.0,
-        "rotY": 270.0,
-        "rotZ": 0.0,
-        "scaleX": 5.87509537,
-        "scaleY": 1.0,
-        "scaleZ": 5.87509537
-      },
-      "Nickname": "Leviathan Rules",
-      "Description": "",
-      "GMNotes": "",
-      "AltLookAngle": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "ColorDiffuse": {
-        "r": 0.713235259,
-        "g": 0.713235259,
-        "b": 0.713235259
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": false,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": true,
-      "Hands": true,
-      "CardID": 7200,
-      "SidewaysCard": false,
-      "CustomDeck": {
-        "72": {
-          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2047496527305049778/365321EA7DF4BCBFC45E4E9277A27630FED6E823/",
-          "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496527305049778/365321EA7DF4BCBFC45E4E9277A27630FED6E823/",
-          "NumWidth": 1,
-          "NumHeight": 1,
-          "BackIsHidden": true,
-          "UniqueBack": false,
-          "Type": 0
-        }
       },
       "LuaScript": "",
       "LuaScriptState": "",
