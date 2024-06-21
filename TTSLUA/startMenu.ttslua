@@ -1615,8 +1615,8 @@ areaBtn = {
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 engagePlaced = false
-engageLblOpen = "Hide\nEngage"
-engageLblClosed = "Show\nEngage"
+engageLblOpen = "Hide\nLeviathan\nEngage"
+engageLblClosed = "Show\nLeviathan\nEngage"
 engageBtn = {
     label = engageLblClosed, click_function = "showHideEngage", function_owner = self,
     position = {menuX + 3, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
