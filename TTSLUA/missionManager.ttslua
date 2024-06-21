@@ -29,6 +29,7 @@ lockGambitBtnPariahNexusTooltip = "After pressing Prepare Secrets and then selec
 missionPackData = nil
 selectedPack = nil
 playerColor = nil
+cardsDealt = false
 handZone = nil
 secondaryDeck = nil
 secondaryDeckPosition = nil
@@ -44,6 +45,7 @@ targetRotation = {x = 0, y = 270, z = 180}
 function onSave()
     saved_data = JSON.encode({
         svSelectedPack = selectedPack,
+        svCardsDealt = cardsDealt,
     })
 
     return saved_data
@@ -53,6 +55,7 @@ function onLoad(saved_data)
     if saved_data ~= "" then
         local loaded_data = JSON.decode(saved_data)
         selectedPack = loaded_data.svSelectedPack
+        cardsDealt = loaded_data.svCardsDealt
     end
 
     if self.getGUID() == Global.getVar("redMissionManager_GUID") then
@@ -85,6 +88,7 @@ function onLoad(saved_data)
     self.setScale({0.6,1,0.6})
     if selectedPack then
         updateForSelectedPack()
+        tryDealFixedSecondaries()
     end
 end
 
@@ -117,9 +121,25 @@ function packSelected(params)
     secondaryDeck.tooltip = true
     secondaryDeck.interactable = true
 
-    fixedDeck = getObjectFromGUID(missionPackData.fixedSecondaryDeck_GUID)
-    newFixedDeck = fixedDeck.clone({position = fixedDeck.getPosition()})
-    newFixedDeck.deal(fixedDeck.getQuantity(), playerColor)
+    tryDealFixedSecondaries()
+end
+
+function onPlayerChangeColor(player_color)
+    if player_color == playerColor then
+        -- Our player just sat down. Deal their cards if not already done.
+        tryDealFixedSecondaries()
+    end
+end
+
+function tryDealFixedSecondaries()
+    -- Only deal out the cards if our player is seated, we know what mission pack
+    -- we're playing, and we haven't already dealt them.
+    if Player[playerColor].seated and selectedPack and not cardsDealt then
+        fixedDeck = getObjectFromGUID(missionPackData.fixedSecondaryDeck_GUID)
+        newFixedDeck = fixedDeck.clone({position = fixedDeck.getPosition()})
+        newFixedDeck.deal(fixedDeck.getQuantity(), playerColor)
+        cardsDealt = true
+    end
 end
 
 function lockInSecondaries()
