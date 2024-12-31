@@ -1,0 +1,115 @@
+-- FTC-GUID: 5a328f
+
+-- Define the GUIDs of the objects you want to control
+local InjectorGUID = "5c328f"
+local VortexGUID = "be2cdb"
+
+--[[ Control Panel Settings ]]--
+local options = {
+    {name = "Injector Control", state = true},
+    {name = "Option 2", state = false},
+    {name = "Option 3", state = false},
+    {name = "Vortex", state = true}, 
+}
+
+function onLoad()
+    buildControlPanel()
+end
+
+--[[ Build the Control Panel UI ]]--
+function buildControlPanel()
+    local panel = {
+        tag = "VerticalLayout",
+        attributes = {
+            id = "controlPanel",
+            width = "300",
+            height = "400",
+            position = "0 0 -3",
+            color = "Grey"
+        },
+        children = {}
+    }
+
+    for i, option in ipairs(options) do
+        table.insert(panel.children, {
+            tag = "HorizontalLayout",
+            children = {
+                {
+                    tag = "Button",
+                    attributes = {
+                        text = option.name,
+                        onClick = "toggleOption(" .. i .. ")",
+                        fontSize = "18",
+                        width = "200",
+                        height = "40"
+                    }
+                },
+                {
+                    tag = "Text",
+                    attributes = {
+                        id = "status_" .. i,
+                        text = option.state and "ON" or "OFF",
+                        fontSize = "18",
+                        width = "60",
+                        height = "40",
+                        color = option.state and "Green" or "Red"
+                    }
+                }
+            }
+        })
+    end
+
+    self.UI.setXmlTable({panel})
+end
+
+--[[ Toggle Option Function ]]--
+-- Save the original position globally
+-- Save the original positions globally
+local originalPositions = {}
+
+--[[ Generic Toggle Function ]]--
+function toggleObjectState(objectGUID, state)
+    local object = getObjectFromGUID(objectGUID)
+    if object then
+        if not originalPositions[objectGUID] then
+            originalPositions[objectGUID] = object.getPosition() -- Save the original position
+        end
+        if state then
+            -- Show the object (move it back to the original position)
+            object.setPosition(originalPositions[objectGUID])
+            print("Object with GUID " .. objectGUID .. " moved back to original position")
+        else
+            -- Hide the object (move it down by 40 units)
+            local newPosition = {originalPositions[objectGUID][1], originalPositions[objectGUID][2] - 40, originalPositions[objectGUID][3]}
+            object.setPosition(newPosition)
+            print("Object with GUID " .. objectGUID .. " moved down by 40 units")
+        end
+    else
+        print("Object not found: Could not toggle object with GUID " .. objectGUID)
+    end
+end
+
+--[[ Toggle Option Function ]]--
+function toggleOption(player, index)
+    local option = options[tonumber(index)]
+    option.state = not option.state -- Toggle state
+
+    -- Update UI
+    local statusId = "status_" .. index
+    local newText = option.state and "ON" or "OFF"
+    local newColor = option.state and "Green" or "Red"
+    self.UI.setAttributes(statusId, {text = newText, color = newColor})
+
+    -- Generic toggle handling based on option name
+    if option.name == "Injector Control" then
+        toggleObjectState(InjectorGUID, option.state)
+    elseif option.name == "Vortex" then
+        toggleObjectState(VortexGUID, option.state)
+    elseif option.name == "Player 1 Board" then
+        toggleObjectState("128a11", option.state)
+    elseif option.name == "Player 2 Board" then
+        toggleObjectState("25d021", option.state)
+    end
+
+    print(option.name .. " is now " .. (option.state and "ON" or "OFF"))
+end

@@ -464,6 +464,44 @@
   ],
   "ObjectStates": [
     {
+      "GUID": "5a328f",
+      "Name": "Custom_Model",
+      "Transform": {
+        "posX": -10,
+        "posY": 1,
+        "posZ": -10,
+        "rotX": 0,
+        "rotY": 0,
+        "rotZ": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "scaleZ": 1
+      },
+      "Nickname": "Control Board",
+      "Description": "",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "<Text fontSize=\"100\" color=\"#000000\" fontStyle=\"Bold\">Options</Text>"
+    },
+    {
       "GUID": "f7d85a",
       "Name": "HandTrigger",
       "Transform": {
@@ -4820,6 +4858,154 @@
       "LuaScript": "",
       "LuaScriptState": "",
       "XmlUI": ""
+    },
+    {
+      "GUID": "5c328f",
+      "Name": "go_game_piece_white",
+      "Transform": {
+        "posX": -24.96323,
+        "posY": 1.08299732,
+        "posZ": 23.7760487,
+        "rotX": 0.000002495925,
+        "rotY": 359.993134,
+        "rotZ": -8.10718348e-7,
+        "scaleX": 1,
+        "scaleY": 1,
+        "scaleZ": 1
+      },
+      "Nickname": "Injection Detector",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "ColorDiffuse": {
+        "r": 0.6617647,
+        "g": 0.6617647,
+        "b": 0.6617647
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "States": {
+        "2": {
+          "GUID": "899f22",
+          "Name": "go_game_piece_white",
+          "Transform": {
+            "posX": 0,
+            "posY": 7.18299866,
+            "posZ": 0,
+            "rotX": 4.44650219e-8,
+            "rotY": 359.993134,
+            "rotZ": 5.18434462e-10,
+            "scaleX": 1,
+            "scaleY": 1,
+            "scaleZ": 1
+          },
+          "Nickname": "Malicious Scripts Detected!",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "ColorDiffuse": {
+            "r": 0.65882355,
+            "g": 0.65882355,
+            "b": 0.65882355,
+            "a": 0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": true,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "LuaScript": "broadcastToAll(\"Intrusive Script Detected!\\nCheck all user loaded content.\")",
+          "LuaScriptState": "",
+          "XmlUI": "",
+          "ChildObjects": [
+            {
+              "GUID": "6fb2cf",
+              "Name": "Custom_Assetbundle",
+              "Transform": {
+                "posX": -0.0000184482979,
+                "posY": 0.28299582,
+                "posZ": -1.63822293e-7,
+                "rotX": 0.0004609494,
+                "rotY": 120.004173,
+                "rotZ": 180.000046,
+                "scaleX": 0.200000033,
+                "scaleY": 0.2,
+                "scaleZ": 0.200000018
+              },
+              "Nickname": "[FF0200]Mystic Tenticles",
+              "Description": "",
+              "GMNotes": "",
+              "AltLookAngle": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "ColorDiffuse": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 0
+              },
+              "LayoutGroupSortIndex": 0,
+              "Value": 0,
+              "Locked": false,
+              "Grid": true,
+              "Snap": true,
+              "IgnoreFoW": false,
+              "MeasureMovement": false,
+              "DragSelectable": true,
+              "Autoraise": true,
+              "Sticky": true,
+              "Tooltip": true,
+              "GridProjection": false,
+              "HideWhenFaceDown": false,
+              "Hands": false,
+              "CustomAssetbundle": {
+                "AssetbundleURL": "https://steamusercontent-a.akamaihd.net/ugc/1697279045389234686/E75776B84B3966DEF588E4C6B187CC05DBDC71C5/",
+                "AssetbundleSecondaryURL": "",
+                "MaterialIndex": 0,
+                "TypeIndex": 0,
+                "LoopingEffectIndex": 2
+              },
+              "LuaScript": "",
+              "LuaScriptState": "",
+              "XmlUI": ""
+            }
+          ]
+        }
+      }
     },
     {
       "GUID": "1fcbf0",
@@ -13319,14 +13505,14 @@
       "GUID": "c09349",
       "Name": "Custom_Assetbundle",
       "Transform": {
-        "posX": 28.0,
-        "posY": 1.2,
-        "posZ": 37.0,
-        "rotX": 0.0,
-        "rotY": 180.0,
-        "rotZ": 0.0,
+        "posX": 31.0983677,
+        "posY": 1.14999807,
+        "posZ": 36.65884,
+        "rotX": -0.00000159877766,
+        "rotY": 180.015915,
+        "rotZ": 5.434207e-7,
         "scaleX": 1.5,
-        "scaleY": 1.0,
+        "scaleY": 1,
         "scaleZ": 1.5
       },
       "Nickname": "Blue dice camera",
@@ -23997,9 +24183,9 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomPDF": {
-        "PDFUrl": "https://www.warhammer-community.com/wp-content/uploads/2023/06/76CPCqo7msJIHqzx.pdf",
+        "PDFUrl": "https://assets.warhammer-community.com/warhammer40000_core&key_corerules_eng_24.09-5xfayxjekm.pdf",
         "PDFPassword": "",
-        "PDFPage": 3,
+        "PDFPage": 40,
         "PDFPageOffset": 3
       },
       "LuaScript": "",
@@ -24048,7 +24234,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomPDF": {
-        "PDFUrl": "https://www.warhammer-community.com/wp-content/uploads/2024/06/1U4CJSV1NJDmXnv2.pdf",
+        "PDFUrl": "https://assets.warhammer-community.com/warhammer40000_core&key_pariahnexustournamentcompanion_eng_16.10.pdf",
         "PDFPassword": "",
         "PDFPage": 0,
         "PDFPageOffset": 1
@@ -24153,12 +24339,64 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomPDF": {
-        "PDFUrl": "https://www.warhammer-community.com/wp-content/uploads/2023/06/htkssr6vgkoqDAJn.pdf",
+        "PDFUrl": "https://assets.warhammer-community.com/warhammer40000_combatpatrol_rules_eng.24.09-rbtns7zwbh.pdf",
         "PDFPassword": "",
-        "PDFPage": 0,
+        "PDFPage": 6,
         "PDFPageOffset": 0
       },
       "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "be2cdb",
+      "Name": "Custom_Assetbundle",
+      "Transform": {
+        "posX": 23.8932419,
+        "posY": 1.39711857,
+        "posZ": 36.3829155,
+        "rotX": 3.69866347,
+        "rotY": 224.741,
+        "rotZ": 356.2784,
+        "scaleX": 0.7000003,
+        "scaleY": 0.7000003,
+        "scaleZ": 0.7000003
+      },
+      "Nickname": "Trash bin",
+      "Description": "Click to open or close.",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "ColorDiffuse": {
+        "r": 0.838235259,
+        "g": 0.838235259,
+        "b": 0.838235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": false,
+      "Snap": false,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomAssetbundle": {
+        "AssetbundleURL": "https://chry.me/tts/misc/new_blackhole_test.unity3d",
+        "AssetbundleSecondaryURL": "",
+        "MaterialIndex": 2,
+        "TypeIndex": 0,
+        "LoopingEffectIndex": 0
+      },
+      "LuaScript": "function onLoad()\r\n    self.createButton({\r\n        click_function=\"click_clopen\", function_owner=self,\r\n        position={0,0.5,0}, height=2000, width=2000, color={0,0,0,0}\r\n    })\r\n    params = {assetbundle=\"https://chry.me/tts/misc/new_blackhole_test.unity3d\",material=2}\r\nend\r\n\r\nfunction click_clopen()\r\n    if self.AssetBundle.getLoopingEffectIndex() == 0 then\r\n        params.type = 6\r\n        self.AssetBundle.playLoopingEffect(1)\r\n    else\r\n        params.type = 0\r\n        self.AssetBundle.playLoopingEffect(0)\r\n    end\r\n    self.setCustomObject(params)\r\n    self.reload()\r\nend\r\n\r\nfunction onCollisionEnter()\r\n    if self.AssetBundle.getLoopingEffectIndex() == 1 then\r\n        self.reset()\r\n    end\r\nend",
       "LuaScriptState": "",
       "XmlUI": ""
     },

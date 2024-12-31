@@ -12,7 +12,8 @@ function WriteLuaScriptToJsonContent([int]$jsonLineNumber, [int]$luaScriptFileId
 }
 
 # Update this if TTS is installed elsewhere.
-$ttsSaves = "$([Environment]::GetFolderPath('MyDocuments'))\My Games\Tabletop Simulator\Saves\"
+# $ttsSaves = "$([Environment]::GetFolderPath('MyDocuments'))\My Games\Tabletop Simulator\Saves\"
+$ttsSaves = "/home/hutber/.local/share/Tabletop Simulator/Saves/"
 
 $pathLua = '..\TTSLUA\'
 $luaScriptFiles = @('global.ttslua')

@@ -148,9 +148,9 @@ selectedColor = "White"
 diceType = "Die_6_Rounded"
 customDiceImage = nil
 
-rollerGUID = Global.getVar("redDiceRoller_GUID")
-if self.guid == Global.getVar("blueDiceMat_GUID") then
-    rollerGUID = Global.getVar("blueDiceRoller_GUID")
+rollerGUID = Global.getVar("redDiceCustomRoller_GUID")
+if self.guid == Global.getVar("blueDiceCustomRoller_GUID") then
+    rollerGUID = Global.getVar("blueDiceCustomRoller_GUID")
 end
 roller = getObjectFromGUID(rollerGUID)
 
