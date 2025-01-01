@@ -18,7 +18,7 @@ mat_GUID = Global.getVar("mat_GUID")
 
 function onLoad(saved_data)
     --self.setPosition({40,-4,0})
-    self.setRotation({0,270,0})
+    --self.setRotation({0,270,0})
     -- load from saved
     if saved_data ~= "" then
         local loaded_data = JSON.decode(saved_data)

@@ -4,26 +4,55 @@
 -- handled by code in startMenu.ttslua.
 
 lockInSecondariesBtn = {
-    label = "L O C K   I N\nS E C O N D A R I E S", click_function = "lockInSecondaries", function_owner = self,
-    position = {-3.3, 6.07, 0}, rotation = {0, 0, 0}, height = 450, width = 2800,
-    font_size = 200, color = {0, 0, 0}, font_color = {1, 1, 1},
+    -- Removed spaces between letters
+    label = "LOCK IN\n\nSECONDARIES",
+    click_function = "lockInSecondaries",
+    function_owner = self,
+    position = {18, 6.07, 7},
+    rotation = {0, 90, 0},
+    height = 900,
+    width = 1600,
+    font_size = 200,
+    color = {0, 0, 0},
+    font_color = {1, 1, 1},
     tooltip = "With the initial set of secondary missions in your hand, select two of them by flipping them face down with the F key, then press this button. To use Tactical Missions, flip the two Tactical cards. To use Fixed Missions, flip your choice of two other cards."
 }
+
 prepGambitsBtn = {
-    label = "P R E P A R E\nG A M B I T S", click_function = "prepareGambits", function_owner = self,
-    position = {3.3, 6.07, 0}, rotation = {0, 0, 0}, height = 450, width = 2800,
-    font_size = 200, color = {0, 0, 0}, font_color = {1, 1, 1},
-    tooltip = "At the end of battle round 3, press this button to begin choosing a Gambit. One random Gambit will be discarded and the others will be placed in your hand. Select one by flipping it face down with the F key, then press Lock In Gambit."
+    label = "PREPARE\nGAMBITS",
+    click_function = "prepareGambits",
+    function_owner = self,
+    position = {18, 6.07, 11},
+    rotation = {0, 90, 0},
+    height = 900,
+    width = 1600,
+    font_size = 200,
+    color = {0, 0, 0},
+    font_color = {1, 1, 1},
+    tooltip = "At the end of battle round 3, press this button to draw Gambits. Flip your chosen Gambit face down with F, then press Lock In Gambit."
 }
-prepGambitsBtnPariahNexusLabel = "P R E P A R E\nS E C R E T S"
+
+-- Also removed spaces for the Pariah Nexus label
+prepGambitsBtnPariahNexusLabel = "PREPARE\nSECRETS"
 prepGambitsBtnPariahNexusTooltip = "At the end of battle round 3, if you want to select a secret mission, press this button. Your four available secret missions will be placed in your hand. Select one by flipping it face down with the F key, then press Lock In Secret."
+
 lockInGambitBtn = {
-    label = "L O C K   I N\nG A M B I T", click_function = "lockInGambit", function_owner = self,
-    position = {9.9, 6.07, 0}, rotation = {0, 0, 0}, height = 450, width = 2800,
-    font_size = 200, color = {0, 0, 0}, font_color = {1, 1, 1},
+    -- Removed spaces between letters
+    label = "LOCK IN\nGAMBIT",
+    click_function = "lockInGambit",
+    function_owner = self,
+    position = {18, 6.07, 15},
+    rotation = {0, 90, 0},
+    height = 900,
+    width = 1600,
+    font_size = 200,
+    color = {0, 0, 0},
+    font_color = {1, 1, 1},
     tooltip = "After pressing Prepare Gambits and then selecting one by flipping it face down with the F key, press this button to lock in your choice."
 }
-lockGambitBtnPariahNexusLabel = "L O C K   I N\nS E C R E T"
+
+-- Same removal of extra spaces
+lockGambitBtnPariahNexusLabel = "LOCK IN\nSECRET"
 lockGambitBtnPariahNexusTooltip = "After pressing Prepare Secrets and then selecting one by flipping it face down with the F key, press this button to lock in your choice."
 
 missionPackData = nil
@@ -73,7 +102,7 @@ function onLoad(saved_data)
         secondaryDeckPosition = { x = 74.75, y = 0.94, z = 8.05 }
     else
         self.setName("Mission Manager Blue")
-        self.setPosition({19,-5,-35.25})
+        self.setPosition({-40,-5,-35.25})
         self.setRotation({0,180,0})
         playerColor = "Blue"
         handZone = getObjectFromGUID(Global.getVar("blueHandZone_GUID"))

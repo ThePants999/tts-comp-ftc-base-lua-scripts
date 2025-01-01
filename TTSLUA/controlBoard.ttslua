@@ -1,57 +1,108 @@
--- FTC-GUID: 5a328f
+-- FTC-GUID: 32ed4c
 
--- Define the GUIDs of the objects you want to control
-local InjectorGUID = "5c328f"
-local VortexGUID = "be2cdb"
+local InjectorGUID         = "5c328f"
+local VortexGUID           = "be2cdb"
+local CustomDiceRoller     = "acae21"
+local DiceRoller           = "c57d70"
+local SelectionHighlighter = "27de4f"
 
---[[ Control Panel Settings ]]--
 local options = {
-    {name = "Injector Control", state = true},
-    {name = "Option 2", state = false},
-    {name = "Option 3", state = false},
-    {name = "Vortex", state = true}, 
+    {name = "Injector Control",     state = true},
+    {name = "Custom Dice Roller",   state = true},
+    {name = "Selection Highlight",  state = true},
+    {name = "Vortex",               state = true},
 }
+
+local originalPositions = {}
+-- We'll store the JSON and current GUID of the highlight object here.
+--   highlightData.json = full JSON of the highlight object
+--   highlightData.currentGUID = the current, valid GUID in play (initially "27de4f")
+local highlightData = { json = nil, currentGUID = SelectionHighlighter }
 
 function onLoad()
     buildControlPanel()
+
+    -- Hide and disable DiceRoller initially
+    local diceRoller = getObjectFromGUID(DiceRoller)
+    if diceRoller then
+        if not originalPositions[DiceRoller] then
+            originalPositions[DiceRoller] = diceRoller.getPosition()
+        end
+        local hiddenPosition = {
+            originalPositions[DiceRoller][1],
+            originalPositions[DiceRoller][2] - 40,
+            originalPositions[DiceRoller][3]
+        }
+        diceRoller.setPosition(hiddenPosition)
+        diceRoller.setLock(true)
+        diceRoller.interactable = false
+        print("DiceRoller hidden & disabled by default on load")
+    else
+        print("DiceRoller object not found during onLoad")
+    end
 end
 
---[[ Build the Control Panel UI ]]--
 function buildControlPanel()
     local panel = {
         tag = "VerticalLayout",
         attributes = {
-            id = "controlPanel",
-            width = "300",
-            height = "400",
-            position = "0 0 -3",
-            color = "Grey"
+            id             = "controlPanel",
+            width          = "390",  -- Increased by 30%
+            height         = "520",  -- Increased by 30%
+            position       = "0 0 -3",
+            color          = "Black",
+            padding        = "13",   -- Increased by 30%
         },
-        children = {}
+        children = {
+            {
+                tag = "Text",
+                attributes = {
+                    text      = "Control Board",
+                    fontSize  = "31",  -- Increased by 30%
+                    alignment = "MiddleCenter",
+                    color     = "White",
+                    fontStyle = "Bold",
+                    padding   = "6"   -- Increased by 30%
+                }
+            },
+            {
+                tag = "VerticalLayout",
+                attributes = {
+                    id        = "borderPanel",
+                    color     = "Grey",
+                    padding   = "13",  -- Increased by 30%
+                    childForceExpandHeight = true,
+                    childForceExpandWidth = true
+                },
+                children = {}
+            }
+        }
     }
 
+
+    -- Add the toggle buttons inside the border panel
     for i, option in ipairs(options) do
-        table.insert(panel.children, {
+        table.insert(panel.children[2].children, {
             tag = "HorizontalLayout",
             children = {
                 {
                     tag = "Button",
                     attributes = {
-                        text = option.name,
-                        onClick = "toggleOption(" .. i .. ")",
+                        text     = option.name,
+                        onClick  = "toggleOption(" .. i .. ")",
                         fontSize = "18",
-                        width = "200",
-                        height = "40"
+                        width    = "200",
+                        height   = "40"
                     }
                 },
                 {
                     tag = "Text",
                     attributes = {
-                        id = "status_" .. i,
-                        text = option.state and "ON" or "OFF",
+                        id    = "status_" .. i,
+                        text  = option.state and "ON" or "OFF",
                         fontSize = "18",
                         width = "60",
-                        height = "40",
+                        height= "40",
                         color = option.state and "Green" or "Red"
                     }
                 }
@@ -59,56 +110,127 @@ function buildControlPanel()
         })
     end
 
+    -- Set the XML table
     self.UI.setXmlTable({panel})
 end
 
---[[ Toggle Option Function ]]--
--- Save the original position globally
--- Save the original positions globally
-local originalPositions = {}
 
---[[ Generic Toggle Function ]]--
+--------------------------------------------------------------------------------
+-- NOTE: For most objects (Dice Roller, etc.) we just move them / lock them.
+-- But for SELECTION HIGHLIGHTER, we physically remove & respawn it.
+--------------------------------------------------------------------------------
 function toggleObjectState(objectGUID, state)
-    local object = getObjectFromGUID(objectGUID)
-    if object then
+    local obj = getObjectFromGUID(objectGUID)
+    if obj then
+        -- If first time touching, store original position
         if not originalPositions[objectGUID] then
-            originalPositions[objectGUID] = object.getPosition() -- Save the original position
+            originalPositions[objectGUID] = obj.getPosition()
         end
+
         if state then
-            -- Show the object (move it back to the original position)
-            object.setPosition(originalPositions[objectGUID])
-            print("Object with GUID " .. objectGUID .. " moved back to original position")
+            -- Move back & enable
+            obj.setPosition(originalPositions[objectGUID])
+            obj.setLock(false)
+            obj.interactable = true
+            print("Object " .. objectGUID .. " moved back & re-enabled")
         else
-            -- Hide the object (move it down by 40 units)
-            local newPosition = {originalPositions[objectGUID][1], originalPositions[objectGUID][2] - 40, originalPositions[objectGUID][3]}
-            object.setPosition(newPosition)
-            print("Object with GUID " .. objectGUID .. " moved down by 40 units")
+            -- Move out of sight & disable
+            local newPosition = {
+                originalPositions[objectGUID][1],
+                originalPositions[objectGUID][2] - 40,
+                originalPositions[objectGUID][3]
+            }
+            obj.setPosition(newPosition)
+            obj.setLock(true)
+            obj.interactable = false
+            print("Object " .. objectGUID .. " moved down & disabled")
         end
     else
-        print("Object not found: Could not toggle object with GUID " .. objectGUID)
+        print("Object not found: " .. objectGUID)
     end
 end
 
---[[ Toggle Option Function ]]--
+--------------------------------------------------------------------------------
+-- Removes the given object from the game (by destructing it),
+-- but stores a copy of its JSON for later respawn.
+--------------------------------------------------------------------------------
+function removeObjectCompletely(objectGUID)
+    local obj = getObjectFromGUID(objectGUID)
+    if obj then
+        -- Store the object's JSON once
+        highlightData.json = obj.getJSON()
+        highlightData.currentGUID = nil   -- It's about to be destroyed
+        obj.destruct()
+        print("Destroyed highlight object, JSON stored for later respawn.")
+    else
+        print("Could not find highlight object to remove.")
+    end
+end
+
+--------------------------------------------------------------------------------
+-- Respawns the highlight object from the JSON we stored earlier.
+-- The newly spawned object will have a new GUID. We'll store it so we can
+-- remove it again if needed.
+--------------------------------------------------------------------------------
+function spawnHighlightObject(height)
+    if not highlightData.json then
+        print("No stored JSON to respawn from!")
+        return
+    end
+
+    local spawnParams = {
+        json = highlightData.json,
+    }
+
+    spawnObjectJSON(spawnParams)
+end
+
+--------------------------------------------------------------------------------
+-- Toggling "Selection Highlight" requires fully destructing or respawning it
+--------------------------------------------------------------------------------
+function toggleSelectionHighlight(isOn)
+    if isOn then
+        -- Respawn it from JSON
+        spawnHighlightObject(-5)
+    else
+        -- Remove it from the game entirely
+        if highlightData.currentGUID then
+            removeObjectCompletely(highlightData.currentGUID)
+        else
+            print("No highlight object to remove (might already be removed).")
+        end
+    end
+end
+
+--------------------------------------------------------------------------------
+-- MAIN TOGGLE HANDLER
+--------------------------------------------------------------------------------
 function toggleOption(player, index)
     local option = options[tonumber(index)]
-    option.state = not option.state -- Toggle state
+    option.state = not option.state
 
-    -- Update UI
     local statusId = "status_" .. index
-    local newText = option.state and "ON" or "OFF"
+    local newText  = option.state and "ON" or "OFF"
     local newColor = option.state and "Green" or "Red"
     self.UI.setAttributes(statusId, {text = newText, color = newColor})
 
-    -- Generic toggle handling based on option name
     if option.name == "Injector Control" then
         toggleObjectState(InjectorGUID, option.state)
+
     elseif option.name == "Vortex" then
         toggleObjectState(VortexGUID, option.state)
-    elseif option.name == "Player 1 Board" then
-        toggleObjectState("128a11", option.state)
-    elseif option.name == "Player 2 Board" then
-        toggleObjectState("25d021", option.state)
+
+    elseif option.name == "Custom Dice Roller" then
+        if option.state then
+            toggleObjectState(CustomDiceRoller, true)
+            toggleObjectState(DiceRoller, false)
+        else
+            toggleObjectState(CustomDiceRoller, false)
+            toggleObjectState(DiceRoller, true)
+        end
+
+    elseif option.name == "Selection Highlight" then
+        toggleSelectionHighlight(option.state)
     end
 
     print(option.name .. " is now " .. (option.state and "ON" or "OFF"))

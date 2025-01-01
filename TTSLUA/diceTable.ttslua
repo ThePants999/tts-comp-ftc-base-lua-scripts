@@ -51,33 +51,24 @@ add2d6Btn={
     position={0.0, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
-add3d6Btn={
-    label="+ 3d6", click_function="spawnDice3", function_owner=self,
-    position={0.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
-    font_size=60, color={1,1,1}, font_color={0,0,0}
-}
-add4d6Btn={
-    label="+ 4d6", click_function="spawnDice4", function_owner=self,
-    position={1.0, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
-    font_size=60, color={1,1,1}, font_color={0,0,0}
-}
 add5d6Btn={
     label="+ 5d6", click_function="spawnDice5", function_owner=self,
-    position={1.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
+    position={0.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
 add10d6Btn={
     label="+ 10d6", click_function="spawnDice10", function_owner=self,
-    position={2.0, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
+    position={1.0, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
 add25d6Btn={
     label="+ 25d6", click_function="spawnDice25", function_owner=self,
-    position={2.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
+    position={1.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
+
 colorBtnDimension=150
-colorBtnOffset=3.0
+colorBtnOffset=2.0
 color1Btn={
     label="", click_function="modifyMenu1", function_owner=self,
     position={colorBtnOffset, Yoffset ,-0.87}, rotation={0,0,0}, height=colorBtnDimension, width=colorBtnDimension,
@@ -386,12 +377,6 @@ end
 function spawnDice2(obj, player, alt)
     spawnDice(2,player)
 end
-function spawnDice3(obj, player, alt)
-    spawnDice(3,player)
-end
-function spawnDice4(obj, player, alt)
-    spawnDice(4,player)
-end
 function spawnDice5(obj, player, alt)
     spawnDice(5,player)
 end
@@ -497,8 +482,6 @@ function onload()
     self.createButton(orderedRollGroup3Btn)
     self.createButton(add1d6Btn)
     self.createButton(add2d6Btn)
-    self.createButton(add3d6Btn)
-    self.createButton(add4d6Btn)
     self.createButton(add5d6Btn)
     self.createButton(add10d6Btn)
     self.createButton(add25d6Btn)
@@ -548,8 +531,6 @@ function modifyMenu(color)
     self.editButton({index=9, color=color})
     self.editButton({index=10, color=color})
     self.editButton({index=11, color=color})
-    self.editButton({index=12, color=color})
-    self.editButton({index=13, color=color})
 end
 
 function setDiceType()

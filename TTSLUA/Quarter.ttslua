@@ -1,0 +1,82 @@
+-- FTC-GUID: 27de4f
+
+-- This script highlights objects in green when they are selected by a player.
+local selectedObjects = {}
+local checkInterval = 0.1
+
+function onLoad()
+    -- Just destroy it (if it exists). If it doesn't exist, TTS won't error out.
+    Timer.destroy("checkSelections")
+
+    -- Wait 30 frames, then move ourselves below the table
+    Wait.frames(function()
+        self.setPosition({-5, -5, -5})
+        self.setLock(true)
+        self.interactable = false
+    end, 30)
+
+    -- Create the timer
+    Timer.create({
+        identifier    = "checkSelections",
+        function_name = "checkSelections",
+        delay         = checkInterval,
+        repetitions   = 0
+    })
+end
+
+
+
+
+function onDestroy()
+    Timer.destroy("checkSelections")
+    clearAllHighlights()
+end
+
+function checkSelections()
+    local currentSelections = {}
+
+    for _, player in ipairs(Player.getPlayers()) do
+        local selected = player.getSelectedObjects() or {}
+        for _, obj in ipairs(selected) do
+            local guid = obj.getGUID()
+            if obj.tag == "Figurine" or obj.tag == "Generic" or obj.tag == "Custom_Model" and not selectedObjects[guid] then
+                -- Store the object plus the color it was highlighted with (if any).
+                selectedObjects[guid] = {
+                    object = obj,
+                    originalColor = obj.getHighlightColor() -- nil if un-highlighted
+                }
+                obj.highlightOn({0,1,0}) -- highlight in green
+            end
+            currentSelections[guid] = true
+        end
+    end
+
+    -- For objects that are no longer selected, restore the original highlight color
+    for guid, data in pairs(selectedObjects) do
+        if not currentSelections[guid] then
+            if data.originalColor then
+                -- Re-highlight with the color it had before we turned it green
+                data.object.highlightOn(data.originalColor)
+            else
+                -- If it didn’t have a highlight color originally, remove highlight
+                data.object.highlightOff()
+            end
+            selectedObjects[guid] = nil
+        end
+    end
+end
+
+function clearAllHighlights()
+    for guid, data in pairs(selectedObjects) do
+        local obj = data.object
+        if obj then
+            -- If it had an original color, restore it
+            if data.originalColor then
+                obj.highlightOn(data.originalColor)
+            else
+                obj.highlightOff()
+            end
+        end
+    end
+    selectedObjects = {}
+end

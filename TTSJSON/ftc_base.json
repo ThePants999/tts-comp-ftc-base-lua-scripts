@@ -464,52 +464,58 @@
   ],
   "ObjectStates": [
     {
-      "GUID": "5a328f",
-      "Name": "Custom_Model",
+    "GUID": "32ed4c",
+    "Name": "Custom_Model",
       "Transform": {
-        "posX": -10,
+        "posX": -45,
         "posY": 1,
-        "posZ": -10,
+        "posZ": 29,
         "rotX": 0,
-        "rotY": 0,
+        "rotY": 179.991684,
         "rotZ": 0,
-        "scaleX": 1,
-        "scaleY": 1,
-        "scaleZ": 1
+        "scaleX": 1.3,
+        "scaleY": 1.3,
+        "scaleZ": 1.3
       },
-      "Nickname": "Control Board",
-      "Description": "",
-      "GMNotes": "",
-      "ColorDiffuse": {
-        "r": 1,
-        "g": 1,
-        "b": 1
-      },
-      "Locked": false,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": "<Text fontSize=\"100\" color=\"#000000\" fontStyle=\"Bold\">Options</Text>"
+    "Nickname": "Control Board",
+    "Description": "",
+    "GMNotes": "",
+    "AltLookAngle": {
+      "x": 0,
+      "y": 0,
+      "z": 0
     },
+    "ColorDiffuse": {
+      "r": 1,
+      "g": 1,
+      "b": 1
+    },
+    "LayoutGroupSortIndex": 0,
+    "Value": 0,
+    "Locked": true,
+    "Grid": true,
+    "Snap": true,
+    "IgnoreFoW": false,
+    "MeasureMovement": false,
+    "DragSelectable": true,
+    "Autoraise": true,
+    "Sticky": true,
+    "Tooltip": true,
+    "GridProjection": false,
+    "HideWhenFaceDown": false,
+    "Hands": false,
+    "LuaScript": "",
+    "LuaScriptState": ""
+  },
     {
       "GUID": "f7d85a",
       "Name": "HandTrigger",
       "Transform": {
-        "posX": 7.0,
-        "posY": 1.0,
-        "posZ": 38.0,
-        "rotX": 0.0,
-        "rotY": 180.0,
+        "posX": -33,
+        "posY": 1,
+        "posZ": 48,
+        "rotX": 0,
+        "rotY": 270.0,
         "rotZ": 0.0,
         "scaleX": 30.0,
         "scaleY": 9.0,
@@ -546,11 +552,11 @@
       "GUID": "731345",
       "Name": "HandTrigger",
       "Transform": {
-        "posX": -7.0,
-        "posY": 1.0,
-        "posZ": -38.0,
-        "rotX": 0.0,
-        "rotY": 0.0,
+        "posX": -33,
+        "posY": 1,
+        "posZ": -48,
+        "rotX": 0,
+        "rotY": 270.0,
         "rotZ": 0.0,
         "scaleX": 30.0,
         "scaleY": 9.0,
@@ -762,6 +768,67 @@
         "scaleZ": 3.75
       },
       "Nickname": "Blue Dice Table",
+      "Description": "{\n  \"Cumulative\": \"no\",\n  \"Update_Frequency\": \"0.2\"\n}",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": false,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": false,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/786374678935692054/F32489A74087FB9D9E26AC5F9461841B8C40B37A/",
+        "ImageSecondaryURL": "",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomTile": {
+          "Type": 0,
+          "Thickness": 0.1,
+          "Stackable": false,
+          "Stretch": true
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 5.714623,
+            "y": 0.1,
+            "z": -0.8406986
+          },
+          "Tags": []
+        }
+      ]
+    },
+    {
+      "GUID": "839fcc",
+      "Name": "Custom_Tile",
+      "Transform": {
+        "posX": 0.0,
+        "posY": 0.87,
+        "posZ": -29.0,
+        "rotX": 0.0,
+        "rotY": 180.0,
+        "rotZ": 0.0,
+        "scaleX": 3.75,
+        "scaleY": 1.0,
+        "scaleZ": 3.75
+      },
+      "Nickname": "Blue Custom Dice Table",
       "Description": "{\n  \"Cumulative\": \"no\",\n  \"Update_Frequency\": \"0.2\"\n}",
       "GMNotes": "",
       "ColorDiffuse": {
@@ -3017,6 +3084,130 @@
       ]
     },
     {
+      "GUID": "27de4f",
+      "Name": "Quarter",
+      "Transform": {
+        "posX": -5,
+        "posY": -5,
+        "posZ": -5,
+        "rotX": 0,
+        "rotY": 0,
+        "rotZ": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "scaleZ": 1
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "ColorDiffuse": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "RotationValues": [
+        {
+          "Value": "Heads",
+          "Rotation": {
+            "x": 0,
+            "y": 90,
+            "z": 180
+          }
+        },
+        {
+          "Value": "Tails",
+          "Rotation": {
+            "x": 0,
+            "y": -90,
+            "z": 0
+          }
+        }
+      ]
+    },
+    {
+      "GUID": "acae21",
+      "Name": "Custom_Tile",
+      "Transform": {
+        "posX": 0.0,
+        "posY": 0.87,
+        "posZ": 29.0,
+        "rotX": 0.0,
+        "rotY": 0.0,
+        "rotZ": 0.0,
+        "scaleX": 3.75,
+        "scaleY": 1.0,
+        "scaleZ": 3.75
+      },
+      "Nickname": "Red Custom Dice Table",
+      "Description": "{\n  \"Cumulative\": \"no\",\n  \"Update_Frequency\": \"0.2\"\n}",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": false,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": false,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/786374678935692054/F32489A74087FB9D9E26AC5F9461841B8C40B37A/",
+        "ImageSecondaryURL": "",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomTile": {
+          "Type": 0,
+          "Thickness": 0.1,
+          "Stackable": false,
+          "Stretch": true
+        }
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 5.714623,
+            "y": 0.1,
+            "z": -0.8406986
+          },
+          "Tags": []
+        }
+      ]
+    },
+    {
       "GUID": "738804",
       "Name": "BlockRectangle",
       "Transform": {
@@ -5057,7 +5248,7 @@
       "Transform": {
         "posX": -19.0,
         "posY": -5.0,
-        "posZ": 75.25,
+        "posZ": 15.25,
         "rotX": 0.0,
         "rotY": 0.0,
         "rotZ": 0.0,
@@ -10781,11 +10972,11 @@
       "GUID": "471de1",
       "Name": "BlockRectangle",
       "Transform": {
-        "posX": 19.0,
+        "posX": -19.0,
         "posY": -5.0,
         "posZ": -75.25,
         "rotX": 0.0,
-        "rotY": 180.0,
+        "rotY": 0.0,
         "rotZ": 0.0,
         "scaleX": 0.6,
         "scaleY": 1.0,
@@ -19596,12 +19787,12 @@
       "GUID": "a847c1",
       "Name": "CardCustom",
       "Transform": {
-        "posX": -14.4752874,
+        "posX": -33,
         "posY": 2.97473979,
-        "posZ": -38.0,
-        "rotX": 0.0,
-        "rotY": 180.0,
-        "rotZ": 0.0,
+        "posZ": -48.89186,
+        "rotX": 0.000289212738,
+        "rotY": 90.01173,
+        "rotZ": -0.001071628,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19657,12 +19848,12 @@
       "GUID": "7ee8c9",
       "Name": "CardCustom",
       "Transform": {
-        "posX": -12.6915617,
+        "posX": -33,
         "posY": 3.07473969,
-        "posZ": -38.0,
-        "rotX": 0.0,
-        "rotY": 180.0,
-        "rotZ": 0.0,
+        "posZ": -47.10814,
+        "rotX": -0.00000160000775,
+        "rotY": 90.00556,
+        "rotZ": 3.19558552,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19718,12 +19909,12 @@
       "GUID": "838a9b",
       "Name": "CardCustom",
       "Transform": {
-        "posX": 14.4752865,
+        "posX": -33,
         "posY": 2.97473979,
-        "posZ": 38.0,
-        "rotX": 0.0,
-        "rotY": 0.0,
-        "rotZ": 0.0,
+        "posZ": 47.10814,
+        "rotX": 0,
+        "rotY": 90,
+        "rotZ": 0,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -19779,12 +19970,12 @@
       "GUID": "89fa29",
       "Name": "CardCustom",
       "Transform": {
-        "posX": 12.6915607,
+        "posX": -33,
         "posY": 3.07473969,
-        "posZ": 38.0,
-        "rotX": 0.0,
-        "rotY": 0.0,
-        "rotZ": 0.0,
+        "posZ": 48.89186,
+        "rotX": 359.647,
+        "rotY": 89.9853439,
+        "rotZ": 0.5257112,
         "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
@@ -24350,14 +24541,14 @@
     },
     {
       "GUID": "be2cdb",
-      "Name": "Custom_Assetbundle",
+      "Name": "Custom_Assetbundle_Bag",
       "Transform": {
-        "posX": 23.8932419,
-        "posY": 1.39711857,
-        "posZ": 36.3829155,
-        "rotX": 3.69866347,
-        "rotY": 224.741,
-        "rotZ": 356.2784,
+        "posX": 23.1715679,
+        "posY": 1,
+        "posZ": 36.7632561,
+        "rotX": -0.00000157816851,
+        "rotY": 224.999756,
+        "rotZ": -0.00000101836861,
         "scaleX": 0.7000003,
         "scaleY": 0.7000003,
         "scaleZ": 0.7000003
@@ -24377,7 +24568,7 @@
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
-      "Locked": false,
+      "Locked": true,
       "Grid": false,
       "Snap": false,
       "IgnoreFoW": false,
@@ -24389,12 +24580,18 @@
       "GridProjection": false,
       "HideWhenFaceDown": false,
       "Hands": false,
+      "MaterialIndex": -1,
+      "MeshIndex": -1,
+      "Number": 0,
       "CustomAssetbundle": {
         "AssetbundleURL": "https://chry.me/tts/misc/new_blackhole_test.unity3d",
         "AssetbundleSecondaryURL": "",
         "MaterialIndex": 2,
-        "TypeIndex": 0,
-        "LoopingEffectIndex": 0
+        "TypeIndex": 6,
+        "LoopingEffectIndex": 1
+      },
+      "Bag": {
+        "Order": 0
       },
       "LuaScript": "function onLoad()\r\n    self.createButton({\r\n        click_function=\"click_clopen\", function_owner=self,\r\n        position={0,0.5,0}, height=2000, width=2000, color={0,0,0,0}\r\n    })\r\n    params = {assetbundle=\"https://chry.me/tts/misc/new_blackhole_test.unity3d\",material=2}\r\nend\r\n\r\nfunction click_clopen()\r\n    if self.AssetBundle.getLoopingEffectIndex() == 0 then\r\n        params.type = 6\r\n        self.AssetBundle.playLoopingEffect(1)\r\n    else\r\n        params.type = 0\r\n        self.AssetBundle.playLoopingEffect(0)\r\n    end\r\n    self.setCustomObject(params)\r\n    self.reload()\r\nend\r\n\r\nfunction onCollisionEnter()\r\n    if self.AssetBundle.getLoopingEffectIndex() == 1 then\r\n        self.reset()\r\n    end\r\nend",
       "LuaScriptState": "",
