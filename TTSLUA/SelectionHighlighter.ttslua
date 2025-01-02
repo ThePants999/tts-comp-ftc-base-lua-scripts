@@ -1,4 +1,4 @@
--- FTC-GUID: 27de4f
+-- FTC-GUID: 27de4f,84c3a4
 
 -- This script highlights objects in green when they are selected by a player.
 local selectedObjects = {}
@@ -35,36 +35,42 @@ end
 function checkSelections()
     local currentSelections = {}
 
+    -- Track all currently selected objects by all players
     for _, player in ipairs(Player.getPlayers()) do
         local selected = player.getSelectedObjects() or {}
         for _, obj in ipairs(selected) do
             local guid = obj.getGUID()
-            if obj.tag == "Figurine" or obj.tag == "Generic" or obj.tag == "Custom_Model" and not selectedObjects[guid] then
-                -- Store the object plus the color it was highlighted with (if any).
+            -- Ensure we're only highlighting specific object types
+            if (obj.tag == "Figurine" or obj.tag == "Generic" or obj.tag == "Custom_Model") and not selectedObjects[guid] then
+                -- Store the object and its original highlight color
                 selectedObjects[guid] = {
                     object = obj,
                     originalColor = obj.getHighlightColor() -- nil if un-highlighted
                 }
-                obj.highlightOn({0,1,0}) -- highlight in green
+                obj.highlightOn({0, 1, 0}) -- Highlight in green
             end
             currentSelections[guid] = true
         end
     end
 
-    -- For objects that are no longer selected, restore the original highlight color
+    -- Unhighlight objects that are no longer selected
     for guid, data in pairs(selectedObjects) do
         if not currentSelections[guid] then
-            if data.originalColor then
-                -- Re-highlight with the color it had before we turned it green
-                data.object.highlightOn(data.originalColor)
-            else
-                -- If it didn’t have a highlight color originally, remove highlight
-                data.object.highlightOff()
+            local obj = data.object
+            if obj then
+                if data.originalColor then
+                    -- Restore original highlight color if it existed
+                    obj.highlightOn(data.originalColor)
+                else
+                    -- Remove highlight if there was no original color
+                    obj.highlightOff()
+                end
             end
-            selectedObjects[guid] = nil
+            selectedObjects[guid] = nil -- Remove the object from the tracking list
         end
     end
 end
+
 
 function clearAllHighlights()
     for guid, data in pairs(selectedObjects) do

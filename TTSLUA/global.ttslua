@@ -16,12 +16,23 @@ redDiceMat_GUID = "c57d70"
 blueDiceMat_GUID = "a84ed2"
 redDiceRoller_GUID = "beae28"
 blueDiceRoller_GUID = "4e0e0b"
-redDiceCustomRoller_GUID = "acae21"
-blueDiceCustomRoller_GUID = "839fcc"
 redMissionManager_GUID = "cff35b"
 blueMissionManager_GUID = "471de1"
+
+-- Hutber IDs
 redControlBoard_GUID = "5a328f"
 blueControlBoard_GUID = "32ed4c"
+
+RedSelectionHighlighter = "27de4f"
+BlueSelectionHighlighter = "84c3a4"
+
+redDiceCustomRoller_GUID = "acae21"
+blueDiceCustomRoller_GUID = "839fcc"
+
+RedVortexGUID = "be2cdb"
+BlueVortexGUID = "4b1a7b"
+
+-- End Hutber IDS
 redVPCounter_GUID = "8b0541"
 blueVPCounter_GUID = "a77a54"
 redCPCounter_GUID = "e446f7"

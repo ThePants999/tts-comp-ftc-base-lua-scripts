@@ -477,7 +477,50 @@
         "scaleY": 1.3,
         "scaleZ": 1.3
       },
-    "Nickname": "Control Board",
+    "Nickname": "Red Control Board",
+    "Description": "",
+    "GMNotes": "",
+    "AltLookAngle": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "ColorDiffuse": {
+      "r": 1,
+      "g": 1,
+      "b": 1
+    },
+    "LayoutGroupSortIndex": 0,
+    "Value": 0,
+    "Locked": true,
+    "Grid": true,
+    "Snap": true,
+    "IgnoreFoW": false,
+    "MeasureMovement": false,
+    "DragSelectable": true,
+    "Autoraise": true,
+    "Sticky": true,
+    "Tooltip": true,
+    "GridProjection": false,
+    "HideWhenFaceDown": false,
+    "Hands": false,
+    "LuaScript": "",
+    "LuaScriptState": ""
+  },{
+    "GUID": "83ab2a",
+    "Name": "Custom_Model",
+      "Transform": {
+        "posX": 30.5117989,
+        "posY": 1.971135,
+        "posZ": -37.0085258,
+        "rotX": 0,
+        "rotY": 359.9916,
+        "rotZ": 0,
+        "scaleX": 1.3,
+        "scaleY": 1.3,
+        "scaleZ": 1.3
+      },
+    "Nickname": "Blue Control Board",
     "Description": "",
     "GMNotes": "",
     "AltLookAngle": {
@@ -3097,7 +3140,70 @@
         "scaleY": 1,
         "scaleZ": 1
       },
-      "Nickname": "",
+      "Nickname": "Red Selection Highlighter",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "ColorDiffuse": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": "",
+      "RotationValues": [
+        {
+          "Value": "Heads",
+          "Rotation": {
+            "x": 0,
+            "y": 90,
+            "z": 180
+          }
+        },
+        {
+          "Value": "Tails",
+          "Rotation": {
+            "x": 0,
+            "y": -90,
+            "z": 0
+          }
+        }
+      ]
+    },
+    {
+      "GUID": "84c3a4",
+      "Name": "Quarter",
+      "Transform": {
+        "posX": -5,
+        "posY": -5,
+        "posZ": -5,
+        "rotX": 0,
+        "rotY": 0,
+        "rotZ": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "scaleZ": 1
+      },
+      "Nickname": "Blue Selection Highligher",
       "Description": "",
       "GMNotes": "",
       "AltLookAngle": {
@@ -13837,14 +13943,14 @@
       "GUID": "48dcae",
       "Name": "Custom_Assetbundle",
       "Transform": {
-        "posX": -28.0,
-        "posY": 1.2,
-        "posZ": -37.0,
-        "rotX": -1.52453936E-06,
-        "rotY": 0.0,
-        "rotZ": 5.09243932E-07,
+        "posX": -31.0101719,
+        "posY": 1.14999032,
+        "posZ": -36.7212,
+        "rotX": 0.00010578223,
+        "rotY": 0.0488397852,
+        "rotZ": -0.0000149340549,
         "scaleX": 1.5,
-        "scaleY": 1.0,
+        "scaleY": 1,
         "scaleZ": 1.5
       },
       "Nickname": "Red dice cam",
@@ -24553,7 +24659,65 @@
         "scaleY": 0.7000003,
         "scaleZ": 0.7000003
       },
-      "Nickname": "Trash bin",
+      "Nickname": "Red Trash bin",
+      "Description": "Click to open or close.",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "ColorDiffuse": {
+        "r": 0.838235259,
+        "g": 0.838235259,
+        "b": 0.838235259
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": false,
+      "Snap": false,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "MaterialIndex": -1,
+      "MeshIndex": -1,
+      "Number": 0,
+      "CustomAssetbundle": {
+        "AssetbundleURL": "https://chry.me/tts/misc/new_blackhole_test.unity3d",
+        "AssetbundleSecondaryURL": "",
+        "MaterialIndex": 2,
+        "TypeIndex": 6,
+        "LoopingEffectIndex": 1
+      },
+      "Bag": {
+        "Order": 0
+      },
+      "LuaScript": "function onLoad()\r\n    self.createButton({\r\n        click_function=\"click_clopen\", function_owner=self,\r\n        position={0,0.5,0}, height=2000, width=2000, color={0,0,0,0}\r\n    })\r\n    params = {assetbundle=\"https://chry.me/tts/misc/new_blackhole_test.unity3d\",material=2}\r\nend\r\n\r\nfunction click_clopen()\r\n    if self.AssetBundle.getLoopingEffectIndex() == 0 then\r\n        params.type = 6\r\n        self.AssetBundle.playLoopingEffect(1)\r\n    else\r\n        params.type = 0\r\n        self.AssetBundle.playLoopingEffect(0)\r\n    end\r\n    self.setCustomObject(params)\r\n    self.reload()\r\nend\r\n\r\nfunction onCollisionEnter()\r\n    if self.AssetBundle.getLoopingEffectIndex() == 1 then\r\n        self.reset()\r\n    end\r\nend",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "4b1a7b",
+      "Name": "Custom_Assetbundle_Bag",
+      "Transform": {
+        "posX": -23.0578651,
+        "posY": 1.64517462,
+        "posZ": -37.0370865,
+        "rotX": 352.96,
+        "rotY": 224.594482,
+        "rotZ": 7.08659649,
+        "scaleX": 0.7000003,
+        "scaleY": 0.7000003,
+        "scaleZ": 0.7000003
+      },
+      "Nickname": "Blue Trash bin",
       "Description": "Click to open or close.",
       "GMNotes": "",
       "AltLookAngle": {
