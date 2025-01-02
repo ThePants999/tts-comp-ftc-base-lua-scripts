@@ -47,7 +47,7 @@ function onLoad()
             end
             local hiddenPosition = {
                 originalPositions[board.DiceRollerGUID][1],
-                originalPositions[board.DiceRollerGUID][2] - 40,
+                originalPositions[board.DiceRollerGUID][2] - 3,
                 originalPositions[board.DiceRollerGUID][3]
             }
             diceRoller.setPosition(hiddenPosition)
@@ -161,7 +161,7 @@ function toggleObjectState(objectGUID, state)
             -- Move out of sight & disable
             local newPosition = {
                 originalPositions[objectGUID][1],
-                originalPositions[objectGUID][2] - 40,
+                originalPositions[objectGUID][2] - 3,
                 originalPositions[objectGUID][3]
             }
             obj.setPosition(newPosition)

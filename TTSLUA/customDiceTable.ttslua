@@ -327,13 +327,24 @@ function SelectDeleteDiceX(action, n, selectOthers, lowUp, color)
 end
 
 function moveDiceToRoller(color, dice)
+    if not roller then
+        print("Roller is nil!")
+        return
+    end
+
     roller.call("setPlayerColor", {color=color})
 
     for _, die in ipairs(dice) do
-        roller.call("setLastHolder", {obj=die, color=color})
-        roller.putObject(die)
+        if die then
+            print("Moving die:", die)
+            roller.call("setLastHolder", {obj=die, color=color})
+            roller.putObject(die)
+        else
+            print("Invalid die!")
+        end
     end
 end
+
 
 function clearDiceAll(obj, color, alt)
     if not alt then printToColor("Use right click!", color, "Orange") return end

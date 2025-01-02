@@ -1700,8 +1700,7 @@ function writeDeployMenu()
 
     if gameMode == "game" then
         if not packSelected then
-            self.createButton(selectLeviathanBtn)
-            self.createButton(selectPariahNexusBtn)
+            selectPariahNexus()
         else
             self.createButton(missionHeaderBtn)
             self.createButton(randomiseMissionBtn)
