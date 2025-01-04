@@ -1,8 +1,8 @@
 {
   "SaveName": "FTC 40k Competitive 10e Map Base\n",
   "GameMode": "FTC 40k Competitive 10e Map Base\n",
-  "Date": "21/06/2024 11:00:00 AM",
-  "VersionNumber": "v2.61",
+  "Date": "04/01/2025 11:00:00 AM",
+  "VersionNumber": "v2.63",
   "GameType": "Game",
   "GameComplexity": "High Complexity",
   "PlayingTime": [
@@ -24266,7 +24266,7 @@
           "Type": 0
         },
         "257": {
-          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2448349581367133172/75726F9918C411B0F8B29FDBA9455CF43C676238/",
+          "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/60334653427516209/60E0CCA0E1E800F23451F79DF6F805F9BBE8BA39/",
           "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699590202/6E8F08A2EEB29D55344278DAFE346411739E973E/",
           "NumWidth": 1,
           "NumHeight": 1,
@@ -24659,7 +24659,7 @@
           "SidewaysCard": false,
           "CustomDeck": {
             "257": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2448349581367133172/75726F9918C411B0F8B29FDBA9455CF43C676238/",
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/60334653427516209/60E0CCA0E1E800F23451F79DF6F805F9BBE8BA39/",
               "BackURL": "http://cloud-3.steamusercontent.com/ugc/2047496435699590202/6E8F08A2EEB29D55344278DAFE346411739E973E/",
               "NumWidth": 1,
               "NumHeight": 1,
@@ -25681,7 +25681,7 @@
       ],
       "CustomDeck": {
         "283": {
-          "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2448349581367111894/3DDFB6A30D053F8DD39C680F4410D573EA204071/",
+          "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/60334653427526039/1DC35D370DAB175972E021C587B03F92FE2643A8/",
           "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
           "NumWidth": 1,
           "NumHeight": 1,
@@ -25805,7 +25805,7 @@
           "SidewaysCard": false,
           "CustomDeck": {
             "283": {
-              "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2448349581367111894/3DDFB6A30D053F8DD39C680F4410D573EA204071/",
+              "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/60334653427526039/1DC35D370DAB175972E021C587B03F92FE2643A8/",
               "BackURL": "http://cloud-3.steamusercontent.com/ugc/2023851528273908711/C00475F4DBF485583D03A537DDEB78222DA9E782/",
               "NumWidth": 1,
               "NumHeight": 1,

@@ -9,6 +9,12 @@ Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, 
 
 ## Update History:
 
+### v2.63
+
+* Updated the PDFs to the updated WarCom URLs. Sorry for the delay, and thanks to powens for the PR.
+* Updated the Linchpin and Storm Hostile Objective cards in line with the Pariah Nexus errata.
+* Removed some accidentally-left-in debugging prints!
+
 ### v2.62
 
 * Fixed the dice roller reporting the fifth-last roll instead of the last roll. (For good measure, also changed the last 5 rolls to number them 5-4-3-2-1 instead of 1-2-3-4-5!)
