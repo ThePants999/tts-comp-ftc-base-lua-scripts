@@ -1,5 +1,5 @@
 # Competitive FTC Base: LUA scripts
-Comp FTC Map Base LUA Scripts v2.61
+Comp FTC Map Base LUA Scripts v2.62
 
 The following files contain all the LUA scripts contained in the Competitive FTC Base Map for the TTS 40k community. If a file does not exist for an object within the TTS save, then that object does not contain any scripts.
 
@@ -8,6 +8,10 @@ This repo now contains the actual TTS JSON file. To produce the JSON file, run t
 Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and elements contained within it!
 
 ## Update History:
+
+### v2.62
+
+* Fixed the dice roller reporting the fifth-last roll instead of the last roll. (For good measure, also changed the last 5 rolls to number them 5-4-3-2-1 instead of 1-2-3-4-5!)
 
 ### v2.61
 

@@ -27,10 +27,15 @@ function printResults(n)
 		printToAll("NO LAST ROLLS\n", "Yellow")
 	else
 		printToAll("LAST ROLLS\n")
-	end
-	for i, result in ipairs(lastRolls) do
-		if i<= n then
-			printToAll("-- " .. i .. " --\n" .. result.msg, result.color)
+
+		-- This little bit of complexity ensures we present the LAST n from
+		-- _lastrolls_ and, if asked to present (say) the last 3 out of a table
+		-- of 6, number them 3-2-1 despite them being indexes 4-5-6!
+		n = math.min(n, #lastRolls)
+		first = #lastRolls - n + 1
+		for i = first, #lastRolls do
+			result = lastRolls[i]
+			printToAll("-- " .. #lastRolls - i + 1 .. " --\n" .. result.msg, result.color)
 		end
 	end
 end

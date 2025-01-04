@@ -56,6 +56,9 @@ function onLoad(saved_data)
         local loaded_data = JSON.decode(saved_data)
         selectedPack = loaded_data.svSelectedPack
         cardsDealt = loaded_data.svCardsDealt
+        if not cardsDealt then
+            cardsDealt = false
+        end
     end
 
     if self.getGUID() == Global.getVar("redMissionManager_GUID") then
@@ -93,6 +96,7 @@ function onLoad(saved_data)
 end
 
 function updateForSelectedPack()
+    print(playerColor .. " updateForSelectedPack()")
     missionPackData = Global.getTable("missionPackData")[selectedPack]
 
     if selectedPack == Global.getVar("MISSION_PACK_PARIAH_NEXUS") then
@@ -112,6 +116,7 @@ function updateForSelectedPack()
 end
 
 function packSelected(params)
+    print(playerColor .. " packSelected()")
     selectedPack = params.pack
     updateForSelectedPack()
 
@@ -125,16 +130,31 @@ function packSelected(params)
 end
 
 function onPlayerChangeColor(player_color)
+    print(playerColor .. " reporting player changed color: " .. player_color)
     if player_color == playerColor then
         -- Our player just sat down. Deal their cards if not already done.
         tryDealFixedSecondaries()
     end
 end
 
+function stringOrNil(str)
+    if str == false then
+        return "false"
+    elseif str == true then
+        return "true"
+    elseif not str then
+        return "nil"
+    else
+        return str
+    end
+end
+
 function tryDealFixedSecondaries()
     -- Only deal out the cards if our player is seated, we know what mission pack
     -- we're playing, and we haven't already dealt them.
+    print(stringOrNil(playerColor) .. " entering tryDealFixedSecondaries(). Seated: " .. stringOrNil(Player[playerColor].seated) .. "; selectedPack: " .. stringOrNil(selectedPack) .. "; cardsDealt: " .. stringOrNil(cardsDealt))
     if Player[playerColor].seated and selectedPack and not cardsDealt then
+        print("Dealing")
         fixedDeck = getObjectFromGUID(missionPackData.fixedSecondaryDeck_GUID)
         newFixedDeck = fixedDeck.clone({position = fixedDeck.getPosition()})
         newFixedDeck.deal(fixedDeck.getQuantity(), playerColor)
