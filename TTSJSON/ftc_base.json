@@ -23997,9 +23997,9 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomPDF": {
-        "PDFUrl": "https://www.warhammer-community.com/wp-content/uploads/2023/06/76CPCqo7msJIHqzx.pdf",
+        "PDFUrl": "https://assets.warhammer-community.com/warhammer40000_core&key_corerules_eng_24.09-5xfayxjekm.pdf",
         "PDFPassword": "",
-        "PDFPage": 3,
+        "PDFPage": 40,
         "PDFPageOffset": 3
       },
       "LuaScript": "",
@@ -24048,7 +24048,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomPDF": {
-        "PDFUrl": "https://www.warhammer-community.com/wp-content/uploads/2024/06/1U4CJSV1NJDmXnv2.pdf",
+        "PDFUrl": "https://assets.warhammer-community.com/warhammer40000_core&key_pariahnexustournamentcompanion_eng_16.10.pdf",
         "PDFPassword": "",
         "PDFPage": 0,
         "PDFPageOffset": 1
@@ -24153,9 +24153,9 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomPDF": {
-        "PDFUrl": "https://www.warhammer-community.com/wp-content/uploads/2023/06/htkssr6vgkoqDAJn.pdf",
+        "PDFUrl": "https://assets.warhammer-community.com/warhammer40000_combatpatrol_rules_eng.24.09-rbtns7zwbh.pdf",
         "PDFPassword": "",
-        "PDFPage": 0,
+        "PDFPage": 6,
         "PDFPageOffset": 0
       },
       "LuaScript": "",
