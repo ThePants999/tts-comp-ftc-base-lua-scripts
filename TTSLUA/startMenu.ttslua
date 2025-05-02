@@ -237,6 +237,64 @@ end
 -- ********************
 
 DeployZonesData = {
+    --Nachmund Gauntlet crusade missions table A
+    {name = "[NG] Strategic Strike", objectivesID = 201, draw = {
+        --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},
+        --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
+    {name = "[NG] Stranglehold", objectivesID = 202, draw = {
+        --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
+        --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
+        --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+    {name = "[NG] Supply Raid", objectivesID = 203, draw = {
+        --[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12},
+        --[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12}}},
+    {name = "[NG] Purge After Inload", objectivesID = 204, draw = {
+        --[[1]]{type = "triangle", color = "Red", position = "x"},
+        --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
+    {name = "[NG] Front-line Warfare", objectivesID = 205, draw = {
+        --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
+        --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
+        --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
+    {name = "[NG] Heralds of Vengeance", objectivesID = 206, draw = {
+        --[[1]]{type = "triangle", color = "Teal", position = "-z"},
+        --[[2]]{type = "triangle", color = "Red", position = "z"}}},
+
+    --Nachmund Gauntlet crusade missions table B
+    {name = "[NG] Final Stand", objectivesID = 207, draw = {
+        --[[1]]{type = "line", color = "Red", position = "z", fromCenter = 12},
+        --[[2]]{type = "stepped", color = "Teal", position = "-z", steps = {{fromSide = 0}, {fromCenter = 6}, {fromCenter = 6}, {fromCenter = 6}, {fromCenter = 6}, {fromCenter = 6}, {fromCenter = 6}, {fromCenter = 6}, {fromCenter = 6}, {fromSide = 0}}}}},
+    {name = "[NG] Saboteurs", objectivesID = 208, draw = {
+        --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},
+        --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 0}}},
+    {name = "[NG] Retrieval", objectivesID = 209, draw = {
+        --[[1]]{type = "line", color = "Red", position = "z", fromCenter = 0},
+        --[[2]]{type = "line", color = "Teal", position = "-z", fromCenter = 12}}},
+    -- {name = "[NG] Beachhead Offensive", objectivesID = 210, draw = {
+        -- [[1]]{type = "semicircle", color = "Red", position = "-z", fromSide = 18},
+        -- [[2]]{type = "semicircle", color = "Teal", position = "-z", fromSide = 22}}},
+    -- {name = "[NG] The Gauntlet", objectivesID = 211, draw = {
+        -- [[1]]{type = "pyramid", color = "Red", position = "x", fromCenter = 6},
+        -- [[2]]{type = "stepped", color = "Teal", position = "-x", {{fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = 20}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}, {fromCenter = -10}}},
+        -- [[3]]{type = "line", color = "White", position = "-x", fromCenter = 0},
+        -- [[4]]{type = "line", color = "White", position = "-x", fromCenter = 10}}},
+    {name = "[NG] Vital Stronghold", objectivesID = 212, draw = {
+        --[[1]]{type = "line", color = "Red", position = "z", fromCenter = 16},
+        --[[1]]{type = "line", color = "Red", position = "-z", fromCenter = 16},
+        --[[1]]{type = "line", color = "Teal", position = "z", fromCenter = 8},
+        --[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 8}}},
+
+    --Nachmund Gauntlet crusade missions onslaught
+    {name = "[NG] Opportune Moment", objectivesID = 213, draw = {
+        --[[1]]{type = "triangle", color = "Red", position = "z"},
+        --[[1]]{type = "triangle", color = "Teal", position = "-z"}}},
+    {name = "[NG] All-out War", objectivesID = 214, draw = {
+        --[[1]]{type = "line", color = "Red", position = "z", fromCenter = 12},
+        --[[2]]{type = "line", color = "Teal", position = "-z", fromCenter = 12}}},
+    {name = "[NG] At Any Price", objectivesID = 215, draw = {
+        --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},
+        --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12},
+        --[[3]]{type = "circle", color = "White", fromCenter = 12}}},
+
     --Pariah Nexus missions
     {name = "[PN] Hammer and Anvil", objectivesID = 101, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromSide = 18},
@@ -257,6 +315,7 @@ DeployZonesData = {
     {name = "[PN] Tipping Point", objectivesID = 106, draw = {
         --[[1]]{type = "stepped", color = "Teal", position = "-x", steps = {{fromSide = 12}, {fromSide = 20}}},
         --[[2]]{type = "stepped", color = "Red", position = "x", steps = {{fromSide = 20}, {fromSide = 12}}}}},
+
     --Pariah Nexus missions with Hidden Supplies
     {name = "[PN] Hammer and Anvil (HS)", objectivesID = 107, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromSide = 18},
@@ -277,6 +336,7 @@ DeployZonesData = {
     {name = "[PN] Tipping Point (HS)", objectivesID = 112, draw = {
         --[[1]]{type = "stepped", color = "Teal", position = "-x", steps = {{fromSide = 12}, {fromSide = 20}}},
         --[[2]]{type = "stepped", color = "Red", position = "x", steps = {{fromSide = 20}, {fromSide = 12}}}}},
+
     --Leviathan missions
     {name = "[L] Hammer and Anvil", objectivesID = 12, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},
@@ -294,6 +354,7 @@ DeployZonesData = {
     {name = "[L] Crucible of Battle", objectivesID = 16, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "x"},
         --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
+
     --Leviathan Missions with Hidden Supplies
     {name = "[L] Hammer and Anvil (HS)", objectivesID = 17, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
@@ -311,6 +372,7 @@ DeployZonesData = {
     {name = "[L] Crucible of Battle (HS)", objectivesID = 21, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "x"},
         --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
+
     --Combat Patrol Missions
     {name = "(CP) Clash of Patrols", objectivesID = 22, draw = {
         --[[1]]{type = "line", color = "Red", position = "-z", fromCenter = 10 },
@@ -330,6 +392,7 @@ DeployZonesData = {
     {name = "(CP) Display of Might", objectivesID = 27, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
         --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
+
     {name = "None", draw = {type = "none"}},
 }
 
@@ -1010,6 +1073,24 @@ end
 -- ******************
 
 objectivesData = {
+    --Nachmund Gauntlet crusade missions table A
+        {id = 201, name = "[NG] Strategic Strike", objectives = {}},
+        {id = 202, name = "[NG] Stranglehold", objectives = {}},
+        {id = 203, name = "[NG] Supply Raid", objectives = {}},
+        {id = 204, name = "[NG] Purge After Inload", objectives = {}},
+        {id = 205, name = "[NG] Front-line Warfare", objectives = {}},
+        {id = 206, name = "[NG] Heralds of Vengeance", objectives = {}},
+    --Nachmund Gauntlet crusade missions table B
+        {id = 207, name = "[NG] Final Stand", objectives = {}},
+        {id = 208, name = "[NG] Saboteurs", objectives = {}},
+        {id = 209, name = "[NG] Retrieval", objectives = {}},
+        {id = 210, name = "[NG] Beachhead Offensive", objectives = {}},
+        {id = 211, name = "[NG] The Gauntlet", objectives = {}},
+        {id = 212, name = "[NG] Vital Stronghold", objectives = {}},
+    --Nachmund Gauntlet crusade missions onslaught
+        {id = 213, name = "[NG] Opportune Moment", objectives = {}},
+        {id = 214, name = "[NG] All-out War", objectives = {}},
+        {id = 215, name = "[NG] At Any Price", objectives = {}},
     --Pariah Nexus missions
         {id = 101, name = "[PN] Hammer and Anvil", objectives = {
             {type = "fixed", pos={0, objectivesOffset, 0}},
