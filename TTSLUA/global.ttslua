@@ -57,35 +57,17 @@ secondary12CardZone_GUID = "d865d4"
 secondary21CardZone_GUID = "3c8d71"
 secondary22CardZone_GUID = "88cac4"
 
+deploymentDeck_GUID = "2dc2e8"
+missionDeck_GUID = "ffdf05"
+primaryDeck_GUID = "d26e9c"
+redSecondaryDeck_GUID = "c0fb49"
+blueSecondaryDeck_GUID = "e1da3b"
+
 CPMissionBook_GUID = "731ec4"
 
 --[[
 GUID reference for primary / mission / deployment cards
 Yeah, I could use variables but I didn't, oh well
-
-Leviathan:
-----------
-
-Sites of Power ec78cd
-Scorched Earth 3ad5a3
-Purge the Foe 5444d4
-Priority Targets f97708
-Deploy Servo-Skulls 44ff29
-Take and Hold 884291
-Supply Drop a34ae1
-The Ritual 646b49
-Vital Ground 6fc1c2
-
-Chilling Rain db0022
-Hidden Supplies 0dc3c3
-Scrambler Fields aea986
-Chosen Battlefield 876ac7
-
-Hammer and Anvil 117c77
-Dawn of War 7e4b95
-Sweeping Engagement 381d7c
-Search and Destroy ad4220
-Crucible of Battle 3c0679
 
 Pariah Nexus:
 -------------
@@ -120,9 +102,6 @@ Tipping Point 77cde6
 
 ]]--
 
-MISSION_PACK_LEVIATHAN = 1
-MISSION_PACK_PARIAH_NEXUS = 2
-packSelected = nil
 missionPackData = {
     {
         id = MISSION_PACK_LEVIATHAN,
@@ -230,15 +209,9 @@ redPlayerID = ""
 bluePlayerID = ""
 
 function onSave()
-    blueSecondaryDeckGUID = nil
-    if packSelected then
-        blueSecondaryDeckGUID = missionPackData[packSelected].blueSecondaryDeck_GUID
-    end
     saved_data = JSON.encode({
                                 svredPlayerID = redPlayerID,
-                                svbluePlayerID = bluePlayerID,
-                                svPackSelected = packSelected,
-                                svBlueSecondaryDeckGUID = blueSecondaryDeckGUID
+                                svbluePlayerID = bluePlayerID
                             })
     --saved_data = ""
     return saved_data
@@ -251,14 +224,9 @@ function onLoad(saved_data)
          local loaded_data = JSON.decode(saved_data)
          redPlayerID = loaded_data.svredPlayerID
          bluePlayerID = loaded_data.svbluePlayerID
-         packSelected = loaded_data.svPackSelected
-         if packSelected then
-            missionPackData[packSelected].blueSecondaryDeck_GUID = loaded_data.svBlueSecondaryDeckGUID
-         end
     else
         redPlayerID = ""
         bluePlayerID = ""
-        packSelected = nil
     end
     ---- end loading
     if allowMenu then
@@ -279,13 +247,6 @@ function onLoad(saved_data)
     else
         Global.UI.setAttribute("main", "active", "false")
     end
-end
-
-function setMissionPack(params)
-    packSelected = params.pack
-    redSecondaryDeck = getObjectFromGUID(missionPackData[packSelected].redSecondaryDeck_GUID)
-    blueSecondaryDeck = redSecondaryDeck.clone({position = redSecondaryDeck.getPosition()})
-    missionPackData[packSelected].blueSecondaryDeck_GUID = blueSecondaryDeck.getGUID()
 end
 
 function autoSeatPerson(_person)
@@ -504,7 +465,7 @@ end
 
 function moveAllFromZoneToDeck(params)
     local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
-    local deckObj = getObjectFromGUID(missionPackData[packSelected][params.deck .. "Deck_GUID"])
+    local deckObj = getObjectFromGUID(params.deck .. "Deck_GUID")
 
     local objects = zoneObj.getObjects()
     for _,object in ipairs(objects) do
@@ -517,7 +478,7 @@ end
 
 function moveOneFromDeckToZone(params)
     local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
-    local deckObj = getObjectFromGUID(missionPackData[packSelected][params.deck .. "Deck_GUID"])
+    local deckObj = getObjectFromGUID(params.deck .. "Deck_GUID")
     local takeParams = {}
     takeParams.position = zoneObj.getPosition()
     takeParams.flip = true

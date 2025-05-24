@@ -9,9 +9,6 @@
 menuX = 18
 menuZ = 1.05-1.05
 
-MISSION_PACK_LEVIATHAN = Global.getVar("MISSION_PACK_LEVIATHAN")
-MISSION_PACK_PARIAH_NEXUS = Global.getVar("MISSION_PACK_PARIAH_NEXUS")
-
 keepForTerrainEditor = true
 
 mat_GUID = Global.getVar("mat_GUID")
@@ -29,7 +26,6 @@ function onLoad(saved_data)
         mapSizeSelected = loaded_data.svmapSizeSelected
         sizeConfirmed = loaded_data.svsizeConfirmed
         deploySelected = loaded_data.svdeploySelected
-        packSelected = loaded_data.svPackSelected
     end
 
     mat = getObjectFromGUID(mat_GUID)
@@ -55,9 +51,6 @@ function onLoad(saved_data)
     else
         areaBtn.label = areaLblClosed
     end
-    if packSelected then
-        missionPackData = Global.getTable("missionPackData")[packSelected]
-    end
     gameTurnCounter.call("checkGameEnd")
     writeMenus()
     if not inGame then
@@ -73,8 +66,7 @@ function onSave()
         svcurrentPhase = currentPhase,
         svmapSizeSelected = mapSizeSelected,
         svsizeConfirmed = sizeConfirmed,
-        svdeploySelected = deploySelected,
-        svPackSelected = packSelected,
+        svdeploySelected = deploySelected
     })
 
     return saved_data
@@ -82,13 +74,8 @@ end
 
 function makeAnnouncement()
     local features={
-    "2.58: added alternative objective layouts for Hidden Supplies, auto un-hide locked-in secondaries, plus minor fixes",
-    "2.59: shuffle secondaries before drawing; remove tablet and datasheet bags",
-    "2.60: Pariah Nexus support; allow DZ/objective height control during game",
-    "2.61: Pariah Nexus day 1 card errata and tournament missions; fix pack selection before both players seated; Pariah Nexus reference sheet; Containment area lines",
-    "2.62: fixed 'last roll' showing you the fifth-last roll",
-    "2.63: update PDF URLs at last, and update Linchpin and Storm Hostile Objective cards, removed debug print statements (oops)",
-    "2.64: minor bug fixes"
+    "2.64: minor bug fixes",
+    "2.65: it's Chapter Approved time baybee"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -238,80 +225,45 @@ end
 -- ********************
 
 DeployZonesData = {
-    --Pariah Nexus missions
-    {name = "[PN] Hammer and Anvil", objectivesID = 101, draw = {
+    {name = "Hammer and Anvil", objectivesID = 101, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromSide = 18},
         --[[2]]{type = "line", color = "Teal", position = "-x", fromSide = 18}}},
-    {name = "[PN] Dawn of War", objectivesID = 102, draw = {
+    {name = "Dawn of War", objectivesID = 102, draw = {
         --[[1]]{type = "line", color = "Teal", position = "-z", fromSide = 12},
         --[[2]]{type = "line", color = "Red", position = "z", fromSide = 12}}},
-    {name = "[PN] Sweeping Engagement", objectivesID = 103, draw = {
+    {name = "Sweeping Engagement", objectivesID = 103, draw = {
         --[[1]]{type = "stepped", color = "Teal", position = "-z", steps = {{fromSide = 8}, {fromSide = 14}}},
         --[[2]]{type = "stepped", color = "Red", position = "z", steps = {{fromSide = 14}, {fromSide = 8}}}}},
-    {name = "[PN] Search and Destroy", objectivesID = 104, draw = {
+    {name = "Search and Destroy", objectivesID = 104, draw = {
         --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
         --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
         --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-    {name = "[PN] Crucible of Battle", objectivesID = 105, draw = {
+    {name = "Crucible of Battle", objectivesID = 105, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "x"},
         --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
-    {name = "[PN] Tipping Point", objectivesID = 106, draw = {
+    {name = "Tipping Point", objectivesID = 106, draw = {
         --[[1]]{type = "stepped", color = "Teal", position = "-x", steps = {{fromSide = 12}, {fromSide = 20}}},
         --[[2]]{type = "stepped", color = "Red", position = "x", steps = {{fromSide = 20}, {fromSide = 12}}}}},
-    --Pariah Nexus missions with Hidden Supplies
-    {name = "[PN] Hammer and Anvil (HS)", objectivesID = 107, draw = {
+    --Hidden Supplies variants
+    {name = "Hammer and Anvil (HS)", objectivesID = 107, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromSide = 18},
         --[[2]]{type = "line", color = "Teal", position = "-x", fromSide = 18}}},
-    {name = "[PN] Dawn of War (HS)", objectivesID = 108, draw = {
+    {name = "Dawn of War (HS)", objectivesID = 108, draw = {
         --[[1]]{type = "line", color = "Teal", position = "-z", fromSide = 12},
         --[[2]]{type = "line", color = "Red", position = "z", fromSide = 12}}},
-    {name = "[PN] Sweeping Engagement (HS)", objectivesID = 109, draw = {
+    {name = "Sweeping Engagement (HS)", objectivesID = 109, draw = {
         --[[1]]{type = "stepped", color = "Teal", position = "-z", steps = {{fromSide = 8}, {fromSide = 14}}},
         --[[2]]{type = "stepped", color = "Red", position = "z", steps = {{fromSide = 14}, {fromSide = 8}}}}},
-    {name = "[PN] Search and Destroy (HS)", objectivesID = 110, draw = {
+    {name = "Search and Destroy (HS)", objectivesID = 110, draw = {
         --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
         --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
         --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-    {name = "[PN] Crucible of Battle (HS)", objectivesID = 111, draw = {
+    {name = "Crucible of Battle (HS)", objectivesID = 111, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "x"},
         --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
-    {name = "[PN] Tipping Point (HS)", objectivesID = 112, draw = {
+    {name = "Tipping Point (HS)", objectivesID = 112, draw = {
         --[[1]]{type = "stepped", color = "Teal", position = "-x", steps = {{fromSide = 12}, {fromSide = 20}}},
         --[[2]]{type = "stepped", color = "Red", position = "x", steps = {{fromSide = 20}, {fromSide = 12}}}}},
-    --Leviathan missions
-    {name = "[L] Hammer and Anvil", objectivesID = 12, draw = {
-        --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12},
-        --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
-    {name = "[L] Dawn of War", objectivesID = 13, draw = {
-        --[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12},
-        --[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12}}},
-    {name = "[L] Sweeping Engagement", objectivesID = 14, draw = {
-        --[[1]]{type = "triangle", color = "Red", position = "z"},
-        --[[2]]{type = "triangle", color = "Teal", position = "-z"}}},
-    {name = "[L] Search and Destroy", objectivesID = 15, draw = {
-        --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
-        --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
-        --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-    {name = "[L] Crucible of Battle", objectivesID = 16, draw = {
-        --[[1]]{type = "triangle", color = "Red", position = "x"},
-        --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
-    --Leviathan Missions with Hidden Supplies
-    {name = "[L] Hammer and Anvil (HS)", objectivesID = 17, draw = {
-        --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
-        --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
-    {name = "[L] Dawn of War (HS)", objectivesID = 18, draw = {
-        --[[1]]{type = "line", color = "Teal", position = "-z", fromCenter = 12 },
-        --[[2]]{type = "line", color = "Red", position = "z", fromCenter = 12}}},
-    {name = "[L] Sweeping Engagement (HS)", objectivesID = 19, draw = {
-        --[[1]]{type = "triangle", color = "Red", position = "z"},
-        --[[2]]{type = "triangle", color = "Teal", position = "-z"}}},
-    {name = "[L] Search and Destroy (HS)", objectivesID = 20, draw = {
-        --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
-        --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
-        --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-    {name = "[L] Crucible of Battle (HS)", objectivesID = 21, draw = {
-        --[[1]]{type = "triangle", color = "Red", position = "x"},
-        --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
     --Combat Patrol Missions
     {name = "(CP) Clash of Patrols", objectivesID = 22, draw = {
         --[[1]]{type = "line", color = "Red", position = "-z", fromCenter = 10 },
@@ -1011,153 +963,85 @@ end
 -- ******************
 
 objectivesData = {
-    --Pariah Nexus missions
-        {id = 101, name = "[PN] Hammer and Anvil", objectives = {
+        {id = 101, name = "Hammer and Anvil", objectives = {
             {type = "fixed", pos={0, objectivesOffset, 0}},
             {type = "fromSide", pos={10, objectivesOffset, 0}},
             {type = "fromSide", pos={-10, objectivesOffset, 0}},
             {type = "fromSide", pos={0, objectivesOffset, 6}},
             {type = "fromSide", pos={0, objectivesOffset, -6}}}},
-        {id = 102, name = "[PN] Dawn of War", objectives = {
+        {id = 102, name = "Dawn of War", objectives = {
             {type = "fixed", pos={0, objectivesOffset, 0}},
             {type = "fromSide", pos={10, objectivesOffset, 0}},
             {type = "fromSide", pos={-10, objectivesOffset, 0}},
             {type = "fromSide", pos={0, objectivesOffset, 6}},
             {type = "fromSide", pos={0, objectivesOffset, -6}}}},
-        {id = 103, name = "[PN] Sweeping Engagement", objectives = {
+        {id = 103, name = "Sweeping Engagement", objectives = {
             {type = "fixed", pos={0, objectivesOffset, 0}},
             {type = "fromSide", pos={18, objectivesOffset, 6}},
             {type = "fromSide", pos={-18, objectivesOffset, -6}},
             {type = "fromSide", pos={10, objectivesOffset, -18}},
             {type = "fromSide", pos={-10, objectivesOffset, 18}}}},
-        {id = 104, name = "[PN] Search and Destroy", objectives = {
+        {id = 104, name = "Search and Destroy", objectives = {
             {type = "fixed", pos={0, objectivesOffset, 0}},
             {type = "fromSide", pos={14, objectivesOffset, 10}},
             {type = "fromSide", pos={-14, objectivesOffset, -10}},
             {type = "fromSide", pos={14, objectivesOffset, -10}},
             {type = "fromSide", pos={-14, objectivesOffset, 10}}}},
-        {id = 105, name = "[PN] Crucible of Battle", objectives = {
+        {id = 105, name = "Crucible of Battle", objectives = {
             {type = "fixed", pos={0, objectivesOffset, 0}},
             {type = "fromSide", pos={14, objectivesOffset, 10}},
             {type = "fromSide", pos={-14, objectivesOffset, -10}},
             {type = "fromSide", pos={20, objectivesOffset, -8}},
             {type = "fromSide", pos={-20, objectivesOffset, 8}}}},
-        {id = 106, name = "[PN] Tipping Point", objectives = {
+        {id = 106, name = "Tipping Point", objectives = {
             {type = "fixed", pos={0, objectivesOffset, 0}},
             {type = "fromSide", pos={14, objectivesOffset, 10}},
             {type = "fromSide", pos={-14, objectivesOffset, -10}},
             {type = "fromSide", pos={22, objectivesOffset, -8}},
             {type = "fromSide", pos={-22, objectivesOffset, 8}}}},
-    --Pariah Nexus missions with Hidden Supplies
-        {id = 107, name = "[PN] Hammer and Anvil (HS)", objectives = {
+    --Hidden Supplies variants
+        {id = 107, name = "Hammer and Anvil (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={10, objectivesOffset, 0}},
             {type = "fromSide", pos={-10, objectivesOffset, 0}},
             {type = "fromSide", pos={0, objectivesOffset, 6}},
             {type = "fromSide", pos={0, objectivesOffset, -6}}}},
-        {id = 108, name = "[PN] Dawn of War (HS)", objectives = {
+        {id = 108, name = "Dawn of War (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={10, objectivesOffset, 0}},
             {type = "fromSide", pos={-10, objectivesOffset, 0}},
             {type = "fromSide", pos={0, objectivesOffset, 6}},
             {type = "fromSide", pos={0, objectivesOffset, -6}}}},
-        {id = 109, name = "[PN] Sweeping Engagement (HS)", objectives = {
+        {id = 109, name = "Sweeping Engagement (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={18, objectivesOffset, 6}},
             {type = "fromSide", pos={-18, objectivesOffset, -6}},
             {type = "fromSide", pos={10, objectivesOffset, -18}},
             {type = "fromSide", pos={-10, objectivesOffset, 18}}}},
-        {id = 110, name = "[PN] Search and Destroy (HS)", objectives = {
+        {id = 110, name = "Search and Destroy (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={14, objectivesOffset, 10}},
             {type = "fromSide", pos={-14, objectivesOffset, -10}},
             {type = "fromSide", pos={14, objectivesOffset, -10}},
             {type = "fromSide", pos={-14, objectivesOffset, 10}}}},
-        {id = 111, name = "[PN] Crucible of Battle (HS)", objectives = {
+        {id = 111, name = "Crucible of Battle (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={14, objectivesOffset, 10}},
             {type = "fromSide", pos={-14, objectivesOffset, -10}},
             {type = "fromSide", pos={20, objectivesOffset, -8}},
             {type = "fromSide", pos={-20, objectivesOffset, 8}}}},
-        {id = 112, name = "[PN] Tipping Point (HS)", objectives = {
+        {id = 112, name = "Tipping Point (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={14, objectivesOffset, 10}},
             {type = "fromSide", pos={-14, objectivesOffset, -10}},
             {type = "fromSide", pos={22, objectivesOffset, -8}},
             {type = "fromSide", pos={-22, objectivesOffset, 8}}}},
-    --Leviathan missions
-        {id = 12, name = "[L] Hammer and Anvil", objectives = {
-            {type = "fixed", pos={0, objectivesOffset, 0}},
-            {type = "fixed", pos={20, objectivesOffset, 0}},
-            {type = "fixed", pos={-20, objectivesOffset, 0}},
-            {type = "fixed", pos={0, objectivesOffset, 16}},
-            {type = "fixed", pos={0, objectivesOffset, -16}}}},
-        {id = 13, name = "[L] Dawn of War", objectives = {
-            {type = "fixed", pos={0, objectivesOffset, 0}},
-            {type = "fixed", pos={20, objectivesOffset, 0}},
-            {type = "fixed", pos={-20, objectivesOffset, 0}},
-            {type = "fixed", pos={0, objectivesOffset, 16}},
-            {type = "fixed", pos={0, objectivesOffset, -16}}}},
-        {id = 14, name = "[L] Sweeping Engagement", objectives = {
-            {type = "fixed", pos={0, objectivesOffset, 0}},
-            {type = "fixed", pos={12, objectivesOffset, 16}},
-            {type = "fixed", pos={20, objectivesOffset, -8}},
-            {type = "fixed", pos={-12, objectivesOffset, -16}},
-            {type = "fixed", pos={-20, objectivesOffset, 8}}}},
-        {id = 15, name = "[L] Search and Destroy", objectives = {
-            {type = "fixed", pos={0, objectivesOffset, 0}},
-            {type = "fixed", pos={16, objectivesOffset, 12}},
-            {type = "fixed", pos={16, objectivesOffset, -12}},
-            {type = "fixed", pos={-16, objectivesOffset, 12}},
-            {type = "fixed", pos={-16, objectivesOffset, -12}}}},
-        {id = 16, name = "[L] Crucible of Battle", objectives = {
-            {type = "fixed", pos={0, objectivesOffset, 0}},
-            {type = "fixed", pos={10, objectivesOffset, -14}},
-            {type = "fixed", pos={16, objectivesOffset, 12}},
-            {type = "fixed", pos={-10, objectivesOffset, 14}},
-            {type = "fixed", pos={-16, objectivesOffset, -12}}}},
-    --Leviathan Missions with Hidden Supplies
-        {id = 17, name = "[L] Hammer and Anvil (HS)", objectives = {
-            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-            {type = "fixed", pos={20, objectivesOffset, 0}},
-            {type = "fixed", pos={-20, objectivesOffset, 0}},
-            {type = "fixed", pos={0, objectivesOffset, 16}},
-            {type = "fixed", pos={0, objectivesOffset, -16}}}},
-        {id = 18, name = "[L] Dawn of War (HS)", objectives = {
-            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-            {type = "fixed", pos={20, objectivesOffset, 0}},
-            {type = "fixed", pos={-20, objectivesOffset, 0}},
-            {type = "fixed", pos={0, objectivesOffset, 16}},
-            {type = "fixed", pos={0, objectivesOffset, -16}}}},
-        {id = 19, name = "[L] Sweeping Engagement (HS)", objectives = {
-            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-            {type = "fixed", pos={12, objectivesOffset, 16}},
-            {type = "fixed", pos={20, objectivesOffset, -8}},
-            {type = "fixed", pos={-12, objectivesOffset, -16}},
-            {type = "fixed", pos={-20, objectivesOffset, 8}}}},
-        {id = 20, name = "[L] Search and Destroy (HS)", objectives = {
-            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-            {type = "fixed", pos={16, objectivesOffset, 12}},
-            {type = "fixed", pos={16, objectivesOffset, -12}},
-            {type = "fixed", pos={-16, objectivesOffset, 12}},
-            {type = "fixed", pos={-16, objectivesOffset, -12}}}},
-        {id = 21, name = "[L] Crucible of Battle (HS)", objectives = {
-            {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
-            {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
-            {type = "fixed", pos={10, objectivesOffset, -14}},
-            {type = "fixed", pos={16, objectivesOffset, 12}},
-            {type = "fixed", pos={-10, objectivesOffset, 14}},
-            {type = "fixed", pos={-16, objectivesOffset, -12}}}},
     --Combat Patrol Missions
         {id = 22, name = "(CP) Clash of Patrols", objectives = {
             {type = "fixed", pos={10, objectivesOffset, 0}},
@@ -1346,37 +1230,10 @@ end
 
 -- Why is there a mission manager here, but there's also a file "missionManager.ttslua"? They do indeed
 -- have similar roles; the code here handles the parts that are single-instance, while the other file
--- handles the parts that are per-player. So, for example, when "Play Leviathan" is clicked, the code
--- here fetches the deployment/primary/mission cards, while the per-player mission managers fetch the
--- secondary cards.
+-- handles the parts that are per-player.
 
-packSelected = nil
-missionPackData = nil
-
-selectLeviathanBtn = {
-    label = "Play\nLeviathan",
-    click_function = "selectLeviathan",
-    function_owner = self,
-    position = {-2, 5, -16.5},
-    rotation = {0, 0, 0},
-    height = 700,
-    width = 1500,
-    font_size = 200,
-    color = {1, 1, 1},
-    font_color = {0, 0, 0},
-}
-selectPariahNexusBtn = {
-    label = "Play\nPariah Nexus",
-    click_function = "selectPariahNexus",
-    function_owner = self,
-    position = {2, 5, -16.5},
-    rotation = {0, 0, 0},
-    height = 700,
-    width = 1500,
-    font_size = 200,
-    color = {1, 1, 1},
-    font_color = {0, 0, 0},
-}
+--[[
+Temporarily disable mission selection until the tournament companion is published.
 
 selectedMission = 0
 canChangeMission = true
@@ -1453,49 +1310,6 @@ missionSelectionDispBtn = {
     font_color = {0, 0, 0}
 }
 
-function selectLeviathan()
-    selectMissionPack(MISSION_PACK_LEVIATHAN)
-end
-
-function selectPariahNexus()
-    selectMissionPack(MISSION_PACK_PARIAH_NEXUS)
-end
-
-function selectMissionPack(packIndex)
-    packSelected = packIndex
-    Global.call("setMissionPack", {pack = packSelected})
-
-    redMissionManager = getObjectFromGUID(Global.getVar("redMissionManager_GUID"))
-    redMissionManager.call("packSelected", {pack = packSelected})
-    blueMissionManager = getObjectFromGUID(Global.getVar("blueMissionManager_GUID"))
-    blueMissionManager.call("packSelected", {pack = packSelected})
-
-    missionPackData = Global.getTable("missionPackData")[packSelected]
-    deploymentDeck = getObjectFromGUID(missionPackData.deploymentDeck_GUID)
-    missionDeck = getObjectFromGUID(missionPackData.missionDeck_GUID)
-    primaryDeck = getObjectFromGUID(missionPackData.primaryDeck_GUID)
-    gambitDeck = getObjectFromGUID(missionPackData.gambitDeck_GUID)
-
-    deploymentDeck.setPosition({85, 0.94, 11})
-    deploymentDeck.locked = false
-    deploymentDeck.tooltip = true
-    deploymentDeck.interactable = true
-    missionDeck.setPosition({85, 0.94, 8.3})
-    missionDeck.locked = false
-    missionDeck.tooltip = true
-    missionDeck.interactable = true
-    primaryDeck.setPosition({85, 0.94, 5.6})
-    primaryDeck.locked = false
-    primaryDeck.tooltip = true
-    primaryDeck.interactable = true
-    gambitDeck.setPosition({85, 0.94, 2.9})
-    gambitDeck.locked = false
-    gambitDeck.tooltip = true
-    gambitDeck.interactable = true
-
-    writeMenus()
-end
-
 function missionSelectionDown()
     if canChangeMission then
         selectedMission = selectedMission - 1
@@ -1548,6 +1362,7 @@ function updateMission()
 
     Wait.time(function() canChangeMission = true end, 0.3)
 end
+--]]
 
 -- END MISSION MANAGER
 
@@ -1702,17 +1517,12 @@ function writeDeployMenu()
     self.createButton(containmentBtn)
 
     if gameMode == "game" then
-        if not packSelected then
-            self.createButton(selectLeviathanBtn)
-            self.createButton(selectPariahNexusBtn)
-        else
-            self.createButton(missionHeaderBtn)
-            self.createButton(randomiseMissionBtn)
-            self.createButton(randomTournamentMissionBtn)
-            self.createButton(missionSelectionDownBtn)
-            self.createButton(missionSelectionUpBtn)
-            self.createButton(missionSelectionDispBtn)
-        end
+        self.createButton(missionHeaderBtn)
+        self.createButton(randomiseMissionBtn)
+        self.createButton(randomTournamentMissionBtn)
+        self.createButton(missionSelectionDownBtn)
+        self.createButton(missionSelectionUpBtn)
+        self.createButton(missionSelectionDispBtn)
     end
 end
 
