@@ -1,8 +1,8 @@
 {
   "SaveName": "FTC 40k Competitive 10e Map Base\n",
   "GameMode": "FTC 40k Competitive 10e Map Base\n",
-  "Date": "04/01/2025 11:00:00 AM",
-  "VersionNumber": "v2.63",
+  "Date": "24/05/2025 11:00:00 AM",
+  "VersionNumber": "v2.64",
   "GameType": "Game",
   "GameComplexity": "High Complexity",
   "PlayingTime": [
@@ -8334,7 +8334,7 @@
             "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1325697898864591320/E2A37E7DD83E0090790DA54884B76964144EC0E8/",
             "DiffuseURL": "",
             "NormalURL": "",
-            "ColliderURL": "http://pastebin.com/raw.php?i=ahfaXzUd",
+            "ColliderURL": "https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/raw/refs/heads/main/graphics/objectivecylindercollider.rawm",
             "Convex": true,
             "MaterialIndex": 1,
             "TypeIndex": 0,
@@ -8618,7 +8618,7 @@
             "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1325697898864591320/E2A37E7DD83E0090790DA54884B76964144EC0E8/",
             "DiffuseURL": "",
             "NormalURL": "",
-            "ColliderURL": "http://pastebin.com/raw.php?i=ahfaXzUd",
+            "ColliderURL": "https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/raw/refs/heads/main/graphics/objectivecylindercollider.rawm",
             "Convex": true,
             "MaterialIndex": 1,
             "TypeIndex": 0,
@@ -8915,7 +8915,7 @@
             "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1325697898864591320/E2A37E7DD83E0090790DA54884B76964144EC0E8/",
             "DiffuseURL": "",
             "NormalURL": "",
-            "ColliderURL": "http://pastebin.com/raw.php?i=ahfaXzUd",
+            "ColliderURL": "https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/raw/refs/heads/main/graphics/objectivecylindercollider.rawm",
             "Convex": true,
             "MaterialIndex": 1,
             "TypeIndex": 0,
@@ -8986,7 +8986,7 @@
             },
             "CastShadows": true
           },
-          "LuaScript": "-- FTC-GUID: 573333,764a2e,6d45cf,33e32b,f32864,a91751\r\nkeepForTerrainEditor = true\r\n",
+          "LuaScript": "",
           "LuaScriptState": "",
           "XmlUI": ""
         },
@@ -9212,7 +9212,7 @@
             "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1325697898864591320/E2A37E7DD83E0090790DA54884B76964144EC0E8/",
             "DiffuseURL": "",
             "NormalURL": "",
-            "ColliderURL": "http://pastebin.com/raw.php?i=ahfaXzUd",
+            "ColliderURL": "https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/raw/refs/heads/main/graphics/objectivecylindercollider.rawm",
             "Convex": true,
             "MaterialIndex": 1,
             "TypeIndex": 0,
@@ -9283,7 +9283,7 @@
             },
             "CastShadows": true
           },
-          "LuaScript": "-- FTC-GUID: 573333,764a2e,6d45cf,33e32b,f32864,a91751\r\nkeepForTerrainEditor = true\r\n",
+          "LuaScript": "",
           "LuaScriptState": "",
           "XmlUI": ""
         },
@@ -9509,7 +9509,7 @@
             "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1325697898864591320/E2A37E7DD83E0090790DA54884B76964144EC0E8/",
             "DiffuseURL": "",
             "NormalURL": "",
-            "ColliderURL": "http://pastebin.com/raw.php?i=ahfaXzUd",
+            "ColliderURL": "https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/raw/refs/heads/main/graphics/objectivecylindercollider.rawm",
             "Convex": true,
             "MaterialIndex": 1,
             "TypeIndex": 0,
@@ -9580,7 +9580,7 @@
             },
             "CastShadows": true
           },
-          "LuaScript": "-- FTC-GUID: 573333,764a2e,6d45cf,33e32b,f32864,a91751\r\nkeepForTerrainEditor = true\r\n",
+          "LuaScript": "",
           "LuaScriptState": "",
           "XmlUI": ""
         },
@@ -9806,7 +9806,7 @@
             "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1325697898864591320/E2A37E7DD83E0090790DA54884B76964144EC0E8/",
             "DiffuseURL": "",
             "NormalURL": "",
-            "ColliderURL": "http://pastebin.com/raw.php?i=ahfaXzUd",
+            "ColliderURL": "https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/raw/refs/heads/main/graphics/objectivecylindercollider.rawm",
             "Convex": true,
             "MaterialIndex": 1,
             "TypeIndex": 0,
@@ -9877,7 +9877,7 @@
             },
             "CastShadows": true
           },
-          "LuaScript": "-- FTC-GUID: 573333,764a2e,6d45cf,33e32b,f32864,a91751\r\nkeepForTerrainEditor = true\r\n",
+          "LuaScript": "",
           "LuaScriptState": "",
           "XmlUI": ""
         },
@@ -10103,7 +10103,7 @@
             "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1325697898864591320/E2A37E7DD83E0090790DA54884B76964144EC0E8/",
             "DiffuseURL": "",
             "NormalURL": "",
-            "ColliderURL": "http://pastebin.com/raw.php?i=ahfaXzUd",
+            "ColliderURL": "https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/raw/refs/heads/main/graphics/objectivecylindercollider.rawm",
             "Convex": true,
             "MaterialIndex": 1,
             "TypeIndex": 0,
@@ -10174,7 +10174,7 @@
             },
             "CastShadows": true
           },
-          "LuaScript": "-- FTC-GUID: 573333,764a2e,6d45cf,33e32b,f32864,a91751\r\nkeepForTerrainEditor = true\r\n",
+          "LuaScript": "",
           "LuaScriptState": "",
           "XmlUI": ""
         },
@@ -24913,7 +24913,7 @@
         26700,
         26600,
         26500,
-        27400,
+        27400
       ],
       "CustomDeck": {
         "273": {
