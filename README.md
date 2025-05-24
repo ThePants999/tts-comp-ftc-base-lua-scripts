@@ -1,13 +1,17 @@
 # Competitive FTC Base: LUA scripts
-Comp FTC Map Base LUA Scripts v2.62
+Comp FTC Map Base LUA Scripts v2.64
 
 The following files contain all the LUA scripts contained in the Competitive FTC Base Map for the TTS 40k community. If a file does not exist for an object within the TTS save, then that object does not contain any scripts.
 
 This repo now contains the actual TTS JSON file. To produce the JSON file, run the compile.ps1 script.
 
-Credit and thanks to Trashpanda, GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and elements contained within it!
+Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and to Trashpanda, Rob Mayer, Gizmo, MoonkeyMod, Liyarin, Josie, FChippendale, Tyrone and MariusEvander for contributions to it / elements contained within it!
 
 ## Update History:
+
+### v2.64
+
+* Minor bugfix - handled missing objective cylinder collider.
 
 ### v2.63
 
