@@ -13,6 +13,7 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 
 * Chapter Approved 2025 is here - and with it, we bid a fond farewell to Leviathan / Pariah Nexus, now removed from the code.
 * Restore "action in progress" markers
+* Show/hide zone buttons updated to the set needed for CA25
 
 ### v2.64
 

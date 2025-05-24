@@ -1433,20 +1433,12 @@ areaBtn = {
     position = {menuX - 3, 5, menuZ }, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
-engagePlaced = false
-engageLblOpen = "Hide\nLeviathan\nEngage"
-engageLblClosed = "Show\nLeviathan\nEngage"
-engageBtn = {
-    label = engageLblClosed, click_function = "showHideEngage", function_owner = self,
-    position = {menuX + 3, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
 stratreservesPlaced = false
 stratreservesLblOpen = "Hide\nStrat Reserves"
 stratreservesLblClosed = "Show\nStrat Reserves"
 stratreservesBtn = {
     label = stratreservesLblClosed, click_function = "showHideStratreserves", function_owner = self,
-    position = {menuX + 9, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = {menuX + 3, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 deploymentIngamePlaced = false
@@ -1454,23 +1446,15 @@ deployIngameLblOpen = "Hide\ndeployment\nzones"
 deployIngameLblClosed = "Show\ndeployment\nzones"
 deployIngameBtn = {
     index = 1, label = deployIngameLblClosed, click_function = "showHideIngameDeployment", function_owner = self,
-    position = {menuX + 27, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
-    font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
-}
-investigatePlaced = false
-investigateLblOpen = "Hide\nInvestigate Signals"
-investigateLblClosed = "Show\nInvestigate Signals"
-investigateBtn = {
-    label = investigateLblClosed, click_function = "showHideInvestigateSignals", function_owner = self,
     position = {menuX + 15, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 containmentPlaced = false
-containmentLblOpen = "Hide\nContainment"
-containmentLblClosed = "Show\nContainment"
+containmentLblOpen = "Hide\nExtraction\nZone"
+containmentLblClosed = "Show\nExtraction\nZone"
 containmentBtn = {
     label = containmentLblClosed, click_function = "showHideContainment", function_owner = self,
-    position = {menuX + 21, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
+    position = {menuX + 9, 5, menuZ}, rotation = {0, 0, 0}, height = 1500, width = 2600,
     font_size = 300, color = {1, 1, 1}, font_color = {0, 0, 0}
 }
 position = {menuX, 5, menuZ}
@@ -1512,9 +1496,7 @@ function writeDeployMenu()
 
     self.createButton(areaBtn)
     self.createButton(quartersBtn)
-    self.createButton(engageBtn)
     self.createButton(stratreservesBtn)
-    self.createButton(investigateBtn)
     self.createButton(containmentBtn)
 
     if gameMode == "game" then
@@ -1529,10 +1511,8 @@ end
 
 function writeIngameMenu()
     self.createButton(areaBtn)
-    self.createButton(engageBtn)
     self.createButton(quartersBtn)
     self.createButton(stratreservesBtn)
-    self.createButton(investigateBtn)
     self.createButton(containmentBtn)
     self.createButton(deployIngameBtn)
     self.createButton(IncrementRedCpBtn)
@@ -1750,45 +1730,6 @@ function showHideAreaDeny()
     writeMenus()
 end
 
-function showHideEngage()
-    if not engagePlaced then
-        engageBtn.label = engageLblOpen
-
-        local mat = getObjectFromGUID(mat_GUID)
-        local lineScale = {x = 0, y = deployLineHeight, z = 0.02}
-        local mapBase = mat.getScale().z * sizeMulti -- short edge
-        local mapHeight = mat.getScale().x * sizeMulti -- long edge
-
-        -- Engage lines
-        xLength = (mapHeight / 2) - 3
-        zLength = (mapBase / 2) - 3
-        lineScale.x = xLength
-        --(linePos, lineRot, lineScale, color, orientation, type)
-        spawnLine({(xLength / 2) + 3, deployLineHeight, -3}, {0, 0, 0}, lineScale, "White", "engage")
-        spawnLine({(xLength / 2) + 3, deployLineHeight, 3}, {0, 0, 0}, lineScale, "White", "engage")
-        spawnLine({((xLength / 2) * -1) - 3, deployLineHeight, -3}, {0, 0, 0}, lineScale, "White", "engage")
-        spawnLine({((xLength / 2) * -1) - 3, deployLineHeight, 3}, {0, 0, 0}, lineScale, "White", "engage")
-        lineScale.x = zLength
-        spawnLine({-3, deployLineHeight, (zLength / 2) + 3}, {0, 90, 0}, lineScale, "White", "engage")
-        spawnLine({3, deployLineHeight, (zLength / 2) + 3}, {0, 90, 0}, lineScale, "White", "engage")
-        spawnLine({-3, deployLineHeight, (((zLength / 2) * -1) - 3)}, {0, 90, 0}, lineScale, "White", "engage")
-        spawnLine({3, deployLineHeight, (((zLength / 2) * -1) - 3)}, {0, 90, 0}, lineScale, "White", "engage")
-
-        engagePlaced = true
-    else
-        engageBtn.label = engageLblClosed
-
-        for i, obj in ipairs(getAllObjects()) do
-            if obj.getGMNotes() == "engage" then
-                obj.destroy()
-            end
-        end
-        engagePlaced = false
-    end
-
-    writeMenus()
-end
-
 function showHideQuarters()
     if quartersPlaced == false then -- place
         quartersBtn.label = quartersLblOpen
@@ -1869,25 +1810,6 @@ function showHideStratreserves()
             end
         end
         stratreservesPlaced = false
-    end
-
-    writeMenus()
-end
-
-function showHideInvestigateSignals()
-    if not investigatePlaced then
-        investigateBtn.label = investigateLblOpen
-        drawCornerQuarterCircles(9, "investigate")
-        investigatePlaced = true
-    else
-        investigateBtn.label = investigateLblClosed
-
-        for i, obj in ipairs(getAllObjects()) do
-            if obj.getGMNotes() == "investigate" then
-                obj.destroy()
-            end
-        end
-        investigatePlaced = false
     end
 
     writeMenus()
