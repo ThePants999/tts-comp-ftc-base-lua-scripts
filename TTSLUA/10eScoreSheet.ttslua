@@ -9,8 +9,10 @@ secondary11ZoneObj = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID")
 secondary12ZoneObj = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
 secondary21ZoneObj = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
 secondary22ZoneObj = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
+challengerZoneObj = getObjectFromGUID(Global.getVar("challengerCardZone_GUID"))
 redDiscardPosition = { x = 79.25, y = 1.5, z = 8.05 }
 blueDiscardPosition = { x = 79.25, y = 1.5, z = -8.05 }
+challengerDiscardPosition = { x = 79.0, y = 1.5, z = -2.0 }
 redUsingFixed = false
 blueUsingFixed = false
 
@@ -23,6 +25,8 @@ scoresheetActive = true
 -- Button indexes
 BTN_IX_DRAW_1 = 4
 BTN_IX_DRAW_2 = 5
+BTN_IX_CHL_DRAW = 6
+BTN_IX_CHL_DISCARD = 7
 BTN_IX_DISCARD_1_1 = nil
 BTN_IX_RECYCLE_1_1 = nil
 BTN_IX_DISCARD_1_2 = nil
@@ -33,9 +37,10 @@ BTN_IX_DISCARD_2_2 = nil
 BTN_IX_RECYCLE_2_2 = nil
 
 -- Button k-indexes
-BTN_K_IX_SECONDARY_1 = 1
-BTN_K_IX_SECONDARY_2 = 2
-BTN_K_IX_PRIMARY = 3
+BTN_K_IX_CHALLENGER = 1
+BTN_K_IX_SECONDARY_1 = 2
+BTN_K_IX_SECONDARY_2 = 3
+BTN_K_IX_PRIMARY = 4
 
 -- Button l-indexes
 BTN_L_IX_SCORE = 1
@@ -43,23 +48,23 @@ BTN_L_IX_PLUS = 2
 BTN_L_IX_MINUS = 3
 
 -- Tooltips[player, k-index]
-tooltips = {{"Secondary 2", "Secondary 1", "Primary"},{"Secondary 1", "Secondary 2", "Primary"}}
+tooltips = {{"Challenger", "Secondary 2", "Secondary 1", "Primary"},{"Challenger", "Secondary 1", "Secondary 2", "Primary"}}
 
 -- player, round, k-index
 scores = {
 	{
-		{0, 0, 0},
-		{0, 0, 0},
-		{0, 0, 0},
-		{0, 0, 0},
-		{0, 0, 0}
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0}
 	},
 	{
-		{0, 0, 0},
-		{0, 0, 0},
-		{0, 0, 0},
-		{0, 0, 0},
-		{0, 0, 0}
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0}
 	}
 }
 
@@ -237,6 +242,30 @@ draw2Btn = {
 	rotation = {0, 90, 180},
 	tooltip = "Draw"
 }
+chlDrawBtn = {
+	index = BTN_IX_CHL_DRAW,
+	width = 250,
+	height = 250,
+	label = ">",
+	font_size = 200,
+	click_function = 'drawChallenger',
+	function_owner = self,
+	position = {-3.25, -0.05, -2.0},
+	rotation = {0, 90, 180},
+	tooltip = "Draw"
+}
+chlDiscardBtn = {
+	index = BTN_IX_CHL_DISCARD,
+	width = 250,
+	height = 250,
+	label = "x",
+	font_size = 200,
+	click_function = 'discardChallenger',
+	function_owner = self,
+	position = {-3.25, -0.05, 0},
+	rotation = {0, 90, 180},
+	tooltip = "Discard"
+}
 
 function enableSheet()
 	scoresheetActive=true
@@ -270,11 +299,13 @@ function onload(save_data)
 	self.createButton( playerTotal[2] )
 	self.createButton( draw1Btn )
 	self.createButton( draw2Btn )
+	self.createButton( chlDrawBtn )
+	self.createButton( chlDiscardBtn )
 
 	local b_xpos = 0
 	local b_zpos = 0
 	local b_zoffset = -1
-	local b_index = BTN_IX_DRAW_2 + 1
+	local b_index = BTN_IX_CHL_DISCARD + 1
 
 	-- Scoring buttons
 
@@ -286,10 +317,10 @@ function onload(save_data)
 		-- j is battle round
 		for j=1,5 do
 			button[i][j] = {}
-			b_zpos = 1.7
+			b_zpos = 1.2
 
-			-- k is index - primary, secondary 1, secondary 2
-			for k=1,3 do
+			-- k is index - primary, secondary 1, secondary 2, challenger
+			for k=1,4 do
 				button[i][j][k] = {}
 
 				local newButton = {
@@ -313,9 +344,15 @@ function onload(save_data)
 					actual_zpos = actual_zpos * -1
 				end
 				actual_zpos = actual_zpos + b_zoffset
-				b_zpos = b_zpos + 0.75
+				b_zpos = b_zpos + 0.66
 
-				newButton.position = {b_xpos, -0.05, actual_zpos}
+				b_ypos = -0.05
+				if k == BTN_K_IX_CHALLENGER and j == 1 then
+					-- Challenger button is only for rounds 2 onwards
+					b_ypos = 0.1
+				end
+
+				newButton.position = {b_xpos, b_ypos, actual_zpos}
 
 				button[i][j][k][BTN_L_IX_SCORE] = newButton
 				self.createButton(newButton)
@@ -323,7 +360,7 @@ function onload(save_data)
 				for l=BTN_L_IX_PLUS,BTN_L_IX_MINUS do
 					local smallButton = {
 						index = 0,
-						width = 250,
+						width = 150,
 						height = 250,
 						label = "",
 						click_function = 'nothing',
@@ -343,12 +380,18 @@ function onload(save_data)
 					end
 					actual_zpos = actual_zpos + b_zoffset
 
+					b_ypos = -0.05
+					if k == BTN_K_IX_CHALLENGER and j == 1 then
+						-- Challenger button is only for rounds 2 onwards
+						b_ypos = 0.1
+					end
+
 					if l == BTN_L_IX_PLUS then
-						smallButton.position = {b_xpos - 0.25, -0.05, actual_zpos}
+						smallButton.position = {b_xpos - 0.25, b_ypos, actual_zpos}
 						smallButton.label = "+"
 						smallButton.click_function = 'plus_' .. i .. j .. k
 					else
-						smallButton.position = {b_xpos + 0.25, -0.05, actual_zpos}
+						smallButton.position = {b_xpos + 0.25, b_ypos, actual_zpos}
 						smallButton.label = "-"
 						smallButton.click_function = 'minus_' .. i .. j .. k
 					end
@@ -357,7 +400,7 @@ function onload(save_data)
 					self.createButton(smallButton)
 				end -- l-loop
 
-				b_zpos = b_zpos + 1.1
+				b_zpos = b_zpos + 0.8
 			end	-- k-loop
 
 			b_xpos = b_xpos + 1.55
@@ -433,7 +476,7 @@ end
 function updateAll(reset)
 	for i=1,2 do
 		for j=1,5 do
-			for k=1,3 do
+			for k=1,4 do
 				if reset then scores[i][j][k] = 0 end
 				updateScore(i, j, k)
 			end
@@ -502,16 +545,20 @@ end
 function playerSum(pId)
 	local pri_sum = 0
 	local sec_sum = 0
+	local chl_sum = 0
 
 	for j = 1,5 do
 		pri_sum = pri_sum + scores[pId][j][BTN_K_IX_PRIMARY]
 		sec_sum = sec_sum + scores[pId][j][BTN_K_IX_SECONDARY_1]
 		sec_sum = sec_sum + scores[pId][j][BTN_K_IX_SECONDARY_2]
+		chl_sum = chl_sum + scores[pId][j][BTN_K_IX_CHALLENGER]
 	end
 	if pri_sum > 50 then pri_sum = 50 end
 	if sec_sum > 40 then sec_sum = 40 end
+	if chl_sum > 12 then chl_sum = 12 end
 
-	local score = pri_sum + sec_sum + 10
+	local score = pri_sum + sec_sum + chl_sum + 10
+	if score > 100 then score = 100 end
 	-- painted army gives +10
 
 	if playerCounter[pId] then
@@ -593,6 +640,12 @@ function drawSecondary2()
 	end
 end
 
+function drawChallenger()
+	if #challengerZoneObj.getObjects() < 1 then
+		Global.call("moveOneFromDeckToZone", {deck = "challenger", zone = "challenger"})
+	end
+end
+
 function recycleSecondary11()
 	Global.call("moveAllFromZoneToDeck", {zone = "secondary11", deck = "redSecondary"})
 	Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary11"})
@@ -645,6 +698,14 @@ function discardSecondary22()
 	end
 end
 
+function discardChallenger()
+	local cards = challengerZoneObj.getObjects()
+	for _,card in ipairs(cards) do
+		card.locked = false
+		card.setPositionSmooth(challengerDiscardPosition)
+	end
+end
+
 function handleInitialSecondary(zone, discardPosition)
 	local fixedObjective = false
 	local cards = zone.getObjects()
@@ -684,6 +745,18 @@ function startGame()
 	end
 end
 
+function checkChallenger()
+	if playerSum(2) - playerSum(1) > 5 then
+		-- Blue winning by 6+ - red is the challenger
+		broadcastToAll(Player.Red.steam_name .. " is the challenger!", {1,0,0})
+	elseif playerSum(1) - playerSum(2) > 5 then
+		-- Red winning by 6+ - blue is the challenger
+		broadcastToAll(Player.Blue.steam_name .. " is the challenger!", {0,0,1})
+	elseif getObjectFromGUID("fe7926") ~= nil then
+		broadcastToAll("Gonna credit me this time Jamie? ;-)", {1,1,1})
+	end
+end
+
 -- Abandon hope all ye who enter here
 
 function plus_111(_, _, alt)
@@ -695,6 +768,9 @@ end
 function plus_113(_, _, alt)
 	plus(1, 1, 3, alt)
 end
+function plus_114(_, _, alt)
+	plus(1, 1, 4, alt)
+end
 function plus_121(_, _, alt)
 	plus(1, 2, 1, alt)
 end
@@ -703,6 +779,9 @@ function plus_122(_, _, alt)
 end
 function plus_123(_, _, alt)
 	plus(1, 2, 3, alt)
+end
+function plus_124(_, _, alt)
+	plus(1, 2, 4, alt)
 end
 function plus_131(_, _, alt)
 	plus(1, 3, 1, alt)
@@ -713,6 +792,9 @@ end
 function plus_133(_, _, alt)
 	plus(1, 3, 3, alt)
 end
+function plus_134(_, _, alt)
+	plus(1, 3, 4, alt)
+end
 function plus_141(_, _, alt)
 	plus(1, 4, 1, alt)
 end
@@ -721,6 +803,9 @@ function plus_142(_, _, alt)
 end
 function plus_143(_, _, alt)
 	plus(1, 4, 3, alt)
+end
+function plus_144(_, _, alt)
+	plus(1, 4, 4, alt)
 end
 function plus_151(_, _, alt)
 	plus(1, 5, 1, alt)
@@ -731,6 +816,9 @@ end
 function plus_153(_, _, alt)
 	plus(1, 5, 3, alt)
 end
+function plus_154(_, _, alt)
+	plus(1, 5, 4, alt)
+end
 function plus_211(_, _, alt)
 	plus(2, 1, 1, alt)
 end
@@ -739,6 +827,9 @@ function plus_212(_, _, alt)
 end
 function plus_213(_, _, alt)
 	plus(2, 1, 3, alt)
+end
+function plus_214(_, _, alt)
+	plus(2, 1, 4, alt)
 end
 function plus_221(_, _, alt)
 	plus(2, 2, 1, alt)
@@ -749,6 +840,9 @@ end
 function plus_223(_, _, alt)
 	plus(2, 2, 3, alt)
 end
+function plus_224(_, _, alt)
+	plus(2, 2, 4, alt)
+end
 function plus_231(_, _, alt)
 	plus(2, 3, 1, alt)
 end
@@ -757,6 +851,9 @@ function plus_232(_, _, alt)
 end
 function plus_233(_, _, alt)
 	plus(2, 3, 3, alt)
+end
+function plus_234(_, _, alt)
+	plus(2, 3, 4, alt)
 end
 function plus_241(_, _, alt)
 	plus(2, 4, 1, alt)
@@ -767,6 +864,9 @@ end
 function plus_243(_, _, alt)
 	plus(2, 4, 3, alt)
 end
+function plus_244(_, _, alt)
+	plus(2, 4, 4, alt)
+end
 function plus_251(_, _, alt)
 	plus(2, 5, 1, alt)
 end
@@ -775,6 +875,9 @@ function plus_252(_, _, alt)
 end
 function plus_253(_, _, alt)
 	plus(2, 5, 3, alt)
+end
+function plus_254(_, _, alt)
+	plus(2, 5, 4, alt)
 end
 function plus_311(_, _, alt)
 	plus(3, 1, 1, alt)
@@ -785,6 +888,9 @@ end
 function plus_313(_, _, alt)
 	plus(3, 1, 3, alt)
 end
+function plus_314(_, _, alt)
+	plus(3, 1, 4, alt)
+end
 function plus_321(_, _, alt)
 	plus(3, 2, 1, alt)
 end
@@ -793,6 +899,9 @@ function plus_322(_, _, alt)
 end
 function plus_323(_, _, alt)
 	plus(3, 2, 3, alt)
+end
+function plus_324(_, _, alt)
+	plus(3, 2, 4, alt)
 end
 function plus_331(_, _, alt)
 	plus(3, 3, 1, alt)
@@ -803,6 +912,9 @@ end
 function plus_333(_, _, alt)
 	plus(3, 3, 3, alt)
 end
+function plus_334(_, _, alt)
+	plus(3, 3, 4, alt)
+end
 function plus_341(_, _, alt)
 	plus(3, 4, 1, alt)
 end
@@ -812,6 +924,9 @@ end
 function plus_343(_, _, alt)
 	plus(3, 4, 3, alt)
 end
+function plus_344(_, _, alt)
+	plus(3, 4, 4, alt)
+end
 function plus_351(_, _, alt)
 	plus(3, 5, 1, alt)
 end
@@ -820,6 +935,9 @@ function plus_352(_, _, alt)
 end
 function plus_353(_, _, alt)
 	plus(3, 5, 3, alt)
+end
+function plus_354(_, _, alt)
+	plus(3, 5, 4, alt)
 end
 
 function minus_111(_, _, alt)
@@ -831,6 +949,9 @@ end
 function minus_113(_, _, alt)
 	minus(1, 1, 3, alt)
 end
+function minus_114(_, _, alt)
+	minus(1, 1, 4, alt)
+end
 function minus_121(_, _, alt)
 	minus(1, 2, 1, alt)
 end
@@ -839,6 +960,9 @@ function minus_122(_, _, alt)
 end
 function minus_123(_, _, alt)
 	minus(1, 2, 3, alt)
+end
+function minus_124(_, _, alt)
+	minus(1, 2, 4, alt)
 end
 function minus_131(_, _, alt)
 	minus(1, 3, 1, alt)
@@ -849,6 +973,9 @@ end
 function minus_133(_, _, alt)
 	minus(1, 3, 3, alt)
 end
+function minus_134(_, _, alt)
+	minus(1, 3, 4, alt)
+end
 function minus_141(_, _, alt)
 	minus(1, 4, 1, alt)
 end
@@ -857,6 +984,9 @@ function minus_142(_, _, alt)
 end
 function minus_143(_, _, alt)
 	minus(1, 4, 3, alt)
+end
+function minus_144(_, _, alt)
+	minus(1, 4, 4, alt)
 end
 function minus_151(_, _, alt)
 	minus(1, 5, 1, alt)
@@ -867,6 +997,9 @@ end
 function minus_153(_, _, alt)
 	minus(1, 5, 3, alt)
 end
+function minus_154(_, _, alt)
+	minus(1, 5, 4, alt)
+end
 function minus_211(_, _, alt)
 	minus(2, 1, 1, alt)
 end
@@ -875,6 +1008,9 @@ function minus_212(_, _, alt)
 end
 function minus_213(_, _, alt)
 	minus(2, 1, 3, alt)
+end
+function minus_214(_, _, alt)
+	minus(2, 1, 4, alt)
 end
 function minus_221(_, _, alt)
 	minus(2, 2, 1, alt)
@@ -885,6 +1021,9 @@ end
 function minus_223(_, _, alt)
 	minus(2, 2, 3, alt)
 end
+function minus_224(_, _, alt)
+	minus(2, 2, 4, alt)
+end
 function minus_231(_, _, alt)
 	minus(2, 3, 1, alt)
 end
@@ -893,6 +1032,9 @@ function minus_232(_, _, alt)
 end
 function minus_233(_, _, alt)
 	minus(2, 3, 3, alt)
+end
+function minus_234(_, _, alt)
+	minus(2, 3, 4, alt)
 end
 function minus_241(_, _, alt)
 	minus(2, 4, 1, alt)
@@ -903,6 +1045,9 @@ end
 function minus_243(_, _, alt)
 	minus(2, 4, 3, alt)
 end
+function minus_244(_, _, alt)
+	minus(2, 4, 4, alt)
+end
 function minus_251(_, _, alt)
 	minus(2, 5, 1, alt)
 end
@@ -911,6 +1056,9 @@ function minus_252(_, _, alt)
 end
 function minus_253(_, _, alt)
 	minus(2, 5, 3, alt)
+end
+function minus_254(_, _, alt)
+	minus(2, 5, 4, alt)
 end
 function minus_311(_, _, alt)
 	minus(3, 1, 1, alt)
@@ -921,6 +1069,9 @@ end
 function minus_313(_, _, alt)
 	minus(3, 1, 3, alt)
 end
+function minus_314(_, _, alt)
+	minus(3, 1, 4, alt)
+end
 function minus_321(_, _, alt)
 	minus(3, 2, 1, alt)
 end
@@ -929,6 +1080,9 @@ function minus_322(_, _, alt)
 end
 function minus_323(_, _, alt)
 	minus(3, 2, 3, alt)
+end
+function minus_324(_, _, alt)
+	minus(3, 2, 4, alt)
 end
 function minus_331(_, _, alt)
 	minus(3, 3, 1, alt)
@@ -939,6 +1093,9 @@ end
 function minus_333(_, _, alt)
 	minus(3, 3, 3, alt)
 end
+function minus_334(_, _, alt)
+	minus(3, 3, 4, alt)
+end
 function minus_341(_, _, alt)
 	minus(3, 4, 1, alt)
 end
@@ -948,6 +1105,9 @@ end
 function minus_343(_, _, alt)
 	minus(3, 4, 3, alt)
 end
+function minus_344(_, _, alt)
+	minus(3, 4, 4, alt)
+end
 function minus_351(_, _, alt)
 	minus(3, 5, 1, alt)
 end
@@ -956,4 +1116,7 @@ function minus_352(_, _, alt)
 end
 function minus_353(_, _, alt)
 	minus(3, 5, 3, alt)
+end
+function minus_354(_, _, alt)
+	minus(3, 5, 4, alt)
 end

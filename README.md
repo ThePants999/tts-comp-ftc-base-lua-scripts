@@ -1,5 +1,5 @@
 # Competitive FTC Base: LUA scripts
-Comp FTC Map Base LUA Scripts v2.64
+Comp FTC Map Base LUA Scripts v2.65
 
 The following files contain all the LUA scripts contained in the Competitive FTC Base Map for the TTS 40k community. If a file does not exist for an object within the TTS save, then that object does not contain any scripts.
 
@@ -8,6 +8,10 @@ This repo now contains the actual TTS JSON file. To produce the JSON file, run t
 Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and to Trashpanda, Rob Mayer, Gizmo, MoonkeyMod, Liyarin, Josie, FChippendale, Tyrone and MariusEvander for contributions to it / elements contained within it!
 
 ## Update History:
+
+### v2.65
+
+* Chapter Approved 2025 is here - and with it, we bid a fond farewell to Leviathan / Pariah Nexus, now removed from the code.
 
 ### v2.64
 

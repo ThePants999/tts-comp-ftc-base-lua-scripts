@@ -206,37 +206,6 @@
     {
       "points3": [
         {
-          "x": 68.5,
-          "y": 0.9711361,
-          "z": 9.2
-        },
-        {
-          "x": 68.5,
-          "y": 0.9711361,
-          "z": 6.9
-        },
-        {
-          "x": 72.0,
-          "y": 0.9711361,
-          "z": 6.9
-        },
-        {
-          "x": 72.0,
-          "y": 0.9711361,
-          "z": 9.2
-        }
-      ],
-      "color": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0
-      },
-      "thickness": 0.1,
-      "loop": true
-    },
-    {
-      "points3": [
-        {
           "x": 76.5,
           "y": 0.9711361,
           "z": 9.2
@@ -286,37 +255,6 @@
           "x": 81.0,
           "y": 0.9711361,
           "z": 9.2
-        }
-      ],
-      "color": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0
-      },
-      "thickness": 0.1,
-      "loop": true
-    },
-    {
-      "points3": [
-        {
-          "x": 68.5,
-          "y": 0.9711361,
-          "z": -9.2
-        },
-        {
-          "x": 68.5,
-          "y": 0.9711361,
-          "z": -6.9
-        },
-        {
-          "x": 72.0,
-          "y": 0.9711361,
-          "z": -6.9
-        },
-        {
-          "x": 72.0,
-          "y": 0.9711361,
-          "z": -9.2
         }
       ],
       "color": {
@@ -403,8 +341,7 @@
         "z": 180.0
       },
       "Tags": [
-        "secondaryCard",
-        "challengerCard"
+        "secondaryCard"
       ]
     },
     {
@@ -419,8 +356,7 @@
         "z": 180.0
       },
       "Tags": [
-        "secondaryCard",
-        "challengerCard"
+        "secondaryCard"
       ]
     }
   ],
@@ -10385,7 +10321,7 @@
       "Hands": false,
       "CustomMesh": {
         "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1461932452813595690/91831FA376A4FED1DD74269E69379812C4BB7C2C/",
-        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/2028354869667691342/FF8CFD900D08917AB4AB5E573C18BC8FA24A6439/",
+        "DiffuseURL": "https://steamusercontent-a.akamaihd.net/ugc/18225881502554442349/543D13F12CD25610F4CE844F4E62BA0B1CAFC26B/",
         "NormalURL": "",
         "ColliderURL": "",
         "Convex": true,
@@ -19829,114 +19765,6 @@
       "XmlUI": ""
     },
     {
-      "GUID": "f2f9fa",
-      "Name": "3DText",
-      "Transform": {
-        "posX": 72.7,
-        "posY": 0.96113354,
-        "posZ": -8.05,
-        "rotX": 90.0,
-        "rotY": 90.0,
-        "rotZ": 0.0,
-        "scaleX": 1.0,
-        "scaleY": 1.0,
-        "scaleZ": 1.0
-      },
-      "Nickname": "",
-      "Description": "",
-      "GMNotes": "",
-      "AltLookAngle": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": true,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "Text": {
-        "Text": "Secret",
-        "colorstate": {
-          "r": 1.0,
-          "g": 1.0,
-          "b": 1.0
-        },
-        "fontSize": 32
-      },
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": ""
-    },
-    {
-      "GUID": "f204d1",
-      "Name": "3DText",
-      "Transform": {
-        "posX": 72.7,
-        "posY": 0.96113354,
-        "posZ": 8.05,
-        "rotX": 90.0,
-        "rotY": 90.0,
-        "rotZ": 0.0,
-        "scaleX": 1.0,
-        "scaleY": 1.0,
-        "scaleZ": 1.0
-      },
-      "Nickname": "",
-      "Description": "",
-      "GMNotes": "",
-      "AltLookAngle": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "ColorDiffuse": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0
-      },
-      "LayoutGroupSortIndex": 0,
-      "Value": 0,
-      "Locked": true,
-      "Grid": true,
-      "Snap": true,
-      "IgnoreFoW": false,
-      "MeasureMovement": false,
-      "DragSelectable": true,
-      "Autoraise": true,
-      "Sticky": true,
-      "Tooltip": true,
-      "GridProjection": false,
-      "HideWhenFaceDown": false,
-      "Hands": false,
-      "Text": {
-        "Text": "Secret",
-        "colorstate": {
-          "r": 1.0,
-          "g": 1.0,
-          "b": 1.0
-        },
-        "fontSize": 32
-      },
-      "LuaScript": "",
-      "LuaScriptState": "",
-      "XmlUI": ""
-    },
-    {
       "GUID": "dcf95b",
       "Name": "ScriptingTrigger",
       "Transform": {
@@ -19995,12 +19823,61 @@
         "rotX": 0.0,
         "rotY": 90.13061,
         "rotZ": 0.0,
-        "scaleX": 5.53,
+        "scaleX": 1.0,
         "scaleY": 1.0,
         "scaleZ": 1.0
       },
       "Nickname": "",
       "Description": "Active challenger card zone",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.509803951
+      },
+      "Tags": [
+        "challengerCard"
+      ],
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
+      "GUID": "cdecf3",
+      "Name": "ScriptingTrigger",
+      "Transform": {
+        "posX": 79.0,
+        "posY": 1.0,
+        "posZ": -2.0,
+        "rotX": 0.0,
+        "rotY": 90.13061,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "Challenger card discard zone",
       "GMNotes": "",
       "AltLookAngle": {
         "x": 0.0,
@@ -20474,7 +20351,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "Text": {
-        "Text": "Watching https://www.youtube.com/watch?v=v1Ph9U1xAcU is strongly recommended for a tutorial on using objective cards.",
+        "Text": "Want to play Leviathan or Pariah Nexus? You'll need to grab https://steamcommunity.com/sharedfiles/filedetails/?id=3486797265 - this mod is now CA2025 only.",
         "colorstate": {
           "r": 1.0,
           "g": 1.0,
@@ -20543,7 +20420,7 @@
       "Transform": {
         "posX": 85.0,
         "posY": 0.9642555,
-        "posZ": 5.6,
+        "posZ": -4.75,
         "rotX": 0.0,
         "rotY": 270.0,
         "rotZ": 180.0,
@@ -22146,7 +22023,7 @@
       "Transform": {
         "posX": 85.0,
         "posY": 0.9642555,
-        "posZ": 11.0,
+        "posZ": 4.75,
         "rotX": 0.0,
         "rotY": 270.0,
         "rotZ": 180.0,
@@ -22626,9 +22503,9 @@
       "GUID": "ffdf05",
       "Name": "Deck",
       "Transform": {
-        "posX": 85.0,
+        "posX": 79.0,
         "posY": 0.9642555,
-        "posZ": 8.3,
+        "posZ": 2.0,
         "rotX": 0.0,
         "rotY": 270.0,
         "rotZ": 180.0,

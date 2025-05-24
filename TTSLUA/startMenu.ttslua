@@ -12,6 +12,7 @@ menuZ = 1.05-1.05
 keepForTerrainEditor = true
 
 mat_GUID = Global.getVar("mat_GUID")
+scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
 
 function onLoad(saved_data)
     --self.setPosition({40,-4,0})
@@ -1574,7 +1575,6 @@ function startGame(obj, player, alt)
     Global.call("recordPlayers")
     inGame = true
 
-    local scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
     scoresheet.call("startGame")
 
     startCustomTurns()
@@ -1599,6 +1599,7 @@ end
 function newRoundStarted()
     redCpIncrementTracker = false
     blueCpIncrementTracker = false
+    scoresheet.call("checkChallenger")
 end
 
 function incrementRedCp(params)

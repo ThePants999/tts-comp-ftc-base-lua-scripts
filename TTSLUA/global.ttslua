@@ -50,15 +50,15 @@ blueHandZone_GUID = "731345"
 redHiddenZone_GUID = "28419e"
 blueHiddenZone_GUID = "e1e91a"
 deploymentCardZone_GUID = "dcf95b"
-missionCardZone_GUID = "cdecf2"
 primaryCardZone_GUID = "740abc"
 secondary11CardZone_GUID = "0ec215"
 secondary12CardZone_GUID = "d865d4"
 secondary21CardZone_GUID = "3c8d71"
 secondary22CardZone_GUID = "88cac4"
+challengerCardZone_GUID = "cdecf2"
 
 deploymentDeck_GUID = "2dc2e8"
-missionDeck_GUID = "ffdf05"
+challengerDeck_GUID = "ffdf05"
 primaryDeck_GUID = "d26e9c"
 redSecondaryDeck_GUID = "c0fb49"
 blueSecondaryDeck_GUID = "e1da3b"
@@ -465,7 +465,7 @@ end
 
 function moveAllFromZoneToDeck(params)
     local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
-    local deckObj = getObjectFromGUID(params.deck .. "Deck_GUID")
+    local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
 
     local objects = zoneObj.getObjects()
     for _,object in ipairs(objects) do
@@ -478,7 +478,7 @@ end
 
 function moveOneFromDeckToZone(params)
     local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
-    local deckObj = getObjectFromGUID(params.deck .. "Deck_GUID")
+    local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
     local takeParams = {}
     takeParams.position = zoneObj.getPosition()
     takeParams.flip = true
