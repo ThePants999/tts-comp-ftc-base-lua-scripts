@@ -10865,7 +10865,7 @@
           },
           "ChildObjects": [
             {
-              "GUID": "9cdd70",
+              "GUID": "9ddd70",
               "Name": "Custom_Token",
               "Transform": {
                 "scaleX": 0.267505437,
@@ -14313,6 +14313,104 @@
       ]
     },
     {
+      "GUID": "cc09ba",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 75.0,
+        "posY": 0.94999826,
+        "posZ": 25.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Action in progress (red)[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9cdd6a",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2035105196650237494/6430E4D3952A86B07FC8D5FBAEA315FFA2300D55/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "84b44e",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Action in progress (red)[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2035105196650237494/6430E4D3952A86B07FC8D5FBAEA315FFA2300D55/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
       "GUID": "cb09ba",
       "Name": "Custom_Model_Infinite_Bag",
       "Transform": {
@@ -14598,6 +14696,104 @@
               "MergeDistancePixels": 25.0,
               "StandUp": false,
               "Stackable": false
+            }
+          },
+          "LuaScript": "",
+          "LuaScriptState": "",
+          "XmlUI": ""
+        }
+      ]
+    },
+    {
+      "GUID": "cc09bb",
+      "Name": "Custom_Model_Infinite_Bag",
+      "Transform": {
+        "posX": 75.0,
+        "posY": 0.9499983,
+        "posZ": 23.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.9,
+        "scaleY": 0.10,
+        "scaleZ": 1.9
+      },
+      "Nickname": "[b][i]Action in progress (blue)[/i][/b]",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 0.0
+      },
+      "Locked": true,
+      "CustomMesh": {
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1666858152071991282/5C391C2599AE5F6972D6EFA7BFC04B41D6E821E3/",
+        "TypeIndex": 7
+      },
+      "ChildObjects": [
+        {
+          "GUID": "9ddd6b",
+          "Name": "Custom_Token",
+          "Transform": {
+            "scaleX": 0.267505437,
+            "scaleY": 5.0,
+            "scaleZ": 0.267947078
+          },
+          "CustomImage": {
+            "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2035105196650236584/19151025A805DCB07CE7BF2A0A7B5FCBAE2EDFAE/",
+            "ImageScalar": 1.0
+          }
+        }
+      ],
+      "ContainedObjects": [
+        {
+          "GUID": "aa68aa",
+          "Name": "Custom_Token",
+          "Transform": {
+            "rotX": 0.0,
+            "rotY": 0.0,
+            "rotZ": 0.0,
+            "scaleX": 0.5,
+            "scaleY": 1.0,
+            "scaleZ": 0.5
+          },
+          "Nickname": "[b][i]Action in progress (blue)[/i][/b]",
+          "Description": "",
+          "GMNotes": "",
+          "AltLookAngle": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "ColorDiffuse": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "LayoutGroupSortIndex": 0,
+          "Value": 0,
+          "Locked": false,
+          "Grid": true,
+          "Snap": true,
+          "IgnoreFoW": false,
+          "MeasureMovement": false,
+          "DragSelectable": true,
+          "Autoraise": true,
+          "Sticky": true,
+          "Tooltip": true,
+          "GridProjection": false,
+          "HideWhenFaceDown": false,
+          "Hands": false,
+          "CustomImage": {
+            "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2035105196650236584/19151025A805DCB07CE7BF2A0A7B5FCBAE2EDFAE/",
+            "ImageSecondaryURL": "",
+            "ImageScalar": 1.0,
+            "WidthScale": 0.0,
+            "CustomToken": {
+              "Thickness": 0.1,
+              "MergeDistancePixels": 25.0,
+              "StandUp": false,
+              "Stackable": true
             }
           },
           "LuaScript": "",
