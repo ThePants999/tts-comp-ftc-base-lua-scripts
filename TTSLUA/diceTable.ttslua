@@ -193,6 +193,8 @@ rollMode = true
 selectedColor = "White"
 diceType = "Die_6_Rounded"
 customDiceImage = nil
+previousRollData = {}
+currentRollData = {}
 
 whichDiceMat = "Red"
 if self.guid == Global.getVar("blueDiceMat_GUID") then
@@ -379,12 +381,48 @@ function SelectDeleteDiceX(action, n, selectOthers, lowUp, color)
 end
 
 function moveDiceToRoller(color, dice)
+    previousRollData = currentRollData
+
     roller.call("setPlayerColor", {color=color})
 
     for _, die in ipairs(dice) do
         roller.call("setLastHolder", {obj=die, color=color})
         roller.putObject(die)
     end
+end
+
+function revertRoll(params)
+    player = params.player
+    if not previousRollData or #previousRollData == 0 then
+        printToColor("No previous roll found.", player, "Red")
+        return
+    end
+
+    clearDiceAll(nil, player, true)
+
+    for _, data in ipairs(previousRollData) do
+        local diceTypeToSpawn = "Die_6_Rounded"
+        if data.customImage then
+            diceTypeToSpawn = "Custom_Dice"
+        elseif pipColorBtn.color == "Black" then
+            diceTypeToSpawn = "Die_6"
+        end
+
+        local spawned = spawnObject({
+            type     = diceTypeToSpawn,
+            position = data.pos,
+            rotation = data.rot
+        })
+        if data.customImage then
+            spawned.setCustomObject({ image = data.customImage, type = 1 })
+        end
+        spawned.setColorTint(data.tint)
+        spawned.setValue(data.val)
+    end
+
+    previousRollData = currentRollData
+
+    printToColor("Reverted back to previous roll!", player, "Green")
 end
 
 function getCriticalHits(alt)
@@ -477,7 +515,7 @@ function copyOpponentsDice(obj, player, alt)
     end
 end
 
-function clearDiceAll(obj, color, alt)
+function clearDiceAll(_, color, alt)
     if not alt then printToColor("Use right click!", color, "Orange") return end
     clearDiceX(6, true, color)
     diceCount = 0
@@ -825,6 +863,8 @@ function checkDice ()
 	totaldice=0
     diceSum = 0
 
+    currentRollData = {}
+
     -- Iterate all objects in the zone
     for _, obj in pairs(getAllObjects()) do
         -- Fetch resting dices
@@ -845,6 +885,20 @@ function checkDice ()
                     counter = counter + 1
                     totaldice=totaldice+1
                     valueToCounter[value] = counter
+
+                    -- Store the dice data for later use
+                    local c = obj.getCustomObject()
+                    local d = {
+                        pos  = obj.getPosition(),
+                        rot  = obj.getRotation(),
+                        val  = obj.getValue(),
+                        tint = obj.getColorTint(),
+                        customImage = nil
+                    }
+                    if c then
+                        d.customImage = c.image
+                    end
+                    table.insert(currentRollData, d)
                 end
             end
         end

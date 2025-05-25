@@ -5,13 +5,18 @@ lastRolls={}
 scaleBtn=3
 printLastBtn={
     label="Last roll", click_function="printLast", function_owner=self,
-    position={-2.5,0.1,-0.87}, rotation={0,0,0}, height=50, width=400,
+    position={-2.5,0.1,-0.6}, rotation={0,0,0}, height=50, width=400,
     font_size=60, color={0,0,0}, font_color={1,1,1}, scale={scaleBtn,scaleBtn,scaleBtn}
 }
 printLast5Btn={
     label="Last 5 rolls", click_function="printLast5", function_owner=self,
-    position={2.5,0.1,-0.87}, rotation={0,0,0}, height=50, width=400,
+    position={2.5,0.1,-0.6}, rotation={0,0,0}, height=50, width=400,
     font_size=60, color={0,0,0}, font_color={1,1,1}, scale={scaleBtn,scaleBtn,scaleBtn}
+}
+revertRollBtn={
+	label="Undo roll", click_function="undoRoll", function_owner=self,
+	position={2.5,0.1,0.6}, rotation={0,0,0}, height=50, width=400,
+	font_size=60, color={0,0,0}, font_color={1,1,1}, scale={scaleBtn,scaleBtn,scaleBtn}
 }
 
 function printLast()
@@ -56,10 +61,19 @@ math.randomseed(seed)
 orderedOnNextRoll = false
 groupSizeOnNextRoll = 1
 
-objectToPlaceDiceOnGUID = thisBoxIsBlue and Global.getVar("blueDiceMat_GUID") or Global.getVar("redDiceMat_GUID")
-objectToPlaceDiceOn = getObjectFromGUID(objectToPlaceDiceOnGUID)
+diceMatGUID = thisBoxIsBlue and Global.getVar("blueDiceMat_GUID") or Global.getVar("redDiceMat_GUID")
+diceMat = getObjectFromGUID(diceMatGUID)
+objectToPlaceDiceOn = diceMat
 if objectToPlaceDiceOn == nil then
     objectToPlaceDiceOn = self
+end
+
+function undoRoll(obj, player, alt)
+	if diceMat == nil then
+		printToAll("Dice mat not found, can't undo roll.", "Red")
+		return
+	end
+	diceMat.call("revertRoll", {player = player})
 end
 
 -- used to nil out a passed parameter
@@ -93,6 +107,7 @@ function onLoad(save_state)
 	end
 	self.createButton(printLastBtn)
 	self.createButton(printLast5Btn)
+	self.createButton(revertRollBtn)
 end
 
 --Returns description on game save.
