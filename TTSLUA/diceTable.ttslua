@@ -161,7 +161,23 @@ lowerUpperBtn={
 copyOpponentsDiceBtn = {
     label="Copy Blue's dice", tooltip="Copy all the dice from your opponent's dice mat",
     click_function="copyOpponentsDice", function_owner=self,
-    position={-6.45, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=3850, scale={0.1,0.1,0.1},
+    position={-6.45, Yoffset, 1.1}, rotation={0,0,0}, height=1000, width=3850, scale={0.1,0.1,0.1},
+    font_size=500, color="White", font_color={0,0,0}
+}
+lethalsBtn = {
+    label="Lethals", tooltip="Move 6s off the mat; right-click to move 5s too", click_function="lethalsAction", function_owner=self,
+    position={-5.02, Yoffset, 1.1}, rotation={0,0,0}, height=1000, width=2500, scale={0.1,0.1,0.1},
+    font_size=500, color="White", font_color={0,0,0}
+}
+sustainedBtn = {
+    label="Sustained", tooltip="Duplicate 6s; right-click to duplicate 5s too", click_function="sustainedAction", function_owner=self,
+    position={-4.45, Yoffset, 1.1}, rotation={0,0,0}, height=1000, width=2500, scale={0.1,0.1,0.1},
+    font_size=500, color="White", font_color={0,0,0}
+}
+lethalsAndSustainedBtn = {
+    label="Lethals & Sustained", tooltip="Move 6s off the mat and duplicate them; right-click to move 5s too",
+    click_function="lethalsAndSustainedAction", function_owner=self,
+    position={-3.67, Yoffset, 1.1}, rotation={0,0,0}, height=1000, width=4510, scale={0.1,0.1,0.1},
     font_size=500, color="White", font_color={0,0,0}
 }
 
@@ -368,6 +384,55 @@ function moveDiceToRoller(color, dice)
     for _, die in ipairs(dice) do
         roller.call("setLastHolder", {obj=die, color=color})
         roller.putObject(die)
+    end
+end
+
+function getCriticalHits(alt)
+    -- If alt is true, count 5s as critical hits, otherwise count 6s.
+    local threshold = alt and 5 or 6
+    local dice = getDice()
+    local crits = {}
+
+    for _, die in ipairs(dice) do
+        -- Check if the die's value meets or exceeds the threshold
+        if die.getValue() >= threshold then
+            table.insert(crits, die)
+        end
+    end
+
+    return crits
+end
+
+function lethalsAction(obj, player, alt)
+    lethalsAndOrSustainedAction(player, false, true, alt)
+end
+
+function sustainedAction(obj, player, alt)
+    lethalsAndOrSustainedAction(player, true, false, alt)
+end
+
+function lethalsAndSustainedAction(obj, player, alt)
+    lethalsAndOrSustainedAction(player, true, true, alt)
+end
+
+function lethalsAndOrSustainedAction(player, sustained, lethals, alt)
+    local crits = getCriticalHits(alt)
+    local z_delta = (whichDiceMat == "Red") and 3.3 or -3.3
+
+    if #crits > 0 then
+        if lethals then
+            for _, die in ipairs(crits) do
+                pos = die.getPosition()
+                die.setPositionSmooth({x=pos.x, y=pos.y, z=pos.z + z_delta}, false, true)
+            end
+            printToColor("Moved " .. #crits .. " lethals off the mat.", player, "Yellow")
+        end
+        if sustained then
+            spawnDice(#crits, player)
+            printToColor("Generated " .. #crits .. " sustained hits.", player, "Yellow")
+        end
+    else
+        printToColor("No critical hits.", player, "Yellow")
     end
 end
 
@@ -681,6 +746,9 @@ function onload()
     self.createButton(quick1d6Btn)
     self.createButton(quick2d6Btn)
     self.createButton(copyOpponentsDiceBtn)
+    self.createButton(lethalsBtn)
+    self.createButton(sustainedBtn)
+    self.createButton(lethalsAndSustainedBtn)
     modifyMenu(whichDiceMat)
 end
 
