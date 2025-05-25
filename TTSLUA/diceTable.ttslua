@@ -66,6 +66,18 @@ add3d6Btn={
     position={0.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
+addNd6Btn={
+    label="+ ?d6 ->", click_function="spawnDiceN", function_owner=self,
+    position={0.58, Yoffset ,-1.14}, rotation={0,0,0}, height=50, width=340,
+    font_size=60, color={1,1,1}, font_color={0,0,0}
+}
+addNd6Input = {
+    label = "How many?", input_function = "setCustomSpawnCount", function_owner = self,
+    position = {1.35, Yoffset, -1.14}, rotation = {0, 0, 0},
+    width = 800, height = 200, font_size = 140, alignment = 2, scale = {0.5, 0.5, 0.5},
+    color = {1, 1, 1, 1}, -- Pure white
+    font_color = {0.2, 0.2, 0.2} -- Dark gray text
+}
 add4d6Btn={
     label="+ 4d6", click_function="spawnDice4", function_owner=self,
     position={1.0, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
@@ -398,6 +410,8 @@ function clearDiceX(n, deleteLower, color)
     if somethingToPrint then printToAll(text , "Yellow") end
 end
 
+local customSpawnCount = nil
+
 function spawnDice1(obj, player, alt)
     spawnDice(1,player)
 end
@@ -418,6 +432,22 @@ function spawnDice10(obj, player, alt)
 end
 function spawnDice25(obj, player, alt)
     spawnDice(25,player)
+end
+function spawnDiceN(obj, player, alt)
+    if customSpawnCount ~= nil then
+        spawnDice(customSpawnCount, player)
+    else
+        printToColor("Please enter a number first!", player, "Red")
+    end
+end
+
+function setCustomSpawnCount(_, player, input, _)
+    local n = tonumber(input)
+    if n == nil or n < 1 or n > 99 then
+        printToColor("Invalid number! Please enter a one- or two-digit number.", player, "Red")
+        return
+    end
+    customSpawnCount = n
 end
 
 function spawnDice(n,player)
@@ -573,6 +603,8 @@ function onload()
     self.createButton(add5d6Btn)
     self.createButton(add10d6Btn)
     self.createButton(add25d6Btn)
+    self.createButton(addNd6Btn)
+    self.createInput(addNd6Input)
     self.createButton(quick1d6Btn)
     self.createButton(quick2d6Btn)
     self.createButton(color1Btn)
@@ -623,6 +655,7 @@ function modifyMenu(color)
     self.editButton({index=11, color=color})
     self.editButton({index=12, color=color})
     self.editButton({index=13, color=color})
+    self.editButton({index=14, color=color})
 end
 
 function setDiceType()
