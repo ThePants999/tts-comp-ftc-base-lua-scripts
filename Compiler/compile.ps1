@@ -101,6 +101,13 @@ $jsonGUID = ''
 
 # find each line that contains a GUID and LuaScript in the json file
 # there will be one more LuaScript line than GUID as this is the global LuaScript
+#
+# ThePants999 note: this ^ is rubbish. There are loads of objects with no LuaScript line,
+# so the number of GUID lines is way higher than the number of LuaScript lines. I CBA to
+# sort this out properly, so I've just moved the "infinite bag" objects which are the
+# primary culprits to the end of the file. If you find that the compiler is determining
+# -1 as the line number for the LuaScript, then you need to either fix this or move the
+# corresponding object earlier in the file.
 $jsonGUIDLine      = $jsonContent | Select-String $regexJsonGUID
 $jsonLuaScriptLine = $jsonContent | Select-String $regexJsonLuaScript
 Write-Host $jsonGUIDLine.Count "GUIDs found."

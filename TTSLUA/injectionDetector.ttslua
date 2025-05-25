@@ -1,0 +1,55 @@
+-- FTC-GUID: 5c328f
+-- Ziggy's Malicious Script Detector.
+-- If code is injected it will trigger.
+-- Swaps to state 2, which onload writes
+-- a message and triggers effects.
+
+local original_script = self.getLuaScript()
+local og_length = string.len(original_script)
+local target_guid = "899f22" -- GUID of the object to move
+
+-- We'll store the "has already run" info in the object's description,
+-- appending a marker text if not present.
+function hasAlreadyRun()
+    return string.find(self.getDescription(), "INJECTION_ALREADY_DETECTED") ~= nil
+end
+
+function setHasAlreadyRun()
+    local desc = self.getDescription()
+    if not hasAlreadyRun() then
+        self.setDescription(desc .. "\nINJECTION_ALREADY_DETECTED")
+    end
+end
+
+function objectCheck()
+    local script_to_compare = self.getLuaScript()
+    self.interactable = false
+    local new_length = string.len(script_to_compare)
+
+    -- If the code was changed and we haven't flagged it already, do so
+    if og_length ~= new_length and not hasAlreadyRun() then
+        setHasAlreadyRun()
+        broadcastToAll(
+            "WARNING: Injection detected. The last object(s) loaded contain malicious code. " ..
+            "Delete saved game and all objects to avoid more contaminations. This save game is now broken. " ..
+            "See https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/blob/main/malicious.md for more information.",
+            "Red"
+        )
+
+        -- Now that we’ve marked the injection, schedule the state switch
+        Wait.time(function()
+            -- Only switch states if we’re still in state 1
+            if self.getStateId() == 1 then
+                self.setState(2) -- let the fun begin
+                local target_object = getObjectFromGUID(target_guid)
+                if target_object then
+                    local new_position = {x = 0, y = 2.5, z = 0} -- Adjust Y if needed
+                    target_object.setPosition(new_position)
+                end
+            end
+        end, 1)
+    end
+end
+
+-- Periodically check
+Wait.time(objectCheck, 10, -1) -- every 10 seconds, can modify here.

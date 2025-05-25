@@ -5,7 +5,7 @@ The following files contain all the LUA scripts contained in the Competitive FTC
 
 This repo now contains the actual TTS JSON file. To produce the JSON file, run the compile.ps1 script.
 
-Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and to Trashpanda, Rob Mayer, Gizmo, MoonkeyMod, Liyarin, Josie, FChippendale, Tyrone, MariusEvander and Hutber for contributions to it / elements contained within it!
+Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and Kurcenkurce for their hard work developing/maintaining earlier versions of this mod, and to Trashpanda, Rob Mayer, Gizmo, MoonkeyMod, Liyarin, Josie, FChippendale, Tyrone, MariusEvander, Ziggy and Hutber for contributions to it / elements contained within it!
 
 ## Update History:
 
@@ -21,6 +21,7 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
   * Button to copy your opponent's dice
   * Buttons to handle lethal/sustained hits
   * Button to undo the most recent roll
+* Malicious script detection
 
 ### v2.64
 
