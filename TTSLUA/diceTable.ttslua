@@ -154,7 +154,14 @@ lowerSign=" (-)"
 upperSign=" (+)"
 lowerUpperBtn={
     label="RMB\n- / +", tooltip="Changes to upper for the next click", click_function="toggleLowerUpper", function_owner=self,
-    position={-5.62, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=2800, scale={0.1,0.1,0.1},
+    position={-5.62, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=1500, scale={0.1,0.1,0.1},
+    font_size=500, color="White", font_color={0,0,0}
+}
+
+copyOpponentsDiceBtn = {
+    label="Copy Blue's dice", tooltip="Copy all the dice from your opponent's dice mat",
+    click_function="copyOpponentsDice", function_owner=self,
+    position={-6.45, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=3850, scale={0.1,0.1,0.1},
     font_size=500, color="White", font_color={0,0,0}
 }
 
@@ -174,6 +181,7 @@ customDiceImage = nil
 whichDiceMat = "Red"
 if self.guid == Global.getVar("blueDiceMat_GUID") then
     whichDiceMat = "Blue"
+    copyOpponentsDiceBtn.label = "Copy Red's dice"
 end
 rollerGUID = Global.getVar(string.lower(whichDiceMat) .. "DiceRoller_GUID")
 roller = getObjectFromGUID(rollerGUID)
@@ -248,13 +256,13 @@ function modifyBtns()
     local sign=""
     for i=1, 6 do
         if lowerUpper then sign = lowerSign else sign = upperSign end
-        self.editButton({ index = (16+i*2), label = clearDiceBtnLabel .. i .. sign })
+        self.editButton({ index = (19+i*2), label = clearDiceBtnLabel .. i .. sign })
 
         local selOrRollLabel = "Roll\n"
         if not rollMode then
             selOrRollLabel = "Sel\n"
         end
-        self.editButton({ index = (17+i*2), label = selOrRollLabel .. i .. sign })
+        self.editButton({ index = (20+i*2), label = selOrRollLabel .. i .. sign })
     end
 end
 
@@ -360,6 +368,47 @@ function moveDiceToRoller(color, dice)
     for _, die in ipairs(dice) do
         roller.call("setLastHolder", {obj=die, color=color})
         roller.putObject(die)
+    end
+end
+
+function copyOpponentsDice(obj, player, alt)
+    -- Clear the mat first.
+    clearDiceAll(obj, player, true)
+
+    -- Find the opponent's dice mat.
+    local otherMatGUID = (whichDiceMat == "Red") and Global.getVar("blueDiceMat_GUID") or Global.getVar("redDiceMat_GUID")
+    local otherMat = getObjectFromGUID(otherMatGUID)
+    if not otherMat then
+        printToColor("Could not find the opponent's dice mat!", player, "Orange")
+        return
+    end
+    local bounds = otherMat.getBounds()
+
+    -- Find all dice on the opponent's mat.
+    local otherDice = otherMat.call("getDice")
+
+    -- Get our dice mat's position as a reference
+    local myPos = self.getPosition()
+
+    for _, die in ipairs(otherDice) do
+        local diePos = die.getPosition()
+        -- Compute the relative position with respect to the opposite mat's center
+        -- Flip both the x and z axes to mirror horizontally and vertically
+        -- Note, this doesn't account for rotation, so it assumes the mats are aligned in exactly opposite directions;
+        -- if anyone rotates the mats, tough, this ain't gonna work for them.
+        local relPos = {
+            x = -(diePos.x - bounds.center.x),
+            y = diePos.y - bounds.center.y,
+            z = -(diePos.z - bounds.center.z)
+        }
+        -- Place the cloned die with the same flipped relative offset on our mat
+        local newPos = {
+            x = myPos.x + relPos.x,
+            y = myPos.y + relPos.y,
+            z = myPos.z + relPos.z
+        }
+        -- Clone the die
+        die.clone({position = newPos, snap_to_grid = false})
     end
 end
 
@@ -514,7 +563,9 @@ function quickRoll2(obj, player, alt)
 end
 
 function quickRoll(n, player)
-    -- Determine direction based on currentMat
+    -- Determine direction based on currentMat.
+    -- This is cheap hackery - it assumes nobody ever rotates the dice mats from where
+    -- they start. If anyone does, this will spawn dice in the wrong place.
     local directionMultiplier = (whichDiceMat == "Blue") and 1 or -1
 
     local total = 0
@@ -604,9 +655,6 @@ function onload()
     self.createButton(add10d6Btn)
     self.createButton(add25d6Btn)
     self.createButton(addNd6Btn)
-    self.createInput(addNd6Input)
-    self.createButton(quick1d6Btn)
-    self.createButton(quick2d6Btn)
     self.createButton(color1Btn)
     self.createButton(color2Btn)
     self.createButton(color3Btn)
@@ -629,6 +677,10 @@ function onload()
     end
     self.createButton(lowerUpperBtn)
     self.createButton(customDiceBtn)
+    self.createInput(addNd6Input)
+    self.createButton(quick1d6Btn)
+    self.createButton(quick2d6Btn)
+    self.createButton(copyOpponentsDiceBtn)
     modifyMenu(whichDiceMat)
 end
 
