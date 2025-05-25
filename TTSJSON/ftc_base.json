@@ -11165,6 +11165,52 @@
       }
     },
     {
+      "GUID": "86398e",
+      "Name": "BlockSquare",
+      "Transform": {
+        "posX": 31.75,
+        "posY": -1.0,
+        "posZ": 0.0,
+        "rotX": 0.0,
+        "rotY": 270.0,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "Bubble helper",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 0.9264706,
+        "g": 0.0,
+        "b": 0.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "Interactable": false,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": false,
+      "Autoraise": false,
+      "Sticky": false,
+      "Tooltip": false,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
+    },
+    {
       "GUID": "0dd963",
       "Name": "Custom_Model_Infinite_Bag",
       "Transform": {

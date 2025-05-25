@@ -22,6 +22,7 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
   * Buttons to handle lethal/sustained hits
   * Button to undo the most recent roll
 * Malicious script detection
+* 6"/9"/12" bubble toggling
 
 ### v2.64
 
