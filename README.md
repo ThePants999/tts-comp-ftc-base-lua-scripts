@@ -14,6 +14,13 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 * Chapter Approved 2025 is here - and with it, we bid a fond farewell to Leviathan / Pariah Nexus, now removed from the code.
 * Restore "action in progress" markers
 * Show/hide zone buttons updated to the set needed for CA25
+* Significant improvements to dice rolling
+  * Buttons to spawn 3 and 4 dice
+  * Button to spawn a custom number of dice
+  * Buttons to quick-roll 1 or 2 dice
+  * Button to copy your opponent's dice
+  * Buttons to handle lethal/sustained hits
+  * Button to undo the most recent roll
 
 ### v2.64
 
