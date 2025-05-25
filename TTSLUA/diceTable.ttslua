@@ -46,10 +46,20 @@ add1d6Btn={
     position={-0.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
+quick1d6Btn={
+    label="Quick", click_function="quickRoll1", function_owner=self,
+    position={-0.5, Yoffset ,-1.14}, rotation={0,0,0}, height=50, width=250,
+    font_size=60, color="Purple", font_color="White"
+}
 add2d6Btn={
     label="+ 2d6", click_function="spawnDice2", function_owner=self,
     position={0.0, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
     font_size=60, color={1,1,1}, font_color={0,0,0}
+}
+quick2d6Btn={
+    label="Quick", click_function="quickRoll2", function_owner=self,
+    position={0.0, Yoffset ,-1.14}, rotation={0,0,0}, height=50, width=250,
+    font_size=60, color="Purple", font_color="White"
 }
 add3d6Btn={
     label="+ 3d6", click_function="spawnDice3", function_owner=self,
@@ -149,10 +159,11 @@ selectedColor = "White"
 diceType = "Die_6_Rounded"
 customDiceImage = nil
 
-rollerGUID = Global.getVar("redDiceRoller_GUID")
+whichDiceMat = "Red"
 if self.guid == Global.getVar("blueDiceMat_GUID") then
-    rollerGUID = Global.getVar("blueDiceRoller_GUID")
+    whichDiceMat = "Blue"
 end
+rollerGUID = Global.getVar(string.lower(whichDiceMat) .. "DiceRoller_GUID")
 roller = getObjectFromGUID(rollerGUID)
 
 function getDice()
@@ -234,6 +245,10 @@ function modifyBtns()
         self.editButton({ index = (17+i*2), label = selOrRollLabel .. i .. sign })
     end
 end
+
+-- These are only currently used for quick rolling.
+local nextSpawnPosition = nil -- Keep track of the last spawned dice position
+local diceCount = 0 -- Track the number of dice spawned in the current sequence
 
 function RollOrSelectDice(obj, player, alt)
     if not alt then
@@ -339,6 +354,8 @@ end
 function clearDiceAll(obj, color, alt)
     if not alt then printToColor("Use right click!", color, "Orange") return end
     clearDiceX(6, true, color)
+    diceCount = 0
+    nextSpawnPosition = nil
 end
 
 function clearDice1(obj, color, alt)
@@ -459,6 +476,59 @@ function spawnDice(n,player)
     end
 end
 
+function quickRoll1(obj, player, alt)
+    quickRoll(1, player)
+end
+function quickRoll2(obj, player, alt)
+    quickRoll(2, player)
+end
+
+function quickRoll(n, player)
+    -- Determine direction based on currentMat
+    local directionMultiplier = (whichDiceMat == "Blue") and 1 or -1
+
+    local total = 0
+    for i = 1, n do
+        local result = math.random(6) -- Roll a single D6
+        total = total + result
+
+        -- Start position
+        if nextSpawnPosition == nil then
+            nextSpawnPosition = {
+                x = self.getPosition().x + ((whichDiceMat == "Blue") and -16 or 16),
+                y = self.getPosition().y + 1,
+                z = self.getPosition().z
+            }
+        end
+
+        -- Spawn the dice object
+        local die = spawnObject({
+            type = "Die_6_Rounded",
+            position = nextSpawnPosition,
+            rotation = {0, 180, 0}
+        })
+
+        if die then
+            die.setValue(result) -- Set the dice value to the rolled result
+            die.setColorTint("Purple")
+            diceCount = diceCount + 1 -- Increment the dice count
+
+            if diceCount >= 5 then
+                -- Reset position after 5 dice rolls
+                nextSpawnPosition = nil -- Reset back to the original starting position
+                diceCount = 0 -- Reset dice count
+            else
+                -- Update next spawn position
+                nextSpawnPosition.x = nextSpawnPosition.x + directionMultiplier * 1.0 -- Move in the correct direction
+            end
+        else
+            printToColor("Failed to spawn a die for roll " .. i, player, "Red")
+        end
+    end
+
+    printToAll(player .. " quick-rolled " .. total .. " on " .. n .. "D6", "White")
+end
+
 function onload()
     lastClick=os.time()
     defaultFontSize=500
@@ -503,6 +573,8 @@ function onload()
     self.createButton(add5d6Btn)
     self.createButton(add10d6Btn)
     self.createButton(add25d6Btn)
+    self.createButton(quick1d6Btn)
+    self.createButton(quick2d6Btn)
     self.createButton(color1Btn)
     self.createButton(color2Btn)
     self.createButton(color3Btn)
@@ -525,7 +597,7 @@ function onload()
     end
     self.createButton(lowerUpperBtn)
     self.createButton(customDiceBtn)
-    if self.getPosition().z < 0 then selectedColor="Blue" else selectedColor="Red" end modifyMenu(selectedColor)
+    modifyMenu(whichDiceMat)
 end
 
 function modifyMenu1()
