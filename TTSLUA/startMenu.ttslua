@@ -76,7 +76,7 @@ end
 function makeAnnouncement()
     local features={
     "2.64: minor bug fixes",
-    "2.65: it's Chapter Approved time baybee! Also: lots of dice rolling enhancements, malicious script detection, 6\"/9\"/12\" bubble toggling"
+    "2.65: it's Chapter Approved time baybee! Also: lots of dice rolling enhancements, malicious script detection, 6\"/9\"/12\" bubble toggling, save/restore unit positions"
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do

@@ -23,6 +23,7 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
   * Button to undo the most recent roll
 * Malicious script detection
 * 6"/9"/12" bubble toggling
+* Save and restore unit positions
 
 ### v2.64
 

@@ -20,7 +20,18 @@ bubble12Btn={
     position={7.2, 2, 1}, rotation={0,0,0}, height=450, width=1700,scale = {1.3,1.3,1.3},
     font_size=300, color={0.1,0.1,0.1}, font_color={0.9,0.9,0.9}
 }
+savePosBtn={
+    label="Save position", click_function="savePosition", function_owner=self,
+    position={-3.42, 2, -0.5}, rotation={0,0,0}, height=450, width=2500,scale = {1.3,1.3,1.3},
+    font_size=300, color={0.1,0.1,0.1}, font_color={0.9,0.9,0.9}
+}
+restorePosBtn={
+    label="Restore position", click_function="restorePosition", function_owner=self,
+    position={3.51, 2, -0.5}, rotation={0,0,0}, height=450, width=2500,scale = {1.3,1.3,1.3},
+    font_size=300, color={0.1,0.1,0.1}, font_color={0.9,0.9,0.9}
+}
 
+local savedPositions = {}
 local measuringCircles = {}
 local previousHighlightColor = nil
 local MM_TO_INCH = 0.0393701
@@ -68,6 +79,8 @@ function writeMenus()
     self.createButton(bubble6Btn)
     self.createButton(bubble9Btn)
     self.createButton(bubble12Btn)
+    self.createButton(savePosBtn)
+    self.createButton(restorePosBtn)
 end
 
 function determineBaseInInches(model)
@@ -284,4 +297,43 @@ end
 
 function bubble12(_, player, _)
     updateBubbles(player, 12)
+end
+
+function savePosition(_, player, _)
+    local objects = Player[player].getSelectedObjects()
+    if #objects == 0 then
+        printToColor("No objects selected. To use this button, drag-select or ctrl-select some models first, then click the button.", player, "Orange")
+        return
+    end
+
+    for _, obj in ipairs(objects) do
+        savedPositions[obj.getGUID()] = {pos = obj.getPosition(), rot = obj.getRotation()}
+    end
+    printToColor("Saved position of " .. #objects .. " models", player, "Green")
+end
+
+function restorePosition(_, player, _)
+    local objects = Player[player].getSelectedObjects()
+    if #objects == 0 then
+        printToColor("No objects selected. To use this button, drag-select or ctrl-select some models first, then click the button.", player, "Orange")
+        return
+    end
+
+    local restoredCount = 0
+    for _, obj in ipairs(objects) do
+        local savedPos = savedPositions[obj.getGUID()]
+        if savedPos then
+            obj.setPosition(savedPos.pos)
+            obj.setRotation(savedPos.rot)
+            restoredCount = restoredCount + 1
+        else
+            printToColor("No saved position for model: " .. obj.getName(), player, "Red")
+        end
+    end
+
+    if restoredCount > 0 then
+        printToColor("Restored position of " .. restoredCount .. " models", player, "Green")
+    else
+        printToColor("No positions restored. Ensure you have saved positions first.", player, "Red")
+    end
 end
