@@ -10736,26 +10736,31 @@
       "XmlUI": ""
     },
     {
-      "GUID": "25d021",
-      "Name": "Custom_Board",
+      "GUID": "fe7926",
+      "Name": "Custom_Token",
       "Transform": {
-        "posX": 41.0,
-        "posY": 1.0,
-        "posZ": -64.0,
-        "rotX": 0.0,
-        "rotY": 180.0,
-        "rotZ": 0.0,
-        "scaleX": 1.5,
-        "scaleY": 1.5,
-        "scaleZ": 1.5
+        "posX": 0.6814038,
+        "posY": 1.03509665,
+        "posZ": 84.0386047,
+        "rotX": 359.85672,
+        "rotY": -0.0000358097932,
+        "rotZ": -0.00000239440146,
+        "scaleX": 10,
+        "scaleY": 1,
+        "scaleZ": 10
       },
       "Nickname": "Reserves and Transports Board",
-      "Description": "Use the red button HIDE ARMY and place units on the board to declare your Reserves and Transports. Afterwards place the board next to table mat and press \"L\" to lock it.",
+      "Description": "Use the red button HIDE ARMY and place units on the board to declare your Reserves and Transports.",
       "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
       "ColorDiffuse": {
-        "r": 0.7867647,
-        "g": 0.7867647,
-        "b": 0.7867647
+        "r": 1,
+        "g": 1,
+        "b": 1
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -10772,36 +10777,47 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomImage": {
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1704034601417339411/2A8E62CB580CB8F74D22ABC46165003FC8D0021C/",
+        "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1995688026065763410/50AC065E415C7ABAB0908943E0BEF138C29044D4/",
         "ImageSecondaryURL": "",
-        "ImageScalar": 1.0,
-        "WidthScale": 1.01303542
+        "ImageScalar": 1,
+        "WidthScale": 0,
+        "CustomToken": {
+          "Thickness": 0.2,
+          "MergeDistancePixels": 15,
+          "StandUp": false,
+          "Stackable": false
+        }
       },
       "LuaScript": "",
       "LuaScriptState": "",
       "XmlUI": ""
     },
     {
-      "GUID": "128a11",
-      "Name": "Custom_Board",
+      "GUID": "85f0cf",
+      "Name": "Custom_Token",
       "Transform": {
-        "posX": 41.0,
-        "posY": 1.0,
-        "posZ": 64.0,
-        "rotX": 0.0,
-        "rotY": 0.0,
-        "rotZ": 0.0,
-        "scaleX": 1.5,
-        "scaleY": 1.5,
-        "scaleZ": 1.5
+        "posX": 1.64756453,
+        "posY": 1.00000179,
+        "posZ": -83.27986,
+        "rotX": -0.00000159654621,
+        "rotY": 180,
+        "rotZ": 5.099938e-7,
+        "scaleX": 10,
+        "scaleY": 1,
+        "scaleZ": 10
       },
       "Nickname": "Reserves and Transports Board",
-      "Description": "Use the red button HIDE ARMY and place units on the board to declare your Reserves and Transports. Afterwards place the board next to table mat and press \"L\" to lock it.",
+      "Description": "Use the red button HIDE ARMY and place units on the board to declare your Reserves and Transports.",
       "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
       "ColorDiffuse": {
-        "r": 0.7867647,
-        "g": 0.7867647,
-        "b": 0.7867647
+        "r": 1,
+        "g": 1,
+        "b": 1
       },
       "LayoutGroupSortIndex": 0,
       "Value": 0,
@@ -10818,10 +10834,16 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomImage": {
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1704034601417340125/1CE5083AF30739C5643F548244019EB2F45F278E/",
+        "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1995688026065763345/38EE47EA553FF9B21D5374E97B440CB09CFA38A7/",
         "ImageSecondaryURL": "",
-        "ImageScalar": 1.0,
-        "WidthScale": 1.01111114
+        "ImageScalar": 1,
+        "WidthScale": 0,
+        "CustomToken": {
+          "Thickness": 0.2,
+          "MergeDistancePixels": 15,
+          "StandUp": false,
+          "Stackable": false
+        }
       },
       "LuaScript": "",
       "LuaScriptState": "",
