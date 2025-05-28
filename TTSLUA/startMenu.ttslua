@@ -284,6 +284,15 @@ DeployZonesData = {
     {name = "(CP) Display of Might", objectivesID = 27, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
         --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
+    {name = "Four Corners", objectivesID = 202, draw = {
+        --[[1]]{type = "cornerRectangle", color = "Yellow", position = "xz", fromCenter = 9},
+        --[[2]]{type = "cornerRectangle", color = "Blue", position = "x-z", fromCenter = 9},
+        --[[3]]{type = "cornerRectangle", color = "Red", position = "-xz", fromCenter = 9},
+        --[[4]]{type = "cornerRectangle", color = "Black", position = "-x-z", fromCenter = 9}}},
+    {name = "Three Circles", objectivesID = 203, draw = {
+        --[[1]]{type = "circleDeployment", color = "Blue", position = "z", fromCenter = 13, radius = 9},
+        --[[2]]{type = "circleDeployment", color = "Black", position = "-x", fromCenter = 16, fromCenterZ = 13, radius = 9},
+        --[[3]]{type = "circleDeployment", color = "Yellow", position = "x", fromCenter = 16, fromCenterZ = 13, radius = 9}}},
     {name = "None", draw = {type = "none"}},
 }
 
@@ -364,6 +373,12 @@ function drawDeployZone(zone)
         end
         if drawData.type == "circleInZone" then
             drawCircleInZone(drawData, "deployZone")
+        end
+        if drawData.type == "cornerRectangle" then
+            drawCornerRectangle(drawData)
+        end
+        if drawData.type == "circleDeployment" then
+            drawCircleDeployment(drawData)
         end
     end
     setDeployHeight()
@@ -680,6 +695,88 @@ function drawCircleNotCentered(drawData, type, centerX, centerZ)
         circleObj.setPosition({centerX, deployLineYPos, centerZ})
         circleObj.setColorTint(drawData.color)
         circleObj.setGMNotes(type)
+        circleObj.setName("")
+        local blockComp = circleObj.getComponent("BoxCollider")
+        blockComp.set("enabled", false)
+    end
+end
+
+function drawCornerRectangle(drawData)
+    local mat = getObjectFromGUID(mat_GUID)
+    local mapBase = mat.getScale().z * sizeMulti --short edge
+    local mapHeight = mat.getScale().x * sizeMulti --long edge
+    
+    -- Calculate rectangle dimensions to extend from center boundary to map edge
+    local rectWidth = 0
+    local rectHeight = 0
+    local centerX = 0
+    local centerZ = 0
+    
+    if drawData.position == "xz" then -- upper right (Blue)
+        rectWidth = (mapHeight/2) - drawData.fromCenter
+        rectHeight = (mapBase/2) - drawData.fromCenter
+        centerX = drawData.fromCenter + (rectWidth/2)
+        centerZ = drawData.fromCenter + (rectHeight/2)
+    elseif drawData.position == "x-z" then -- lower right (Black)
+        rectWidth = (mapHeight/2) - drawData.fromCenter
+        rectHeight = (mapBase/2) - drawData.fromCenter
+        centerX = drawData.fromCenter + (rectWidth/2)
+        centerZ = -(drawData.fromCenter + (rectHeight/2))
+    elseif drawData.position == "-xz" then -- upper left (Yellow)
+        rectWidth = (mapHeight/2) - drawData.fromCenter
+        rectHeight = (mapBase/2) - drawData.fromCenter
+        centerX = -(drawData.fromCenter + (rectWidth/2))
+        centerZ = drawData.fromCenter + (rectHeight/2)
+    elseif drawData.position == "-x-z" then -- lower left (Red)
+        rectWidth = (mapHeight/2) - drawData.fromCenter
+        rectHeight = (mapBase/2) - drawData.fromCenter
+        centerX = -(drawData.fromCenter + (rectWidth/2))
+        centerZ = -(drawData.fromCenter + (rectHeight/2))
+    end
+    
+    -- Draw the four sides of the rectangle
+    -- Top edge
+    spawnLine({centerX, deployLineYPos, centerZ + rectHeight/2}, {0, 0, 0}, {rectWidth, deployLineHeight, 0.02}, drawData.color, "deployZone")
+    -- Bottom edge
+    spawnLine({centerX, deployLineYPos, centerZ - rectHeight/2}, {0, 0, 0}, {rectWidth, deployLineHeight, 0.02}, drawData.color, "deployZone")
+    -- Left edge
+    spawnLine({centerX - rectWidth/2, deployLineYPos, centerZ}, {0, 90, 0}, {rectHeight, deployLineHeight, 0.02}, drawData.color, "deployZone")
+    -- Right edge
+    spawnLine({centerX + rectWidth/2, deployLineYPos, centerZ}, {0, 90, 0}, {rectHeight, deployLineHeight, 0.02}, drawData.color, "deployZone")
+end
+
+function drawCircleDeployment(drawData)
+    local mat = getObjectFromGUID(mat_GUID)
+    local mapBase = mat.getScale().z * sizeMulti --short edge
+    local mapHeight = mat.getScale().x * sizeMulti --long edge
+    
+    -- Calculate circle position based on position and fromCenter distance
+    local centerX = 0
+    local centerZ = 0
+    
+    if drawData.position == "z" then -- top center
+        centerX = 0
+        centerZ = drawData.fromCenter
+    elseif drawData.position == "-z" then -- bottom center
+        centerX = 0
+        centerZ = -drawData.fromCenter
+    elseif drawData.position == "-x" then -- left side
+        centerX = -drawData.fromCenter
+        centerZ = -(drawData.fromCenterZ or 0)
+    elseif drawData.position == "x" then -- right side
+        centerX = drawData.fromCenter
+        centerZ = -(drawData.fromCenterZ or 0)
+    end
+    
+    -- Draw the circle using the existing circle drawing function
+    local originalCircle = getObjectFromGUID(Global.getVar("centerCircle_GUID"))
+    local circleObj = originalCircle.clone({ position = {0, -5, 0}})
+    if circleObj then
+        circleObj.setLock(true)
+        circleObj.setScale({drawData.radius, deployLineHeight, drawData.radius})
+        circleObj.setPosition({centerX, deployLineYPos, centerZ})
+        circleObj.setColorTint(drawData.color)
+        circleObj.setGMNotes("deployZone")
         circleObj.setName("")
         local blockComp = circleObj.getComponent("BoxCollider")
         blockComp.set("enabled", false)
@@ -1075,6 +1172,8 @@ objectivesData = {
             {type = "fixed", pos={-14, objectivesOffset, 0}},
             {type = "fixed", pos={0, objectivesOffset, 8}},
             {type = "fixed", pos={0, objectivesOffset, -8}}}},
+        {id = 202, name = "Four Corners", objectives = {}},
+        {id = 203, name = "Three Circles", objectives = {}},
         {id = 0, name = "None", objectives = {}},
     }
 
