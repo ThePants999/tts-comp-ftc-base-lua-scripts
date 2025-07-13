@@ -13,6 +13,8 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 
 * The bubble/position helper buttons now move if you change table size.
 * The Pariah Nexus PDF is now the CA2025 PDF.
+* Added multiplayer Combat Patrol deployments (thanks to Shaderx).
+* Added more Hidden Supplies deployment layouts that move the objectives the other way, for DZs where that's legal.
 
 ### v2.65
 

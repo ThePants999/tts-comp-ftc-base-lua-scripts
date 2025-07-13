@@ -77,7 +77,7 @@ function makeAnnouncement()
     local features={
     "2.64: minor bug fixes",
     "2.65: it's Chapter Approved time baybee! Also: lots of dice rolling enhancements, malicious script detection, 6\"/9\"/12\" bubble toggling, save/restore unit positions",
-    "2.66: buttons no longer overlap Onslaught table, Pariah Nexus PDF is now CA2025 PDF",
+    "2.66: buttons no longer overlap Onslaught table, Pariah Nexus PDF is now CA2025 PDF, added alternative Hidden Supplies layouts",
     }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
@@ -255,20 +255,32 @@ DeployZonesData = {
     {name = "Hammer and Anvil (HS)", objectivesID = 107, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromSide = 18},
         --[[2]]{type = "line", color = "Teal", position = "-x", fromSide = 18}}},
-    {name = "Dawn of War (HS)", objectivesID = 108, draw = {
+    {name = "Hammer and Anvil (HS2)", objectivesID = 108, draw = {
+        --[[1]]{type = "line", color = "Red", position = "x", fromSide = 18},
+        --[[2]]{type = "line", color = "Teal", position = "-x", fromSide = 18}}},
+    {name = "Dawn of War (HS)", objectivesID = 109, draw = {
         --[[1]]{type = "line", color = "Teal", position = "-z", fromSide = 12},
         --[[2]]{type = "line", color = "Red", position = "z", fromSide = 12}}},
-    {name = "Sweeping Engagement (HS)", objectivesID = 109, draw = {
+    {name = "Dawn of War (HS2)", objectivesID = 110, draw = {
+        --[[1]]{type = "line", color = "Teal", position = "-z", fromSide = 12},
+        --[[2]]{type = "line", color = "Red", position = "z", fromSide = 12}}},
+    {name = "Sweeping Engagement (HS)", objectivesID = 111, draw = {
         --[[1]]{type = "stepped", color = "Teal", position = "-z", steps = {{fromSide = 8}, {fromSide = 14}}},
         --[[2]]{type = "stepped", color = "Red", position = "z", steps = {{fromSide = 14}, {fromSide = 8}}}}},
-    {name = "Search and Destroy (HS)", objectivesID = 110, draw = {
+    {name = "Sweeping Engagement (HS)", objectivesID = 112, draw = {
+        --[[1]]{type = "stepped", color = "Teal", position = "-z", steps = {{fromSide = 8}, {fromSide = 14}}},
+        --[[2]]{type = "stepped", color = "Red", position = "z", steps = {{fromSide = 14}, {fromSide = 8}}}}},
+    {name = "Search and Destroy (HS)", objectivesID = 113, draw = {
         --[[1]]{type = "quarter", color = "Teal", position = "-x-z", fromCenter = 9},
         --[[2]]{type = "quarter", color = "Red", position = "xz", fromCenter = 9},
         --[[3]]{type = "circle", color = "White", fromCenter = 9}}},
-    {name = "Crucible of Battle (HS)", objectivesID = 111, draw = {
+    {name = "Crucible of Battle (HS)", objectivesID = 114, draw = {
         --[[1]]{type = "triangle", color = "Red", position = "x"},
         --[[2]]{type = "triangle", color = "Teal", position = "-x"}}},
-    {name = "Tipping Point (HS)", objectivesID = 112, draw = {
+    {name = "Tipping Point (HS)", objectivesID = 115, draw = {
+        --[[1]]{type = "stepped", color = "Teal", position = "-x", steps = {{fromSide = 12}, {fromSide = 20}}},
+        --[[2]]{type = "stepped", color = "Red", position = "x", steps = {{fromSide = 20}, {fromSide = 12}}}}},
+    {name = "Tipping Point (HS2)", objectivesID = 116, draw = {
         --[[1]]{type = "stepped", color = "Teal", position = "-x", steps = {{fromSide = 12}, {fromSide = 20}}},
         --[[2]]{type = "stepped", color = "Red", position = "x", steps = {{fromSide = 20}, {fromSide = 12}}}}},
     --Combat Patrol Missions
@@ -290,12 +302,12 @@ DeployZonesData = {
     {name = "(CP) Display of Might", objectivesID = 27, draw = {
         --[[1]]{type = "line", color = "Red", position = "x", fromCenter = 12 },
         --[[2]]{type = "line", color = "Teal", position = "-x", fromCenter = 12}}},
-    {name = "Four Corners", objectivesID = 202, draw = {
+    {name = "(CP) Four Corners", objectivesID = 202, draw = {
         --[[1]]{type = "cornerRectangle", color = "Yellow", position = "xz", fromCenter = 9},
         --[[2]]{type = "cornerRectangle", color = "Blue", position = "x-z", fromCenter = 9},
         --[[3]]{type = "cornerRectangle", color = "Red", position = "-xz", fromCenter = 9},
         --[[4]]{type = "cornerRectangle", color = "Black", position = "-x-z", fromCenter = 9}}},
-    {name = "Three Circles", objectivesID = 203, draw = {
+    {name = "(CP) Three Circles", objectivesID = 203, draw = {
         --[[1]]{type = "circleDeployment", color = "Blue", position = "z", fromCenter = 13, radius = 9},
         --[[2]]{type = "circleDeployment", color = "Black", position = "-x", fromCenter = 16, fromCenterZ = 13, radius = 9},
         --[[3]]{type = "circleDeployment", color = "Yellow", position = "x", fromCenter = 16, fromCenterZ = 13, radius = 9}}},
@@ -711,13 +723,13 @@ function drawCornerRectangle(drawData)
     local mat = getObjectFromGUID(mat_GUID)
     local mapBase = mat.getScale().z * sizeMulti --short edge
     local mapHeight = mat.getScale().x * sizeMulti --long edge
-    
+
     -- Calculate rectangle dimensions to extend from center boundary to map edge
     local rectWidth = 0
     local rectHeight = 0
     local centerX = 0
     local centerZ = 0
-    
+
     if drawData.position == "xz" then -- upper right (Blue)
         rectWidth = (mapHeight/2) - drawData.fromCenter
         rectHeight = (mapBase/2) - drawData.fromCenter
@@ -739,7 +751,7 @@ function drawCornerRectangle(drawData)
         centerX = -(drawData.fromCenter + (rectWidth/2))
         centerZ = -(drawData.fromCenter + (rectHeight/2))
     end
-    
+
     -- Draw the four sides of the rectangle
     -- Top edge
     spawnLine({centerX, deployLineYPos, centerZ + rectHeight/2}, {0, 0, 0}, {rectWidth, deployLineHeight, 0.02}, drawData.color, "deployZone")
@@ -755,11 +767,11 @@ function drawCircleDeployment(drawData)
     local mat = getObjectFromGUID(mat_GUID)
     local mapBase = mat.getScale().z * sizeMulti --short edge
     local mapHeight = mat.getScale().x * sizeMulti --long edge
-    
+
     -- Calculate circle position based on position and fromCenter distance
     local centerX = 0
     local centerZ = 0
-    
+
     if drawData.position == "z" then -- top center
         centerX = 0
         centerZ = drawData.fromCenter
@@ -773,7 +785,7 @@ function drawCircleDeployment(drawData)
         centerX = drawData.fromCenter
         centerZ = -(drawData.fromCenterZ or 0)
     end
-    
+
     -- Draw the circle using the existing circle drawing function
     local originalCircle = getObjectFromGUID(Global.getVar("centerCircle_GUID"))
     local circleObj = originalCircle.clone({ position = {0, -5, 0}})
@@ -1111,37 +1123,65 @@ objectivesData = {
             {type = "fromSide", pos={-10, objectivesOffset, 0}},
             {type = "fromSide", pos={0, objectivesOffset, 6}},
             {type = "fromSide", pos={0, objectivesOffset, -6}}}},
-        {id = 108, name = "Dawn of War (HS)", objectives = {
+        {id = 108, name = "Hammer and Anvil (HS2)", objectives = {
+            {type = "diagonal", orientation="xz", pos={6, objectivesOffset, 0}},
+            {type = "diagonal", orientation="xz", pos={-6, objectivesOffset, 0}},
+            {type = "fromSide", pos={10, objectivesOffset, 0}},
+            {type = "fromSide", pos={-10, objectivesOffset, 0}},
+            {type = "fromSide", pos={0, objectivesOffset, 6}},
+            {type = "fromSide", pos={0, objectivesOffset, -6}}}},
+        {id = 109, name = "Dawn of War (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={10, objectivesOffset, 0}},
             {type = "fromSide", pos={-10, objectivesOffset, 0}},
             {type = "fromSide", pos={0, objectivesOffset, 6}},
             {type = "fromSide", pos={0, objectivesOffset, -6}}}},
-        {id = 109, name = "Sweeping Engagement (HS)", objectives = {
+        {id = 110, name = "Dawn of War (HS2)", objectives = {
+            {type = "diagonal", orientation="xz", pos={6, objectivesOffset, 0}},
+            {type = "diagonal", orientation="xz", pos={-6, objectivesOffset, 0}},
+            {type = "fromSide", pos={10, objectivesOffset, 0}},
+            {type = "fromSide", pos={-10, objectivesOffset, 0}},
+            {type = "fromSide", pos={0, objectivesOffset, 6}},
+            {type = "fromSide", pos={0, objectivesOffset, -6}}}},
+        {id = 111, name = "Sweeping Engagement (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={18, objectivesOffset, 6}},
             {type = "fromSide", pos={-18, objectivesOffset, -6}},
             {type = "fromSide", pos={10, objectivesOffset, -18}},
             {type = "fromSide", pos={-10, objectivesOffset, 18}}}},
-        {id = 110, name = "Search and Destroy (HS)", objectives = {
+        {id = 112, name = "Sweeping Engagement (HS2)", objectives = {
+            {type = "diagonal", orientation="xz", pos={6, objectivesOffset, 0}},
+            {type = "diagonal", orientation="xz", pos={-6, objectivesOffset, 0}},
+            {type = "fromSide", pos={18, objectivesOffset, 6}},
+            {type = "fromSide", pos={-18, objectivesOffset, -6}},
+            {type = "fromSide", pos={10, objectivesOffset, -18}},
+            {type = "fromSide", pos={-10, objectivesOffset, 18}}}},
+        {id = 113, name = "Search and Destroy (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={14, objectivesOffset, 10}},
             {type = "fromSide", pos={-14, objectivesOffset, -10}},
             {type = "fromSide", pos={14, objectivesOffset, -10}},
             {type = "fromSide", pos={-14, objectivesOffset, 10}}}},
-        {id = 111, name = "Crucible of Battle (HS)", objectives = {
+        {id = 114, name = "Crucible of Battle (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={14, objectivesOffset, 10}},
             {type = "fromSide", pos={-14, objectivesOffset, -10}},
             {type = "fromSide", pos={20, objectivesOffset, -8}},
             {type = "fromSide", pos={-20, objectivesOffset, 8}}}},
-        {id = 112, name = "Tipping Point (HS)", objectives = {
+        {id = 115, name = "Tipping Point (HS)", objectives = {
             {type = "diagonal", orientation="-xz", pos={6, objectivesOffset, 0}},
             {type = "diagonal", orientation="-xz", pos={-6, objectivesOffset, 0}},
+            {type = "fromSide", pos={14, objectivesOffset, 10}},
+            {type = "fromSide", pos={-14, objectivesOffset, -10}},
+            {type = "fromSide", pos={22, objectivesOffset, -8}},
+            {type = "fromSide", pos={-22, objectivesOffset, 8}}}},
+        {id = 116, name = "Tipping Point (HS2)", objectives = {
+            {type = "diagonal", orientation="xz", pos={6, objectivesOffset, 0}},
+            {type = "diagonal", orientation="xz", pos={-6, objectivesOffset, 0}},
             {type = "fromSide", pos={14, objectivesOffset, 10}},
             {type = "fromSide", pos={-14, objectivesOffset, -10}},
             {type = "fromSide", pos={22, objectivesOffset, -8}},
@@ -1178,8 +1218,8 @@ objectivesData = {
             {type = "fixed", pos={-14, objectivesOffset, 0}},
             {type = "fixed", pos={0, objectivesOffset, 8}},
             {type = "fixed", pos={0, objectivesOffset, -8}}}},
-        {id = 202, name = "Four Corners", objectives = {}},
-        {id = 203, name = "Three Circles", objectives = {}},
+        {id = 202, name = "(CP) Four Corners", objectives = {}},
+        {id = 203, name = "(CP) Three Circles", objectives = {}},
         {id = 0, name = "None", objectives = {}},
     }
 
