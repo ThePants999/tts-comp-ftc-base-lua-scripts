@@ -77,8 +77,7 @@ function makeAnnouncement()
     local features={
     "2.64: minor bug fixes",
     "2.65: it's Chapter Approved time baybee! Also: lots of dice rolling enhancements, malicious script detection, 6\"/9\"/12\" bubble toggling, save/restore unit positions",
-    "2.66: buttons no longer overlap Onslaught table, Pariah Nexus PDF is now CA2025 PDF, added alternative Hidden Supplies layouts",
-    }
+    "2.66: buttons no longer overlap Onslaught table, Pariah Nexus PDF is now CA2025 PDF, added alternative Hidden Supplies layouts, reinstated the mission selector",    }
     printToAll("NEW FEATURES:", "Yellow")
     for i, new in ipairs(features) do
         printToAll("- "..new, "Yellow")
@@ -1379,7 +1378,74 @@ end
 -- handles the parts that are per-player.
 
 --[[
-Temporarily disable mission selection until the tournament companion is published.
+GUID reference for primary / mission / deployment cards
+Yeah, I could use variables but I didn't, oh well
+
+Pariah Nexus:
+-------------
+
+Burden of Trust 85718e
+Hidden Supplies 85718f
+Linchpin 540fd0
+Purge the Foe d9d35a
+Scorched Earth 6860de
+Supply Drop 981226
+Take and Hold bffd57
+Terraform 7fa6d0
+The Ritual 7067e2
+Unexploded Ordnance 41f293
+
+Crucible of Battle e96d18
+Dawn of War 7f45dc
+Hammer and Anvil 97f3f0
+Search and Destroy 09c961
+Sweeping Engagement c6edf3
+Tipping Point 77cde6
+
+]]--
+
+tournamentMissions = {
+    -- Take and Hold / Tipping Point
+    {name = "A", primary = "bffd57", deployment = "77cde6"},
+    -- Supply Drop / Tipping Point
+    {name = "B", primary = "981226", deployment = "77cde6"},
+    -- Linchpin / Tipping Point
+    {name = "C", primary = "540fd0", deployment = "77cde6"},
+    -- Scorched Earth / Tipping Point
+    {name = "D", primary = "6860de", deployment = "77cde6"},
+    -- Take and Hold / Hammer and Anvil
+    {name = "E", primary = "bffd57", deployment = "97f3f0"},
+    -- Hidden Supplies / Hammer and Anvil
+    {name = "F", primary = "85718f", deployment = "97f3f0"},
+    -- Purge the Foe / Hammer and Anvil
+    {name = "G", primary = "d9d35a", deployment = "97f3f0"},
+    -- Supply Drop / Hammer and Anvil
+    {name = "H", primary = "981226", deployment = "97f3f0"},
+    -- Hidden Supplies / Search and Destroy
+    {name = "I", primary = "85718f", deployment = "09c961"},
+    -- Linchpin / Search and Destroy
+    {name = "J", primary = "540fd0", deployment = "09c961"},
+    -- Scorched Earth / Search and Destroy
+    {name = "K", primary = "6860de", deployment = "09c961"},
+    -- Take and Hold / Search and Destroy
+    {name = "L", primary = "bffd57", deployment = "09c961"},
+    -- Purge the Foe / Crucible of Battle
+    {name = "M", primary = "d9d35a", deployment = "e96d18"},
+    -- Hidden Supplies / Crucible of Battle
+    {name = "N", primary = "85718f", deployment = "e96d18"},
+    -- Terraform / Crucible of Battle
+    {name = "O", primary = "7fa6d0", deployment = "e96d18"},
+    -- Scorched Earth / Crucible of Battle
+    {name = "P", primary = "6860de", deployment = "e96d18"},
+    -- Supply Drop / Sweeping Engagement
+    {name = "Q", primary = "981226", deployment = "c6edf3"},
+    -- Terraform / Sweeping Engagement
+    {name = "R", primary = "7fa6d0", deployment = "c6edf3"},
+    -- Linchpin / Dawn of War
+    {name = "S", primary = "540fd0", deployment = "7f45dc"},
+    -- Purge the Foe / Dawn of War
+    {name = "T", primary = "d9d35a", deployment = "7f45dc"},
+}
 
 selectedMission = 0
 canChangeMission = true
@@ -1387,7 +1453,7 @@ missionHeaderBtn = {
     label = "M I S S I O N   S E L E C T I O N",
     click_function = "none",
     function_owner = self,
-    position = {9.25, 5, -17.1},
+    position = {10.25, 5, -17.1},
     rotation = {0, 0, 0},
     height = 250,
     width = 4000,
@@ -1399,7 +1465,7 @@ randomiseMissionBtn = {
     label = "Fully\nRandom",
     click_function = "randomiseMission",
     function_owner = self,
-    position = {5.85, 5, -16.2},
+    position = {6.85, 5, -16.2},
     rotation = {0, 0, 0},
     height = 550,
     width = 750,
@@ -1411,7 +1477,7 @@ randomTournamentMissionBtn = {
     label = "Random\nGW",
     click_function = "randomTournamentMission",
     function_owner = self,
-    position = {12.65, 5, -16.2},
+    position = {13.65, 5, -16.2},
     rotation = {0, 0, 0},
     height = 550,
     width = 750,
@@ -1423,7 +1489,7 @@ missionSelectionDownBtn = {
     label = "<-",
     click_function = "missionSelectionDown",
     function_owner = self,
-    position = {7.55, 5, -16.2},
+    position = {8.55, 5, -16.2},
     rotation = {0, 0, 0},
     height = 550,
     width = 750,
@@ -1435,7 +1501,7 @@ missionSelectionUpBtn = {
     label = "->",
     click_function = "missionSelectionUp",
     function_owner = self,
-    position = {10.95, 5, -16.2},
+    position = {11.95, 5, -16.2},
     rotation = {0, 0, 0},
     height = 550,
     width = 750,
@@ -1447,7 +1513,7 @@ missionSelectionDispBtn = {
     label = "?",
     click_function = "none",
     function_owner = self,
-    position = {9.25, 5, -16.2},
+    position = {10.25, 5, -16.2},
     rotation = {0, 0, 0},
     height = 550,
     width = 750,
@@ -1459,7 +1525,7 @@ missionSelectionDispBtn = {
 function missionSelectionDown()
     if canChangeMission then
         selectedMission = selectedMission - 1
-        if selectedMission <= 0 then selectedMission = #missionPackData.tournamentMissions end
+        if selectedMission <= 0 then selectedMission = #tournamentMissions end
         updateMission()
     end
 end
@@ -1467,7 +1533,7 @@ end
 function missionSelectionUp()
     if canChangeMission then
         selectedMission = selectedMission + 1
-        if selectedMission > #missionPackData.tournamentMissions then selectedMission = 1 end
+        if selectedMission > #tournamentMissions then selectedMission = 1 end
         updateMission()
     end
 end
@@ -1481,7 +1547,7 @@ end
 
 function randomTournamentMission()
     if canChangeMission then
-        selectedMission = math.random(#missionPackData.tournamentMissions)
+        selectedMission = math.random(#tournamentMissions)
         updateMission()
     end
 end
@@ -1489,19 +1555,16 @@ end
 function updateMission()
     canChangeMission = false
     Global.call("moveAllFromZoneToDeck", {zone = "deployment", deck = "deployment"})
-    Global.call("moveAllFromZoneToDeck", {zone = "mission", deck = "mission"})
     Global.call("moveAllFromZoneToDeck", {zone = "primary", deck = "primary"})
 
     if selectedMission == 0 then
         missionSelectionDispBtn.label = "?"
         Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment"})
-        Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission"})
         Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary"})
     else
-        mission = missionPackData.tournamentMissions[selectedMission]
+        mission = tournamentMissions[selectedMission]
         missionSelectionDispBtn.label = mission.name
         Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment", card = mission.deployment})
-        Global.call("moveOneFromDeckToZone", {deck = "mission", zone = "mission", card = mission.mission})
         Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary", card = mission.primary})
     end
     writeMenus()
@@ -1560,7 +1623,7 @@ IncrementBlueCpBtn = {
     font_size = 600, color = {0, 0, 1}, font_color = {1, 1, 1}
 }
 
-notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found in the Notebook.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/2ST7xyWgEa"
+notePadTxt = "This is the Forty Thousand Collection 'FTC' gaming template for Warhammer 40k, version 2.0+, competitive fork. Only Grand Tournament play is supported.\n\nPlease raise issues at https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues.\n\nInstructions can be found in the Notebook.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server: https://discord.gg/tts40k"
 
 quartersPlaced = false
 quartersLblOpen = "Hide\nTable Quarters"
