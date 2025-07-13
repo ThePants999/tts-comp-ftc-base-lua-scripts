@@ -12773,7 +12773,7 @@
         "scaleZ": 6.0
       },
       "Nickname": "",
-      "Description": "Pariah Nexus reference",
+      "Description": "CA2025 reference",
       "GMNotes": "",
       "AltLookAngle": {
         "x": 0.0,
@@ -12800,7 +12800,7 @@
       "HideWhenFaceDown": false,
       "Hands": false,
       "CustomPDF": {
-        "PDFUrl": "https://assets.warhammer-community.com/warhammer40000_core&key_pariahnexustournamentcompanion_eng_16.10.pdf",
+        "PDFUrl": "https://assets.warhammer-community.com/eng_09-07_warhammer40000_core_rules_chapter_approved_tournament_companion-ykbgtwjmay-skhjduhbvi.pdf",
         "PDFPassword": "",
         "PDFPage": 0,
         "PDFPageOffset": 1

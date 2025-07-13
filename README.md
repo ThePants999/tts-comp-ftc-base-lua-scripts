@@ -9,6 +9,11 @@ Credit and thanks to GenWilhelm, BaconCatBug, Phubar, Mothman_Zack, Zyllos and K
 
 ## Update History:
 
+### v2.66
+
+* The bubble/position helper buttons now move if you change table size.
+* The Pariah Nexus PDF is now the CA2025 PDF.
+
 ### v2.65
 
 * Chapter Approved 2025 is here - and with it, we bid a fond farewell to Leviathan / Pariah Nexus, now removed from the code.
