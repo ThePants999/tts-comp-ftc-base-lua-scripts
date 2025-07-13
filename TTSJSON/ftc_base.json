@@ -11190,11 +11190,11 @@
       "GUID": "86398e",
       "Name": "BlockSquare",
       "Transform": {
-        "posX": 31.75,
+        "posX": -31.75,
         "posY": -1.0,
         "posZ": 0.0,
         "rotX": 0.0,
-        "rotY": 270.0,
+        "rotY": 90.0,
         "rotZ": 0.0,
         "scaleX": 1.0,
         "scaleY": 1.0,

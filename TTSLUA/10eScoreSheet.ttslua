@@ -752,8 +752,6 @@ function checkChallenger()
 	elseif playerSum(1) - playerSum(2) > 5 then
 		-- Red winning by 6+ - blue is the challenger
 		broadcastToAll(Player.Blue.steam_name .. " is the challenger!", {0,0,1})
-	elseif getObjectFromGUID("fe7926") ~= nil then
-		broadcastToAll("Gonna credit me this time Jamie? ;-)", {1,1,1})
 	end
 end
 

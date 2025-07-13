@@ -29,6 +29,7 @@ scoresheet_GUID = "06d627"
 blankObjCard_GUID = "d618cb"
 activation_GUID = "229946"
 wounds_GUID = "ad63ba"
+bubbleHelper_GUID = "86398e"
 
 table_GUID = "948ce5"
 felt_GUID = "28865a"

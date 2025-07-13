@@ -172,6 +172,11 @@ function sizeUpDown(increment)
     if mapSizeSelected < 1 then
         mapSizeSelected=#sizeData
     end
+
+    xScale = sizeData[mapSizeSelected].scale[1]
+    bubbleHelper = getObjectFromGUID(Global.getVar("bubbleHelper_GUID"))
+    bubbleHelper.setPosition({(-18.07228916 * xScale) - 1.75, -1.0, 0.0})
+
     updateDeployObjectivesSelection()
     writeMenus()
 end
