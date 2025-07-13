@@ -31,7 +31,7 @@
   "PlayArea": 1.0,
   "Table": "Table_None",
   "Sky": "Sky_Museum",
-  "Note": "This is the GT fork of version 2.0+ of Forty Thousand Collection 'FTC' gaming template for Warhammer 40k.\n\nInstructions and credits can both be found in the Notepad.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server:\ndiscord.gg/XkBbs5M\n\nReport any bugs or issues at: https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues",
+  "Note": "This is the GT fork of version 2.0+ of Forty Thousand Collection 'FTC' gaming template for Warhammer 40k.\n\nInstructions and credits can both be found in the Notepad.\n\nSearch for FTC or BCB Map Additive Load on the workshop for maps to load!\n\n\nJoin the TTS 40K Discord server:\ndiscord.gg/tts40k\n\nReport any bugs or issues at: https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts/issues",
   "Rules": "",
   "MusicPlayer": {
   },
@@ -25418,6 +25418,60 @@
           "XmlUI": ""
         }
       ]
+    },
+    {
+      "GUID": "10bbdc",
+      "Name": "3DText",
+      "Transform": {
+        "posX": 17.40823,
+        "posY": 0.961483,
+        "posZ": 0.0,
+        "rotX": 90.0,
+        "rotY": 89.7973862,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "GMNotes": "",
+      "AltLookAngle": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "LayoutGroupSortIndex": 0,
+      "Value": 0,
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "MeasureMovement": false,
+      "DragSelectable": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "Join the new TTS 40K\ncommunity Discord server!\nhttps://discord.gg/tts40k",
+        "colorstate": {
+          "r": 0.0,
+          "g": 0.0,
+          "b": 0.0
+        },
+        "fontSize": 144
+      },
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "XmlUI": ""
     }
   ]
 }

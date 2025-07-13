@@ -82,6 +82,7 @@ function makeAnnouncement()
     for i, new in ipairs(features) do
         printToAll("- "..new, "Yellow")
     end
+    printToAll("\nJoin the new TTS 40K community Discord server! https://discord.gg/tts40k", "Yellow")
 end
 
 -- ********************
@@ -195,6 +196,8 @@ function confirmSizeTerrain()
 end
 
 function confirmSizeMat(type)
+    discordText = getObjectFromGUID(Global.getVar("discordText_GUID"))
+    discordText.destruct()
     gameMode= type
     sizeConfirmed=true
     mat.setScale(sizeData[mapSizeSelected].scale)
