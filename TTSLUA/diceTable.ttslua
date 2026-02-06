@@ -458,17 +458,17 @@ function lethalsAndOrSustainedAction(player, sustained, lethals, alt)
     local z_delta = (whichDiceMat == "Red") and 3.3 or -3.3
 
     if #crits > 0 then
-        if lethals then
-            for _, die in ipairs(crits) do
-                pos = die.getPosition()
+        for _, die in ipairs(crits) do
+            pos = die.getPosition()
+            if sustained then
+                die.clone({position = pos, snap_to_grid = false})
+            end
+            if lethals then
                 die.setPositionSmooth({x=pos.x, y=pos.y, z=pos.z + z_delta}, false, true)
             end
-            printToColor("Moved " .. #crits .. " lethals off the mat.", player, "Yellow")
         end
-        if sustained then
-            spawnDice(#crits, player)
-            printToColor("Generated " .. #crits .. " sustained hits.", player, "Yellow")
-        end
+        if sustained then printToColor("Cloned " .. #crits .. " sustained.", player, "Yellow") end
+        if lethals then printToColor("Moved " .. #crits .. " lethals off the mat.", player, "Yellow") end
     else
         printToColor("No critical hits.", player, "Yellow")
     end
