@@ -1,4 +1,4 @@
--- FTC-GUID: 86398e
+ -- FTC-GUID: 86398e
 
 clearAllBtn={
     label="Clear bubbles", click_function="clearBubbles", function_owner=self,
@@ -71,6 +71,8 @@ local VALID_BASE_SIZES_IN_MM = {
 
 function onLoad(saved_data)
     writeMenus()
+    addHotkey("Save Position", hotkeySavePosition)
+    addHotkey("Restore Position", hotkeyRestorePosition)
 end
 
 function writeMenus()
@@ -297,6 +299,16 @@ end
 
 function bubble12(_, player, _)
     updateBubbles(player, 12)
+end
+
+function hotkeySavePosition(playerColor, hoveredObject, pointerPosition, isKeyUp)
+    if isKeyUp then return end
+    savePosition(nil, playerColor, nil)
+end
+
+function hotkeyRestorePosition(playerColor, hoveredObject, pointerPosition, isKeyUp)
+    if isKeyUp then return end
+    restorePosition(nil, playerColor, nil)
 end
 
 function savePosition(_, player, _)
