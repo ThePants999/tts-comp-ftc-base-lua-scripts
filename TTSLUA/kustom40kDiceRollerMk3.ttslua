@@ -104,7 +104,7 @@ function onLoad(save_state)
 		setDefaultState()
 	end
 	-- initialize references that depend on Global
-	Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function()
+	Wait.condition(function()
 		thisBoxIsBlue = (self.guid == Global.getVar("blueDiceRoller_GUID")) and true or false
 		seed = os.time() + (thisBoxIsBlue and 1 or 0)
 		math.randomseed(seed)
@@ -120,7 +120,7 @@ function onLoad(save_state)
 		self.createButton(printLastBtn)
 		self.createButton(printLast5Btn)
 		self.createButton(revertRollBtn)
-	end)
+	end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 --Returns description on game save.

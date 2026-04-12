@@ -32,7 +32,7 @@ function onload(saved_data)
         end
     end
     -- defer GUID-dependent object resolution until Global is ready
-    Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function()
+    Wait.condition(function()
         exportObj = getObjectFromGUID(Global.getVar("extractTerrain_GUID"))
         --Establish references to table parts
         obj_leg1 = getObjectFromGUID(Global.getVar("tableLeg1_GUID"))
@@ -49,7 +49,7 @@ function onload(saved_data)
         controlActive = false
         print("[flexTableControl] table parts assigned: mat=" .. tostring(obj_surface) .. ", legs=" .. tostring(obj_leg1) .. ", export=" .. tostring(exportObj))
         createOpenCloseButton()
-    end)
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 function setControlF()

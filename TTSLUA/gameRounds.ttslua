@@ -22,10 +22,14 @@ continueBtn={
     position={btnXPos,btnYPos,btnZPos}, rotation={0,180,0}, height=btnHeight, width=btnWidth,
     font_size=90, color={0,0.6,0}, font_color={1,1,1}
 }
+
 function onLoad()
-    counterA=getObjectFromGUID(Global.getVar("redVPCounter_GUID"))
-    counterB=getObjectFromGUID(Global.getVar("blueVPCounter_GUID"))
-    startObject=getObjectFromGUID(Global.getVar("startMenu_GUID"))
+    Wait.condition(function()
+        counterA=getObjectFromGUID(Global.getVar("redVPCounter_GUID"))
+        counterB=getObjectFromGUID(Global.getVar("blueVPCounter_GUID"))
+        startObject=getObjectFromGUID(Global.getVar("startMenu_GUID"))
+        print("[gameRounds] counters and startObject initialized")
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 function writeButtons()

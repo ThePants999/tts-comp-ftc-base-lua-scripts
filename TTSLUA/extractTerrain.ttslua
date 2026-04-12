@@ -27,7 +27,7 @@ tableSideBottom_GUID = nil
 function onLoad()
 
     -- assign variables only after global declares readiness
-    Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function() assignVariables() end)
+    Wait.condition(function() assignVariables() end, function() return Global.getVar("FTC_Global_Ready") == true end)
     --createExtractButton()
     self.setPosition({40,-2,-90})
     self.setRotation({0,180,0})
@@ -218,13 +218,16 @@ function hideYNButtonsMirror()
     writeMenu()
 end
 
+
 function extract()
-    broadcastToAll("EXTRACTING TERRAIN\nwait a few seconds ...", "Yellow")
-    mat=getObjectFromGUID(Global.getVar("mat_GUID"))
-    createDebugMat()
-    local startMenu=getObjectFromGUID(Global.getVar("startMenu_GUID"))
-    startMenu.call("recallAll")
-    Wait.time(extract2, 2)
+    Wait.condition(function()
+        broadcastToAll("EXTRACTING TERRAIN\nwait a few seconds ...", "Yellow")
+        mat=getObjectFromGUID(Global.getVar("mat_GUID"))
+        createDebugMat()
+        local startMenu=getObjectFromGUID(Global.getVar("startMenu_GUID"))
+        startMenu.call("recallAll")
+        Wait.time(extract2, 2)
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 function extract2()

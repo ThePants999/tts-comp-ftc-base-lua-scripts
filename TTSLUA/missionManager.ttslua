@@ -21,9 +21,9 @@ targetRotation = {x = 0, y = 270, z = 180}
 
 function onLoad(saved_data)
     -- wait until Global is ready, then initialize mission manager references
-    Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function()
-            print("[missionManager] Global ready — initializing mission manager for GUID " .. tostring(self.getGUID()))
-            if self.getGUID() == Global.getVar("redMissionManager_GUID") then
+    Wait.condition(function()
+        print("[missionManager] Global ready — initializing mission manager for GUID " .. tostring(self.getGUID()))
+        if self.getGUID() == Global.getVar("redMissionManager_GUID") then
             self.setName("Mission Manager Red")
             self.setPosition({-19,-5,35.25})
             self.setRotation({0,0,0})
@@ -46,11 +46,11 @@ function onLoad(saved_data)
             otherSecondary1Zone = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
             otherSecondary2Zone = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
         end
-            print("[missionManager] initialized for playerColor=" .. tostring(playerColor) .. ", handZone=" .. tostring(handZone))
+        print("[missionManager] initialized for playerColor=" .. tostring(playerColor) .. ", handZone=" .. tostring(handZone))
         self.setScale({0.6,1,0.6})
         self.clearButtons()
         self.createButton(lockInSecondariesBtn)
-    end)
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 function lockInSecondaries()

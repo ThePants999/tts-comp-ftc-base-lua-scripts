@@ -24,10 +24,10 @@ scoresheetActive = true
 -- Helper: wait until global script sets ready flag, then init GUIDs
 function whenGlobalReady(cb)
 	Wait.condition(function()
-		return Global.getVar("FTC_Global_Ready") == true
-	end, function()
 		print("[10eScoreSheet] Global ready signal received")
 		if cb then cb() end
+	end, function()
+		return Global.getVar("FTC_Global_Ready") == true
 	end)
 end
 

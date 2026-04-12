@@ -30,40 +30,43 @@ function onLoad(saved_data)
         deploySelected = loaded_data.svdeploySelected
     end
 
-    -- initialize mat and scoresheet after Global is ready
-    Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function()
+    -- initialize mat, counters and menus after Global is ready
+    Wait.condition(function()
         mat_GUID = Global.getVar("mat_GUID")
         scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
         mat = getObjectFromGUID(mat_GUID)
         print("[startMenu] initialized: mat_GUID=" .. tostring(mat_GUID) .. ", scoresheet=" .. tostring(scoresheet))
-    end)
-    if simulation then print("THIS IS "..currentTurn.." TURN") end
 
-    redTurnCounter = getObjectFromGUID(Global.getVar("redTurnCounter_GUID"))
-    blueTurnCounter = getObjectFromGUID(Global.getVar("blueTurnCounter_GUID"))
-    gameTurnCounter = getObjectFromGUID(Global.getVar("gameTurnCounter_GUID"))
-    redCpCounter = getObjectFromGUID(Global.getVar("redCPCounter_GUID"))
-    blueCpCounter = getObjectFromGUID(Global.getVar("blueCPCounter_GUID"))
-    if inGame == false then
-        Notes.setNotes(notePadTxt)
-    else
-        Notes.setNotes("")
-    end
-    if deploymentIngamePlaced == true then
-        deployIngameBtn.label = deployIngameLblOpen
-    else
-        deployIngameBtn.label = deployIngameLblClosed
-    end
-    if areaPlaced == true then
-        areaBtn.label = areaLblOpen
-    else
-        areaBtn.label = areaLblClosed
-    end
-    gameTurnCounter.call("checkGameEnd")
-    writeMenus()
-    if not inGame then
-        makeAnnouncement()
-    end
+        if simulation then print("THIS IS "..currentTurn.." TURN") end
+
+        redTurnCounter = getObjectFromGUID(Global.getVar("redTurnCounter_GUID"))
+        blueTurnCounter = getObjectFromGUID(Global.getVar("blueTurnCounter_GUID"))
+        gameTurnCounter = getObjectFromGUID(Global.getVar("gameTurnCounter_GUID"))
+        redCpCounter = getObjectFromGUID(Global.getVar("redCPCounter_GUID"))
+        blueCpCounter = getObjectFromGUID(Global.getVar("blueCPCounter_GUID"))
+        if inGame == false then
+            Notes.setNotes(notePadTxt)
+        else
+            Notes.setNotes("")
+        end
+        if deploymentIngamePlaced == true then
+            deployIngameBtn.label = deployIngameLblOpen
+        else
+            deployIngameBtn.label = deployIngameLblClosed
+        end
+        if areaPlaced == true then
+            areaBtn.label = areaLblOpen
+        else
+            areaBtn.label = areaLblClosed
+        end
+        if gameTurnCounter then
+            gameTurnCounter.call("checkGameEnd")
+        end
+        writeMenus()
+        if not inGame then
+            makeAnnouncement()
+        end
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 function onSave()

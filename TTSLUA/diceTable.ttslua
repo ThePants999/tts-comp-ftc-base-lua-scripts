@@ -785,7 +785,7 @@ function onload()
     self.createButton(sustainedBtn)
     self.createButton(lethalsAndSustainedBtn)
     -- initialize whichDiceMat and roller once Global is ready, then call modifyMenu
-    Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function()
+    Wait.condition(function()
         print("[diceTable] Global ready — initializing whichDiceMat and roller")
         whichDiceMat = "Red"
         if self.guid == Global.getVar("blueDiceMat_GUID") then
@@ -799,7 +799,7 @@ function onload()
             roller = getObjectFromGUID(rollerGUID)
         end
         modifyMenu(whichDiceMat)
-    end)
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 function modifyMenu1()
