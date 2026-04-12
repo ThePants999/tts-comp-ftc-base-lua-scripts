@@ -47,6 +47,7 @@ function onload(saved_data)
         obj_side_rig = getObjectFromGUID(Global.getVar("tableSideRight_GUID"))
 
         controlActive = false
+        print("[flexTableControl] table parts assigned: mat=" .. tostring(obj_surface) .. ", legs=" .. tostring(obj_leg1) .. ", export=" .. tostring(exportObj))
         createOpenCloseButton()
     end)
 end

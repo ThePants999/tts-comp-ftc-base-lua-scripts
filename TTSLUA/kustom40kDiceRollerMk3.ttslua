@@ -116,6 +116,7 @@ function onLoad(save_state)
 		if objectToPlaceDiceOn == nil then
 			objectToPlaceDiceOn = self
 		end
+		print("[kustom40kDiceRoller] init: thisBoxIsBlue=" .. tostring(thisBoxIsBlue) .. ", diceMatGUID=" .. tostring(diceMatGUID))
 		self.createButton(printLastBtn)
 		self.createButton(printLast5Btn)
 		self.createButton(revertRollBtn)

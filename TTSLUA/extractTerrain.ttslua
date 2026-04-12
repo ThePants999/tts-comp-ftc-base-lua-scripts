@@ -109,6 +109,7 @@ confirmNoBtnMirror={
 
 
 function assignVariables()
+    print("[extractTerrain] assignVariables starting")
     table=getObjectFromGUID(Global.getVar("table_GUID"))
     mat=getObjectFromGUID(Global.getVar("mat_GUID"))
     mat.setPosition({0,mat.getPosition().y,mat.getPosition().z})
@@ -116,6 +117,7 @@ function assignVariables()
     Wait.frames(hideOther, 5)
     matUrlDisplay.setPosition({185,-6,0})
     flexControl=getObjectFromGUID(Global.getVar("flexControl_GUID"))
+    print("[extractTerrain] assignVariables done: table="..tostring(table) .. ", mat="..tostring(mat))
     YNButtonsExtract=false
     YNButtonsDelete=false
     label0="E X P O R T\nT E R R A I N"

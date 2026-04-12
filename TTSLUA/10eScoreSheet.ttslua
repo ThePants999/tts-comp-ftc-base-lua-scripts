@@ -26,11 +26,13 @@ function whenGlobalReady(cb)
 	Wait.condition(function()
 		return Global.getVar("FTC_Global_Ready") == true
 	end, function()
+		print("[10eScoreSheet] Global ready signal received")
 		if cb then cb() end
 	end)
 end
 
 function initGUIDs()
+	print("[10eScoreSheet] initGUIDs starting")
 	startGameObj = getObjectFromGUID(Global.getVar("startMenu_GUID"))
 	playerCounter = {}
 	playerCounter[1] = getObjectFromGUID(Global.getVar("redVPCounter_GUID"))
@@ -40,6 +42,7 @@ function initGUIDs()
 	secondary21ZoneObj = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
 	secondary22ZoneObj = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
 	challengerZoneObj = getObjectFromGUID(Global.getVar("challengerCardZone_GUID"))
+	print("[10eScoreSheet] initGUIDs done: startMenu=" .. tostring(startGameObj) .. ", redVPCounter=" .. tostring(playerCounter[1]) .. ", blueVPCounter=" .. tostring(playerCounter[2]))
 end
 
 -- Button indexes

@@ -786,12 +786,15 @@ function onload()
     self.createButton(lethalsAndSustainedBtn)
     -- initialize whichDiceMat and roller once Global is ready, then call modifyMenu
     Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function()
+        print("[diceTable] Global ready — initializing whichDiceMat and roller")
         whichDiceMat = "Red"
         if self.guid == Global.getVar("blueDiceMat_GUID") then
             whichDiceMat = "Blue"
             copyOpponentsDiceBtn.label = "Copy Red's dice"
         end
+        print("[diceTable] detected mat: " .. tostring(whichDiceMat))
         rollerGUID = Global.getVar(string.lower(whichDiceMat) .. "DiceRoller_GUID")
+        print("[diceTable] rollerGUID=" .. tostring(rollerGUID))
         if rollerGUID then
             roller = getObjectFromGUID(rollerGUID)
         end

@@ -35,6 +35,7 @@ function onLoad(saved_data)
         mat_GUID = Global.getVar("mat_GUID")
         scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
         mat = getObjectFromGUID(mat_GUID)
+        print("[startMenu] initialized: mat_GUID=" .. tostring(mat_GUID) .. ", scoresheet=" .. tostring(scoresheet))
     end)
     if simulation then print("THIS IS "..currentTurn.." TURN") end
 

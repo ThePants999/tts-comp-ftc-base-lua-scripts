@@ -115,6 +115,8 @@ function onLoad(saved_data)
     end
     -- signal other scripts that global variables are ready
     Global.setVar("FTC_Global_Ready", true)
+    -- help debugging: print to scripting console that global finished loading
+    print("[FTC_Global] onLoad complete — FTC_Global_Ready set")
 end
 
 function autoSeatPerson(_person)
