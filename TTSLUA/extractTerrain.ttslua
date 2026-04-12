@@ -19,13 +19,15 @@ playZoneScale= {{x=48.2, y=100, z=48.2} ,
 }
 selectedMat=2
 
-mat_GUID = Global.getVar("mat_GUID")
-felt_GUID = Global.getVar("felt_GUID")
-tableSideBottom_GUID = Global.getVar("tableSideBottom_GUID")
+-- defer GUID lookups until global is ready
+mat_GUID = nil
+felt_GUID = nil
+tableSideBottom_GUID = nil
 
 function onLoad()
 
-    assignVariables()
+    -- assign variables only after global declares readiness
+    Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function() assignVariables() end)
     --createExtractButton()
     self.setPosition({40,-2,-90})
     self.setRotation({0,180,0})

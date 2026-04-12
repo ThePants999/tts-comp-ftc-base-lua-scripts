@@ -113,6 +113,8 @@ function onLoad(saved_data)
     else
         Global.UI.setAttribute("main", "active", "false")
     end
+    -- signal other scripts that global variables are ready
+    Global.setVar("FTC_Global_Ready", true)
 end
 
 function autoSeatPerson(_person)

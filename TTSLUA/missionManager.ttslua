@@ -20,32 +20,35 @@ otherSecondary2Zone = nil
 targetRotation = {x = 0, y = 270, z = 180}
 
 function onLoad(saved_data)
-    if self.getGUID() == Global.getVar("redMissionManager_GUID") then
-        self.setName("Mission Manager Red")
-        self.setPosition({-19,-5,35.25})
-        self.setRotation({0,0,0})
-        playerColor = "Red"
-        handZone = getObjectFromGUID(Global.getVar("redHandZone_GUID"))
-        secondaryDeck = getObjectFromGUID(Global.getVar("redSecondaryDeck_GUID"))
-        secondary1Zone = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
-        secondary2Zone = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
-        otherSecondary1Zone = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
-        otherSecondary2Zone = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
-    else
-        self.setName("Mission Manager Blue")
-        self.setPosition({19,-5,-35.25})
-        self.setRotation({0,180,0})
-        playerColor = "Blue"
-        handZone = getObjectFromGUID(Global.getVar("blueHandZone_GUID"))
-        secondaryDeck = getObjectFromGUID(Global.getVar("blueSecondaryDeck_GUID"))
-        secondary1Zone = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
-        secondary2Zone = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
-        otherSecondary1Zone = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
-        otherSecondary2Zone = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
-    end
-    self.setScale({0.6,1,0.6})
-    self.clearButtons()
-    self.createButton(lockInSecondariesBtn)
+    -- wait until Global is ready, then initialize mission manager references
+    Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function()
+        if self.getGUID() == Global.getVar("redMissionManager_GUID") then
+            self.setName("Mission Manager Red")
+            self.setPosition({-19,-5,35.25})
+            self.setRotation({0,0,0})
+            playerColor = "Red"
+            handZone = getObjectFromGUID(Global.getVar("redHandZone_GUID"))
+            secondaryDeck = getObjectFromGUID(Global.getVar("redSecondaryDeck_GUID"))
+            secondary1Zone = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
+            secondary2Zone = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
+            otherSecondary1Zone = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
+            otherSecondary2Zone = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
+        else
+            self.setName("Mission Manager Blue")
+            self.setPosition({19,-5,-35.25})
+            self.setRotation({0,180,0})
+            playerColor = "Blue"
+            handZone = getObjectFromGUID(Global.getVar("blueHandZone_GUID"))
+            secondaryDeck = getObjectFromGUID(Global.getVar("blueSecondaryDeck_GUID"))
+            secondary1Zone = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
+            secondary2Zone = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
+            otherSecondary1Zone = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
+            otherSecondary2Zone = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
+        end
+        self.setScale({0.6,1,0.6})
+        self.clearButtons()
+        self.createButton(lockInSecondariesBtn)
+    end)
 end
 
 function lockInSecondaries()

@@ -11,8 +11,9 @@ menuZ = 1.05-1.05
 
 keepForTerrainEditor = true
 
-mat_GUID = Global.getVar("mat_GUID")
-scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
+-- defer GUID lookups until Global declared ready
+mat_GUID = nil
+scoresheet = nil
 
 function onLoad(saved_data)
     --self.setPosition({40,-4,0})
@@ -29,7 +30,12 @@ function onLoad(saved_data)
         deploySelected = loaded_data.svdeploySelected
     end
 
-    mat = getObjectFromGUID(mat_GUID)
+    -- initialize mat and scoresheet after Global is ready
+    Wait.condition(function() return Global.getVar("FTC_Global_Ready") == true end, function()
+        mat_GUID = Global.getVar("mat_GUID")
+        scoresheet = getObjectFromGUID(Global.getVar("scoresheet_GUID"))
+        mat = getObjectFromGUID(mat_GUID)
+    end)
     if simulation then print("THIS IS "..currentTurn.." TURN") end
 
     redTurnCounter = getObjectFromGUID(Global.getVar("redTurnCounter_GUID"))

@@ -1,15 +1,14 @@
 -- FTC-GUID: 06d627
 
-startGameObj = getObjectFromGUID(Global.getVar("startMenu_GUID"))
-playerCounter = {}
-playerCounter[1] = getObjectFromGUID(Global.getVar("redVPCounter_GUID"))
-playerCounter[2] = getObjectFromGUID(Global.getVar("blueVPCounter_GUID"))
+-- GUID-dependant objects; initialize after Global signals readiness
+startGameObj = nil
+playerCounter = {nil, nil}
 
-secondary11ZoneObj = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
-secondary12ZoneObj = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
-secondary21ZoneObj = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
-secondary22ZoneObj = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
-challengerZoneObj = getObjectFromGUID(Global.getVar("challengerCardZone_GUID"))
+secondary11ZoneObj = nil
+secondary12ZoneObj = nil
+secondary21ZoneObj = nil
+secondary22ZoneObj = nil
+challengerZoneObj = nil
 redDiscardPosition = { x = 79.25, y = 1.5, z = 8.05 }
 blueDiscardPosition = { x = 79.25, y = 1.5, z = -8.05 }
 challengerDiscardPosition = { x = 79.0, y = 1.5, z = -2.0 }
@@ -21,6 +20,27 @@ enableBtn = { label="ENABLE\nGT\nSCORESHEET\n\n(click here)\n\nDon't enable if y
 }
 
 scoresheetActive = true
+
+-- Helper: wait until global script sets ready flag, then init GUIDs
+function whenGlobalReady(cb)
+	Wait.condition(function()
+		return Global.getVar("FTC_Global_Ready") == true
+	end, function()
+		if cb then cb() end
+	end)
+end
+
+function initGUIDs()
+	startGameObj = getObjectFromGUID(Global.getVar("startMenu_GUID"))
+	playerCounter = {}
+	playerCounter[1] = getObjectFromGUID(Global.getVar("redVPCounter_GUID"))
+	playerCounter[2] = getObjectFromGUID(Global.getVar("blueVPCounter_GUID"))
+	secondary11ZoneObj = getObjectFromGUID(Global.getVar("secondary11CardZone_GUID"))
+	secondary12ZoneObj = getObjectFromGUID(Global.getVar("secondary12CardZone_GUID"))
+	secondary21ZoneObj = getObjectFromGUID(Global.getVar("secondary21CardZone_GUID"))
+	secondary22ZoneObj = getObjectFromGUID(Global.getVar("secondary22CardZone_GUID"))
+	challengerZoneObj = getObjectFromGUID(Global.getVar("challengerCardZone_GUID"))
+end
 
 -- Button indexes
 BTN_IX_DRAW_1 = 4
@@ -282,6 +302,9 @@ function onload(save_data)
 			blueUsingFixed = data.blueUsingFixed
 			scores = data.scores
 		end
+
+		-- initialize GUID references once Global is ready
+		whenGlobalReady(initGUIDs)
 	end
 
 	self.clearButtons()
