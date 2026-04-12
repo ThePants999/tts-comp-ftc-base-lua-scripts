@@ -747,6 +747,7 @@ function handleInitialSecondary(zone, discardPosition)
 end
 
 function startGame()
+	initGUIDs()
 	local redFixedObjective1 = handleInitialSecondary(secondary11ZoneObj, redDiscardPosition)
 	local redFixedObjective2 = handleInitialSecondary(secondary12ZoneObj, redDiscardPosition)
 	local blueFixedObjective1 = handleInitialSecondary(secondary21ZoneObj, blueDiscardPosition)
