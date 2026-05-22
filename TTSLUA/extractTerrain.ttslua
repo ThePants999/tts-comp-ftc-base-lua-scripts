@@ -19,13 +19,15 @@ playZoneScale= {{x=48.2, y=100, z=48.2} ,
 }
 selectedMat=2
 
-mat_GUID = Global.getVar("mat_GUID")
-felt_GUID = Global.getVar("felt_GUID")
-tableSideBottom_GUID = Global.getVar("tableSideBottom_GUID")
+-- defer GUID lookups until global is ready
+mat_GUID = nil
+felt_GUID = nil
+tableSideBottom_GUID = nil
 
 function onLoad()
 
-    assignVariables()
+    -- assign variables only after global declares readiness
+    Wait.condition(function() assignVariables() end, function() return Global.getVar("FTC_Global_Ready") == true end)
     --createExtractButton()
     self.setPosition({40,-2,-90})
     self.setRotation({0,180,0})
@@ -107,6 +109,7 @@ confirmNoBtnMirror={
 
 
 function assignVariables()
+    print("[extractTerrain] assignVariables starting")
     table=getObjectFromGUID(Global.getVar("table_GUID"))
     mat=getObjectFromGUID(Global.getVar("mat_GUID"))
     mat.setPosition({0,mat.getPosition().y,mat.getPosition().z})
@@ -114,6 +117,7 @@ function assignVariables()
     Wait.frames(hideOther, 5)
     matUrlDisplay.setPosition({185,-6,0})
     flexControl=getObjectFromGUID(Global.getVar("flexControl_GUID"))
+    print("[extractTerrain] assignVariables done: table="..tostring(table) .. ", mat="..tostring(mat))
     YNButtonsExtract=false
     YNButtonsDelete=false
     label0="E X P O R T\nT E R R A I N"
@@ -214,13 +218,16 @@ function hideYNButtonsMirror()
     writeMenu()
 end
 
+
 function extract()
-    broadcastToAll("EXTRACTING TERRAIN\nwait a few seconds ...", "Yellow")
-    mat=getObjectFromGUID(Global.getVar("mat_GUID"))
-    createDebugMat()
-    local startMenu=getObjectFromGUID(Global.getVar("startMenu_GUID"))
-    startMenu.call("recallAll")
-    Wait.time(extract2, 2)
+    Wait.condition(function()
+        broadcastToAll("EXTRACTING TERRAIN\nwait a few seconds ...", "Yellow")
+        mat=getObjectFromGUID(Global.getVar("mat_GUID"))
+        createDebugMat()
+        local startMenu=getObjectFromGUID(Global.getVar("startMenu_GUID"))
+        startMenu.call("recallAll")
+        Wait.time(extract2, 2)
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 function extract2()

@@ -74,6 +74,7 @@ function onLoad(json)
 		data.seconds_1 = data.start_1 data.seconds_2 = data.start_2
 	end
 
+	-- Wait until all objects are resting, then change button colors after 10 frames
 	Wait.condition(function()
 		Wait.frames(function()
 			changeButtonColors()

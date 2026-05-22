@@ -196,13 +196,10 @@ customDiceImage = nil
 previousRollData = {}
 currentRollData = {}
 
-whichDiceMat = "Red"
-if self.guid == Global.getVar("blueDiceMat_GUID") then
-    whichDiceMat = "Blue"
-    copyOpponentsDiceBtn.label = "Copy Red's dice"
-end
-rollerGUID = Global.getVar(string.lower(whichDiceMat) .. "DiceRoller_GUID")
-roller = getObjectFromGUID(rollerGUID)
+-- which dice mat and roller will be initialized after Global is ready
+whichDiceMat = nil
+rollerGUID = nil
+roller = nil
 
 function getDice()
     local dice={}
@@ -787,7 +784,22 @@ function onload()
     self.createButton(lethalsBtn)
     self.createButton(sustainedBtn)
     self.createButton(lethalsAndSustainedBtn)
-    modifyMenu(whichDiceMat)
+    -- initialize whichDiceMat and roller once Global is ready, then call modifyMenu
+    Wait.condition(function()
+        print("[diceTable] Global ready — initializing whichDiceMat and roller")
+        whichDiceMat = "Red"
+        if self.guid == Global.getVar("blueDiceMat_GUID") then
+            whichDiceMat = "Blue"
+            copyOpponentsDiceBtn.label = "Copy Red's dice"
+        end
+        print("[diceTable] detected mat: " .. tostring(whichDiceMat))
+        rollerGUID = Global.getVar(string.lower(whichDiceMat) .. "DiceRoller_GUID")
+        print("[diceTable] rollerGUID=" .. tostring(rollerGUID))
+        if rollerGUID then
+            roller = getObjectFromGUID(rollerGUID)
+        end
+        modifyMenu(whichDiceMat)
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 function modifyMenu1()

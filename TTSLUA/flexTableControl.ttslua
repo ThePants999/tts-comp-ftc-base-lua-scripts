@@ -31,21 +31,25 @@ function onload(saved_data)
             obj.interactable = false --RIC
         end
     end
-    exportObj = getObjectFromGUID(Global.getVar("extractTerrain_GUID"))
-    --Establish references to table parts
-    obj_leg1 = getObjectFromGUID(Global.getVar("tableLeg1_GUID"))
-    obj_leg2 = getObjectFromGUID(Global.getVar("tableLeg2_GUID"))
-    obj_leg3 = getObjectFromGUID(Global.getVar("tableLeg3_GUID"))
-    obj_leg4 = getObjectFromGUID(Global.getVar("tableLeg4_GUID"))
-    obj_surface = getObjectFromGUID(Global.getVar("mat_GUID"))
-    obj_surface2 = getObjectFromGUID(Global.getVar("felt_GUID"))
-    obj_side_top = getObjectFromGUID(Global.getVar("tableSideTop_GUID"))
-    obj_side_bot = getObjectFromGUID(Global.getVar("tableSideBottom_GUID"))
-    obj_side_lef = getObjectFromGUID(Global.getVar("tableSideLeft_GUID"))
-    obj_side_rig = getObjectFromGUID(Global.getVar("tableSideRight_GUID"))
+    -- defer GUID-dependent object resolution until Global is ready
+    Wait.condition(function()
+        exportObj = getObjectFromGUID(Global.getVar("extractTerrain_GUID"))
+        --Establish references to table parts
+        obj_leg1 = getObjectFromGUID(Global.getVar("tableLeg1_GUID"))
+        obj_leg2 = getObjectFromGUID(Global.getVar("tableLeg2_GUID"))
+        obj_leg3 = getObjectFromGUID(Global.getVar("tableLeg3_GUID"))
+        obj_leg4 = getObjectFromGUID(Global.getVar("tableLeg4_GUID"))
+        obj_surface = getObjectFromGUID(Global.getVar("mat_GUID"))
+        obj_surface2 = getObjectFromGUID(Global.getVar("felt_GUID"))
+        obj_side_top = getObjectFromGUID(Global.getVar("tableSideTop_GUID"))
+        obj_side_bot = getObjectFromGUID(Global.getVar("tableSideBottom_GUID"))
+        obj_side_lef = getObjectFromGUID(Global.getVar("tableSideLeft_GUID"))
+        obj_side_rig = getObjectFromGUID(Global.getVar("tableSideRight_GUID"))
 
-    controlActive = false
-    createOpenCloseButton()
+        controlActive = false
+        print("[flexTableControl] table parts assigned: mat=" .. tostring(obj_surface) .. ", legs=" .. tostring(obj_leg1) .. ", export=" .. tostring(exportObj))
+        createOpenCloseButton()
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
 function setControlF()

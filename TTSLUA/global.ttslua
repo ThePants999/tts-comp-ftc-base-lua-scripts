@@ -113,6 +113,10 @@ function onLoad(saved_data)
     else
         Global.UI.setAttribute("main", "active", "false")
     end
+    -- signal other scripts that global variables are ready
+    Global.setVar("FTC_Global_Ready", true)
+    -- help debugging: print to scripting console that global finished loading
+    print("[FTC_Global] onLoad complete — FTC_Global_Ready set")
 end
 
 function autoSeatPerson(_person)
@@ -329,35 +333,41 @@ function moveCameraTo(pos, dist, color)
     Player[color].lookAt({position=pos, pitch=90, yaw=rot[2], distance=dist})
 end
 
+
 function moveAllFromZoneToDeck(params)
-    local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
-    local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
+    Wait.condition(function()
+        local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
+        local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
 
-    local objects = zoneObj.getObjects()
-    for _,object in ipairs(objects) do
-        object.locked = false
-        deckObj.putObject(object)
-    end
+        local objects = zoneObj.getObjects()
+        for _,object in ipairs(objects) do
+            object.locked = false
+            deckObj.putObject(object)
+        end
 
-    deckObj.shuffle()
+        deckObj.shuffle()
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
 
+
 function moveOneFromDeckToZone(params)
-    local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
-    local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
-    local takeParams = {}
-    takeParams.position = zoneObj.getPosition()
-    takeParams.flip = true
-    takeParams.smooth = true
-    takeParams.callback_function = function(card)
-        Wait.frames(function()
-            card.locked = true
-        end)
-    end
-    if params["card"] then
-        takeParams.guid = params.card
-    else
-        deckObj.shuffle()
-    end
-    deckObj.takeObject(takeParams)
+    Wait.condition(function()
+        local zoneObj = getObjectFromGUID(Global.getVar(params.zone .. "CardZone_GUID"))
+        local deckObj = getObjectFromGUID(Global.getVar(params.deck .. "Deck_GUID"))
+        local takeParams = {}
+        takeParams.position = zoneObj.getPosition()
+        takeParams.flip = true
+        takeParams.smooth = true
+        takeParams.callback_function = function(card)
+            Wait.frames(function()
+                card.locked = true
+            end)
+        end
+        if params["card"] then
+            takeParams.guid = params.card
+        else
+            deckObj.shuffle()
+        end
+        deckObj.takeObject(takeParams)
+    end, function() return Global.getVar("FTC_Global_Ready") == true end)
 end
